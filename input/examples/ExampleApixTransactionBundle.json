@@ -31,7 +31,7 @@
           "reference": "MedicinalProductDefinition/3",
           "display": "Stelbat"
         },
-        "authoredOn": "2025-07-06",
+        "authoredOn": "2025-07-06T00:00:00.000Z",
         "requester": {
           "reference": "Organization/1",
           "display": "Pharma Inc"
@@ -86,7 +86,7 @@
           "reference": "MedicinalProductDefinition/3",
           "display": "Stelbat"
         },
-        "date": "2025-07-06",
+        "date": "2025-07-06T00:00:00.000Z",
         "author": [
           {
             "reference": "Organization/1",
