@@ -1,0 +1,378 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.fhir.uv.recon-ig",
+  "url": "http://hl7.org/fhir/uv/recon-ig/ImplementationGuide/hl7.fhir.uv.recon-ig",
+  "version": "0.1.0",
+  "name": "ReconIG",
+  "title": "API for the Exchange of Medicinal Product Information (APIX)",
+  "status": "draft",
+  "publisher": "Gravitate Health Project",
+  "contact": [
+    {
+      "name": "Gravitate Health Project",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.gravitatehealth.eu/"
+        }
+      ]
+    }
+  ],
+  "description": "A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).",
+  "packageId": "hl7.fhir.uv.recon-ig",
+  "fhirVersion": [
+    "5.0.0"
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-document-type-cs"
+        },
+        "description": "Code system for document types.",
+        "name": "APIX Document Type Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-document-type"
+        },
+        "description": "Codes for regulatory document types.",
+        "name": "APIX Document Type Value Set",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/apix-document-reference-profile"
+        },
+        "description": "Profile for regulatory documents in API submissions.",
+        "name": "APIX DocumentReference Profile",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-provenance-activity-cs"
+        },
+        "description": "Code system for provenance activities.",
+        "name": "APIX Provenance Activity Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-provenance-activity"
+        },
+        "description": "Codes for provenance activities.",
+        "name": "APIX Provenance Activity Value Set",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/apix-provenance-profile"
+        },
+        "description": "Profile for tracking origin and history of regulatory submission data.",
+        "name": "APIX Provenance Profile",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-regulatory-context-cs"
+        },
+        "description": "Code system for regulatory contexts.",
+        "name": "APIX Regulatory Context Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-regulatory-priority-cs"
+        },
+        "description": "Code system for regulatory priorities.",
+        "name": "APIX Regulatory Priority Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-submission-type-cs"
+        },
+        "description": "Code system for submission types.",
+        "name": "APIX Submission Type Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-submission-type"
+        },
+        "description": "Codes for types of regulatory submissions.",
+        "name": "APIX Submission Type Value Set",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-task-code-cs"
+        },
+        "description": "Code system for task types.",
+        "name": "APIX Task Code Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-task-code"
+        },
+        "description": "Codes for regulatory task types.",
+        "name": "APIX Task Code Value Set",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/apix-task-profile"
+        },
+        "description": "Profile for tasks managing regulatory submission workflows.",
+        "name": "APIX Task Profile",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/apix-transaction-bundle-profile"
+        },
+        "description": "Profile for transaction bundles used in regulatory submissions.",
+        "name": "APIX Transaction Bundle Profile",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/apix-doc-001"
+        },
+        "name": "apix-doc-001",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Provenance/apix-prov-001"
+        },
+        "name": "apix-prov-001",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Task/apix-task-001"
+        },
+        "name": "apix-task-001",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/apix-variation-bundle-001"
+        },
+        "name": "apix-variation-bundle-001",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/Decision-Letter"
+        },
+        "name": "Decision-Letter",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Bundle/List-Of-Questions"
+        },
+        "name": "List-Of-Questions",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Bundle/List-Of-Questions-Response"
+        },
+        "name": "List-Of-Questions-Response",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/MyPatient"
+        },
+        "name": "MyPatient",
+        "description": "An example profile of the Patient resource.",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Patient/PatientExample"
+        },
+        "name": "PatientExample",
+        "description": "An example of a patient with a license to krill.",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/recon-ig/StructureDefinition/MyPatient"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/RegulatoryContext"
+        },
+        "name": "Regulatory Context Extension",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/RegulatoryPriority"
+        },
+        "name": "Regulatory Priority Extension",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/SubmissionDate"
+        },
+        "name": "Submission Date Extension",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/SubmissionType"
+        },
+        "name": "Submission Type Extension",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Bundle/Type-II-Variation"
+        },
+        "name": "Type-II-Variation",
+        "isExample": false
+      }
+    ],
+    "page": {
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "title": "IG Home",
+          "generation": "markdown",
+          "name": "index.html",
+          "sourceUrl": "index.html"
+        },
+        {
+          "title": "Use Cases",
+          "generation": "markdown",
+          "name": "usecases.html",
+          "sourceUrl": "usecases.html"
+        },
+        {
+          "title": "Background",
+          "generation": "markdown",
+          "name": "background.html",
+          "sourceUrl": "background.html"
+        },
+        {
+          "title": "APIX Components",
+          "generation": "markdown",
+          "name": "apixcomponents.html",
+          "sourceUrl": "apixcomponents.html"
+        },
+        {
+          "title": "How to Build APIX Transactions",
+          "generation": "markdown",
+          "name": "buildapixtransaction.html",
+          "sourceUrl": "buildapixtransaction.html"
+        },
+        {
+          "title": "Workflow Overview",
+          "generation": "markdown",
+          "name": "workflowoverview.html",
+          "sourceUrl": "workflowoverview.html"
+        },
+        {
+          "title": "Safety Update",
+          "generation": "markdown",
+          "name": "safetyupdate.html",
+          "sourceUrl": "safetyupdate.html"
+        },
+        {
+          "title": "Technical Solution",
+          "generation": "markdown",
+          "name": "techsolutions.html",
+          "sourceUrl": "techsolutions.html"
+        },
+        {
+          "title": "High Volume",
+          "generation": "markdown",
+          "name": "highvolume.html",
+          "sourceUrl": "highvolume.html"
+        },
+        {
+          "title": "Medium Volume",
+          "generation": "markdown",
+          "name": "mediumvolume.html",
+          "sourceUrl": "mediumvolume.html"
+        },
+        {
+          "title": "Low Volume",
+          "generation": "markdown",
+          "name": "lowvolume.html",
+          "sourceUrl": "lowvolume.html"
+        },
+        {
+          "title": "API Interactions",
+          "generation": "markdown",
+          "name": "apiinteractions.html",
+          "sourceUrl": "apiinteractions.html"
+        },
+        {
+          "title": "Shelf Life Extension",
+          "generation": "markdown",
+          "name": "shelflifeextension.html",
+          "sourceUrl": "shelflifeextension.html"
+        },
+        {
+          "title": "Terminology",
+          "generation": "markdown",
+          "name": "terminology.html",
+          "sourceUrl": "terminology.html"
+        },
+        {
+          "title": "Validation",
+          "generation": "markdown",
+          "name": "validation.html",
+          "sourceUrl": "validation.html"
+        },
+        {
+          "title": "Downloads",
+          "generation": "markdown",
+          "name": "downloads.html",
+          "sourceUrl": "downloads.html"
+        },
+        {
+          "title": "References",
+          "generation": "markdown",
+          "name": "references.html",
+          "sourceUrl": "references.html"
+        }
+      ],
+      "name": "toc.html",
+      "sourceUrl": "toc.html"
+    },
+    "parameter": [
+      {
+        "code": {
+          "code": "copyrightyear",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "2025+"
+      },
+      {
+        "code": {
+          "code": "releaselabel",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "ci-build"
+      },
+      {
+        "code": {
+          "code": "path-history",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "http://hl7.org/fhir/uv/recon-ig/history.html"
+      }
+    ]
+  }
+}

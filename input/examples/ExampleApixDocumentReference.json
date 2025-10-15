@@ -1,0 +1,25 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "apix-doc-001",
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "55107-7",
+        "display": "Regulatory submission document"
+      }
+    ]
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/json",
+        "data": "base64 data placeholder",
+        "size": "1234",
+        "hash": "qZk+NkcGgWq6PiVxeFDCbJzQ2J0=/nE+3Y2c=",
+        "title": "Type II Variation Application Form Collection Bundle"
+      }
+    }
+  ]
+}
