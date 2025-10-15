@@ -1,0 +1,80 @@
+id: hl7.fhir.uv.recon-ig
+canonical: http://hl7.org/fhir/uv/recon-ig
+name: ReconIG
+title: API for the Exchange of Medicinal Product Information (APIX)
+description: A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).
+status: draft # draft | active | retired | unknown
+version: 0.1.0
+fhirVersion: 5.0.0 # https://www.hl7.org/fhir/valueset-FHIR-version.html
+copyrightYear: 2025+
+releaseLabel: ci-build
+# license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+# jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+publisher:
+  name: Gravitate Health Project
+  url: https://www.gravitatehealth.eu/
+  # email: test@example.org
+
+pages:
+  index.md:
+    title: IG Home
+  usecases.md:
+    title: Use Cases
+  background.md:
+    title: Background
+  apixcomponents.md:
+    title: APIX Components
+  buildapixtransaction.md:
+    title: How to Build APIX Transactions
+  workflowoverview.md:
+    title: Workflow Overview
+  safetyupdate.md:
+    title: Safety Update
+  techsolutions.md:
+    title: Technical Solution
+  highvolume.md:
+    title: High Volume
+  mediumvolume.md:
+    title: Medium Volume
+  lowvolume.md:
+    title: Low Volume
+  apiinteractions.md:
+    title: API Interactions
+  shelflifeextension.md:
+    title: Shelf Life Extension
+  terminology.md:
+    title: Terminology
+  validation.md:
+    title: Validation
+  downloads.md:
+    title: Downloads
+  references.md:
+    title: References
+
+
+menu:
+  IG Home: index.html
+  Background: background.html
+  APIX Components: apixcomponents.html
+  Use Cases:
+    Use Cases: usecases.html
+    Shelf Life Extension: shelflifeextension.html
+    Safety Update: safetyupdate.html
+  Build and Exchange APIX Transactions:
+    How to Build APIX Transactions: buildapixtransaction.html
+    Workflow Overview: workflowoverview.html
+    API Interactions: apiinteractions.html
+    Terminology: terminology.html
+    Validation: validation.html
+  Technical Solutions:
+    Overview: techsolutions.html
+    Low Volume: lowvolume.html
+    Medium Volume: mediumvolume.html
+    High Volume: highvolume.html
+  Profiles: profiles.html
+  Artifacts: artifacts.html
+  Downloads: downloads.html
+  References: references.html
+
+instanceOptions:
+  manualSliceOrdering: true 
