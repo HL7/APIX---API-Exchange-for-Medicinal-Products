@@ -20,8 +20,6 @@ pages:
     title: IG Home
   usecases.md:
     title: Use Cases
-  apixcomponents.md:
-    title: APIX Components
   buildapixtransaction.md:
     title: How to Build APIX Transactions
   workflowoverview.md:
@@ -46,7 +44,6 @@ pages:
 
 menu:
   IG Home: index.html
-  APIX Components: apixcomponents.html
   Use Cases: usecases.html
   Build and Exchange APIX Transactions:
     How to Build APIX Transactions: buildapixtransaction.html
