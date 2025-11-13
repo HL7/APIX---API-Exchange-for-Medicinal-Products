@@ -14,26 +14,10 @@
     <a href="index.html">IG Home</a>
   </li>
   <li>
-    <a href="background.html">Background</a>
-  </li>
-  <li>
     <a href="apixcomponents.html">APIX Components</a>
   </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Use Cases
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="usecases.html">Use Cases</a>
-      </li>
-      <li>
-        <a href="shelflifeextension.html">Shelf Life Extension</a>
-      </li>
-      <li>
-        <a href="safetyupdate.html">Safety Update</a>
-      </li>
-    </ul>
+  <li>
+    <a href="usecases.html">Use Cases</a>
   </li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="#" class="dropdown-toggle">Build and Exchange APIX Transactions
@@ -81,8 +65,5 @@
   </li>
   <li>
     <a href="downloads.html">Downloads</a>
-  </li>
-  <li>
-    <a href="references.html">References</a>
   </li>
 </ul>

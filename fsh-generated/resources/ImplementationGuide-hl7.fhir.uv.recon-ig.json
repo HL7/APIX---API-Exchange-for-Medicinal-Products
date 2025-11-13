@@ -27,6 +27,13 @@
     "resource": [
       {
         "reference": {
+          "reference": "Bundle/4a7b3c2d-5e6f-4a1b-9c4d-7e8f9a0b1c2d"
+        },
+        "name": "4a7b3c2d-5e6f-4a1b-9c4d-7e8f9a0b1c2d",
+        "isExample": true
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/apix-document-type-cs"
         },
         "description": "Code system for document types.",
@@ -160,17 +167,25 @@
       },
       {
         "reference": {
-          "reference": "Bundle/apix-variation-bundle-001"
-        },
-        "name": "apix-variation-bundle-001",
-        "isExample": true
-      },
-      {
-        "reference": {
           "reference": "Bundle/Decision-Letter"
         },
         "name": "Decision-Letter",
         "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Task/ema-questionnaire-request-001"
+        },
+        "description": "EMA issues structured questionnaire to AcmePharm regarding observed adverse reactions and usage patterns for Aspirin 100mg Tablets in pediatric populations.",
+        "name": "ema-questionnaire-request-001",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Bundle/example-apix-transaction-bundle"
+        },
+        "name": "example-apix-transaction-bundle",
+        "isExample": true
       },
       {
         "reference": {
@@ -258,12 +273,6 @@
           "sourceUrl": "usecases.html"
         },
         {
-          "title": "Background",
-          "generation": "markdown",
-          "name": "background.html",
-          "sourceUrl": "background.html"
-        },
-        {
           "title": "APIX Components",
           "generation": "markdown",
           "name": "apixcomponents.html",
@@ -280,12 +289,6 @@
           "generation": "markdown",
           "name": "workflowoverview.html",
           "sourceUrl": "workflowoverview.html"
-        },
-        {
-          "title": "Safety Update",
-          "generation": "markdown",
-          "name": "safetyupdate.html",
-          "sourceUrl": "safetyupdate.html"
         },
         {
           "title": "Technical Solution",
@@ -318,12 +321,6 @@
           "sourceUrl": "apiinteractions.html"
         },
         {
-          "title": "Shelf Life Extension",
-          "generation": "markdown",
-          "name": "shelflifeextension.html",
-          "sourceUrl": "shelflifeextension.html"
-        },
-        {
           "title": "Terminology",
           "generation": "markdown",
           "name": "terminology.html",
@@ -340,12 +337,6 @@
           "generation": "markdown",
           "name": "downloads.html",
           "sourceUrl": "downloads.html"
-        },
-        {
-          "title": "References",
-          "generation": "markdown",
-          "name": "references.html",
-          "sourceUrl": "references.html"
         }
       ],
       "name": "toc.html",
