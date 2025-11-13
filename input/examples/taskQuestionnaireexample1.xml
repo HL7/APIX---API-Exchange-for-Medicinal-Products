@@ -172,7 +172,7 @@
     </type>
     <valueAttachment>
       <contentType value="application/fhir+xml"/>
-      <data value="UEsDBBQAAAAIAG...[BASE64 PLACEHOLDER]...AQIDBAUGBwg="/>
+      <data value=""/>
       <title value="EMA_Pediatric_Safety_Questionnaire_v1.xml"/>
       <creation value="2025-11-13T08:00:00Z"/>
     </valueAttachment>
