@@ -1,0 +1,125 @@
+<div class="example-fragment" style="max-width: 720px; margin: 2rem auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1d1d1f; background: #f8f9fa; padding: 1rem; border-radius: 18px; border: 1px solid #d2d2d7;">
+
+  <!-- Header -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+    <h3 style="margin: 0 0 8px; font-size: 22px; font-weight: 600; color: #1d1d1f;">EMA Regulatory Questionnaire Request</h3>
+    <p style="margin: 0; color: #8e8e93; font-size: 15px;">Task-based model for pharmacovigilance data collection on Aspirin 100mg Tablets</p>
+    <span style="display: inline-block; background: #f2f2f7; color: #007aff; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 12px; margin-top: 8px;">FHIR R5 Task Example</span>
+  </div>
+
+  <!-- Business Summary (Non-Technical View) -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 20px; border: 1px solid #d2d2d7;">
+    <h4 style="margin: 0 0 16px; font-size: 17px; font-weight: 600; color: #007aff; border-bottom: 1px solid #e5e5ea; padding-bottom: 6px; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+      Request Summary <span style="font-size: 14px; color: #8e8e93;">(click to toggle details)</span>
+    </h4>
+    <div style="display: block; margin-top: 12px;">
+      <div style="margin-bottom: 12px;">
+        <span style="font-weight: 500; color: #1d1d1f; font-size: 14px; display: block;">What’s This About?</span>
+        <div style="font-size: 15px; color: #1d1d1f; margin-top: 4px;">
+          EMA needs safety data from Acme Pharmaceuticals on how Aspirin 100mg Tablets is used in children, including any side effects.
+        </div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <span style="font-weight: 500; color: #1d1d1f; font-size: 14px; display: block;">When’s It Due?</span>
+        <div style="font-size: 15px; color: #1d1d1f; margin-top: 4px;">November 27, 2025</div>
+      </div>
+      <div>
+        <span style="font-weight: 500; color: #1d1d1f; font-size: 14px; display: block;">Tracking Number</span>
+        <div style="font-size: 15px; color: #1d1d1f; margin-top: 4px;">
+          <code style="background: #f2f2f7; padding: 2px 6px; border-radius: 6px; font-size: 13px;">EMA-INFOREQ-2025-112</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacts -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 24px; margin-bottom: 20px; border: 1px solid #d2d2d7;">
+    <h4 style="margin: 0 0 16px; font-size: 17px; font-weight: 600; color: #007aff; border-bottom: 1px solid #e5e5ea; padding-bottom: 6px;">Who’s Involved?</h4>
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <div style="width: 36px; height: 36px; background: #007aff; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;">ER</div>
+      <div>
+        <div style="font-weight: 600; font-size: 15px;">Dr. Elena Rossi</div>
+        <div style="color: #8e8e93; font-size: 14px;">EMA – Sending the Request</div>
+        <a href="mailto:elena.rossi@ema.europa.eu" style="color: #007aff; text-decoration: none; font-size: 14px;">elena.rossi@ema.europa.eu</a>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 36px; height: 36px; background: #007aff; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;">JC</div>
+      <div>
+        <div style="font-weight: 600; font-size: 15px;">Mr. James Carter</div>
+        <div style="color: #8e8e93; font-size: 14px;">Acme Pharmaceuticals – To Respond</div>
+        <a href="mailto:james.carter@acmepharm.com" style="color: #007aff; text-decoration: none; font-size: 14px;">james.carter@acmepharm.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Questionnaire Details -->
+  <div style="background: #ffffff; border-radius: 16px; padding: 24px; border: 1px solid #d2d2d7;">
+    <h4 style="margin: 0 0 16px; font-size: 17px; font-weight: 600; color: #007aff; border-bottom: 1px solid #e5e5ea; padding-bottom: 6px; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none';">
+      Questionnaire <span style="font-size: 14px; color: #8e8e93;">(click for FHIR details)</span>
+    </h4>
+    <div style="display: block; margin-top: 12px;">
+      <div style="margin-bottom: 12px;">
+        <span style="font-weight: 500; color: #1d1d1f; font-size: 14px; display: block;">Form Title</span>
+        <div style="font-size: 15px; color: #1d1d1f; margin-top: 4px;">Post-Market Pediatric Safety Data Request – Aspirin 100mg</div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <span style="font-weight: 500; color: #1d1d1f; font-size: 14px; display: block;">How It’s Delivered</span>
+        <div style="font-size: 15px; color: #1d1d1f; margin-top: 4px;">Secure XML file embedded in the Task (base64-encoded for transmission)</div>
+      </div>
+      <div style="margin-bottom: 12px;">
+        <span style="font-weight: 500; color: #1d1d1f; font-size: 14px; display: block;">Sample Question</span>
+        <div style="font-size: 15px; color: #1d1d1f; margin-top: 4px; font-style: italic; background: #f5f5f7; padding: 8px; border-radius: 8px;">
+          Number of pediatric adverse event reports in the past 12 months
+        </div>
+      </div>
+      <!-- FHIR Snippet (for Technical Users) -->
+      <details style="margin-top: 16px;">
+        <summary style="font-weight: 500; color: #007aff; cursor: pointer; font-size: 14px;">View FHIR XML Snippet</summary>
+        <pre style="background: #f5f5f7; padding: 12px; border-radius: 8px; font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: #8e8e93; overflow-x: auto; white-space: pre-wrap;">
+&lt;Task&gt;
+  &lt;id value="ema-questionnaire-request-001"/&gt;
+  &lt;status value="requested"/&gt;
+  &lt;intent value="proposal"/&gt;
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value="http://hl7.org/fhir/CodeSystem/task-code"/&gt;
+      &lt;code value="questionnaire-distribution"/&gt;
+    &lt;/coding&gt;
+  &lt;/code&gt;
+  &lt;requester&gt;
+    &lt;reference value="#ema-org"/&gt;
+  &lt;/requester&gt;
+  &lt;owner&gt;
+    &lt;reference value="#acmepharm-org"/&gt;
+  &lt;/owner&gt;
+  &lt;input&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;code value="attachment"/&gt;
+      &lt;/coding&gt;
+    &lt;/type&gt;
+    &lt;valueAttachment&gt;
+      &lt;contentType value="application/fhir+xml"/&gt;
+      &lt;data value="UEsDBBQAAAAIAG...[BASE64]"/&gt;
+    &lt;/valueAttachment&gt;
+  &lt;/input&gt;
+&lt;/Task&gt;
+        </pre>
+      </details>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="text-align: center; padding: 20px 0 10px; color: #8e8e93; font-size: 13px; border-top: 1px solid #e5e5ea; margin-top: 20px;">
+    <p style="margin: 0;">Part of the APIX Task-based Regulatory Model • <a href="https://github.com/cander2/apix-ig" style="color: #007aff; text-decoration: none;">Full IG</a></p>
+  </div>
+
+</div>
+
+<script>
+  // Simple toggle for IG Publisher compatibility (no external JS needed)
+  document.addEventListener('DOMContentLoaded', function() {
+    // Any post-load tweaks if needed
+  });
+</script>
