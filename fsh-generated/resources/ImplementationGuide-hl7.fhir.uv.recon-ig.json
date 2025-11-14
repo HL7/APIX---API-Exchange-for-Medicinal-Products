@@ -273,16 +273,10 @@
           "sourceUrl": "usecases.html"
         },
         {
-          "title": "APIX Components",
+          "title": "How to Build APIX Tasks",
           "generation": "markdown",
-          "name": "apixcomponents.html",
-          "sourceUrl": "apixcomponents.html"
-        },
-        {
-          "title": "How to Build APIX Transactions",
-          "generation": "markdown",
-          "name": "buildapixtransaction.html",
-          "sourceUrl": "buildapixtransaction.html"
+          "name": "buildapixtask.html",
+          "sourceUrl": "buildapixtask.html"
         },
         {
           "title": "Workflow Overview",
@@ -325,12 +319,6 @@
           "generation": "markdown",
           "name": "terminology.html",
           "sourceUrl": "terminology.html"
-        },
-        {
-          "title": "Validation",
-          "generation": "markdown",
-          "name": "validation.html",
-          "sourceUrl": "validation.html"
         },
         {
           "title": "Downloads",

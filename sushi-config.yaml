@@ -20,8 +20,8 @@ pages:
     title: IG Home
   usecases.md:
     title: Use Cases
-  buildapixtransaction.md:
-    title: How to Build APIX Transactions
+  buildapixtask.md:
+    title: How to Build APIX Tasks
   workflowoverview.md:
     title: Workflow Overview
   techsolutions.md:
@@ -36,21 +36,17 @@ pages:
     title: API Interactions
   terminology.md:
     title: Terminology
-  validation.md:
-    title: Validation
   downloads.md:
     title: Downloads
-
 
 menu:
   IG Home: index.html
   Use Cases: usecases.html
-  Build and Exchange APIX Transactions:
-    How to Build APIX Transactions: buildapixtransaction.html
+  Build and Exchange APIX Tasks:
+    How to Build APIX Tasks: buildapixtask.html
     Workflow Overview: workflowoverview.html
     API Interactions: apiinteractions.html
     Terminology: terminology.html
-    Validation: validation.html
   Technical Solutions:
     Overview: techsolutions.html
     Low Volume: lowvolume.html
