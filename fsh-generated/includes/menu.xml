@@ -16,32 +16,19 @@
   <li>
     <a href="usecases.html">Use Cases</a>
   </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Build and Exchange APIX Tasks
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="buildapixtask.html">How to Build APIX Tasks</a>
-      </li>
-      <li>
-        <a href="workflowoverview.html">Workflow Overview</a>
-      </li>
-      <li>
-        <a href="apiinteractions.html">API Interactions</a>
-      </li>
-      <li>
-        <a href="terminology.html">Terminology</a>
-      </li>
-    </ul>
+  <li>
+    <a href="apixtask.html">APIX Tasks Structure</a>
+  </li>
+  <li>
+    <a href="workflow.html">Exchange Workflow</a>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Technical Solutions
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Architecture
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="techsolutions.html">Overview</a>
+        <a href="architecture.html">Overview</a>
       </li>
       <li>
         <a href="lowvolume.html">Low Volume</a>

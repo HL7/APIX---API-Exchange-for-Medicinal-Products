@@ -13,12 +13,8 @@
 [ApixTaskCodeValueSet]: ValueSet-apix-task-code.html
 [ApixTaskProfile]: StructureDefinition-apix-task-profile.html
 [ApixTransactionBundleProfile]: StructureDefinition-apix-transaction-bundle-profile.html
-[apix-doc-001]: DocumentReference-apix-doc-001.html
-[apix-prov-001]: Provenance-apix-prov-001.html
-[apix-task-001]: Task-apix-task-001.html
 [Decision-Letter]: Bundle-Decision-Letter.html
 [ema-questionnaire-request-001]: Task-ema-questionnaire-request-001.html
-[example-apix-transaction-bundle]: Bundle-example-apix-transaction-bundle.html
 [List-Of-Questions]: Bundle-List-Of-Questions.html
 [List-Of-Questions-Response]: Bundle-List-Of-Questions-Response.html
 [MyPatient]: StructureDefinition-MyPatient.html

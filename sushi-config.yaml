@@ -20,35 +20,28 @@ pages:
     title: IG Home
   usecases.md:
     title: Use Cases
-  buildapixtask.md:
+  apixtask.md:
     title: How to Build APIX Tasks
-  workflowoverview.md:
+  workflow.md:
     title: Workflow Overview
-  techsolutions.md:
-    title: Technical Solution
+  architecture.md:
+    title: Architecture
   highvolume.md:
     title: High Volume
   mediumvolume.md:
     title: Medium Volume
   lowvolume.md:
     title: Low Volume
-  apiinteractions.md:
-    title: API Interactions
-  terminology.md:
-    title: Terminology
   downloads.md:
     title: Downloads
 
 menu:
   IG Home: index.html
   Use Cases: usecases.html
-  Build and Exchange APIX Tasks:
-    How to Build APIX Tasks: buildapixtask.html
-    Workflow Overview: workflowoverview.html
-    API Interactions: apiinteractions.html
-    Terminology: terminology.html
-  Technical Solutions:
-    Overview: techsolutions.html
+  APIX Tasks Structure: apixtask.html
+  Exchange Workflow: workflow.html
+  Architecture:
+    Overview: architecture.html
     Low Volume: lowvolume.html
     Medium Volume: mediumvolume.html
     High Volume: highvolume.html

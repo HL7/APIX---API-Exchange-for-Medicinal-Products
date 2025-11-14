@@ -146,27 +146,6 @@
       },
       {
         "reference": {
-          "reference": "DocumentReference/apix-doc-001"
-        },
-        "name": "apix-doc-001",
-        "isExample": true
-      },
-      {
-        "reference": {
-          "reference": "Provenance/apix-prov-001"
-        },
-        "name": "apix-prov-001",
-        "isExample": true
-      },
-      {
-        "reference": {
-          "reference": "Task/apix-task-001"
-        },
-        "name": "apix-task-001",
-        "isExample": true
-      },
-      {
-        "reference": {
           "reference": "Bundle/Decision-Letter"
         },
         "name": "Decision-Letter",
@@ -178,13 +157,6 @@
         },
         "description": "EMA issues structured questionnaire to AcmePharm regarding observed adverse reactions and usage patterns for Aspirin 100mg Tablets in pediatric populations.",
         "name": "ema-questionnaire-request-001",
-        "isExample": true
-      },
-      {
-        "reference": {
-          "reference": "Bundle/example-apix-transaction-bundle"
-        },
-        "name": "example-apix-transaction-bundle",
         "isExample": true
       },
       {
@@ -275,20 +247,20 @@
         {
           "title": "How to Build APIX Tasks",
           "generation": "markdown",
-          "name": "buildapixtask.html",
-          "sourceUrl": "buildapixtask.html"
+          "name": "apixtask.html",
+          "sourceUrl": "apixtask.html"
         },
         {
           "title": "Workflow Overview",
           "generation": "markdown",
-          "name": "workflowoverview.html",
-          "sourceUrl": "workflowoverview.html"
+          "name": "workflow.html",
+          "sourceUrl": "workflow.html"
         },
         {
-          "title": "Technical Solution",
+          "title": "Architecture",
           "generation": "markdown",
-          "name": "techsolutions.html",
-          "sourceUrl": "techsolutions.html"
+          "name": "architecture.html",
+          "sourceUrl": "architecture.html"
         },
         {
           "title": "High Volume",
@@ -307,18 +279,6 @@
           "generation": "markdown",
           "name": "lowvolume.html",
           "sourceUrl": "lowvolume.html"
-        },
-        {
-          "title": "API Interactions",
-          "generation": "markdown",
-          "name": "apiinteractions.html",
-          "sourceUrl": "apiinteractions.html"
-        },
-        {
-          "title": "Terminology",
-          "generation": "markdown",
-          "name": "terminology.html",
-          "sourceUrl": "terminology.html"
         },
         {
           "title": "Downloads",
