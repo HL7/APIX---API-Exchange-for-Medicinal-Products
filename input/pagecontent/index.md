@@ -2,7 +2,7 @@
 APIX is an HL7 FHIR R5 Implementation Guide that specifies a standardized, API-driven approach for the exchange of structured medicinal product information between regulators, marketing authorization holders, healthcare systems, and other stakeholders. It enables real-time, automated, and interoperable sharing of pharmaceutical quality data, electronic product information (ePI), pharmacovigilance information, and related regulatory data using modern FHIR-based patterns.
 
 ### Background & Objectives
-Inspired by the Uppsala Monitoring Centre's (UMC) IDMP Request and Publish API IG and the finance industry's real-time algorithmic systems [Anderson, Algorri, Abernathy 2023](https://pubmed.ncbi.nlm.nih.gov/37619807/), APIX leverages HL7 FHIR and modern API-based technologies to deliver automated, interoperable, and scalable data exchange for electronic Product Information (ePI), Pharmaceutical Quality Information (PQI), pharmacovigilance, requests for information, and clinical trials.
+Inspired by the Uppsala Monitoring Centre's (UMC) IDMP Request and Publish API IG and the finance industry's real-time algorithmic systems [Anderson, Algorri, Abernathy 2023](https://pubmed.ncbi.nlm.nih.gov/37619807/), APIX leverages HL7 FHIR and modern API-based technologies to deliver automated, interoperable, and scalable data exchange for regulatory content.
 
 APIX addresses the need for a modern, web-based framework for exchanging and processing regulatory content. It will deliver benefits that include:
 
