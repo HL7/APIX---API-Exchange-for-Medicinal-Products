@@ -285,11 +285,7 @@
         "description": "The regulatory authority responsible for processing the task.",
         "min": 1,
         "max": "1",
-        "type": [
-          {
-            "code": "Reference"
-          }
-        ],
+        "type": [{ "code": "Reference" }],
         "mustSupport": true
       },
       {
@@ -297,17 +293,14 @@
         "path": "Task.requestedPerformer.contained",
         "short": "Contained Regulatory Authority",
         "description": "Inline Organization resource describing the regulatory authority.",
-        "type": [
-          {
-            "code": "Organization"
-          }
-        ],
+        "type": [{ "code": "Organization" }],
         "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.identifier",
         "path": "Task.requestedPerformer.contained.identifier",
         "short": "Authority Identifier",
+        "description": "Official identifier of the regulatory authority (e.g., OID, ORG-ID, DUNS).",
         "min": 1,
         "max": "1",
         "mustSupport": true
@@ -316,6 +309,7 @@
         "id": "Task.requestedPerformer.contained.name",
         "path": "Task.requestedPerformer.contained.name",
         "short": "Regulatory Authority Name",
+        "description": "Official name of the regulatory authority (e.g., European Medicines Agency).",
         "min": 1,
         "max": "1",
         "mustSupport": true
@@ -323,41 +317,64 @@
       {
         "id": "Task.requestedPerformer.contained.address",
         "path": "Task.requestedPerformer.contained.address",
+        "short": "Authority address",
+        "description": "Physical address of the regulatory authority.",
         "min": 1,
         "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.address.text",
         "path": "Task.requestedPerformer.contained.address.text",
+        "short": "Full address",
         "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.address.line",
         "path": "Task.requestedPerformer.contained.address.line",
+        "short": "Street address",
         "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.address.city",
         "path": "Task.requestedPerformer.contained.address.city",
+        "short": "City",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.district",
+        "path": "Task.requestedPerformer.contained.address.district",
+        "short": "District",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.state",
+        "path": "Task.requestedPerformer.contained.address.state",
+        "short": "State/Province",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.postalCode",
+        "path": "Task.requestedPerformer.contained.address.postalCode",
+        "short": "Postal code",
         "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.address.country",
         "path": "Task.requestedPerformer.contained.address.country",
+        "short": "Two-letter country code",
+        "description": "Country where the authority is based (ISO 3166-1 alpha-2).",
         "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.contact.telecom",
         "path": "Task.requestedPerformer.contained.contact.telecom",
+        "short": "Authority contact details",
+        "description": "Email and phone contact for the regulatory authority.",
         "min": 2,
+        "max": "*",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "system"
-            }
-          ],
+          "discriminator": [{ "type": "value", "path": "system" }],
           "rules": "open"
         }
       },
@@ -365,8 +382,10 @@
         "id": "Task.requestedPerformer.contained.contact.telecom:email",
         "path": "Task.requestedPerformer.contained.contact.telecom",
         "sliceName": "email",
+        "short": "Email address",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.contact.telecom:email.system",
@@ -376,14 +395,17 @@
       {
         "id": "Task.requestedPerformer.contained.contact.telecom:email.value",
         "path": "Task.requestedPerformer.contained.contact.telecom.value",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.contact.telecom:phone",
         "path": "Task.requestedPerformer.contained.contact.telecom",
         "sliceName": "phone",
+        "short": "Phone number",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "mustSupport": true
       },
       {
         "id": "Task.requestedPerformer.contained.contact.telecom:phone.system",
@@ -393,7 +415,8 @@
       {
         "id": "Task.requestedPerformer.contained.contact.telecom:phone.value",
         "path": "Task.requestedPerformer.contained.contact.telecom.value",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Task.contained:payload",
