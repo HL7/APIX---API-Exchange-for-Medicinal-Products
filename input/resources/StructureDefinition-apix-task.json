@@ -50,119 +50,15 @@
         "mustSupport": true
       },
       {
-        "id": "Task.identifier",
-        "path": "Task.identifier",
-        "min": 2,
+        "id": "Task.contained",
+        "path": "Task.contained",
         "slicing": {
           "discriminator": {
             "type": "value",
-            "path": "system"
+            "path": "id"
           },
-          "rules": "closed"
+          "rules": "open"
         }
-      },
-      {
-        "id": "Task.identifier:companyProcedure",
-        "path": "Task.identifier",
-        "sliceName": "companyProcedure",
-        "min": 1,
-        "max": "1",
-        "short": "Company Procedure Number (MAH internal tracking ID)",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.identifier:companyProcedure.system",
-        "path": "Task.identifier.system",
-        "fixedUri": "http://example.org/company-procedure-id"
-      },
-      {
-        "id": "Task.identifier:regulatorProcedure",
-        "path": "Task.identifier",
-        "sliceName": "regulatorProcedure",
-        "min": 1,
-        "max": "1",
-        "short": "Regulator Procedure Number (e.g., EMA, FDA, PMDA procedure number)",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.identifier:regulatorProcedure.system",
-        "path": "Task.identifier.system",
-        "patternUri": "https://ema.europa.eu/procedure|https://fda.gov/ind|https://pmda.go.jp/application-number"
-      },
-      {
-        "id": "Task.groupIdentifier",
-        "path": "Task.groupIdentifier",
-        "min": 1,
-        "mustSupport": true,
-        "short": "Parent/Set ID – groups all Tasks in the same regulatory procedure"
-      },
-      {
-        "id": "Task.status",
-        "path": "Task.status",
-        "min": 1
-      },
-      {
-        "id": "Task.intent",
-        "path": "Task.intent",
-        "min": 1,
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent"
-        }
-      },
-      {
-        "id": "Task.priority",
-        "path": "Task.priority",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.code",
-        "path": "Task.code",
-        "min": 1,
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-submission-type-vs"
-        }
-      },
-      {
-        "id": "Task.description",
-        "path": "Task.description",
-        "max": "0"
-      },
-      {
-        "id": "Task.requestedPeriod",
-        "path": "Task.requestedPeriod",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.authoredOn",
-        "path": "Task.authoredOn",
-        "min": 1
-      },
-      {
-        "id": "Task.lastModified",
-        "path": "Task.lastModified",
-        "min": 1
-      },
-      {
-        "id": "Task.requester",
-        "path": "Task.requester",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Organization"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.reference",
-        "path": "Task.requester.reference",
-        "patternString": "#requester-org"
       },
       {
         "id": "Task.contained:requester",
@@ -256,26 +152,6 @@
         "fixedCode": "phone"
       },
       {
-        "id": "Task.requestedPerformer",
-        "path": "Task.requestedPerformer",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Organization"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requestedPerformer.reference",
-        "path": "Task.requestedPerformer.reference",
-        "patternString": "#authority-org"
-      },
-      {
         "id": "Task.contained:authority",
         "path": "Task.contained",
         "sliceName": "authority",
@@ -345,11 +221,6 @@
         "min": 1
       },
       {
-        "id": "Task.owner",
-        "path": "Task.owner",
-        "max": "0"
-      },
-      {
         "id": "Task.contained:payload",
         "path": "Task.contained",
         "sliceName": "payload",
@@ -364,6 +235,146 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "Task.identifier",
+        "path": "Task.identifier",
+        "min": 2,
+        "slicing": {
+          "discriminator": {
+            "type": "value",
+            "path": "system"
+          },
+          "rules": "closed"
+        }
+      },
+      {
+        "id": "Task.identifier:companyProcedure",
+        "path": "Task.identifier",
+        "sliceName": "companyProcedure",
+        "min": 1,
+        "max": "1",
+        "short": "Company Procedure Number (MAH internal tracking ID)",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.identifier:companyProcedure.system",
+        "path": "Task.identifier.system",
+        "fixedUri": "http://example.org/company-procedure-id"
+      },
+      {
+        "id": "Task.identifier:regulatorProcedure",
+        "path": "Task.identifier",
+        "sliceName": "regulatorProcedure",
+        "min": 1,
+        "max": "1",
+        "short": "Regulator Procedure Number",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.identifier:regulatorProcedure.system",
+        "path": "Task.identifier.system",
+        "patternUri": "https://ema.europa.eu/procedure|https://fda.gov/ind|https://pmda.go.jp/application-number"
+      },
+      {
+        "id": "Task.groupIdentifier",
+        "path": "Task.groupIdentifier",
+        "min": 1,
+        "mustSupport": true,
+        "short": "Parent/Set ID – groups all Tasks in the same regulatory procedure"
+      },
+      {
+        "id": "Task.status",
+        "path": "Task.status",
+        "min": 1
+      },
+      {
+        "id": "Task.intent",
+        "path": "Task.intent",
+        "min": 1,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent"
+        }
+      },
+      {
+        "id": "Task.priority",
+        "path": "Task.priority",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.code",
+        "path": "Task.code",
+        "min": 1,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-submission-type-vs"
+        }
+      },
+      {
+        "id": "Task.description",
+        "path": "Task.description",
+        "max": "0"
+      },
+      {
+        "id": "Task.requestedPeriod",
+        "path": "Task.requestedPeriod",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.authoredOn",
+        "path": "Task.authoredOn",
+        "min": 1
+      },
+      {
+        "id": "Task.lastModified",
+        "path": "Task.lastModified",
+        "min": 1
+      },
+      {
+        "id": "Task.requester",
+        "path": "Task.requester",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.reference",
+        "path": "Task.requester.reference",
+        "patternString": "#requester-org"
+      },
+      {
+        "id": "Task.requestedPerformer",
+        "path": "Task.requestedPerformer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.reference",
+        "path": "Task.requestedPerformer.reference",
+        "patternString": "#authority-org"
+      },
+      {
+        "id": "Task.owner",
+        "path": "Task.owner",
+        "max": "0"
       },
       {
         "id": "Task.input",
