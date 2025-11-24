@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "id": "apix-business-status-vs",
+  "url": "http://hl7.org/fhir/uv/apix/ValueSet/apix-business-status-vs",
+  "version": "0.1.0",
+  "name": "APIXBusinessStatusVS",
+  "title": "APIX Regulatory Business Status",
+  "status": "draft",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/task-business-status",
+        "concept": [
+          { "code": "validated" },
+          { "code": "under-assessment" },
+          { "code": "clock-stop" },
+          { "code": "clock-restart" },
+          { "code": "consolidated-review" }
+        ]
+      }
+    ]
+  }
+}

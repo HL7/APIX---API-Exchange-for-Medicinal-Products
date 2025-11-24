@@ -1,0 +1,12 @@
+{
+  "resourceType": "ValueSet",
+  "id": "apix-task-code-vs",
+  "url": "http://hl7.org/fhir/uv/apix/ValueSet/apix-task-code-vs",
+  "version": "0.1.0",
+  "name": "APIXTaskCodeVS",
+  "title": "APIX Task Codes ValueSet",
+  "status": "draft",
+  "compose": {
+    "include": [{ "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code" }]
+  }
+}

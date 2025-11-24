@@ -34,121 +34,37 @@
       },
       {
         "reference": {
-          "reference": "CodeSystem/apix-document-type-cs"
+          "reference": "ValueSet/apix-business-status-vs"
         },
-        "description": "Code system for document types.",
-        "name": "APIX Document Type Code System",
+        "name": "APIX Regulatory Business Status",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "ValueSet/apix-document-type"
+          "reference": "StructureDefinition/apix-task"
         },
-        "description": "Codes for regulatory document types.",
-        "name": "APIX Document Type Value Set",
+        "name": "APIX Regulatory Task",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "StructureDefinition/apix-document-reference-profile"
+          "reference": "CodeSystem/apix-task-code"
         },
-        "description": "Profile for regulatory documents in API submissions.",
-        "name": "APIX DocumentReference Profile",
+        "name": "APIX Task Code System",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "CodeSystem/apix-provenance-activity-cs"
+          "reference": "ValueSet/apix-task-code-vs"
         },
-        "description": "Code system for provenance activities.",
-        "name": "APIX Provenance Activity Code System",
+        "name": "APIX Task Codes ValueSet",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "ValueSet/apix-provenance-activity"
+          "reference": "ValueSet/apix-task-input-type-vs"
         },
-        "description": "Codes for provenance activities.",
-        "name": "APIX Provenance Activity Value Set",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/apix-provenance-profile"
-        },
-        "description": "Profile for tracking origin and history of regulatory submission data.",
-        "name": "APIX Provenance Profile",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "CodeSystem/apix-regulatory-context-cs"
-        },
-        "description": "Code system for regulatory contexts.",
-        "name": "APIX Regulatory Context Code System",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "CodeSystem/apix-regulatory-priority-cs"
-        },
-        "description": "Code system for regulatory priorities.",
-        "name": "APIX Regulatory Priority Code System",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "CodeSystem/apix-submission-type-cs"
-        },
-        "description": "Code system for submission types.",
-        "name": "APIX Submission Type Code System",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/apix-submission-type"
-        },
-        "description": "Codes for types of regulatory submissions.",
-        "name": "APIX Submission Type Value Set",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "CodeSystem/apix-task-code-cs"
-        },
-        "description": "Code system for task types.",
-        "name": "APIX Task Code Code System",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "ValueSet/apix-task-code"
-        },
-        "description": "Codes for regulatory task types.",
-        "name": "APIX Task Code Value Set",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/apix-task-profile"
-        },
-        "description": "Profile for tasks managing regulatory submission workflows.",
-        "name": "APIX Task Profile",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/apix-transaction-bundle-profile"
-        },
-        "description": "Profile for transaction bundles used in regulatory submissions.",
-        "name": "APIX Transaction Bundle Profile",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "Bundle/Decision-Letter"
-        },
-        "name": "Decision-Letter",
+        "name": "APIX Task Input Types",
         "isExample": false
       },
       {
@@ -158,20 +74,6 @@
         "description": "EMA issues structured questionnaire to AcmePharm regarding observed adverse reactions and usage patterns for Aspirin 100mg Tablets in pediatric populations.",
         "name": "ema-questionnaire-request-001",
         "isExample": true
-      },
-      {
-        "reference": {
-          "reference": "Bundle/List-Of-Questions"
-        },
-        "name": "List-Of-Questions",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "Bundle/List-Of-Questions-Response"
-        },
-        "name": "List-Of-Questions-Response",
-        "isExample": false
       },
       {
         "reference": {
@@ -191,41 +93,6 @@
         "profile": [
           "http://hl7.org/fhir/uv/recon-ig/StructureDefinition/MyPatient"
         ]
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/RegulatoryContext"
-        },
-        "name": "Regulatory Context Extension",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/RegulatoryPriority"
-        },
-        "name": "Regulatory Priority Extension",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/SubmissionDate"
-        },
-        "name": "Submission Date Extension",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/SubmissionType"
-        },
-        "name": "Submission Type Extension",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "Bundle/Type-II-Variation"
-        },
-        "name": "Type-II-Variation",
-        "isExample": false
       }
     ],
     "page": {
