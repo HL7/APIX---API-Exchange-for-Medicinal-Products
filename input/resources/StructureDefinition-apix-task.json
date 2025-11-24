@@ -138,14 +138,18 @@
         "path": "Task.lastModified",
         "min": 1
       },
-            {
+      {
         "id": "Task.requester",
         "path": "Task.requester",
         "short": "Requesting organization",
         "description": "The organization that is requesting the medicinal product data exchange task.",
         "min": 1,
         "max": "1",
-        "type": [{ "code": "Reference" }],
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -153,7 +157,11 @@
         "path": "Task.requester.contained",
         "short": "Contained requesting organization",
         "description": "Inline (contained) Organization resource describing the organization that created the task.",
-        "type": [{ "code": "Organization" }],
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -179,7 +187,7 @@
         "path": "Task.requester.contained.address",
         "short": "Organization address",
         "description": "Physical/legal address of the requesting organization.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "mustSupport": true
       },
@@ -235,10 +243,15 @@
         "path": "Task.requester.contained.contact.telecom",
         "short": "Organization contact points (email and phone)",
         "min": 1,
-        "max": "*",
+        "max": "1",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "open"
         }
       },
@@ -254,12 +267,15 @@
       {
         "id": "Task.requester.contained.contact.telecom:email.system",
         "path": "Task.requester.contained.contact.telecom.system",
+        "min": 1,
+        "max": "1",
         "fixedCode": "email"
       },
       {
         "id": "Task.requester.contained.contact.telecom:email.value",
         "path": "Task.requester.contained.contact.telecom.value",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -281,14 +297,18 @@
         "path": "Task.requester.contained.contact.telecom.value",
         "mustSupport": true
       },
-            {
+      {
         "id": "Task.requesterPerformer",
         "path": "Task.requesterPerformer",
         "short": "Requesting performer organization",
         "description": "The organization that is designated to perform/fill the medicinal product data exchange task on behalf of the requester.",
         "min": 1,
         "max": "1",
-        "type": [{ "code": "Reference" }],
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -296,7 +316,11 @@
         "path": "Task.requesterPerformer.contained",
         "short": "Contained requesting performer organization",
         "description": "Inline (contained) Organization resource describing the organization that will perform the task.",
-        "type": [{ "code": "Organization" }],
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -322,7 +346,7 @@
         "path": "Task.requesterPerformer.contained.address",
         "short": "Organization address",
         "description": "Physical/legal address of the organization performing the task.",
-        "min": 1,
+        "min": 0,
         "max": "1",
         "mustSupport": true
       },
@@ -378,10 +402,15 @@
         "path": "Task.requesterPerformer.contained.contact.telecom",
         "short": "Organization contact points (email and phone)",
         "min": 1,
-        "max": "*",
+        "max": "1",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "open"
         }
       },
@@ -397,12 +426,15 @@
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:email.system",
         "path": "Task.requesterPerformer.contained.contact.telecom.system",
+        "min": 1,
+        "max": "1",
         "fixedCode": "email"
       },
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:email.value",
         "path": "Task.requesterPerformer.contained.contact.telecom.value",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
