@@ -235,7 +235,7 @@
         "path": "Task.requester.contained.contact.telecom",
         "short": "Organization contact points (email and phone)",
         "min": 1,
-        "max": "*",
+        "max": "1",
         "mustSupport": true,
         "slicing": {
           "discriminator": [{ "type": "value", "path": "system" }],
@@ -254,12 +254,15 @@
       {
         "id": "Task.requester.contained.contact.telecom:email.system",
         "path": "Task.requester.contained.contact.telecom.system",
+        "min": 1,
+        "max": "1",
         "fixedCode": "email"
       },
       {
         "id": "Task.requester.contained.contact.telecom:email.value",
         "path": "Task.requester.contained.contact.telecom.value",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -274,14 +277,18 @@
       {
         "id": "Task.requester.contained.contact.telecom:phone.system",
         "path": "Task.requester.contained.contact.telecom.system",
+        "min": 1,
+        "max": "1",
         "fixedCode": "phone"
       },
       {
         "id": "Task.requester.contained.contact.telecom:phone.value",
         "path": "Task.requester.contained.contact.telecom.value",
+        "min": 1,
+        "max": "1",
         "mustSupport": true
       },
-            {
+      {
         "id": "Task.requesterPerformer",
         "path": "Task.requesterPerformer",
         "short": "Requesting performer organization",
@@ -378,7 +385,7 @@
         "path": "Task.requesterPerformer.contained.contact.telecom",
         "short": "Organization contact points (email and phone)",
         "min": 1,
-        "max": "*",
+        "max": "1",
         "mustSupport": true,
         "slicing": {
           "discriminator": [{ "type": "value", "path": "system" }],
@@ -397,12 +404,15 @@
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:email.system",
         "path": "Task.requesterPerformer.contained.contact.telecom.system",
+        "min": 1,
+        "max": "1",
         "fixedCode": "email"
       },
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:email.value",
         "path": "Task.requesterPerformer.contained.contact.telecom.value",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -417,11 +427,15 @@
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:phone.system",
         "path": "Task.requesterPerformer.contained.contact.telecom.system",
+                "min": 1,
+        "max": "1",
         "fixedCode": "phone"
       },
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:phone.value",
         "path": "Task.requesterPerformer.contained.contact.telecom.value",
+                "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {

@@ -27,13 +27,6 @@
     "resource": [
       {
         "reference": {
-          "reference": "Bundle/4a7b3c2d-5e6f-4a1b-9c4d-7e8f9a0b1c2d"
-        },
-        "name": "4a7b3c2d-5e6f-4a1b-9c4d-7e8f9a0b1c2d",
-        "isExample": true
-      },
-      {
-        "reference": {
           "reference": "ValueSet/apix-business-status-vs"
         },
         "name": "APIX Regulatory Business Status",
@@ -66,33 +59,6 @@
         },
         "name": "APIX Task Input Types",
         "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "Task/ema-questionnaire-request-001"
-        },
-        "description": "EMA issues structured questionnaire to AcmePharm regarding observed adverse reactions and usage patterns for Aspirin 100mg Tablets in pediatric populations.",
-        "name": "ema-questionnaire-request-001",
-        "isExample": true
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/MyPatient"
-        },
-        "name": "MyPatient",
-        "description": "An example profile of the Patient resource.",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "Patient/PatientExample"
-        },
-        "name": "PatientExample",
-        "description": "An example of a patient with a license to krill.",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/MyPatient"
-        ]
       }
     ],
     "page": {
