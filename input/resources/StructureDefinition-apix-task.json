@@ -44,12 +44,6 @@
         "mustSupport": true
       },
       {
-        "id": "Task.contained",
-        "path": "Task.contained",
-        "min": 2,
-        "mustSupport": true
-      },
-      {
         "id": "Task.identifier",
         "path": "Task.identifier",
         "min": 2,
