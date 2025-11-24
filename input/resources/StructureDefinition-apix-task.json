@@ -44,6 +44,12 @@
         "mustSupport": true
       },
       {
+        "id": "Task.contained",
+        "path": "Task.contained",
+        "min": 2,
+        "mustSupport": true
+      },
+      {
         "id": "Task.identifier",
         "path": "Task.identifier",
         "min": 2,
@@ -139,16 +145,20 @@
         "min": 1
       },
       {
+        "id": "Task.owner",
+        "path": "Task.owner",
+        "max": "0"
+      },
+      {
         "id": "Task.requester",
         "path": "Task.requester",
+        "short": "Marketing Authorization Holder (MAH)",
+        "description": "The company submitting the regulatory task.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Organization"
-            ]
+            "code": "Reference"
           }
         ],
         "mustSupport": true
@@ -156,19 +166,134 @@
       {
         "id": "Task.requester.contained",
         "path": "Task.requester.contained",
-        "patternString": "#requester-org"
+        "short": "Contained MAH Organization",
+        "description": "Inline Organization resource describing the submitting company.",
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.identifier",
+        "path": "Task.requester.contained.identifier",
+        "short": "MAH Identifier",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.name",
+        "path": "Task.requester.contained.name",
+        "short": "Company Legal Name",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address",
+        "path": "Task.requester.contained.address",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.text",
+        "path": "Task.requester.contained.address.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.line",
+        "path": "Task.requester.contained.address.line",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.city",
+        "path": "Task.requester.contained.address.city",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.district",
+        "path": "Task.requester.contained.address.district",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.state",
+        "path": "Task.requester.contained.address.state",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.postalCode",
+        "path": "Task.requester.contained.address.postalCode",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.address.country",
+        "path": "Task.requester.contained.address.country",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom",
+        "path": "Task.requester.contained.contact.telecom",
+        "min": 2,
+        "max": "*",
+        "mustSupport": true,
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom:email",
+        "path": "Task.requester.contained.contact.telecom",
+        "sliceName": "email",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom:email.system",
+        "path": "Task.requester.contained.contact.telecom.system",
+        "fixedCode": "email"
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom:email.value",
+        "path": "Task.requester.contained.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom:phone",
+        "path": "Task.requester.contained.contact.telecom",
+        "sliceName": "phone",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom:phone.system",
+        "path": "Task.requester.contained.contact.telecom.system",
+        "fixedCode": "phone"
+      },
+      {
+        "id": "Task.requester.contained.contact.telecom:phone.value",
+        "path": "Task.requester.contained.contact.telecom.value",
+        "min": 1
       },
       {
         "id": "Task.requestedPerformer",
         "path": "Task.requestedPerformer",
+        "short": "Regulatory Authority",
+        "description": "The regulatory authority responsible for processing the task.",
         "min": 1,
         "max": "1",
         "type": [
           {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Organization"
-            ]
+            "code": "Reference"
           }
         ],
         "mustSupport": true
@@ -176,12 +301,121 @@
       {
         "id": "Task.requestedPerformer.contained",
         "path": "Task.requestedPerformer.contained",
-        "patternString": "#authority-org"
+        "short": "Contained Regulatory Authority",
+        "description": "Inline Organization resource describing the regulatory authority.",
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
+        "mustSupport": true
       },
       {
-        "id": "Task.owner",
-        "path": "Task.owner",
-        "max": "0"
+        "id": "Task.requestedPerformer.contained.identifier",
+        "path": "Task.requestedPerformer.contained.identifier",
+        "short": "Authority Identifier",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.name",
+        "path": "Task.requestedPerformer.contained.name",
+        "short": "Regulatory Authority Name",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address",
+        "path": "Task.requestedPerformer.contained.address",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.text",
+        "path": "Task.requestedPerformer.contained.address.text",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.line",
+        "path": "Task.requestedPerformer.contained.address.line",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.city",
+        "path": "Task.requestedPerformer.contained.address.city",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address.country",
+        "path": "Task.requestedPerformer.contained.address.country",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
+        "min": 2,
+        "mustSupport": true,
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom:email",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
+        "sliceName": "email",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom:email.system",
+        "path": "Task.requestedPerformer.contained.contact.telecom.system",
+        "fixedCode": "email"
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom:email.value",
+        "path": "Task.requestedPerformer.contained.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
+        "sliceName": "phone",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone.system",
+        "path": "Task.requestedPerformer.contained.contact.telecom.system",
+        "fixedCode": "phone"
+      },
+      {
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone.value",
+        "path": "Task.requestedPerformer.contained.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Task.contained:payload",
+        "path": "Task.contained",
+        "sliceName": "payload",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Binary"
+          },
+          {
+            "code": "DocumentReference"
+          }
+        ],
+        "mustSupport": true
       },
       {
         "id": "Task.input",
