@@ -41,13 +41,6 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/apix-task"
-        },
-        "name": "APIX Regulatory Task",
-        "isExample": false
-      },
-      {
-        "reference": {
           "reference": "CodeSystem/apix-task-code"
         },
         "name": "APIX Task Code System",
@@ -58,6 +51,14 @@
           "reference": "ValueSet/apix-task-code-vs"
         },
         "name": "APIX Task Codes ValueSet",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/apix-task"
+        },
+        "description": "Task profile used in APIX for requesting and fulfilling medicinal product information exchanges.",
+        "name": "APIX Task for Medicinal Product Data Exchange",
         "isExample": false
       },
       {

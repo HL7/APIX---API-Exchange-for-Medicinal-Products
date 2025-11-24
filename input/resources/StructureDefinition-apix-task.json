@@ -1,13 +1,14 @@
 {
   "resourceType": "StructureDefinition",
   "id": "apix-task",
-  "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task",
+  "url": "https://hl7.org/fhir/uv/apix/StructureDefinition/apix-task",
   "version": "0.1.0",
   "name": "APIXTask",
-  "title": "APIX Regulatory Task",
+  "title": "APIX Task for Medicinal Product Data Exchange",
   "status": "draft",
+  "experimental": true,
   "date": "2025-11-24",
-  "publisher": "Gravitate Health Project",
+  "description": "Task profile used in APIX for requesting and fulfilling medicinal product information exchanges.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -19,130 +20,159 @@
       {
         "id": "Task.meta",
         "path": "Task.meta",
-        "min": 1
+        "mustSupport": true
       },
       {
         "id": "Task.meta.versionId",
         "path": "Task.meta.versionId",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Task.meta.lastUpdated",
         "path": "Task.meta.lastUpdated",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Task.meta.profile",
         "path": "Task.meta.profile",
         "min": 1,
-        "fixedCanonical": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        "fixedCanonical": "https://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
       },
       {
-        "id": "Task.text",
-        "path": "Task.text",
-        "min": 1,
+        "id": "Task.language",
+        "path": "Task.language",
         "mustSupport": true
       },
       {
         "id": "Task.identifier",
         "path": "Task.identifier",
-        "min": 2,
         "slicing": {
-          "discriminator": {
-            "type": "value",
-            "path": "system"
-          },
-          "rules": "closed"
-        }
-      },
-      {
-        "id": "Task.identifier:companyProcedure",
-        "path": "Task.identifier",
-        "sliceName": "companyProcedure",
-        "min": 1,
-        "max": "1",
-        "short": "Company Procedure Number (MAH internal tracking ID)",
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
         "mustSupport": true
       },
       {
-        "id": "Task.identifier:companyProcedure.system",
-        "path": "Task.identifier.system",
-        "fixedUri": "http://example.org/company-procedure-id"
-      },
-      {
-        "id": "Task.identifier:regulatorProcedure",
-        "path": "Task.identifier",
-        "sliceName": "regulatorProcedure",
-        "min": 1,
-        "max": "1",
-        "short": "Regulator Procedure Number",
+        "id": "Task.instantiatesCanonical",
+        "path": "Task.instantiatesCanonical",
         "mustSupport": true
       },
       {
-        "id": "Task.identifier:regulatorProcedure.system",
-        "path": "Task.identifier.system",
-        "patternUri": "https://ema.europa.eu/procedure|https://fda.gov/ind|https://pmda.go.jp/application-number"
+        "id": "Task.basedOn",
+        "path": "Task.basedOn",
+        "mustSupport": true
       },
       {
         "id": "Task.groupIdentifier",
         "path": "Task.groupIdentifier",
-        "min": 1,
-        "mustSupport": true,
-        "short": "Parent/Set ID – groups all Tasks in the same regulatory procedure"
+        "mustSupport": true
       },
       {
         "id": "Task.status",
         "path": "Task.status",
-        "min": 1
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://hl7.org/fhir/uv/apix/ValueSet/apix-task-status"
+        }
+      },
+      {
+        "id": "Task.businessStatus",
+        "path": "Task.businessStatus",
+        "mustSupport": true
       },
       {
         "id": "Task.intent",
         "path": "Task.intent",
         "min": 1,
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent"
-        }
+        "fixedCode": "proposal",
+        "mustSupport": true
       },
       {
         "id": "Task.priority",
         "path": "Task.priority",
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/request-priority|5.0.0"
+        }
       },
       {
         "id": "Task.code",
         "path": "Task.code",
         "min": 1,
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-submission-type-vs"
+        "fixedCoding": {
+          "system": "https://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code",
+          "code": "medicinal-product-data-exchange"
         }
       },
       {
-        "id": "Task.description",
-        "path": "Task.description",
-        "max": "0"
+        "id": "Task.focus",
+        "path": "Task.focus",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"
+            ]
+          }
+        ],
+        "mustSupport": true
       },
-      {
+            {
         "id": "Task.requestedPeriod",
         "path": "Task.requestedPeriod",
+        "short": "Requested validity / response period",
+        "definition": "The period during which the requested medicinal product data exchange is valid or expected to be fulfilled.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPeriod.start",
+        "path": "Task.requestedPeriod.start",
+        "short": "Start of requested period",
+        "definition": "The date/time when the request becomes active or data exchange may begin.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPeriod.end",
+        "path": "Task.requestedPeriod.end",
+        "short": "End of requested period",
+        "definition": "The deadline by which the medicinal product data exchange must be completed.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
         "mustSupport": true
       },
       {
         "id": "Task.authoredOn",
         "path": "Task.authoredOn",
-        "min": 1
-      },
-      {
-        "id": "Task.lastModified",
-        "path": "Task.lastModified",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Task.requester",
         "path": "Task.requester",
-        "short": "Requesting organization",
-        "description": "The organization that is requesting the medicinal product data exchange task.",
         "min": 1,
         "max": "1",
         "type": [
@@ -155,8 +185,6 @@
       {
         "id": "Task.requester.contained",
         "path": "Task.requester.contained",
-        "short": "Contained requesting organization",
-        "description": "Inline (contained) Organization resource describing the organization that created the task.",
         "type": [
           {
             "code": "Organization"
@@ -167,83 +195,35 @@
       {
         "id": "Task.requester.contained.name",
         "path": "Task.requester.contained.name",
-        "short": "Organization name",
-        "description": "Official name of the requesting organization (e.g., pharmaceutical company or regulatory authority).",
         "min": 1,
-        "max": "1",
         "mustSupport": true
       },
       {
         "id": "Task.requester.contained.identifier",
         "path": "Task.requester.contained.identifier",
-        "short": "Organization identifier(s)",
-        "description": "One or more business identifiers for the requesting organization (e.g., LEI, DUNS, national registry ID).",
         "min": 1,
-        "max": "*",
         "mustSupport": true
       },
       {
         "id": "Task.requester.contained.address",
         "path": "Task.requester.contained.address",
-        "short": "Organization address",
-        "description": "Physical/legal address of the requesting organization.",
-        "min": 0,
+        "min": 1,
         "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.contained.address.text",
-        "path": "Task.requester.contained.address.text",
-        "short": "Full formatted address",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.contained.address.line",
-        "path": "Task.requester.contained.address.line",
-        "short": "Street address line(s)",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.contained.address.city",
-        "path": "Task.requester.contained.address.city",
-        "short": "City",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.contained.address.district",
-        "path": "Task.requester.contained.address.district",
-        "short": "District/sub-division",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.contained.address.state",
-        "path": "Task.requester.contained.address.state",
-        "short": "State / Province / Prefecture",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requester.contained.address.postalCode",
-        "path": "Task.requester.contained.address.postalCode",
-        "short": "Postal code",
         "mustSupport": true
       },
       {
         "id": "Task.requester.contained.address.country",
         "path": "Task.requester.contained.address.country",
-        "short": "Country (ISO 3166-1 alpha-2)",
-        "description": "Two-letter country code (ISO 3166-1 alpha-2).",
         "mustSupport": true,
         "binding": {
-          "strength": "required",
+          "strength": "preferred",
           "valueSet": "http://hl7.org/fhir/ValueSet/iso3166-1-2"
         }
       },
       {
         "id": "Task.requester.contained.contact.telecom",
         "path": "Task.requester.contained.contact.telecom",
-        "short": "Organization contact points (email and phone)",
         "min": 1,
-        "max": "1",
         "mustSupport": true,
         "slicing": {
           "discriminator": [
@@ -259,7 +239,6 @@
         "id": "Task.requester.contained.contact.telecom:email",
         "path": "Task.requester.contained.contact.telecom",
         "sliceName": "email",
-        "short": "Email address",
         "min": 1,
         "max": "1",
         "mustSupport": true
@@ -267,22 +246,17 @@
       {
         "id": "Task.requester.contained.contact.telecom:email.system",
         "path": "Task.requester.contained.contact.telecom.system",
-        "min": 1,
-        "max": "1",
         "fixedCode": "email"
       },
       {
         "id": "Task.requester.contained.contact.telecom:email.value",
         "path": "Task.requester.contained.contact.telecom.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
+        "min": 1
       },
       {
         "id": "Task.requester.contained.contact.telecom:phone",
         "path": "Task.requester.contained.contact.telecom",
         "sliceName": "phone",
-        "short": "Phone number",
         "min": 0,
         "max": "1",
         "mustSupport": true
@@ -293,15 +267,8 @@
         "fixedCode": "phone"
       },
       {
-        "id": "Task.requester.contained.contact.telecom:phone.value",
-        "path": "Task.requester.contained.contact.telecom.value",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer",
-        "path": "Task.requesterPerformer",
-        "short": "Requesting performer organization",
-        "description": "The organization that is designated to perform/fill the medicinal product data exchange task on behalf of the requester.",
+        "id": "Task.requestedPerformer",
+        "path": "Task.requestedPerformer",
         "min": 1,
         "max": "1",
         "type": [
@@ -312,10 +279,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained",
-        "path": "Task.requesterPerformer.contained",
-        "short": "Contained requesting performer organization",
-        "description": "Inline (contained) Organization resource describing the organization that will perform the task.",
+        "id": "Task.requestedPerformer.contained",
+        "path": "Task.requestedPerformer.contained",
         "type": [
           {
             "code": "Organization"
@@ -324,85 +289,37 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.name",
-        "path": "Task.requesterPerformer.contained.name",
-        "short": "Organization name",
-        "description": "Official name of the organization performing the task (e.g., CRO, data provider, affiliate).",
+        "id": "Task.requestedPerformer.contained.name",
+        "path": "Task.requestedPerformer.contained.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.identifier",
+        "path": "Task.requestedPerformer.contained.identifier",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer.contained.address",
+        "path": "Task.requestedPerformer.contained.address",
         "min": 1,
         "max": "1",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.identifier",
-        "path": "Task.requesterPerformer.contained.identifier",
-        "short": "Organization identifier(s)",
-        "description": "One or more business identifiers for the performing organization (e.g., LEI, DUNS, national registry ID).",
-        "min": 1,
-        "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address",
-        "path": "Task.requesterPerformer.contained.address",
-        "short": "Organization address",
-        "description": "Physical/legal address of the organization performing the task.",
-        "min": 0,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.text",
-        "path": "Task.requesterPerformer.contained.address.text",
-        "short": "Full formatted address",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.line",
-        "path": "Task.requesterPerformer.contained.address.line",
-        "short": "Street address line(s)",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.city",
-        "path": "Task.requesterPerformer.contained.address.city",
-        "short": "City",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.district",
-        "path": "Task.requesterPerformer.contained.address.district",
-        "short": "District/sub-division",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.state",
-        "path": "Task.requesterPerformer.contained.address.state",
-        "short": "State / Province / Prefecture",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.postalCode",
-        "path": "Task.requesterPerformer.contained.address.postalCode",
-        "short": "Postal code",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.requesterPerformer.contained.address.country",
-        "path": "Task.requesterPerformer.contained.address.country",
-        "short": "Country (ISO 3166-1 alpha-2)",
-        "description": "Two-letter country code (ISO 3166-1 alpha-2).",
+        "id": "Task.requestedPerformer.contained.address.country",
+        "path": "Task.requestedPerformer.contained.address.country",
         "mustSupport": true,
         "binding": {
-          "strength": "required",
+          "strength": "preferred",
           "valueSet": "http://hl7.org/fhir/ValueSet/iso3166-1-2"
         }
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom",
-        "path": "Task.requesterPerformer.contained.contact.telecom",
-        "short": "Organization contact points (email and phone)",
+        "id": "Task.requestedPerformer.contained.contact.telecom",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
         "min": 1,
-        "max": "1",
         "mustSupport": true,
         "slicing": {
           "discriminator": [
@@ -415,127 +332,45 @@
         }
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:email",
-        "path": "Task.requesterPerformer.contained.contact.telecom",
+        "id": "Task.requestedPerformer.contained.contact.telecom:email",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
         "sliceName": "email",
-        "short": "Email address",
         "min": 1,
         "max": "1",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:email.system",
-        "path": "Task.requesterPerformer.contained.contact.telecom.system",
-        "min": 1,
-        "max": "1",
+        "id": "Task.requestedPerformer.contained.contact.telecom:email.system",
+        "path": "Task.requestedPerformer.contained.contact.telecom.system",
         "fixedCode": "email"
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:email.value",
-        "path": "Task.requesterPerformer.contained.contact.telecom.value",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
+        "id": "Task.requestedPerformer.contained.contact.telecom:email.value",
+        "path": "Task.requestedPerformer.contained.contact.telecom.value",
+        "min": 1
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:phone",
-        "path": "Task.requesterPerformer.contained.contact.telecom",
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
         "sliceName": "phone",
-        "short": "Phone number",
         "min": 0,
         "max": "1",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:phone.system",
-        "path": "Task.requesterPerformer.contained.contact.telecom.system",
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone.system",
+        "path": "Task.requestedPerformer.contained.contact.telecom.system",
         "fixedCode": "phone"
-      },
-      {
-        "id": "Task.requesterPerformer.contained.contact.telecom:phone.value",
-        "path": "Task.requesterPerformer.contained.contact.telecom.value",
-        "mustSupport": true
       },
       {
         "id": "Task.owner",
         "path": "Task.owner",
-        "max": "0"
-      },
-      {
-        "id": "Task.contained:payload",
-        "path": "Task.contained",
-        "sliceName": "payload",
-        "min": 0,
-        "max": "*",
         "type": [
           {
-            "code": "Binary"
-          },
-          {
-            "code": "DocumentReference"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Task.input",
-        "path": "Task.input",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Task.input.type.coding.system",
-        "path": "Task.input.type.coding.system",
-        "min": 1
-      },
-      {
-        "id": "Task.input.type.coding.code",
-        "path": "Task.input.type.coding.code",
-        "min": 1
-      },
-      {
-        "id": "Task.input.type.coding.display",
-        "path": "Task.input.type.coding.display",
-        "min": 1
-      },
-      {
-        "id": "Task.input.value[x]",
-        "path": "Task.input.value[x]",
-        "min": 1,
-        "type": [
-          {
-            "code": "Reference"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Task.output",
-        "path": "Task.output",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.output.type.coding.system",
-        "path": "Task.output.type.coding.system",
-        "min": 1
-      },
-      {
-        "id": "Task.output.type.coding.code",
-        "path": "Task.output.type.coding.code",
-        "min": 1
-      },
-      {
-        "id": "Task.output.type.coding.display",
-        "path": "Task.output.type.coding.display",
-        "min": 1
-      },
-      {
-        "id": "Task.output.value[x]",
-        "path": "Task.output.value[x]",
-        "min": 1,
-        "type": [
-          {
-            "code": "Reference"
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
           }
         ],
         "mustSupport": true
