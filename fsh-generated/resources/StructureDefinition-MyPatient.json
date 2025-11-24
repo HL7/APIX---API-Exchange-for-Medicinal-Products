@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "MyPatient",
-  "url": "http://hl7.org/fhir/uv/recon-ig/StructureDefinition/MyPatient",
+  "url": "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/MyPatient",
   "name": "MyPatient",
   "status": "draft",
   "description": "An example profile of the Patient resource.",

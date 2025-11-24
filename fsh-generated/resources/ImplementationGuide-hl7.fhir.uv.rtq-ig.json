@@ -1,9 +1,9 @@
 {
   "resourceType": "ImplementationGuide",
-  "id": "hl7.fhir.uv.recon-ig",
-  "url": "http://hl7.org/fhir/uv/recon-ig/ImplementationGuide/hl7.fhir.uv.recon-ig",
+  "id": "hl7.fhir.uv.rtq-ig",
+  "url": "http://hl7.org/fhir/uv/rtq-ig/ImplementationGuide/hl7.fhir.uv.rtq-ig",
   "version": "0.1.0",
-  "name": "ReconIG",
+  "name": "ApixIG",
   "title": "API for the Exchange of Medicinal Product Information (APIX)",
   "status": "draft",
   "publisher": "Gravitate Health Project",
@@ -19,7 +19,7 @@
     }
   ],
   "description": "A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).",
-  "packageId": "hl7.fhir.uv.recon-ig",
+  "packageId": "hl7.fhir.uv.rtq-ig",
   "fhirVersion": [
     "5.0.0"
   ],
@@ -41,6 +41,13 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/apix-task"
+        },
+        "name": "APIX Regulatory Task",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/apix-task-code"
         },
         "name": "APIX Task Code System",
@@ -51,14 +58,6 @@
           "reference": "ValueSet/apix-task-code-vs"
         },
         "name": "APIX Task Codes ValueSet",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/apix-task"
-        },
-        "description": "Task profile used in APIX for requesting and fulfilling medicinal product information exchanges.",
-        "name": "APIX Task for Medicinal Product Data Exchange",
         "isExample": false
       },
       {
@@ -92,7 +91,7 @@
         "description": "An example of a patient with a license to krill.",
         "isExample": true,
         "profile": [
-          "http://hl7.org/fhir/uv/recon-ig/StructureDefinition/MyPatient"
+          "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/MyPatient"
         ]
       }
     ],
@@ -178,7 +177,7 @@
           "code": "path-history",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "http://hl7.org/fhir/uv/recon-ig/history.html"
+        "value": "http://hl7.org/fhir/uv/rtq-ig/history.html"
       }
     ]
   }

@@ -1,8 +1,8 @@
 [4a7b3c2d-5e6f-4a1b-9c4d-7e8f9a0b1c2d]: Bundle-4a7b3c2d-5e6f-4a1b-9c4d-7e8f9a0b1c2d.html
 [APIXBusinessStatusVS]: ValueSet-apix-business-status-vs.html
+[APIXTask]: StructureDefinition-apix-task.html
 [APIXTaskCodeCS]: CodeSystem-apix-task-code.html
 [APIXTaskCodeVS]: ValueSet-apix-task-code-vs.html
-[APIXTask]: StructureDefinition-apix-task.html
 [APIXTaskInputTypeVS]: ValueSet-apix-task-input-type-vs.html
 [ema-questionnaire-request-001]: Task-ema-questionnaire-request-001.html
 [MyPatient]: StructureDefinition-MyPatient.html

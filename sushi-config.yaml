@@ -1,6 +1,6 @@
-id: hl7.fhir.uv.recon-ig
-canonical: http://hl7.org/fhir/uv/recon-ig
-name: ReconIG
+id: hl7.fhir.uv.rtq-ig
+canonical: http://hl7.org/fhir/uv/rtq-ig
+name: ApixIG
 title: API for the Exchange of Medicinal Product Information (APIX)
 description: A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).
 status: draft # draft | active | retired | unknown

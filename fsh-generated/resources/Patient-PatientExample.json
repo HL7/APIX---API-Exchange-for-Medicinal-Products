@@ -3,7 +3,7 @@
   "id": "PatientExample",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/recon-ig/StructureDefinition/MyPatient"
+      "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/MyPatient"
     ]
   },
   "name": [
