@@ -154,8 +154,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requester.reference",
-        "path": "Task.requester.reference",
+        "id": "Task.requester.contained",
+        "path": "Task.requester.contained",
         "patternString": "#requester-org"
       },
       {
@@ -174,8 +174,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requestedPerformer.reference",
-        "path": "Task.requestedPerformer.reference",
+        "id": "Task.requestedPerformer.contained",
+        "path": "Task.requestedPerformer.contained",
         "patternString": "#authority-org"
       },
       {
