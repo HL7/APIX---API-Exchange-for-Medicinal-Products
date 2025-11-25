@@ -137,7 +137,48 @@
       {
         "id": "Task.requestedPeriod",
         "path": "Task.requestedPeriod",
+        "short": "Requested period for task fulfilment",
+        "definition": "The period during which the regulatory timeline (e.g., clock start to decision deadline) for the medicinal product procedure or response will be performed.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
         "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPeriod.start",
+        "path": "Task.requestedPeriod.start",
+        "short": "Clock-start / earliest allowed start",
+        "definition": "The date/time when the regulatory clock starts or the earliest the task may begin.",
+        "comment": "Example: Day 0 of a marketing-authorisation procedure, validation completion date, etc.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true,
+        "isSummary": true
+      },
+      {
+        "id": "Task.requestedPeriod.end",
+        "path": "Task.requestedPeriod.end",
+        "short": "Deadline / clock-stop date",
+        "definition": "The latest date/time by which the task must be completed.",
+        "comment": "Example: Day 210 of centralised procedure, response deadline to List of Questions, etc.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true,
+        "isSummary": true
       },
       {
         "id": "Task.authoredOn",
