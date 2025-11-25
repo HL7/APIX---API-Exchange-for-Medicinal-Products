@@ -522,6 +522,15 @@
         "max": "0"
       },
       {
+        "id": "Task.input",
+        "path": "Task.input",
+        "short": "Regulatory content used to perform the task",
+        "definition": "Regulatory content that may be needed for fulfilment of the task in the context of regulated product application lifecycles.",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
         "id": "Task.input:regulatoryDocument",
         "path": "Task.input",
         "sliceName": "regulatoryDocument",
@@ -557,31 +566,42 @@
       {
         "id": "Task.output",
         "path": "Task.output",
+        "short": "Regulatory content produced as part of this task",
+        "definition": "Regulatory content that may be produced as a result of the task (e.g., decision letter from the regulator).",
+        "min": 0,
+        "max": "*",
         "mustSupport": true
       },
       {
-        "id": "Task.output.type.coding.system",
-        "path": "Task.output.type.coding.system",
-        "min": 1
+        "id": "Task.output:regulatoryDocument",
+        "path": "Task.output",
+        "sliceName": "regulatoryDocument",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true,
+        "short": "Regulatory document produced as output (CTD section, via DocumentReference)"
       },
       {
-        "id": "Task.output.type.coding.code",
-        "path": "Task.output.type.coding.code",
-        "min": 1
+        "id": "Task.output:regulatoryDocument.type",
+        "path": "Task.output.type",
+        "min": 1,
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
+          "code": "regulatory-document",
+          "display": "Regulatory Document"
+        }
       },
       {
-        "id": "Task.output.type.coding.display",
-        "path": "Task.output.type.coding.display",
-        "min": 1
-      },
-      {
-        "id": "Task.output.value[x]",
+        "id": "Task.output:regulatoryDocument.value[x]",
         "path": "Task.output.value[x]",
         "min": 1,
         "type": [
           {
             "code": "Reference"
           }
+        ],
+        "targetProfile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
         ],
         "mustSupport": true
       }
