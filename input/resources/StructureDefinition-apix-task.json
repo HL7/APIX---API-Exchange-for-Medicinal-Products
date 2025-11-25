@@ -528,11 +528,7 @@
         "definition": "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures.",
         "min": 0,
         "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.input",
-        "path": "Task.input",
+        "mustSupport": true,
         "slicing": {
           "discriminator": [
             {
@@ -541,7 +537,7 @@
             }
           ],
           "rules": "open",
-          "description": "Slice based on input type for APIX regulatory workflows (e.g., regulatoryDocument)"
+          "description": "Slicing by Task.input.type.coding to support regulatoryDocument and future input types"
         }
       },
       {
