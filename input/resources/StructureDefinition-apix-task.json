@@ -524,11 +524,25 @@
       {
         "id": "Task.input",
         "path": "Task.input",
-        "short": "Regulatory content used to perform the task",
-        "definition": "Regulatory content that may be needed for fulfilment of the task in the context of regulated product application lifecycles.",
+        "short": "Input parameters for the task",
+        "definition": "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures.",
         "min": 0,
         "max": "*",
         "mustSupport": true
+      },
+      {
+        "id": "Task.input",
+        "path": "Task.input",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "type.coding"
+            }
+          ],
+          "rules": "open",
+          "description": "Slice based on input type for APIX regulatory workflows (e.g., regulatoryDocument)"
+        }
       },
       {
         "id": "Task.input:regulatoryDocument",
@@ -537,7 +551,7 @@
         "min": 0,
         "max": "*",
         "mustSupport": true,
-        "short": "Regulatory document (CTD section, base64-embedded only)"
+        "short": "Regulatory document (CTD section, via DocumentReference)"
       },
       {
         "id": "Task.input:regulatoryDocument.type",
