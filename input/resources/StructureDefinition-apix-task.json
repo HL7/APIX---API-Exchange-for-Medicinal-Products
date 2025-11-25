@@ -48,10 +48,12 @@
         "path": "Task.identifier",
         "min": 2,
         "slicing": {
-          "discriminator": {
-            "type": "value",
-            "path": "system"
-          },
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "closed"
         }
       },
@@ -93,21 +95,30 @@
       {
         "id": "Task.status",
         "path": "Task.status",
-        "min": 1
+        "min": 1,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/task-status|5.0.0"
+        }
       },
       {
         "id": "Task.intent",
         "path": "Task.intent",
         "min": 1,
+        "fixedCode": "proposal",
         "binding": {
           "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent"
+          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent|5.0.0"
         }
       },
       {
         "id": "Task.priority",
         "path": "Task.priority",
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/request-priority|5.0.0"
+        }
       },
       {
         "id": "Task.code",
@@ -138,14 +149,18 @@
         "path": "Task.lastModified",
         "min": 1
       },
-            {
+      {
         "id": "Task.requester",
         "path": "Task.requester",
         "short": "Requesting organization",
         "description": "The organization that is requesting the medicinal product data exchange task.",
         "min": 1,
         "max": "1",
-        "type": [{ "code": "Reference" }],
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -153,7 +168,11 @@
         "path": "Task.requester.contained",
         "short": "Contained requesting organization",
         "description": "Inline (contained) Organization resource describing the organization that created the task.",
-        "type": [{ "code": "Organization" }],
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -238,7 +257,12 @@
         "max": "1",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "open"
         }
       },
@@ -295,7 +319,11 @@
         "description": "The organization that is designated to perform/fill the medicinal product data exchange task on behalf of the requester.",
         "min": 1,
         "max": "1",
-        "type": [{ "code": "Reference" }],
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -303,7 +331,11 @@
         "path": "Task.requesterPerformer.contained",
         "short": "Contained requesting performer organization",
         "description": "Inline (contained) Organization resource describing the organization that will perform the task.",
-        "type": [{ "code": "Organization" }],
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -388,7 +420,12 @@
         "max": "1",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "open"
         }
       },
@@ -427,14 +464,14 @@
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:phone.system",
         "path": "Task.requesterPerformer.contained.contact.telecom.system",
-                "min": 1,
+        "min": 1,
         "max": "1",
         "fixedCode": "phone"
       },
       {
         "id": "Task.requesterPerformer.contained.contact.telecom:phone.value",
         "path": "Task.requesterPerformer.contained.contact.telecom.value",
-                "min": 1,
+        "min": 1,
         "max": "1",
         "mustSupport": true
       },
