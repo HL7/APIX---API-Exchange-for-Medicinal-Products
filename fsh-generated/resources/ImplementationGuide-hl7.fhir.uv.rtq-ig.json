@@ -27,6 +27,14 @@
     "resource": [
       {
         "reference": {
+          "reference": "CodeSystem/ctd-section"
+        },
+        "description": "Code system defining all relevant CTD/eCTD section codes used in APIX regulatory submissions to EMA, FDA, PMDA and other agencies. Based on ICH M4 guidelines.",
+        "name": "APIX CTD/eCTD Section Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/apix-business-status-vs"
         },
         "name": "APIX Regulatory Business Status",
@@ -67,6 +75,13 @@
         },
         "name": "APIX Task Input Types",
         "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Bundle/bundle-apix-shelf-life-update-ema-final"
+        },
+        "name": "bundle-apix-shelf-life-update-ema-final",
+        "isExample": true
       }
     ],
     "page": {
