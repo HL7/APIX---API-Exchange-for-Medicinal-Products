@@ -576,11 +576,21 @@
       {
         "id": "Task.output",
         "path": "Task.output",
-        "short": "Regulatory content produced as part of this task",
-        "definition": "Regulatory content that may be produced as a result of the task (e.g., decision letter from the regulator).",
+        "short": "Output produced by the task",
+        "definition": "Outputs produced by the task in the context of medicinal product regulatory procedures.",
         "min": 0,
         "max": "*",
-        "mustSupport": true
+        "mustSupport": true,
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "type.coding"
+            }
+          ],
+          "rules": "open",
+          "description": "Slicing by Task.output.type.coding to support regulatoryDocument and future output types"
+        }
       },
       {
         "id": "Task.output:regulatoryDocument",
@@ -589,7 +599,7 @@
         "min": 0,
         "max": "*",
         "mustSupport": true,
-        "short": "Regulatory document produced as output (CTD section, via DocumentReference)"
+        "short": "Regulatory document produced as output (via DocumentReference)"
       },
       {
         "id": "Task.output:regulatoryDocument.type",
