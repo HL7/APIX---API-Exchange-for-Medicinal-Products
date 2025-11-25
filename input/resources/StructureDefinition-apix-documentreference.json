@@ -1,0 +1,118 @@
+{
+    "resourceType": "StructureDefinition",
+    "id": "apix-documentreference",
+    "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference",
+    "version": "0.1.0",
+    "name": "APIXDocumentReference",
+    "title": "APIX Regulatory DocumentReference (base64 only)",
+    "status": "draft",
+    "date": "2025-11-24",
+    "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and mapped to a specific CTD/eCTD section.",
+    "fhirVersion": "5.0.0",
+    "kind": "resource",
+    "abstract": false,
+    "type": "DocumentReference",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+    "derivation": "constraint",
+    "differential": {
+        "element": [
+            {
+                "id": "DocumentReference.masterIdentifier",
+                "path": "DocumentReference.masterIdentifier",
+                "min": 1,
+                "short": "Unique permanent identifier for this document version",
+                "description": "Business identifier that remains constant across all versions (typically a UUID). Required for traceability in regulatory submissions."
+            },
+            {
+                "id": "DocumentReference.status",
+                "path": "DocumentReference.status",
+                "min": 1,
+                "fixedCode": "current",
+                "short": "Status is fixed to 'current'",
+                "description": "In APIX regulatory submissions, all submitted documents are considered current at time of submission."
+            },
+            {
+                "id": "DocumentReference.type",
+                "path": "DocumentReference.type",
+                "min": 1,
+                "short": "CTD/eCTD section code (e.g. 3.2.S.1.1)",
+                "description": "Coded representation of the CTD or eCTD section to which this document belongs. Binding is required to the APIX CTD section value set.",
+                "binding": {
+                    "strength": "required",
+                    "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/ctd-section-vs"
+                }
+            },
+            {
+                "id": "DocumentReference.date",
+                "path": "DocumentReference.date",
+                "min": 1,
+                "short": "Date/time this document version was created",
+                "description": "Timestamp when this specific version of the document was finalized and included in the submission."
+            },
+            {
+                "id": "DocumentReference.content",
+                "path": "DocumentReference.content",
+                "min": 1,
+                "max": "1",
+                "short": "Single content element (APIX allows only one attachment per document)",
+                "description": "Regulatory submissions require exactly one attachment per DocumentReference."
+            },
+            {
+                "id": "DocumentReference.content.attachment",
+                "path": "DocumentReference.content.attachment",
+                "min": 1,
+                "short": "The actual document content and metadata",
+                "description": "Contains the embedded document and its associated metadata."
+            },
+            {
+                "id": "DocumentReference.content.attachment.contentType",
+                "path": "DocumentReference.content.attachment.contentType",
+                "min": 1,
+                "short": "MIME type of the document (e.g. application/pdf)",
+                "description": "Official MIME type of the embedded document. Required for correct processing."
+            },
+            {
+                "id": "DocumentReference.content.attachment.title",
+                "path": "DocumentReference.content.attachment.title",
+                "min": 1,
+                "short": "Human-readable document name",
+                "description": "Full descriptive name of the file as it should appear in the submission (e.g. '3.2.S.1 - General Information - Drug Substance X.pdf')."
+            },
+            {
+                "id": "DocumentReference.content.attachment.creation",
+                "path": "DocumentReference.content.attachment.creation",
+                "min": 1,
+                "short": "Document creation date/time",
+                "description": "Date and time when the original document file was created."
+            },
+            {
+                "id": "DocumentReference.content.attachment.data",
+                "path": "DocumentReference.content.attachment.data",
+                "min": 1,
+                "short": "base64-encoded document content – REQUIRED",
+                "description": "The full document is embedded inline as base64. This is mandatory in APIX; external references are not permitted."
+            },
+            {
+                "id": "DocumentReference.content.attachment.url",
+                "path": "DocumentReference.content.attachment.url",
+                "max": "0",
+                "short": "External URLs prohibited",
+                "description": "APIX regulatory submissions do not allow external document references. All documents must be embedded using the 'data' element."
+            },
+            {
+                "id": "DocumentReference.content.attachment.size",
+                "path": "DocumentReference.content.attachment.size",
+                "min": 0,
+                "short": "Size of the base64-encoded data in bytes",
+                "description": "Optional but recommended: exact size of the embedded document for validation and integrity checking."
+            },
+            {
+                "id": "DocumentReference.content.attachment.hash",
+                "path": "DocumentReference.content.attachment.hash",
+                "min": 0,
+                "short": "SHA-1 or SHA-256 hash of the original document",
+                "description": "Optional cryptographic hash used for integrity verification of the embedded document."
+            }
+        ]
+    }
+}

@@ -34,6 +34,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/apix-documentreference"
+        },
+        "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and mapped to a specific CTD/eCTD section.",
+        "name": "APIX Regulatory DocumentReference (base64 only)",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/apix-task"
         },
         "name": "APIX Regulatory Task",

@@ -481,50 +481,35 @@
         "max": "0"
       },
       {
-        "id": "Task.contained:payload",
-        "path": "Task.contained",
-        "sliceName": "payload",
+        "id": "Task.input:regulatoryDocument",
+        "path": "Task.input",
+        "sliceName": "regulatoryDocument",
         "min": 0,
         "max": "*",
-        "type": [
-          {
-            "code": "Binary"
-          },
-          {
-            "code": "DocumentReference"
-          }
-        ],
-        "mustSupport": true
+        "mustSupport": true,
+        "short": "Regulatory document (CTD section, base64-embedded only)"
       },
       {
-        "id": "Task.input",
-        "path": "Task.input",
+        "id": "Task.input:regulatoryDocument.type",
+        "path": "Task.input.type",
         "min": 1,
-        "mustSupport": true
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+          "code": "regulatory-document",
+          "display": "Regulatory Document"
+        }
       },
       {
-        "id": "Task.input.type.coding.system",
-        "path": "Task.input.type.coding.system",
-        "min": 1
-      },
-      {
-        "id": "Task.input.type.coding.code",
-        "path": "Task.input.type.coding.code",
-        "min": 1
-      },
-      {
-        "id": "Task.input.type.coding.display",
-        "path": "Task.input.type.coding.display",
-        "min": 1
-      },
-      {
-        "id": "Task.input.value[x]",
+        "id": "Task.input:regulatoryDocument.value[x]",
         "path": "Task.input.value[x]",
         "min": 1,
         "type": [
           {
             "code": "Reference"
           }
+        ],
+        "targetProfile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
         ],
         "mustSupport": true
       },
