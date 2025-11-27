@@ -48,19 +48,16 @@
         "path": "Task.identifier",
         "min": 1,
         "max": "2",
+        "short": "Task instance UUID (required) + official regulator procedure number (optional)",
         "slicing": {
           "discriminator": [
             {
               "type": "value",
               "path": "type.coding.code"
-            },
-            {
-              "type": "value",
-              "path": "system"
             }
           ],
           "rules": "closed",
-          "description": "One mandatory Task instance UUID + one optional official regulator procedure number"
+          "description": "One mandatory technical UUID identifier and one optional regulator procedure number"
         }
       },
       {
@@ -69,7 +66,7 @@
         "sliceName": "TaskInstance",
         "min": 1,
         "max": "1",
-        "short": "Unique instance identifier for this Task (UUID)",
+        "short": "Technical UUID for this specific Task instance",
         "mustSupport": true
       },
       {
@@ -93,16 +90,16 @@
         "patternString": "urn:uuid:"
       },
       {
-        "id": "Task.identifier:regulatorProcedure",
+        "id": "Task.identifier:RegulatorProcedureNumber",
         "path": "Task.identifier",
-        "sliceName": "regulatorProcedure",
+        "sliceName": "RegulatorProcedureNumber",
         "min": 0,
         "max": "1",
-        "short": "Official Regulator Procedure Number (EMA, FDA, PMDA, etc.)",
+        "short": "Official regulator procedure/submission number (EMA, FDA, PMDA, etc.)",
         "mustSupport": true
       },
       {
-        "id": "Task.identifier:regulatorProcedure.type",
+        "id": "Task.identifier:RegulatorProcedureNumber.type",
         "path": "Task.identifier.type",
         "min": 1,
         "patternCoding": {
@@ -111,10 +108,16 @@
         }
       },
       {
-        "id": "Task.identifier:regulatorProcedure.system",
+        "id": "Task.identifier:RegulatorProcedureNumber.system",
         "path": "Task.identifier.system",
         "min": 1,
-        "patternUri": "https://ema.europa.eu/procedure|https://fda.gov/application-number|https://pmda.go.jp/application-number"
+        "patternUri": "https://ema.europa.eu/procedure|https://fda.gov/ind|https://pmda.go.jp/application-number"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.value",
+        "path": "Task.identifier.value",
+        "min": 1,
+        "short": "The actual regulator-assigned procedure number (format varies by authority)"
       },
       {
         "id": "Task.groupIdentifier",
