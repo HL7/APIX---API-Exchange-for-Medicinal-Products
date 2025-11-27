@@ -37,5 +37,9 @@ Regulatory activities, including:
 - Health Technology Assessment (HTA) submissions
 - Establishment and inspection submissions (GMP, GCP, GLP facilities, audits, compliance)
 
+Administrative activities, including:
+- Payments
+- Organization / site registration
+
 ### Out of Scope
 - IDMP identifier requests (e.g., Pharmaceutical Product Identifier (PhPID) and Global Substance Identifier (GSID)) – refer to the [UMC IDMP Request and Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html) for detail.
