@@ -1,4 +1,3 @@
-### Overview
 APIX uses the **Task** resource as the primary envelope and workflow coordinator for all regulatory exchanges, fully replacing traditional eCTD folders and gateway submissions with an API-driven, structured, auditable, and real-time process.
 
 A single regulatory procedure (e.g., initial MAA, Type II variation, shelf-life extension, PSUR) is represented by a set of related Tasks linked by a common `Task.groupIdentifier` (called **ProcedureID** or **TaskSetID** in APIX) and the partOf.
