@@ -17,10 +17,35 @@
     <a href="usecases.html">Use Cases</a>
   </li>
   <li>
-    <a href="apixtask.html">APIX Tasks Structure</a>
+    <a href="apixtask.html">APIX Task Structure</a>
   </li>
   <li>
     <a href="workflow.html">Workflow</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Use Case Examples
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="examplepac.html">Post Approval Change</a>
+      </li>
+      <li>
+        <a href="examplertq.html">Response to Question</a>
+      </li>
+      <li>
+        <a href="examplecta.html">Clinical Trial Application</a>
+      </li>
+      <li>
+        <a href="examplepayment.html">Payment</a>
+      </li>
+      <li>
+        <a href="exampleaer.html">Adverse Event Report</a>
+      </li>
+      <li>
+        <a href="exampleorgid.html">Request Organization Identifier</a>
+      </li>
+    </ul>
   </li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="#" class="dropdown-toggle">Architecture
@@ -43,8 +68,5 @@
   </li>
   <li>
     <a href="artifacts.html">Artifacts</a>
-  </li>
-  <li>
-    <a href="downloads.html">Downloads</a>
   </li>
 </ul>
