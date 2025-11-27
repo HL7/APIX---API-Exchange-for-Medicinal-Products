@@ -39,7 +39,7 @@ menu:
   IG Home: index.html
   Use Cases: usecases.html
   APIX Tasks Structure: apixtask.html
-  Exchange Workflow: workflow.html
+  Workflow: workflow.html
   Architecture:
     Overview: architecture.html
     Low Volume: lowvolume.html

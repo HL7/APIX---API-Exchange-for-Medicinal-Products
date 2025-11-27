@@ -5,10 +5,9 @@ A single regulatory procedure (e.g., initial MAA, Type II variation, shelf-life 
 Each individual message (initial submission, response to questions, approval letter, etc.) is a separate **Task** instance.
 
 This approach is directly inspired by and reuses elements from:
-- Uppsala Monitoring Centre (UMC) IDMP Request & Publish API
-- Da Vinci Prior Authorization Support (PAS) workflows
-- The simple regulatory scenario discussed in the 2025-11-20 Vulcan meeting notes
-- Subscriptions - FHIR v5.0.0
+- Uppsala Monitoring Centre's (UMC) [IDMP Request & Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html)
+- [Da Vinci Prior Authorization Support (PAS) workflows](https://build.fhir.org/ig/HL7/davinci-pas/specification.html)
+- FHIR R5 [Subscriptions](https://hl7.org/fhir/R5/subscriptions.html)
 
 ### Task Status
 APIX uses the standard FHIR R5 **Task Status** value set:  
