@@ -1,9 +1,9 @@
 ### Introduction
 APIX is an HL7 FHIR R5 Implementation Guide that defines a standardized, API-first framework for real-time exchange of regulatory information between regulators, marketing authorization holders, healthcare systems, and other stakeholders.  
 
-It covers all regulated product types across the full regulatory lifecycle — from clinical trials to post-market changes to pharmacovigilance — using modern web standards already proven at global scale in healthcare, banking, and e-commerce.
+It describes an all in one solution that supports information exchange for all regulated product types and all regulatory activities using modern web standards proven to work at global scale in healthcare, banking, and e-commerce.
 
-### Why Build or Adopt APIX? – The Implementer’s Case
+### Why Adopt APIX? – The Implementer’s Case
 
 1. **You’re not inventing anything new – you’re reusing the internet’s most proven standards**  
    APIX runs on the same HL7 FHIR R5 + REST + OAuth2 + JSON foundation that already powers Epic, Cerner, national health systems, Apple Health, PayPal, Stripe, and virtually every modern bank and retailer. No proprietary formats, no custom gateways, no new protocols to learn or maintain.
@@ -19,8 +19,6 @@ It covers all regulated product types across the full regulatory lifecycle — f
 
 5. **One framework for everything – across all product types and procedures**  
    A single FHIR-based framework works for all regulated product types (e.g., drugs, devices, OTC, veterinary) and all regulatory procedures (e.g., clinical trials, post approval variations, adverse event reporting, master-files, inspections, health technology assessments). One integration at the regulator connects all companies; one integration at the company connects all regulators.
-
-**In short:** APIX delivers the speed, transparency, and analytics of a singular modern fintech platform – but for every medicinal and healthcare product – using technology already running at global scale.
 
 ### In Scope
 Regulated health products, including: 
