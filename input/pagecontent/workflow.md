@@ -1,16 +1,22 @@
 APIX uses the **Task** resource as the primary envelope and workflow coordinator for all regulatory exchanges, fully replacing traditional eCTD folders and gateway submissions with an API-driven, structured, auditable, and real-time process.
 
-A single regulatory procedure (e.g., initial MAA, Type II variation, shelf-life extension, PSUR) is represented by a set of related Tasks linked by a common `Task.groupIdentifier` (called **ProcedureID** or **TaskSetID** in APIX) and the partOf.
-Each individual message (initial submission, response to questions, approval letter, etc.) is a separate **Task** instance.
-
-This approach is directly inspired by and reuses elements from:
+This workflow is inspired by and reuses elements from:
 - Uppsala Monitoring Centre's (UMC) [IDMP Request & Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html)
 - [Da Vinci Prior Authorization Support (PAS) workflows](https://build.fhir.org/ig/HL7/davinci-pas/specification.html)
 - FHIR R5 [Subscriptions](https://hl7.org/fhir/R5/subscriptions.html)
 
+### Task Identifiers
+Each regulatory message (initial submission, response to questions, approval letter) is a separate **Task** instance. 
+
+Each Task is connected by three identifiers: 
+1. `Task.groupIdentifier` is a common UUID used to group all Tasks within a regulatory activity.
+2. `Task.RegulatoryProcedureIdentifier` is the procedure number or application number assigned by the regulator. 
+3. `partOf` relates a child Task to its parent Task.
+
 ### Task Status
-APIX uses the standard FHIR R5 **Task Status** value set:  
-[http://hl7.org/fhir/ValueSet/task-status](http://hl7.org/fhir/ValueSet/task-status)
+In addition to the identifiers mentioned above, APIX uses **Task Status** ([see here for the Task Status Valueset](http://hl7.org/fhir/ValueSet/task-status)) to drive the the regulatory workflow.
+
+The following table lists each status and its purpose throughout the workflow.
 
 <style>
   .apix-table { border-collapse: collapse; width: 100%; margin: 1.5em 0; }
@@ -44,6 +50,7 @@ APIX uses the standard FHIR R5 **Task Status** value set:
 > **ready** and **failed** are not used in the core APIX workflow.
 
 #### Typical State Transitions in a Regulatory Procedure
+The following table demonstrates how the Status on a given Task changes throughout a regulatory activity.
 
 <table class="apix-table">
   <thead>
@@ -95,30 +102,9 @@ APIX uses the standard FHIR R5 **Task Status** value set:
    - `status` = **completed** or **rejected**
 
 ### Subscriptions for Real-Time Notification
-APIX **requires** support for the R5 Subscription framework (or R5 backport).
+APIX includes support for the R5 Subscription framework.
 - Companies create a Subscription (during onboarding) with criteria such as:
   - `Task?groupIdentifier={ProcedureID}`
   - or broader: `Task?requester={CompanyOrgID}`
 - Channel: `rest-hook` (preferred) or `websocket`
 - Every meaningful status change triggers an immediate notification (id-only or full-resource payload)
-
-### Architecture Components (Example)
-The following architecture components are a suggestion. Implementers and developers can use different solutions that acheive the same results.
-
-<table class="apix-table">
-  <thead>
-    <tr>
-      <th>Component</th>
-      <th>Minimum Requirement</th>
-      <th>Recommendation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>FHIR Server (Regulator)</td><td>R5 (or R4 + backports), conditional create/update, Subscriptions, SMART Backend Services</td><td>HAPI FHIR, Smile CDR, Azure API for FHIR</td></tr>
-    <tr><td>Authentication</td><td>SMART Backend Services (system/* scopes, JWT)</td><td>Mandatory</td></tr>
-    <tr><td>Subscriptions</td><td>R5 Backport / R5 native, rest-hook + signed webhook</td><td>Mandatory for production</td></tr>
-    <tr><td>Validation Engine</td><td>`$validate` + custom regulatory rules Operation</td><td>Integrated gateway</td></tr>
-    <tr><td>Audit</td><td>Provenance resource on every Task update</td><td>Mandatory</td></tr>
-    <tr><td>Search / Grouping</td><td>Support for `groupIdentifier`, `partOf`, chaining</td><td>Essential</td></tr>
-  </tbody>
-</table>
