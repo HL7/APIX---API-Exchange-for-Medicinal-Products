@@ -20,42 +20,26 @@ APIX is a HL7 FHIR R5 Implementation Guide that defines an all in one, standardi
 
 ### Background
 
-The exchange of medicinal-product information today is slow, manual, and fragmented. The regulatory application lifecycle relies on a mix of portals, application formats, email, manual workflows, differing portals with file transfers.
+The exchange of medicinal-product information today is slow, manual, and fragmented. The regulatory lifecycle relies on a mix of portals, submission formats, email, and manual workflows.
 
 APIX changes that by providing a single, harmonised, API-first layer that is built natively for the web; i.e., aligned with the same technologies as international healthcare, banking,  finance, and eCommerce.
 
-### Scope
-
-Current priority work streams (2024–2026):
-- Regulatory submissions & procedural management (variations, renewals, etc.)
-- Authorised medicinal-product catalogues (cross-border queries)
-- Individual case safety reports (ICSR) via FHIR
-- Substance, manufacturered item, and pharmaceutical product reference data
-- Payment and reimbursement procedure messaging
-
-Future streams under discussion: clinical-trial transparency, inspection findings, master files, HTA dossiers.
-
 ### In Scope
-Regulated health products, including: 
-- Human drugs
-- Medical Devices
-- Veterinary drugs
-- Over the counter drugs
-- Natural health products
-
-Regulatory activities, including:
-- Clinical trial applications (IND/CTA/IMPD)
-- Market authorization applications (NDA/MAA), post-approval changes (variations, supplements, annual reports), and Questions/Response to Questions
-- Adverse Event Reporting (Individual Case Safety Reports (ICSR)) and pharmacovigilance workflows
-- Health Technology Assessment (HTA) submissions
-- Establishment and inspection submissions (GMP, GCP, GLP facilities, audits, compliance)
-
-Administrative activities, including:
-- Payments
-- Organization / site registration
+Phase I (2025 / 2026) focuses on the following:
+- human medicinal products
+- Regulatory submissions & procedural management (e.g., variations, supplements, question and response)
+- Adverse Event Reporting (Individual case safety reports (ICSR))
+- Payment of application fees
 
 ### Out of Scope
-- IDMP identifier requests (e.g., Pharmaceutical Product Identifier (PhPID) and Global Substance Identifier (GSID)) – refer to the [UMC IDMP Request and Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html) for detail.
+Phase II+ (2026+) will consider the following: 
+- Remaining product types (Medical Devices, Veterinary drug, Over the counter drugs, Natural health products)
+- Clinical trials 
+- Master file
+- Health Technology Assessment (HTA) dossiers 
+- Establishment and inspection submissions (GMP, GCP, GLP facilities, audits, compliance)
+
+IDMP identifier requests (e.g., Pharmaceutical Product Identifier (PhPID) and Global Substance Identifier (GSID)) – refer to the [UMC IDMP Request and Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html) for detail.
 
 ### Governance & Collaboration
 
