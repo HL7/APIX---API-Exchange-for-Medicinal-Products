@@ -1,7 +1,7 @@
 ### Introduction
 APIX is a HL7 FHIR R5 Implementation Guide that defines an all in one, standardised solution for exchanging medicinal-product data between industry, regulators, and healthcare systems worldwide.  
 
-## Why Adopt APIX?
+### Why Adopt APIX?
 
 1. **One integration, all products & procedures**  
    Single FHIR framework covers every medicinal product type and every regulatory procedure — one connection at the agency reaches all companies; one connection at the company reaches all regulators.
@@ -18,13 +18,13 @@ APIX is a HL7 FHIR R5 Implementation Guide that defines an all in one, standardi
 5. **Free performance dashboards**  
    Every milestone is a timestamped FHIR Task. Run cycle-time KPIs, benchmarks, or SLA reports with one simple search — no extra BI tools needed.
 
-## Background
+### Background
 
 The exchange of medicinal-product information today is slow, manual, and fragmented. The regulatory application lifecycle relies on a mix of portals, application formats, email, manual workflows, differing portals with file transfers.
 
 APIX changes that by providing a single, harmonised, API-first layer that is built natively for the web; i.e., aligned with the same technologies as international healthcare, banking,  finance, and eCommerce.
 
-## Scope
+### Scope
 
 Current priority work streams (2024–2026):
 - Regulatory submissions & procedural management (variations, renewals, etc.)
@@ -57,15 +57,15 @@ Administrative activities, including:
 ### Out of Scope
 - IDMP identifier requests (e.g., Pharmaceutical Product Identifier (PhPID) and Global Substance Identifier (GSID)) – refer to the [UMC IDMP Request and Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html) for detail.
 
-## Governance & Collaboration
+### Governance & Collaboration
 
 APIX is developed under the HL7 Vulcan Accelerator with active participation from regulators, pharmaceutical companies, and technology vendors.
 
 All meetings are public; notes and recordings are available via [HL7 Vulcan's APIX project page](https://hl7vulcan.org/projects/api-exchange-for-medicinal-products-apix/).
 
-## Get Involved
+### Get Involved
 
 - Join the weekly calls.
 - Test the reference implementation
 
-We welcome industry, solution providers, and national competent authorities from every region to contribute.
+We welcome industry, solution providers, and regulators from every region to contribute.
