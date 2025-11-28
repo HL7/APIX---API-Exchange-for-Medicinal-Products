@@ -1,24 +1,39 @@
 ### Introduction
-APIX is an HL7 FHIR R5 Implementation Guide that defines a standardized, API-first framework for real-time exchange of regulatory information between regulators, marketing authorization holders, healthcare systems, and other stakeholders.  
+APIX is a HL7 FHIR R5 Implementation Guide that defines an all in one, standardised solution for exchanging medicinal-product data between industry, regulators, and healthcare systems worldwide.  
 
-It describes an all in one solution that supports information exchange for all regulated product types and all regulatory activities using modern web standards proven to work at global scale in healthcare, banking, and e-commerce.
+## Why Adopt APIX?
 
-### Why Adopt APIX? – The Implementer’s Case
+1. **One integration, all products & procedures**  
+   Single FHIR framework covers every medicinal product type and every regulatory procedure — one connection at the agency reaches all companies; one connection at the company reaches all regulators.
 
-1. **You’re not inventing anything new – you’re reusing the internet’s most proven standards**  
-   APIX runs on the same HL7 FHIR R5 + REST + OAuth2 + JSON foundation that already powers Epic, Cerner, national health systems, Apple Health, PayPal, Stripe, and virtually every modern bank and retailer. No proprietary formats, no custom gateways, no new protocols to learn or maintain.
+2. **Built on the internet’s proven standards**  
+   Same RESTful APIs and OAuth2 that already run Epic, Cerner, Apple Health, Stripe, and global banking. Zero proprietary formats or custom protocols.
 
-2. **From months to seconds – real, measurable time savings**  
-   Every submission, question, response, and decision becomes a discrete, instantly visible Task. Clock-stop to clock-restart happens in real time via Subscriptions. Agencies and companies can see where time is spent and can cut average procedure cycle times.
+3. **From months to seconds**  
+   Submissions, questions, clock-stops, and decisions become real-time FHIR Tasks + Subscriptions. Cycle-time delays become visible and quickly fixable.
 
-3. **Built-in, automatic performance dashboards**  
-   Because every milestone is a timestamped status change on a FHIR Task, you get accurate cycle-time metrics (submission → validation → assessment → questions → response → decision) for free. Run organization-wide KPIs, therapeutic-area benchmarks, or SLA reports with simple FHIR searches.
+4. **Instant innovation platform**  
+   Open APIs immediately enable AI agents, analytics tools, RIM/ERP integrations, and third-party apps — no extra gateways required.
 
-4. **Future-proof innovation platform**  
-   The same open API instantly unlocks third-party AI agents (auto-fill responses, risk scoring, translation), analytics vendors, RIM-system integrations, and startup tools. This will support an ecosystem of innovative solutions.
+5. **Free performance dashboards**  
+   Every milestone is a timestamped FHIR Task. Run cycle-time KPIs, benchmarks, or SLA reports with one simple search — no extra BI tools needed.
 
-5. **One framework for everything – across all product types and procedures**  
-   A single FHIR-based framework works for all regulated product types (e.g., drugs, devices, OTC, veterinary) and all regulatory procedures (e.g., clinical trials, post approval variations, adverse event reporting, master-files, inspections, health technology assessments). One integration at the regulator connects all companies; one integration at the company connects all regulators.
+## Background
+
+The exchange of medicinal-product information today is slow, manual, and fragmented. The regulatory application lifecycle relies on a mix of portals, application formats, email, manual workflows, differing portals with file transfers.
+
+APIX changes that by providing a single, harmonised, API-first layer that is built natively for the web; i.e., aligned with the same technologies as international healthcare, banking,  finance, and eCommerce.
+
+## Scope
+
+Current priority work streams (2024–2026):
+- Regulatory submissions & procedural management (variations, renewals, etc.)
+- Authorised medicinal-product catalogues (cross-border queries)
+- Individual case safety reports (ICSR) via FHIR
+- Substance, manufacturered item, and pharmaceutical product reference data
+- Payment and reimbursement procedure messaging
+
+Future streams under discussion: clinical-trial transparency, inspection findings, master files, HTA dossiers.
 
 ### In Scope
 Regulated health products, including: 
@@ -41,3 +56,16 @@ Administrative activities, including:
 
 ### Out of Scope
 - IDMP identifier requests (e.g., Pharmaceutical Product Identifier (PhPID) and Global Substance Identifier (GSID)) – refer to the [UMC IDMP Request and Publish API Implementation Guide](https://build.fhir.org/ig/Uppsala-Monitoring-Centre/WHO-UMC-IDMP-Service/index.html) for detail.
+
+## Governance & Collaboration
+
+APIX is developed under the HL7 Vulcan Accelerator with active participation from regulators, pharmaceutical companies, and technology vendors.
+
+All meetings are public; notes and recordings are available via [HL7 Vulcan's APIX project page](https://hl7vulcan.org/projects/api-exchange-for-medicinal-products-apix/).
+
+## Get Involved
+
+- Join the weekly calls.
+- Test the reference implementation
+
+We welcome industry, solution providers, and national competent authorities from every region to contribute.
