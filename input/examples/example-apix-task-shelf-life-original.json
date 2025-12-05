@@ -168,7 +168,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "Cover_Letter_SynthVac_ShelfLife_Extension_2025.xml",
+                "title": "Cover_Letter_SynthVac_ShelfLife_Extension_2025.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -183,7 +183,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "eAF_Variation_Type_IB_C.I.4_SynthVac.xml",
+                "title": "eAF_Variation_Type_IB_C.I.4_SynthVac.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -198,7 +198,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "SynthVac_Annotated_SmPC_PIL_36months.xml",
+                "title": "SynthVac_Annotated_SmPC_PIL_36months.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -213,7 +213,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "SynthVac_Clean_SmPC_PIL_36months.xml",
+                "title": "SynthVac_Clean_SmPC_PIL_36months.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -228,7 +228,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "SynthVac_Blister_Mockup_36months.xml",
+                "title": "SynthVac_Blister_Mockup_36months.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -243,7 +243,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "3.2.P.8.1_Stability_Summary_and_Conclusions_DP.xml",
+                "title": "3.2.P.8.1_Stability_Summary_and_Conclusions_DP.json",
                 "contentType": "application/json",
                     "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eT48L3N0YWJpbGl0eT4= (placeholder base64)"
                 }
@@ -258,7 +258,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "3.2.P.8.3_Stability_Data_DP.xml",
+                "title": "3.2.P.8.3_Stability_Data_DP.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -273,7 +273,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "3.2.P.8.2_Stability_Commitment_DP_Updated.xml",
+                "title": "3.2.P.8.2_Stability_Commitment_DP_Updated.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -288,7 +288,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "3.2.S.7.1_Stability_Summary_and_Conclusions_DS.xml",
+                "title": "3.2.S.7.1_Stability_Summary_and_Conclusions_DS.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
@@ -303,7 +303,7 @@
                 ]
             },
             "valueAttachment": {
-                "title": "3.2.S.7.3_Stability_Data_DS.xml",
+                "title": "3.2.S.7.3_Stability_Data_DS.json",
                 "contentType": "application/json",
                 "data": "eyJyZXNvdXJjZVR5cGUiOiJDb21wb3NpdGlvbiIsImlkIjoic2hlbGYtbGlmZS1zdGF0ZW1lbnQtZXhhbXBsZSIsInN0YXR1cyI6ImZpbmFsIiwidHlwZSI6eyJjb2RpbmciOlt7InN5c3RlbSI6Imh0dHA6Ly9obDcub3JnL2ZoaXIvY29tcG9zaXRpb24tdHlwZSIsImNvZGUiOiI3MjEzOC0yIiwiZGlzcGxheSI6IlNoZWxmIExpZmUgRG9jdW1lbnQifV19LCJzdWJqZWN0Ijp7InJlZmVyZW5jZSI6Ik1lZGljaW5hbFByb2R1Y3REZWZpbml0aW9uL2V4YW1wbGUtbXBkLTEyMyJ9LCJkYXRlIjoiMjAyNS0xMi0wNVQxMjowMDowMFoiLCJhdXRob3IiOlt7InJlZmVyZW5jZSI6Ik9yZ2FuaXphdGlvbi9leGFtcGxlLW1hbnVmYWN0dXJlciJ9XSwidGl0bGUiOiJTaGVsZiBMaWZlIFN0YXRlbWVudCBmb3IgUHJvZHVjdCBYWVoiLCJzZWN0aW9uIjpbeyJ0aXRsZSI6IlN0b3JhZ2UgQ29uZGl0aW9ucyBhbmQgU2hlbGYgTGlmZSIsImNvZGUiOnsiY29kaW5nIjpbeyJzeXN0ZW0iOiJodHRwOi8vZW1hLmV1cm9wYS5ldS9leGFtcGxlL3NlY3Rpb25jcyIsImNvZGUiOiJzaGVsZi1saWZlIiwiZGlzcGxheSI6IlNoZWxmIGxpZmUifV19LCJ0ZXh0Ijp7InN0YXR1cyI6ImFkZGl0aW9uYWwiLCJkaXYiOiI8ZGl2IHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94aHRtbFwiPjxuYnNwOzwvYj48L3A+PHA+PGI+UHJvZHVjdDo8L2I+IFhZWiAxMDAgbWcgdGFibGV0czwvcD48cD48Yj5Bc3NpZ25lZCBzaGVsZiBsaWZlOjwvYj4gMzYgbW9udGhzPC9wPjxwPjxiPlN0b3JhZ2UgY29uZGl0aW9uOjwvYj4gU3RvcmUgYmVsb3cgMjXCsEM8L3A+PHA+PGI+QWZ0ZXIgZmlyc3Qgb3BlbmluZzo8L2I+IDYgbW9udGhzPC9wPjwuLi4+PC9kaXY+In19XX0="
             }
