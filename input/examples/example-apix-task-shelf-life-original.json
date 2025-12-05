@@ -1,270 +1,311 @@
 {
-    "resourceType": "Bundle",
-    "id": "bundle-apix-shelf-life-update-ema-final",
-    "type": "collection",
-    "timestamp": "2025-11-24T09:15:00Z",
-    "entry": [
+    "resourceType": "Task",
+    "id": "task-shelf-life-extension-synthpharma-2025",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-11-15T09:00:00+01:00",
+        "profile": [
+            "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task-regulatory-submission"
+        ]
+    },
+    "identifier": [
         {
-            "fullUrl": "http://example.org/fhir/Task/ema-shelf-life-2025-001",
-            "resource": {
-                "resourceType": "Task",
-                "id": "ema-shelf-life-2025-001",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-                    ]
-                },
-                "text": {
-                    "status": "generated",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Type IB Variation – Shelf-life extension to 36 months – EMA</div>"
-                },
-                "identifier": [
+            "use": "official",
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:5f3e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3a",
+            "type": {
+                "coding": [
                     {
-                        "system": "http://example.org/company-procedure-id",
-                        "value": "MAH-2025-SHLF-047"
-                    },
-                    {
-                        "system": "https://ema.europa.eu/procedure",
-                        "value": "EMEA/H/C/004321/IB/0047"
-                    }
-                ],
-                "groupIdentifier": {
-                    "system": "https://ema.europa.eu/procedure",
-                    "value": "EMEA/H/C/004321/IB/0047"
-                },
-                "status": "requested",
-                "intent": "proposal",
-                "priority": "routine",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-submission-type",
-                            "code": "variation-type-ib",
-                            "display": "Type IB Variation"
-                        }
-                    ]
-                },
-                "authoredOn": "2025-11-20T14:30:00Z",
-                "lastModified": "2025-11-24T09:00:00Z",
-                "requester": {
-                    "reference": "#org-mah"
-                },
-                "requesterPerformer": {
-                    "reference": "#org-ema"
-                },
-                "input": [
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
-                                    "code": "regulatory-document"
-                                }
-                            ]
-                        },
-                        "valueReference": {
-                            "reference": "#doc-label-updated"
-                        }
-                    },
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
-                                    "code": "regulatory-document"
-                                }
-                            ]
-                        },
-                        "valueReference": {
-                            "reference": "#doc-stability-summary"
-                        }
-                    },
-                    {
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
-                                    "code": "regulatory-document"
-                                }
-                            ]
-                        },
-                        "valueReference": {
-                            "reference": "#doc-stability-data"
-                        }
-                    }
-                ],
-                "contained": [
-                    {
-                        "resourceType": "Organization",
-                        "id": "org-mah",
-                        "name": "NovaPharm Europe Ltd",
-                        "identifier": [
-                            {
-                                "system": "https://www.gleif.org",
-                                "value": "529900W2IJM2PJZ15A28"
-                            }
-                        ],
-                        "address": {
-                            "text": "25 Innovation Drive, Dublin D02 XY12, Ireland",
-                            "line": [
-                                "25 Innovation Drive"
-                            ],
-                            "city": "Dublin",
-                            "postalCode": "D02 XY12",
-                            "country": "IE"
-                        },
-                        "contact": [
-                            {
-                                "telecom": [
-                                    {
-                                        "system": "email",
-                                        "value": "regulatory.affairs@novapharm.eu"
-                                    },
-                                    {
-                                        "system": "phone",
-                                        "value": "+353 1 234 5678"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "resourceType": "Organization",
-                        "id": "org-ema",
-                        "name": "European Medicines Agency",
-                        "identifier": [
-                            {
-                                "system": "https://spor.ema.europa.eu/rmswi",
-                                "value": "ORG-100000789"
-                            }
-                        ],
-                        "address": {
-                            "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands",
-                            "line": [
-                                "Domenico Scarlattilaan 6"
-                            ],
-                            "city": "Amsterdam",
-                            "postalCode": "1083 HS",
-                            "country": "NL"
-                        },
-                        "contact": [
-                            {
-                                "telecom": [
-                                    {
-                                        "system": "email",
-                                        "value": "variation@ema.europa.eu"
-                                    },
-                                    {
-                                        "system": "phone",
-                                        "value": "+31 88 781 6000"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "resourceType": "DocumentReference",
-                        "id": "doc-label-updated",
-                        "meta": {
-                            "profile": [
-                                "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-                            ]
-                        },
-                        "masterIdentifier": {
-                            "system": "urn:uuid",
-                            "value": "83f9a1c2-4d5e-11ed-b3e4-0242ac130003"
-                        },
-                        "status": "current",
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
-                                    "code": "1.3.1",
-                                    "display": "SPC, Labelling and Package Leaflet"
-                                }
-                            ]
-                        },
-                        "date": "2025-11-20T12:00:00Z",
-                        "content": [
-                            {
-                                "attachment": {
-                                    "contentType": "application/pdf",
-                                    "title": "1.3.1 - Updated SmPC - Shelf-life 36 months.pdf",
-                                    "creation": "2025-11-18T10:00:00Z",
-                                    "data": ""
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "resourceType": "DocumentReference",
-                        "id": "doc-stability-summary",
-                        "meta": {
-                            "profile": [
-                                "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-                            ]
-                        },
-                        "masterIdentifier": {
-                            "system": "urn:uuid",
-                            "value": "9a2b3c4d-5e6f-11ed-b3e4-0242ac130004"
-                        },
-                        "status": "current",
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
-                                    "code": "3.2.P.8.2",
-                                    "display": "Stability Summary and Conclusions"
-                                }
-                            ]
-                        },
-                        "date": "2025-11-20T12:00:00Z",
-                        "content": [
-                            {
-                                "attachment": {
-                                    "contentType": "application/pdf",
-                                    "title": "3.2.P.8.2 - Stability Summary - Extension to 36 months.pdf",
-                                    "creation": "2025-11-19T14:00:00Z",
-                                    "data": ""
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "resourceType": "DocumentReference",
-                        "id": "doc-stability-data",
-                        "meta": {
-                            "profile": [
-                                "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-                            ]
-                        },
-                        "masterIdentifier": {
-                            "system": "urn:uuid",
-                            "value": "b5c6d7e8-9f0a-11ed-b3e4-0242ac130005"
-                        },
-                        "status": "current",
-                        "type": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
-                                    "code": "3.2.P.8.3",
-                                    "display": "Stability Data"
-                                }
-                            ]
-                        },
-                        "date": "2025-11-20T12:00:00Z",
-                        "content": [
-                            {
-                                "attachment": {
-                                    "contentType": "application/pdf",
-                                    "title": "3.2.P.8.3 - Long-term and Accelerated Stability Data - 36 months.pdf",
-                                    "creation": "2025-11-19T14:00:00Z",
-                                    "data": ""
-                                }
-                            }
-                        ]
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                        "code": "task-instance-uuid",
+                        "display": "Task Instance UUID"
                     }
                 ]
+            }
+        },
+        {
+            "use": "official",
+            "system": "https://ema.europa.eu/fhir/identifier/procedure",
+            "value": "EU/1/23/4567/001-IB/023",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                        "code": "regulator-procedure-number",
+                        "display": "Regulator Procedure Number"
+                    }
+                ]
+            }
+        }
+    ],
+    "groupIdentifier": {
+        "use": "official",
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:uuid:a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                    "code": "submission-group-uuid",
+                    "display": "Submission Group UUID"
+                }
+            ]
+        }
+    },
+    "contained": [
+        {
+            "resourceType": "Organization",
+            "id": "org-synthpharma-ag",
+            "name": "SynthPharma AG",
+            "identifier": [
+                {
+                    "system": "https://spor.ema.europa.eu/v1/organisations",
+                    "value": "ORG-987654"
+                }
+            ],
+            "address": {
+                "type": "physical",
+                "text": "123 Synthetic Research Blvd, 4000 Basel, Switzerland",
+                "line": [
+                    "123 Synthetic Research Blvd"
+                ],
+                "city": "Basel",
+                "district": "Basel-Stadt",
+                "state": "Basel-Stadt",
+                "postalCode": "4000",
+                "country": "Switzerland"
+            },
+            "contact": [
+                {
+                    "name": {
+                        "text": "Dr. John Doe, Head of Regulatory Affairs, Global Regulatory Strategy"
+                    },
+                    "telecom": [
+                        {
+                            "system": "email",
+                            "value": "john.doe@synthpharma.example",
+                            "use": "work"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "resourceType": "Organization",
+            "id": "org-ema-srm-hmed",
+            "name": "European Medicines Agency – Human Medicines Evaluation Division – Scientific and Regulatory Management",
+            "identifier": [
+                {
+                    "system": "https://spor.ema.europa.eu/v1/organisations",
+                    "value": "ORG-EMA-000001"
+                }
+            ],
+            "address": {
+                "type": "physical",
+                "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands",
+                "line": [
+                    "Domenico Scarlattilaan 6"
+                ],
+                "city": "Amsterdam",
+                "district": "Amsterdam",
+                "state": "North Holland",
+                "postalCode": "1083 HS",
+                "country": "Netherlands"
+            },
+            "contact": [
+                {
+                    "name": {
+                        "text": "Dr. Jane Doe, Scientific Officer"
+                    },
+                    "telecom": [
+                        {
+                            "system": "phone",
+                            "value": "+31-88-781-6000",
+                            "use": "work"
+                        },
+                        {
+                            "system": "email",
+                            "value": "jane.doe@example.eu",
+                            "use": "work"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "status": "requested",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-type",
+                "code": "variation-type-ib",
+                "display": "Type IB Variation"
+            }
+        ]
+    },
+    "authoredOn": "2025-11-15T09:00:00+01:00",
+    "lastModified": "2025-11-15T09:00:00+01:00",
+    "requester": {
+        "reference": "#org-synthpharma-ag"
+    },
+    "requesterPerformer": {
+        "reference": "#org-ema-srm-hmed"
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Type IB Variation (C.I.4) – Extension of shelf-life for the finished product SynthVac 50 mg film-coated tablets from 24 months to 36 months based on additional long-term stability data at 25°C/60% RH.</div>"
+    },
+    "input": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "cover-letter"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Cover_Letter_SynthVac_ShelfLife_Extension_2025.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHJvb3Q+PHRpdGxlPkNvdmVyIExldHRlcjwvdGl0bGU+PC9yb290Pg== (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "application-form"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "eAF_Variation_Type_IB_C.I.4_SynthVac.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PGFwcGxpY2F0aW9uRm9ybT48L2FwcGxpY2F0aW9uRm9ybT4= (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "annotated-label"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "SynthVac_Annotated_SmPC_PIL_36months.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHNtY3BfcGlsPjwhLS0gYW5ub3RhdGVkIC0tPjwvc21jcF9waWw+ (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "clean-label"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "SynthVac_Clean_SmPC_PIL_36months.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHNtY3BfcGlsPjwhLS0gY2xlYW4gLS0+PC9zbWNwX3BpbD4= (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "pack-mockup"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "SynthVac_Blister_Mockup_36months.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHBhY2tNb2NrdXA+PC9wYWNrTW9ja3VwPg== (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "cmc-stability-summary-dp"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "3.2.P.8.1_Stability_Summary_and_Conclusions_DP.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eT48L3N0YWJpbGl0eT4= (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "cmc-stability-data-dp"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "3.2.P.8.3_Stability_Data_DP.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eURhdGE+PC9zdGFiaWxpdHlEYXRhPg== (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "cmc-stability-commitment-dp"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "3.2.P.8.2_Stability_Commitment_DP_Updated.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PGNvbW1pdG1lbnQ+PC9jb21taXRtZW50Pg== (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "cmc-stability-summary-ds"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "3.2.S.7.1_Stability_Summary_and_Conclusions_DS.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN1bXN1bW1hcnk+PC9zdW1zdW1tYXJ5Pg== (placeholder base64)"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-document-type",
+                        "code": "cmc-stability-data-ds"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "3.2.S.7.3_Stability_Data_DS.xml",
+                "contentType": "application/xml",
+                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eURhdGFTdWJzdGFuY2U+PC9zdGFiaWxpdHlEYXRhU3Vic3RhbmNlPg== (placeholder base64)"
             }
         }
     ]
