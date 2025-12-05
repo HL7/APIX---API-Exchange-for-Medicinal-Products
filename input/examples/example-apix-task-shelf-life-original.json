@@ -170,7 +170,7 @@
             "valueAttachment": {
                 "title": "Cover_Letter_SynthVac_ShelfLife_Extension_2025.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHJvb3Q+PHRpdGxlPkNvdmVyIExldHRlcjwvdGl0bGU+PC9yb290Pg== (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -185,7 +185,7 @@
             "valueAttachment": {
                 "title": "eAF_Variation_Type_IB_C.I.4_SynthVac.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PGFwcGxpY2F0aW9uRm9ybT48L2FwcGxpY2F0aW9uRm9ybT4= (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -200,7 +200,7 @@
             "valueAttachment": {
                 "title": "SynthVac_Annotated_SmPC_PIL_36months.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHNtY3BfcGlsPjwhLS0gYW5ub3RhdGVkIC0tPjwvc21jcF9waWw+ (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -215,7 +215,7 @@
             "valueAttachment": {
                 "title": "SynthVac_Clean_SmPC_PIL_36months.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHNtY3BfcGlsPjwhLS0gY2xlYW4gLS0+PC9zbWNwX3BpbD4= (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -230,7 +230,7 @@
             "valueAttachment": {
                 "title": "SynthVac_Blister_Mockup_36months.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHBhY2tNb2NrdXA+PC9wYWNrTW9ja3VwPg== (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -245,9 +245,9 @@
             "valueAttachment": {
                 "title": "3.2.P.8.1_Stability_Summary_and_Conclusions_DP.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eT48L3N0YWJpbGl0eT4= (placeholder base64)"
-            }
-        },
+                    "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eT48L3N0YWJpbGl0eT4= (placeholder base64)"
+                }
+            },
         {
             "type": {
                 "coding": [
@@ -260,7 +260,7 @@
             "valueAttachment": {
                 "title": "3.2.P.8.3_Stability_Data_DP.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eURhdGE+PC9zdGFiaWxpdHlEYXRhPg== (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -275,7 +275,7 @@
             "valueAttachment": {
                 "title": "3.2.P.8.2_Stability_Commitment_DP_Updated.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PGNvbW1pdG1lbnQ+PC9jb21taXRtZW50Pg== (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -290,7 +290,7 @@
             "valueAttachment": {
                 "title": "3.2.S.7.1_Stability_Summary_and_Conclusions_DS.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN1bXN1bW1hcnk+PC9zdW1zdW1tYXJ5Pg== (placeholder base64)"
+                "data": "placeholderbase64"
             }
         },
         {
@@ -305,7 +305,7 @@
             "valueAttachment": {
                 "title": "3.2.S.7.3_Stability_Data_DS.xml",
                 "contentType": "application/xml",
-                "data": "PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN0YWJpbGl0eURhdGFTdWJzdGFuY2U+PC9zdGFiaWxpdHlEYXRhU3Vic3RhbmNlPg== (placeholder base64)"
+                "data": "placeholderbase64"
             }
         }
     ]
