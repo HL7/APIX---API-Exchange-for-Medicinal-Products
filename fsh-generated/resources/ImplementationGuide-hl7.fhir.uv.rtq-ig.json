@@ -78,9 +78,9 @@
       },
       {
         "reference": {
-          "reference": "Bundle/bundle-apix-shelf-life-update-ema-final"
+          "reference": "Task/task-shelf-life-extension-synthpharma-2025"
         },
-        "name": "bundle-apix-shelf-life-update-ema-final",
+        "name": "task-shelf-life-extension-synthpharma-2025",
         "isExample": true
       }
     ],

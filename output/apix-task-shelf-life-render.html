@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIX Task – Type IB Variation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #f2f6fa, #e8eef5);
+            color: #1d1d1f;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007aff, #5ac8fa);
+            color: white;
+            padding: 40px 24px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+            margin-bottom: 36px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 17px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.06);
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #007aff;
+            margin: 0 0 24px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e5ea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .count-badge {
+            background: #007aff;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .module {
+            margin: 24px 0;
+            padding: 20px;
+            background: #f8fbff;
+            border-radius: 14px;
+            border-left: 5px solid #007aff;
+        }
+
+        .module h3 {
+            margin: 0 0 16px 0;
+            font-size: 18px;
+            color: #007aff;
+            font-weight: 600;
+        }
+
+        .doc-item {
+            background: white;
+            border: 1px solid #d1e4ff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .doc-type {
+            font-weight: 600;
+            color: #007aff;
+            font-size: 15px;
+        }
+
+        .doc-code {
+            font-family: Menlo, Monaco, Consolas, monospace;
+            background: #e5f2ff;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .empty {
+            color: #888;
+            font-style: italic;
+            margin: 12px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- 1. Header -->
+        <header>
+            <h1>Task: Type IB Variation</h1>
+            <p>HL7 FHIR R5 – APIX Implementation Guide</p>
+        </header>
+
+        <!-- 2. Core Task Information -->
+        <div class="card">
+            <h2 class="card-title">Core Task Information</h2>
+            <strong>ID</strong><br>task-shelf-life-extension-synthpharma-2025<br><br>
+            <strong>Status</strong><br><span
+                style="background:#007aff;color:white;padding:4px 10px;border-radius:8px;">requested</span><br><br>
+            <strong>Priority</strong><br>routine<br><br>
+            <strong>Code</strong><br>Type IB Variation (variation-type-ib)<br><br>
+            <strong>Authored</strong><br>2025-11-15T09:00:00+01:00<br><br>
+            <strong>Last Updated</strong><br>2025-11-15T09:00:00+01:00
+        </div>
+
+        <!-- 3. Parties Involved -->
+        <div class="card">
+            <h2 class="card-title">Parties Involved</h2>
+
+            <div style="margin-bottom:28px;">
+                <strong>Requester</strong><br>
+                SynthPharma AG<br>
+                <strong>Address:</strong><br>
+                123 Synthetic Research Blvd, 4000 Basel, Switzerland<br>
+                <strong>Dr. John Doe, Head of Regulatory Affairs, Global Regulatory Strategy</strong><br>
+                <strong>Email:</strong> john.doe@synthpharma.example<br>
+            </div>
+
+            <div>
+                <strong>Performer</strong><br>
+                European Medicines Agency – Human Medicines Evaluation Division – Scientific and Regulatory
+                Management<br>
+                <strong>Address:</strong><br>
+                Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands<br>
+                <strong>Dr. Jane Doe, Scientific Officer</strong><br>
+                <strong>Phone:</strong> +31-88-781-6000<br>
+                <strong>Email:</strong> jane.doe@example.eu<br>
+            </div>
+        </div>
+
+        <!-- 4. Input Documents -->
+        <div class="card">
+            <div class="card-title">
+                Input Documents
+                <span class="count-badge">10 documents</span>
+            </div>
+
+            <!-- Module 1 -->
+            <div class="module">
+                <h3>Module 1</h3>
+                <div class="doc-item">
+                    <div class="doc-type">Cover Letter</div>
+                    <span class="doc-code">cover-letter</span><br>
+                    Cover_Letter_SynthVac_ShelfLife_Extension_2025.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">Application Form</div>
+                    <span class="doc-code">application-form</span><br>
+                    eAF_Variation_Type_IB_C.I.4_SynthVac.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">Annotated Label</div>
+                    <span class="doc-code">annotated-label</span><br>
+                    SynthVac_Annotated_SmPC_PIL_36months.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">Clean Label</div>
+                    <span class="doc-code">clean-label</span><br>
+                    SynthVac_Clean_SmPC_PIL_36months.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">Pack Mockup</div>
+                    <span class="doc-code">pack-mockup</span><br>
+                    SynthVac_Blister_Mockup_36months.json
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module">
+                <h3>Module 3</h3>
+                <div class="doc-item">
+                    <div class="doc-type">CMC Stability Summary (DP)</div>
+                    <span class="doc-code">cmc-stability-summary-dp</span><br>
+                    3.2.P.8.1_Stability_Summary_and_Conclusions_DP.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">CMC Stability Data (DP)</div>
+                    <span class="doc-code">cmc-stability-data-dp</span><br>
+                    3.2.P.8.3_Stability_Data_DP.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">CMC Stability Commitment (DP)</div>
+                    <span class="doc-code">cmc-stability-commitment-dp</span><br>
+                    3.2.P.8.2_Stability_Commitment_DP_Updated.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">CMC Stability Summary (DS)</div>
+                    <span class="doc-code">cmc-stability-summary-ds</span><br>
+                    3.2.S.7.1_Stability_Summary_and_Conclusions_DS.json
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">CMC Stability Data (DS)</div>
+                    <span class="doc-code">cmc-stability-data-ds</span><br>
+                    3.2.S.7.3_Stability_Data_DS.json
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 5. Expected Output -->
+        <div class="card">
+            <div class="card-title">Expected Output</div>
+            <div style="text-align:center;padding:40px 20px;color:#888;background:#f9f9f9;border-radius:14px;">
+                No content submitted yet
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        HL7 FHIR R5 – API Exchange for Medicinal Products (APIX)<br>
+        Generated manually due to environment restrictions
+    </footer>
+
+</body>
+
+</html>
