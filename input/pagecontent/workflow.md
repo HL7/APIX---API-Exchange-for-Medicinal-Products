@@ -81,7 +81,7 @@ The following step-by-step example demonstrates a complete Type IB variation pro
 
 #### 1. Initial Submission (Company → Regulator)
 **Action:** The applicant initiates the procedure by submitting the dossier.
-*   **View Task:** <a href="example-workflow-1-initial-submission.html" target="_blank">HTML View</a> | <a href="Task-example-workflow-1-initial-submission.json" target="_blank">JSON Resource</a>
+*   **View Task:** <a href="example-workflow-1-initial-submission.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-1-initial-submission.json" target="_blank">JSON Resource</a>
 *   **Key Data:**
     *   `code` = `initial-submission`
     *   `status` = `requested`
@@ -89,7 +89,7 @@ The following step-by-step example demonstrates a complete Type IB variation pro
 
 #### 2. Regulatory Questions (Regulator → Company)
 **Action:** The regulator validates the submission and raises questions (Information Request), causing a clock-stop.
-*   **View Task:** <a href="example-workflow-2-questions.html" target="_blank">HTML View</a> | <a href="Task-example-workflow-2-questions.json" target="_blank">JSON Resource</a>
+*   **View Task:** <a href="example-workflow-2-questions.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-2-questions.json" target="_blank">JSON Resource</a>
 *   **Key Data:**
     *   `code` = `information-request`
     *   `status` = `requested`
@@ -98,7 +98,7 @@ The following step-by-step example demonstrates a complete Type IB variation pro
 
 #### 3. Company Response (Company → Regulator)
 **Action:** The applicant performs the necessary tests and submits a response package, restarting the clock.
-*   **View Task:** <a href="example-workflow-3-response.html" target="_blank">HTML View</a> | <a href="Task-example-workflow-3-response.json" target="_blank">JSON Resource</a>
+*   **View Task:** <a href="example-workflow-3-response.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-3-response.json" target="_blank">JSON Resource</a>
 *   **Key Data:**
     *   `code` = `response-to-questions`
     *   `status` = `requested`
@@ -107,7 +107,7 @@ The following step-by-step example demonstrates a complete Type IB variation pro
 
 #### 4. Final Decision (Regulator → Company)
 **Action:** The regulator assesses the response and issues a final positive decision (Approval).
-*   **View Task:** <a href="example-workflow-4-decision.html" target="_blank">HTML View</a> | <a href="Task-example-workflow-4-decision.json" target="_blank">JSON Resource</a>
+*   **View Task:** <a href="example-workflow-4-decision.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-4-decision.json" target="_blank">JSON Resource</a>
 *   **Key Data:**
     *   `code` = `approval`
     *   `status` = `completed`
