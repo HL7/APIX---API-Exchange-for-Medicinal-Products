@@ -76,30 +76,42 @@ The following table demonstrates how the Status on a given Task changes througho
 </table>
 
 ### Full Workflow Example – Shelf-Life Update Variation
-1. **Company → Regulator: Initial Submission**
-   - Authenticates via SMART Backend Services
-   - POSTs a Task with:
-     - `code` = `initial-submission` (or national submission-type code)
-     - `groupIdentifier` = new ProcedureID (e.g., `PROC-2025-12345`)
-     - `input` contains revised ePI Bundle, CMC documents, cover letter (all contained)
-     - `status` → **requested**
-2. **Regulator Gateway Processing**
-   - Auto-transition → **received** → validation → **accepted** (or **rejected**)
-   - Notification sent via Subscription
-3. **Regulator raises Questions**
-   - Creates a **child Task** (`partOf` → original)
-   - `code` = `information-request`
-   - `output` contains Questionnaire / list of questions
-   - Original Task → **on-hold** (`businessStatus` = `clock-stop`)
-4. **Company Response**
-   - Creates new Task (`partOf` → original)
-   - `code` = `response-to-questions`
-   - `input` contains answers and supporting documents
-   - Regulator validates → original Task back to **in-progress** (`businessStatus` = `clock-restart`)
-5. **Regulator Decision**
-   - Updates Task (or creates final Task)
-   - `output` = approval letter (contained DocumentReference) or rejection
-   - `status` = **completed** or **rejected**
+
+The following step-by-step example demonstrates a complete Type IB variation procedure to extend the shelf-life of a product.
+
+#### 1. Initial Submission (Company → Regulator)
+**Action:** The applicant initiates the procedure by submitting the dossier.
+*   **View Task:** <a href="example-workflow-1-initial-submission.html" target="_blank">HTML View</a> | <a href="../examples/example-workflow-1-initial-submission.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `initial-submission`
+    *   `status` = `requested`
+    *   `input` = Cover Letter, Application Form, and Quality Overall Summary (QOS)
+
+#### 2. Regulatory Questions (Regulator → Company)
+**Action:** The regulator validates the submission and raises questions (Information Request), causing a clock-stop.
+*   **View Task:** <a href="example-workflow-2-questions.html" target="_blank">HTML View</a> | <a href="../examples/example-workflow-2-questions.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `information-request`
+    *   `status` = `requested`
+    *   `output` = List of Questions document
+    *   `partOf` = Link to Initial Submission Task
+
+#### 3. Company Response (Company → Regulator)
+**Action:** The applicant performs the necessary tests and submits a response package, restarting the clock.
+*   **View Task:** <a href="example-workflow-3-response.html" target="_blank">HTML View</a> | <a href="../examples/example-workflow-3-response.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `response-to-questions`
+    *   `status` = `requested`
+    *   `input` = Response document and raw stability data
+    *   `partOf` = Link to Questions Task
+
+#### 4. Final Decision (Regulator → Company)
+**Action:** The regulator assesses the response and issues a final positive decision (Approval).
+*   **View Task:** <a href="example-workflow-4-decision.html" target="_blank">HTML View</a> | <a href="../examples/example-workflow-4-decision.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `approval`
+    *   `status` = `completed`
+    *   `output` = Approval Letter and Final Assessment Report
 
 ### Subscriptions for Real-Time Notification
 APIX includes support for the R5 Subscription framework.

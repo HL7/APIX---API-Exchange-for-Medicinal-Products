@@ -1,10 +1,10 @@
 # APIX Task – The Universal Regulatory Workflow Envelope
 
-In APIX, every regulatory message or action — from the very first marketing authorisation application (MAA) to a single validation question, a response, or a final approval letter — is represented as an individual **Task** resource.
+In APIX, the Task resource is the universal envelope and workflow engine for all biopharmaceutical regulatory interactions. Whether it is a clinical trial application, marketing authorization application, post-approval variation, response to questions,  decision letter, or review report, it is all represented as an individual **Task** resource.
 
-The Task acts as the universal envelope and workflow engine for all biopharmaceutical regulatory interactions.
+The following is a simple example of a Task with synthetic content: <a href="html-example-apix-shelf-life-original.html">Sample Task</a>
 
-### Key Elements – APIX Regulatory Task Profile (November 2025)
+The following table provides an overview of the key elements of the APIX Task resource. For a technical description of the Task resource, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/StructureDefinition-apix-task.html">APIX Task profile</a>.
 
 <style>
 .apix-table { border-collapse: collapse; width: 100%; margin: 1.5em 0; }
@@ -24,10 +24,22 @@ The Task acts as the universal envelope and workflow engine for all biopharmaceu
 </thead>
 <tbody>
 <tr>
+<td><code>Task.meta</code></td>
+<td>1..1</td>
+<td>• <code>versionId</code> (Mandatory)<br>• <code>lastUpdated</code> (Mandatory)<br>• <code>profile</code> (Fixed)</td>
+<td>Technical metadata for versioning and conformance</td>
+</tr>
+<tr>
+<td><code>Task.text</code></td>
+<td>1..1</td>
+<td>Narrative description</td>
+<td>Free text description of the task for human readers</td>
+</tr>
+<tr>
 <td><code>Task.identifier</code></td>
-<td>1..*</td>
-<td>• Canonical Task ID (system = https://api.apix.example.org/identifier/task)<br>• Procedure-scoped message ID, e.g. <code>MSG-2025-0047-012</code></td>
-<td>Primary business identifiers; first identifier is the persistent Task UUID</td>
+<td>1..2</td>
+<td>• Canonical Task UUID (mandatory)<br>• Procedure-scoped number (optional), e.g. <code>EMEA/H/C/001234/II/0045</code></td>
+<td>Technical ID + Official Procedure Number</td>
 </tr>
 <tr>
 <td><code>Task.status</code></td>
@@ -44,7 +56,7 @@ The Task acts as the universal envelope and workflow engine for all biopharmaceu
 <tr>
 <td><code>Task.intent</code></td>
 <td>1..1</td>
-<td><code>order</code></td>
+<td><code>proposal</code></td>
 <td>Fixed value for all regulatory Tasks</td>
 </tr>
 <tr>
@@ -60,28 +72,28 @@ The Task acts as the universal envelope and workflow engine for all biopharmaceu
 <td>Defines the regulatory message type and triggers specific business rules</td>
 </tr>
 <tr>
-<td><code>Task.focus</code></td>
-<td>0..1</td>
-<td>Reference to a <code>Bundle</code> (type = document or collection)</td>
-<td>Used only for very large payloads (> ~50 MB) or externally stored submissions</td>
-</tr>
-<tr>
 <td><code>Task.for</code></td>
-<td>1..1</td>
+<td>0..1</td>
 <td>Reference to <code>MedicinalProductDefinition</code> or <code>RegulatedAuthorization</code></td>
 <td>Identifies the medicinal product that is the subject of the procedure</td>
 </tr>
 <tr>
+<td><code>Task.requestedPeriod</code></td>
+<td>0..1</td>
+<td><code>start</code> = Clock Start<br><code>end</code> = Deadline</td>
+<td>Regulatory clock management</td>
+</tr>
+<tr>
 <td><code>Task.input</code></td>
 <td>0..*</td>
-<td>type = APIX codes (<code>payload</code>, <code>supporting-document</code>, <code>questionnaire-response</code>, etc.)<br>value[x] = DocumentReference | Bundle | QuestionnaireResponse | etc.</td>
-<td>Primary and preferred way to attach submission content</td>
+<td>type = <code>regulatory-document</code><br>valueReference = Reference(DocumentReference)</td>
+<td>Primary mechanism to attach submission content</td>
 </tr>
 <tr>
 <td><code>Task.output</code></td>
 <td>0..*</td>
-<td>Used by the regulator to return assessment reports, consolidated comments, decisions, etc.</td>
-<td>Populated only on regulator-initiated or completed Tasks</td>
+<td>type = <code>regulatory-document</code><br>valueReference = Reference(DocumentReference)</td>
+<td>Used by the regulator to return assessment reports, decisions, etc.</td>
 </tr>
 <tr>
 <td><code>Task.groupIdentifier</code></td>
@@ -96,22 +108,16 @@ The Task acts as the universal envelope and workflow engine for all biopharmaceu
 <td>Explicitly builds threads and hierarchies</td>
 </tr>
 <tr>
-<td><code>Task.restriction</code></td>
-<td>0..1</td>
-<td><code>restriction.period</code> contains response deadline / clock-stop information</td>
-<td>Formal regulatory clock management</td>
-</tr>
-<tr>
-<td><code>Task.owner</code></td>
-<td>1..1</td>
-<td>• Regulatory authority when action required from agency<br>• Applicant organization when action required from company</td>
-<td>Indicates current responsibility; flips with status changes</td>
-</tr>
-<tr>
 <td><code>Task.requester</code></td>
 <td>1..1</td>
 <td>Applicant Organization that initiated the procedure</td>
 <td>Fixed for the entire procedure lifecycle</td>
+</tr>
+<tr>
+<td><code>Task.requesterPerformer</code></td>
+<td>1..1</td>
+<td>Organization producing/performing the task</td>
+<td>Designated performer (e.g. Applicant or Regulator)</td>
 </tr>
 <tr>
 <td><code>Task.authoredOn</code></td>
@@ -124,12 +130,6 @@ The Task acts as the universal envelope and workflow engine for all biopharmaceu
 <td>1..1</td>
 <td>Automatically updated on every change</td>
 <td>Critical for audit and performance reporting</td>
-</tr>
-<tr>
-<td><code>Task.relevantHistory</code></td>
-<td>0..*</td>
-<td>References to <code>Provenance</code> resources recording submission, validation, status changes, etc.</td>
-<td>Complete audit trail</td>
 </tr>
 </tbody>
 </table>

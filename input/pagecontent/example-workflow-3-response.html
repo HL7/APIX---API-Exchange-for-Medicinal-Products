@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIX Task – Response to Questions</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #f2f6fa, #e8eef5);
+            color: #1d1d1f;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #34c759, #30b34d);
+            color: white;
+            padding: 40px 24px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3);
+            margin-bottom: 36px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 17px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.06);
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #34c759;
+            margin: 0 0 24px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e5ea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .count-badge {
+            background: #34c759;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .module {
+            margin: 24px 0;
+            padding: 20px;
+            background: #f0fdf4;
+            border-radius: 14px;
+            border-left: 5px solid #34c759;
+        }
+
+        .module h3 {
+            margin: 0 0 16px 0;
+            font-size: 18px;
+            color: #34c759;
+            font-weight: 600;
+        }
+
+        .doc-item {
+            background: white;
+            border: 1px solid #dcfce7;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .doc-type {
+            font-weight: 600;
+            color: #34c759;
+            font-size: 15px;
+        }
+
+        .doc-code {
+            font-family: Menlo, Monaco, Consolas, monospace;
+            background: #dcfce7;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- 1. Header -->
+        <header>
+            <h1>Task: Response to Questions</h1>
+            <p>Applicant Response (Clock Restart)</p>
+        </header>
+
+        <!-- 2. Core Task Information -->
+        <div class="card">
+            <h2 class="card-title">Core Task Information</h2>
+            <strong>ID</strong><br>example-workflow-3-response<br><br>
+            <strong>Parent Task</strong><br><a href="example-workflow-2-questions.html"
+                style="text-decoration:none;color:#34c759;">Information Request</a><br><br>
+            <strong>Status</strong><br><span
+                style="background:#34c759;color:white;padding:4px 10px;border-radius:8px;">requested</span><br><br>
+            <strong>Code</strong><br>Response to Information Request (response-to-questions)<br><br>
+            <strong>Authored</strong><br>2025-03-15T10:00:00+01:00
+        </div>
+
+        <!-- 3. Parties Involved -->
+        <div class="card">
+            <h2 class="card-title">Parties Involved</h2>
+            <div style="margin-bottom:28px;">
+                <strong>Requester & Performer (Applicant)</strong><br>
+                PharmaCorp International Ltd<br>
+                Identifier: ORG-MAH-98765<br>
+            </div>
+        </div>
+
+        <!-- 4. Input Documents -->
+        <div class="card">
+            <div class="card-title">
+                Input Documents
+                <span class="count-badge">2 documents</span>
+            </div>
+
+            <div class="module">
+                <h3>Responses</h3>
+                <div class="doc-item">
+                    <div class="doc-type">Applicant Responses</div>
+                    <span class="doc-code">Response-Doc</span><br>
+                    responses-to-ema-questions.pdf
+                </div>
+                <div class="doc-item">
+                    <div class="doc-type">Annex: Raw Stability Data</div>
+                    <span class="doc-code">Annex-1</span><br>
+                    raw-stability-data.csv
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        HL7 FHIR R5 – API Exchange for Medicinal Products (APIX)
+    </footer>
+</body>
+
+</html>
