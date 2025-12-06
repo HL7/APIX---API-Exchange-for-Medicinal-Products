@@ -7,7 +7,7 @@
     "title": "APIX Regulatory DocumentReference (base64 only)",
     "status": "draft",
     "date": "2025-11-24",
-    "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and mapped to a specific CTD/eCTD section.",
+    "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and categorized with CTD section headings.",
     "fhirVersion": "5.0.0",
     "kind": "resource",
     "abstract": false,
@@ -35,8 +35,8 @@
                 "id": "DocumentReference.type",
                 "path": "DocumentReference.type",
                 "min": 1,
-                "short": "CTD/eCTD section code (e.g. 3.2.S.1.1)",
-                "description": "Coded representation of the CTD or eCTD section to which this document belongs. Binding is required to the APIX CTD section value set.",
+                "short": "CTD section code (e.g. 3.2.S.1.1)",
+                "description": "Coded representation of the CTD section to which this document belongs. Binding is required to the APIX CTD section value set.",
                 "binding": {
                     "strength": "required",
                     "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/ctd-section-vs"
