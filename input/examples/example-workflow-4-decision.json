@@ -32,6 +32,80 @@
             "display": "Initial Submission Task"
         }
     ],
+    "contained": [
+        {
+            "resourceType": "DocumentReference",
+            "id": "docref-approval-letter",
+            "meta": {
+                "versionId": "1",
+                "lastUpdated": "2025-04-20T09:00:00+01:00",
+                "profile": [
+                    "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+                ]
+            },
+            "masterIdentifier": {
+                "system": "urn:ietf:rfc:3986",
+                "value": "urn:uuid:70707070-7070-7070-7070-707070707070"
+            },
+            "status": "current",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "1.0",
+                        "display": "Cover Letter"
+                    }
+                ]
+            },
+            "date": "2025-04-20T09:00:00+01:00",
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "title": "approval-letter.pdf",
+                        "creation": "2025-04-20T09:00:00+01:00",
+                        "data": "JVBERi0xLjQK..."
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "docref-assessment-report",
+            "meta": {
+                "versionId": "1",
+                "lastUpdated": "2025-04-20T09:00:00+01:00",
+                "profile": [
+                    "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+                ]
+            },
+            "masterIdentifier": {
+                "system": "urn:ietf:rfc:3986",
+                "value": "urn:uuid:80808080-8080-8080-8080-808080808080"
+            },
+            "status": "current",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "1.0",
+                        "display": "Cover Letter"
+                    }
+                ]
+            },
+            "date": "2025-04-20T09:00:00+01:00",
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "title": "final-assessment-report.pdf",
+                        "creation": "2025-04-20T09:00:00+01:00",
+                        "data": "JVBERi0xLjQK..."
+                    }
+                }
+            ]
+        }
+    ],
     "status": "completed",
     "intent": "proposal",
     "code": {
@@ -73,7 +147,7 @@
                 ]
             },
             "valueReference": {
-                "reference": "DocumentReference/approval-letter",
+                "reference": "#docref-approval-letter",
                 "display": "Approval Letter"
             }
         },
@@ -87,7 +161,7 @@
                 ]
             },
             "valueReference": {
-                "reference": "DocumentReference/assessment-report",
+                "reference": "#docref-assessment-report",
                 "display": "Final Assessment Report"
             }
         }
