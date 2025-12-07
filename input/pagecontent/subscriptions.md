@@ -101,10 +101,10 @@ gantt
     Decision        :           p10, after p9, 5d
 </pre>
 
-#### 3. Bottleneck Detection (Avg Phase Duration)
+#### 3. Bottleneck Detection (Time Distribution)
 
 <pre class="mermaid">
-bar title Avg. Duration by Phase (Days)
+pie title Avg. Duration by Phase (Days)
     "Validation" : 12
     "Assessment (Phase I)" : 75
     "Clock Stop (Company Time)" : 45
