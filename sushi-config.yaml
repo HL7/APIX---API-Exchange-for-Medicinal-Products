@@ -22,8 +22,8 @@ pages:
     title: Use Cases
   apixtask.md:
     title: APIX Task Structure
-  workflow.md:
-    title: Workflow Overview
+  subscriptions.md:
+    title: Real-Time Subscriptions
   architecture.md:
     title: Architecture
   highvolume.md:
@@ -49,7 +49,7 @@ menu:
   IG Home: index.html
   Use Cases: usecases.html
   APIX Task Structure: apixtask.html
-  Workflow: workflow.html
+  Real-Time Subscriptions: subscriptions.html
   Use Case Examples:
     Post Approval Change: examplepac.html
     Response to Question: examplertq.html

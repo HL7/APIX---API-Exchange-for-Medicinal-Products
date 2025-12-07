@@ -15,7 +15,7 @@ Once a regulator or company implements APIX once, they instantly gain the abilit
 *   **Target KPI:** **-80%** reduction in submission preparation time per variation.
 
 #### 2. Real-Time Regulatory Q&A
-*Eliminating the "black hole" of submission delays.*
+*Creating transparency in submission delays.*
 
 *   **The Problem:** Critical questions from regulators ("Clock Stops") arrive via email or static letters. Responses are drafted offline, circulated manually, and re-uploaded. Delays are often invisible until deadlines are missed.
 *   **The APIX Solution:** Questions arrive as actionable FHIR Tasks directly into the applicant's workflow system. Responses are authored, approved, and routed back instantly via the API.
@@ -36,3 +36,43 @@ The same APIX infrastructure also supports:
 *   **Clinical Trials:** IND/CTA applications and safety amendments.
 *   **Inspections:** GMP/GCP facility registrations and inspection workflows.
 *   **Payments:** Automated fee calculation and invoice reconciliation.
+
+---
+
+### Full Workflow Example – Shelf-Life Update Variation
+
+The following step-by-step example demonstrates a complete Type IB variation procedure to extend the shelf-life of a product, illustrating the **Automated Lifecycle Management** use case.
+
+#### 1. Initial Submission (Company → Regulator)
+**Action:** The applicant initiates the procedure by submitting the dossier.
+*   **View Task:** <a href="example-workflow-1-initial-submission.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-1-initial-submission.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `initial-submission`
+    *   `status` = `requested`
+    *   `input` = Cover Letter, Application Form, and Quality Overall Summary (QOS)
+
+#### 2. Regulatory Questions (Regulator → Company)
+**Action:** The regulator validates the submission and raises questions (Information Request), causing a clock-stop.
+*   **View Task:** <a href="example-workflow-2-questions.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-2-questions.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `information-request`
+    *   `status` = `requested`
+    *   `output` = List of Questions document
+    *   `partOf` = Link to Initial Submission Task
+
+#### 3. Company Response (Company → Regulator)
+**Action:** The applicant performs the necessary tests and submits a response package, restarting the clock.
+*   **View Task:** <a href="example-workflow-3-response.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-3-response.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `response-to-questions`
+    *   `status` = `requested`
+    *   `input` = Response document and raw stability data
+    *   `partOf` = Link to Questions Task
+
+#### 4. Final Decision (Regulator → Company)
+**Action:** The regulator assesses the response and issues a final positive decision (Approval).
+*   **View Task:** <a href="example-workflow-4-decision.html" target="_blank">HTML View</a> / <a href="Task-example-workflow-4-decision.json" target="_blank">JSON Resource</a>
+*   **Key Data:**
+    *   `code` = `approval`
+    *   `status` = `completed`
+    *   `output` = Approval Letter and Final Assessment Report
