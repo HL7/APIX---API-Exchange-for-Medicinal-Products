@@ -44,7 +44,7 @@
         "reference": {
           "reference": "StructureDefinition/apix-documentreference"
         },
-        "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and mapped to a specific CTD/eCTD section.",
+        "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and categorized with CTD section headings.",
         "name": "APIX Regulatory DocumentReference (base64 only)",
         "isExample": false
       },
@@ -52,6 +52,7 @@
         "reference": {
           "reference": "StructureDefinition/apix-task"
         },
+        "description": "Task profile for APIX regulatory submission workflows",
         "name": "APIX Regulatory Task",
         "isExample": false
       },
@@ -78,10 +79,53 @@
       },
       {
         "reference": {
+          "reference": "Task/example-workflow-1-initial-submission"
+        },
+        "name": "example-workflow-1-initial-submission",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Task/example-workflow-2-questions"
+        },
+        "name": "example-workflow-2-questions",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Task/example-workflow-3-response"
+        },
+        "name": "example-workflow-3-response",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Task/example-workflow-4-decision"
+        },
+        "name": "example-workflow-4-decision",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
           "reference": "Task/task-shelf-life-extension-synthpharma-2025"
         },
         "name": "task-shelf-life-extension-synthpharma-2025",
-        "isExample": true
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
       }
     ],
     "page": {
@@ -101,16 +145,16 @@
           "sourceUrl": "usecases.html"
         },
         {
-          "title": "How to Build APIX Tasks",
+          "title": "APIX Task Structure",
           "generation": "markdown",
           "name": "apixtask.html",
           "sourceUrl": "apixtask.html"
         },
         {
-          "title": "Workflow Overview",
+          "title": "Real-Time Subscriptions",
           "generation": "markdown",
-          "name": "workflow.html",
-          "sourceUrl": "workflow.html"
+          "name": "subscriptions.html",
+          "sourceUrl": "subscriptions.html"
         },
         {
           "title": "Architecture",

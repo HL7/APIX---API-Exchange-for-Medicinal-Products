@@ -5,4 +5,8 @@
 [APIXTaskCodeCS]: CodeSystem-apix-task-code.html
 [APIXTaskCodeVS]: ValueSet-apix-task-code-vs.html
 [APIXTaskInputTypeVS]: ValueSet-apix-task-input-type-vs.html
+[example-workflow-1-initial-submission]: Task-example-workflow-1-initial-submission.html
+[example-workflow-2-questions]: Task-example-workflow-2-questions.html
+[example-workflow-3-response]: Task-example-workflow-3-response.html
+[example-workflow-4-decision]: Task-example-workflow-4-decision.html
 [task-shelf-life-extension-synthpharma-2025]: Task-task-shelf-life-extension-synthpharma-2025.html
