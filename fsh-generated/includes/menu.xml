@@ -22,49 +22,8 @@
   <li>
     <a href="subscriptions.html">Real-Time Subscriptions</a>
   </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Use Case Examples
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="examplepac.html">Post Approval Change</a>
-      </li>
-      <li>
-        <a href="examplertq.html">Response to Question</a>
-      </li>
-      <li>
-        <a href="examplecta.html">Clinical Trial Application</a>
-      </li>
-      <li>
-        <a href="examplepayment.html">Payment</a>
-      </li>
-      <li>
-        <a href="exampleaer.html">Adverse Event Report</a>
-      </li>
-      <li>
-        <a href="exampleorgid.html">Request Organization Identifier</a>
-      </li>
-    </ul>
-  </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Architecture
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="architecture.html">Overview</a>
-      </li>
-      <li>
-        <a href="lowvolume.html">Low Volume</a>
-      </li>
-      <li>
-        <a href="mediumvolume.html">Medium Volume</a>
-      </li>
-      <li>
-        <a href="highvolume.html">High Volume</a>
-      </li>
-    </ul>
+  <li>
+    <a href="architecture.html">Architecture</a>
   </li>
   <li>
     <a href="artifacts.html">Artifacts</a>

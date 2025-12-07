@@ -26,42 +26,13 @@ pages:
     title: Real-Time Subscriptions
   architecture.md:
     title: Architecture
-  highvolume.md:
-    title: High Volume
-  mediumvolume.md:
-    title: Medium Volume
-  lowvolume.md:
-    title: Low Volume
-  examplepac.md:
-    title: Post Approval Change
-  examplertq.md:
-    title: Response to Question
-  examplecta.md:
-    title: Clinical Trial Application
-  examplepayment.md:
-    title: Payment
-  exampleaer.md:		
-    title: Adverse Event Report
-  exampleorgid.md:
-    title: Request Organization Identifier
 
 menu:
   IG Home: index.html
   Use Cases: usecases.html
   APIX Task Structure: apixtask.html
   Real-Time Subscriptions: subscriptions.html
-  Use Case Examples:
-    Post Approval Change: examplepac.html
-    Response to Question: examplertq.html
-    Clinical Trial Application: examplecta.html
-    Payment: examplepayment.html
-    Adverse Event Report: exampleaer.html
-    Request Organization Identifier: exampleorgid.html
-  Architecture:
-    Overview: architecture.html
-    Low Volume: lowvolume.html
-    Medium Volume: mediumvolume.html
-    High Volume: highvolume.html
+  Architecture: architecture.html
   Artifacts: artifacts.html
 
 instanceOptions:
