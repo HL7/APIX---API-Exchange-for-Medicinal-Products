@@ -129,7 +129,8 @@ pie title Avg. Duration by Phase (Days)
 </pre>
 
 **4. Regulator View: Annual Statutory Compliance**
-*Automated generation of performance metrics for annual reports (e.g., Outcome of Initial Evaluations).*
+
+Automated generation of performance metrics for annual reports (e.g., Outcome of Initial Evaluations).
 
 <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; max-width: 600px; background: #fff;">
   <h4 style="margin-top:0;">Outcome of Initial Evaluations (2025)</h4>
@@ -157,45 +158,36 @@ pie title Avg. Duration by Phase (Days)
 </div>
 
 **5. Procedure Duration Analysis**
-*Breakdown of average review time by procedure type.*
+
+Breakdown of average review time by procedure type.
 
 <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; max-width: 600px; background: #fff;">
-  <h4 style="margin-top:0;">Avg. Days in Review (2025)</h4>
-  
+  <h4 style="margin-top:0; text-align: center;">Avg. Days in Review (2025)</h4>  
   <div style="display: flex; align-items: flex-end; height: 200px; border-bottom: 2px solid #333; gap: 20px; padding-bottom: 10px;">
-    
-    <!-- Bar 1: Initial MAA (210 days) -->
     <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
       <div style="width: 100%; background-color: #0969da; height: 180px; border-radius: 4px 4px 0 0; position: relative;">
         <span style="position: absolute; top: -20px; width: 100%; text-align: center; font-size: 12px; font-weight: bold;">210d</span>
       </div>
       <div style="margin-top: 10px; font-size: 11px; text-align: center;">Initial MAA</div>
     </div>
-
-    <!-- Bar 2: Type II Variation (90 days) -->
     <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
       <div style="width: 100%; background-color: #0969da; height: 77px; border-radius: 4px 4px 0 0; position: relative;">
         <span style="position: absolute; top: -20px; width: 100%; text-align: center; font-size: 12px; font-weight: bold;">90d</span>
       </div>
       <div style="margin-top: 10px; font-size: 11px; text-align: center;">Type II Var</div>
     </div>
-
-    <!-- Bar 3: Type IB Variation (30 days) -->
     <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
       <div style="width: 100%; background-color: #0969da; height: 26px; border-radius: 4px 4px 0 0; position: relative;">
         <span style="position: absolute; top: -20px; width: 100%; text-align: center; font-size: 12px; font-weight: bold;">30d</span>
       </div>
       <div style="margin-top: 10px; font-size: 11px; text-align: center;">Type IB Var</div>
     </div>
-
-    <!-- Bar 4: Renewal (60 days) -->
     <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
       <div style="width: 100%; background-color: #0969da; height: 51px; border-radius: 4px 4px 0 0; position: relative;">
         <span style="position: absolute; top: -20px; width: 100%; text-align: center; font-size: 12px; font-weight: bold;">60d</span>
       </div>
       <div style="margin-top: 10px; font-size: 11px; text-align: center;">Renewal</div>
     </div>
-
   </div>
   <div style="margin-top: 10px; font-size: 12px; color: #666; text-align: center;">Regulatory Procedure Type</div>
 </div>
