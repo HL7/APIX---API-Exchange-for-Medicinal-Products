@@ -14,10 +14,27 @@ APIX uses the R5 Topic-Based Subscription model (`SubscriptionTopic`) to define 
 
 #### Standard Subscription Topics
 
-| Topic Canonical                                             | Description            | Trigger Event                                                                        |
-| :---------------------------------------------------------- | :--------------------- | :----------------------------------------------------------------------------------- |
-| `http://hl7.org/fhir/uv/apix/SubscriptionTopic/task-update` | **Task Status Change** | Any update to `Task.status` (e.g., `accepted`, `rejected`, `on-hold`)                |
-| `http://hl7.org/fhir/uv/apix/SubscriptionTopic/new-message` | **New Inbound Task**   | Creation of a new Task assigned to the subscriber (e.g., a new Question or Decision) |
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #d3d3d3;">
+  <thead>
+    <tr style="background-color: #f0f0f0;">
+      <th style="border: 1px solid #d3d3d3; padding: 8px;">Topic Canonical</th>
+      <th style="border: 1px solid #d3d3d3; padding: 8px;">Description</th>
+      <th style="border: 1px solid #d3d3d3; padding: 8px;">Trigger Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #d3d3d3; padding: 8px;"><code>http://hl7.org/fhir/uv/apix/SubscriptionTopic/task-update</code></td>
+      <td style="border: 1px solid #d3d3d3; padding: 8px;"><strong>Task Status Change</strong></td>
+      <td style="border: 1px solid #d3d3d3; padding: 8px;">Any update to <code>Task.status</code> (e.g., <code>accepted</code>, <code>rejected</code>, <code>on-hold</code>)</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #d3d3d3; padding: 8px;"><code>http://hl7.org/fhir/uv/apix/SubscriptionTopic/new-message</code></td>
+      <td style="border: 1px solid #d3d3d3; padding: 8px;"><strong>New Inbound Task</strong></td>
+      <td style="border: 1px solid #d3d3d3; padding: 8px;">Creation of a new Task assigned to the subscriber (e.g., a new Question or Decision)</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Creating a Subscription
 
