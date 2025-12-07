@@ -88,7 +88,7 @@ This raw data enables the "Free Performance Dashboards" mentioned in the [IG Hom
 ### Conceptual Visualization
 The following charts illustrate how raw subscription data can be transformed into executive insights.
 
-#### 1. Unified Pipeline View (Global Portfolio)
+**1. Unified Pipeline View (Global Portfolio)**
 
 <pre class="mermaid">
 pie title Submission Status (Global)
@@ -98,7 +98,7 @@ pie title Submission Status (Global)
     "Validation" : 10
 </pre>
 
-#### 2. Cycle Time Analysis (Reconstructed from Timestamped Tasks)
+**2. Cycle Time Analysis (Reconstructed from Timestamped Tasks)**
 
 <pre class="mermaid">
 gantt
@@ -118,7 +118,7 @@ gantt
     Decision        :           p10, after p9, 5d
 </pre>
 
-#### 3. Bottleneck Detection (Time Distribution)
+**3. Bottleneck Detection (Time Distribution)**
 
 <pre class="mermaid">
 pie title Avg. Duration by Phase (Days)
@@ -128,7 +128,7 @@ pie title Avg. Duration by Phase (Days)
     "Final Decision" : 10
 </pre>
 
-#### 4. Regulator View: Annual Statutory Compliance
+**4. Regulator View: Annual Statutory Compliance**
 *Automated generation of performance metrics for annual reports (e.g., Outcome of Initial Evaluations).*
 
 <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; max-width: 600px; background: #fff;">
@@ -156,7 +156,7 @@ pie title Avg. Duration by Phase (Days)
   </div>
 </div>
 
-#### 5. Procedure Duration Analysis
+**5. Procedure Duration Analysis**
 *Breakdown of average review time by procedure type.*
 
 <div style="font-family: sans-serif; border: 1px solid #ddd; padding: 20px; max-width: 600px; background: #fff;">
