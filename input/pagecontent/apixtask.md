@@ -1,8 +1,6 @@
-# APIX Task – The Universal Regulatory Workflow Envelope
-
 In APIX, the Task resource is the universal envelope and workflow engine for all biopharmaceutical regulatory interactions. Whether it is a clinical trial application, marketing authorization application, post-approval variation, response to questions,  decision letter, or review report, it is all represented as an individual **Task** resource.
 
-The following is a simple example of a Task with synthetic content: <a href="html-example-apix-shelf-life-original.html">Sample Task</a>
+The following are examples of Tasks with synthetic content: <a href="html-example-apix-shelf-life-original.html">Sample Task (Shelf Life)</a>, <a href="example-workflow-1-initial-submission.html">Initial Submission</a>, <a href="example-workflow-2-questions.html">Questions</a>, <a href="example-workflow-3-response.html">Response</a>, and <a href="example-workflow-4-decision.html">Decision</a>.
 
 The following table provides an overview of the key elements of the APIX Task resource. For a technical description of the Task resource, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/StructureDefinition-apix-task.html">APIX Task profile</a>.
 
@@ -133,16 +131,3 @@ The following table provides an overview of the key elements of the APIX Task re
 </tr>
 </tbody>
 </table>
-
-### Common Task Examples
-
-Figure 1 – Initial MAA Submission Task (company → regulator)  
-Figure 2 – Validation Question Task (regulator → company)  
-Figure 3 – Response to Validation Question (company → regulator)  
-Figure 4 – Day-80 Assessment Report Task (regulator → company)  
-Figure 5 – Final Approval Letter Task (regulator → company, status = completed)
-
-*(Insert updated graphic diagrams here when available)*
-
-This profile is published in the official APIX Implementation Guide:  
-https://github.com/HL7/rtq-ig/tree/main/input/resources/task

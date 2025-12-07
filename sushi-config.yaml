@@ -21,7 +21,7 @@ pages:
   usecases.md:
     title: Use Cases
   apixtask.md:
-    title: How to Build APIX Tasks
+    title: APIX Task Structure
   workflow.md:
     title: Workflow Overview
   architecture.md:
