@@ -438,7 +438,10 @@
         "max": "1",
         "type": [
           {
-            "code": "Reference"
+            "code": "CodeableReference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
           }
         ],
         "mustSupport": true
