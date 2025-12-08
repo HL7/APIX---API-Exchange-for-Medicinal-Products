@@ -45,6 +45,38 @@
         "mustSupport": true
       },
       {
+        "id": "Task.contained",
+        "path": "Task.contained",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Task.contained:documentReference",
+        "path": "Task.contained",
+        "sliceName": "documentReference",
+        "short": "Embedded Regulatory Document",
+        "definition": "The official regulatory document content (base64) embedded within the Task.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Resource",
+            "profile": [
+              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
         "id": "Task.identifier",
         "path": "Task.identifier",
         "min": 1,
@@ -398,8 +430,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer",
-        "path": "Task.requesterPerformer",
+        "id": "Task.requestedPerformer",
+        "path": "Task.requestedPerformer",
         "short": "Requesting performer organization",
         "description": "The organization that is designated to perform/fill the medicinal product data exchange task on behalf of the requester.",
         "min": 1,
@@ -412,8 +444,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained",
-        "path": "Task.requesterPerformer.contained",
+        "id": "Task.requestedPerformer.contained",
+        "path": "Task.requestedPerformer.contained",
         "short": "Contained requesting performer organization",
         "description": "Inline (contained) Organization resource describing the organization that will perform the task.",
         "type": [
@@ -424,8 +456,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.name",
-        "path": "Task.requesterPerformer.contained.name",
+        "id": "Task.requestedPerformer.contained.name",
+        "path": "Task.requestedPerformer.contained.name",
         "short": "Organization name",
         "description": "Official name of the organization performing the task (e.g., CRO, data provider, affiliate).",
         "min": 1,
@@ -433,8 +465,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.identifier",
-        "path": "Task.requesterPerformer.contained.identifier",
+        "id": "Task.requestedPerformer.contained.identifier",
+        "path": "Task.requestedPerformer.contained.identifier",
         "short": "Organization identifier(s)",
         "description": "One or more business identifiers for the performing organization (e.g., LEI, DUNS, national registry ID).",
         "min": 1,
@@ -442,8 +474,8 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address",
-        "path": "Task.requesterPerformer.contained.address",
+        "id": "Task.requestedPerformer.contained.address",
+        "path": "Task.requestedPerformer.contained.address",
         "short": "Organization address",
         "description": "Physical/legal address of the organization performing the task.",
         "min": 1,
@@ -451,44 +483,44 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.text",
-        "path": "Task.requesterPerformer.contained.address.text",
+        "id": "Task.requestedPerformer.contained.address.text",
+        "path": "Task.requestedPerformer.contained.address.text",
         "short": "Full formatted address",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.line",
-        "path": "Task.requesterPerformer.contained.address.line",
+        "id": "Task.requestedPerformer.contained.address.line",
+        "path": "Task.requestedPerformer.contained.address.line",
         "short": "Street address line(s)",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.city",
-        "path": "Task.requesterPerformer.contained.address.city",
+        "id": "Task.requestedPerformer.contained.address.city",
+        "path": "Task.requestedPerformer.contained.address.city",
         "short": "City",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.district",
-        "path": "Task.requesterPerformer.contained.address.district",
+        "id": "Task.requestedPerformer.contained.address.district",
+        "path": "Task.requestedPerformer.contained.address.district",
         "short": "District/sub-division",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.state",
-        "path": "Task.requesterPerformer.contained.address.state",
+        "id": "Task.requestedPerformer.contained.address.state",
+        "path": "Task.requestedPerformer.contained.address.state",
         "short": "State / Province / Prefecture",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.postalCode",
-        "path": "Task.requesterPerformer.contained.address.postalCode",
+        "id": "Task.requestedPerformer.contained.address.postalCode",
+        "path": "Task.requestedPerformer.contained.address.postalCode",
         "short": "Postal code",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.address.country",
-        "path": "Task.requesterPerformer.contained.address.country",
+        "id": "Task.requestedPerformer.contained.address.country",
+        "path": "Task.requestedPerformer.contained.address.country",
         "short": "Country (ISO 3166-1 alpha-2)",
         "description": "Two-letter country code (ISO 3166-1 alpha-2).",
         "mustSupport": true,
@@ -498,8 +530,8 @@
         }
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom",
-        "path": "Task.requesterPerformer.contained.contact.telecom",
+        "id": "Task.requestedPerformer.contained.contact.telecom",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
         "short": "Organization contact points (email and phone)",
         "min": 1,
         "max": "1",
@@ -515,8 +547,8 @@
         }
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:email",
-        "path": "Task.requesterPerformer.contained.contact.telecom",
+        "id": "Task.requestedPerformer.contained.contact.telecom:email",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
         "sliceName": "email",
         "short": "Email address",
         "min": 1,
@@ -524,22 +556,22 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:email.system",
-        "path": "Task.requesterPerformer.contained.contact.telecom.system",
+        "id": "Task.requestedPerformer.contained.contact.telecom:email.system",
+        "path": "Task.requestedPerformer.contained.contact.telecom.system",
         "min": 1,
         "max": "1",
         "fixedCode": "email"
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:email.value",
-        "path": "Task.requesterPerformer.contained.contact.telecom.value",
+        "id": "Task.requestedPerformer.contained.contact.telecom:email.value",
+        "path": "Task.requestedPerformer.contained.contact.telecom.value",
         "min": 1,
         "max": "1",
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:phone",
-        "path": "Task.requesterPerformer.contained.contact.telecom",
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone",
+        "path": "Task.requestedPerformer.contained.contact.telecom",
         "sliceName": "phone",
         "short": "Phone number",
         "min": 0,
@@ -547,15 +579,15 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:phone.system",
-        "path": "Task.requesterPerformer.contained.contact.telecom.system",
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone.system",
+        "path": "Task.requestedPerformer.contained.contact.telecom.system",
         "min": 1,
         "max": "1",
         "fixedCode": "phone"
       },
       {
-        "id": "Task.requesterPerformer.contained.contact.telecom:phone.value",
-        "path": "Task.requesterPerformer.contained.contact.telecom.value",
+        "id": "Task.requestedPerformer.contained.contact.telecom:phone.value",
+        "path": "Task.requestedPerformer.contained.contact.telecom.value",
         "min": 1,
         "max": "1",
         "mustSupport": true
