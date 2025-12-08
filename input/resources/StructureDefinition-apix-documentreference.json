@@ -47,7 +47,7 @@
                 "path": "DocumentReference.date",
                 "min": 1,
                 "short": "Date/time this document version was created",
-                "description": "Timestamp when this specific version of the document was finalized and included in the submission."
+                "description": "The date and time this DocumentReference metadata record was created for the submission. This represents the 'submission timestamp' of the document to the APIX exchange."
             },
             {
                 "id": "DocumentReference.content",
@@ -83,7 +83,7 @@
                 "path": "DocumentReference.content.attachment.creation",
                 "min": 1,
                 "short": "Document creation date/time",
-                "description": "Date and time when the original document file was created."
+                "description": "The date and time the original document file (PDF, XML, etc.) was authored or generated. This represents the 'file age' and may be earlier than the submission date."
             },
             {
                 "id": "DocumentReference.content.attachment.data",
