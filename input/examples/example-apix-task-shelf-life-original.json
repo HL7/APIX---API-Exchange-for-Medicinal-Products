@@ -258,9 +258,14 @@
     "requester": {
         "reference": "#org-synthpharma-ag"
     },
-    "requesterPerformer": {
-        "reference": "#org-ema-srm-hmed"
-    },
+    "requestedPerformer": [
+        {
+            "reference": {
+                "reference": "Organization/org-mah-98765",
+                "display": "PharmaCorp International Ltd"
+            }
+        }
+    ],
     "text": {
         "status": "generated",
         "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Type IB Variation (C.I.4) – Extension of shelf-life for the finished product SynthVac 50 mg film-coated tablets from 24 months to 36 months based on additional long-term stability data at 25°C/60% RH.</div>"

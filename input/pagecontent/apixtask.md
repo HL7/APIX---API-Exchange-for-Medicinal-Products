@@ -112,10 +112,16 @@ The following table provides an overview of the key elements of the APIX Task re
 <td>Fixed for the entire procedure lifecycle</td>
 </tr>
 <tr>
-<td><code>Task.requesterPerformer</code></td>
-<td>1..1</td>
+<td><code>Task.requestedPerformer</code></td>
+<td>0..1</td>
 <td>Organization producing/performing the task</td>
 <td>Designated performer (e.g. Applicant or Regulator)</td>
+</tr>
+<tr>
+<td><code>Task.businessStatus</code></td>
+<td>0..1</td>
+<td>Detailed regulatory status (e.g. clock-short, validated)</td>
+<td>Enables detailed process analytics and clock-stop tracking</td>
 </tr>
 <tr>
 <td><code>Task.authoredOn</code></td>

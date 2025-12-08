@@ -129,10 +129,14 @@
         "reference": "Organization/org-ema-001",
         "display": "European Medicines Agency"
     },
-    "requesterPerformer": {
-        "reference": "Organization/org-ema-001",
-        "display": "European Medicines Agency"
-    },
+    "requestedPerformer": [
+        {
+            "reference": {
+                "reference": "Organization/org-mah-98765",
+                "display": "PharmaCorp International Ltd"
+            }
+        }
+    ],
     "authoredOn": "2025-04-20T09:00:00+01:00",
     "lastModified": "2025-04-20T09:00:00+01:00",
     "input": [],
