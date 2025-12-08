@@ -137,6 +137,15 @@
         }
       },
       {
+        "id": "Task.businessStatus",
+        "path": "Task.businessStatus",
+        "short": "Detailed regulatory status (e.g., clock-stop)",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-business-status-vs"
+        }
+      },
+      {
         "id": "Task.intent",
         "path": "Task.intent",
         "min": 1,
