@@ -703,6 +703,37 @@
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
         ],
         "mustSupport": true
+      },
+      {
+        "id": "Task.focus",
+        "path": "Task.focus",
+        "max": "0"
+      },
+      {
+        "id": "Task.for",
+        "path": "Task.for",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.encounter",
+        "path": "Task.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Task.executionPeriod",
+        "path": "Task.executionPeriod",
+        "max": "0"
+      },
+      {
+        "id": "Task.relevantHistory",
+        "path": "Task.relevantHistory",
+        "max": "0"
+      },
+      {
+        "id": "Task.restriction",
+        "path": "Task.restriction",
+        "max": "0"
       }
     ]
   }
