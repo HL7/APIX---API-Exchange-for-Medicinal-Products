@@ -28,7 +28,7 @@ APIX changes that by providing a single, harmonised, API-first layer that is bui
 
 This aligns with a vision for the near future of structured, algorithmic interaction. A 2023 conceptual framework published in the *International Journal of Pharmaceutics*, titled ["Real-time algorithmic exchange and processing of pharmaceutical quality data and information"](https://www.sciencedirect.com/science/article/pii/S0378517323007627), envisions a world where adopting FHIR and modern APIs will "reduce the potential time for data exchange from months to days, hours, minutes, and eventually sub-seconds." This modernization will unlock efficiency, accelerate decision-making, and encourage innovation in pharmaceutical manufacturing.
 
-This initiative mirrors the transformation seen in the financial sector with [**ISO 20022**](https://www.iso20022.org), which harmonized global payment data to enable real-time, cross-border interoperability. Just as finance moved from fragmented legacy formats to a rich, structured standard, APIX moves medicinal product exchange from static documents to rich, computable resources.
+This initiative mirrors the transformation seen in the financial sector with [ISO 20022](https://www.iso20022.org), which harmonized global payment data to enable real-time, cross-border interoperability. Just as finance moved from fragmented legacy formats to a rich, structured standard, APIX moves medicinal product exchange from static documents to rich, computable resources.
 
 ### In Scope
 Phase I (2025 / 2026) focuses on the following:
