@@ -1,6 +1,6 @@
 {
     "resourceType": "Task",
-    "id": "task-workflow-step2",
+    "id": "scenario1-02-validation",
     "meta": {
         "versionId": "2",
         "lastUpdated": "2025-11-20T14:30:00+01:00",
@@ -8,6 +8,22 @@
             "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
     },
+    "basedOn": [
+        {
+            "reference": "Task/scenario1-01-initial-submission",
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:workflow-step1-instance",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                        "code": "task-instance-uuid",
+                        "display": "Task Instance UUID"
+                    }
+                ]
+            }
+        }
+    ],
     "identifier": [
         {
             "use": "official",

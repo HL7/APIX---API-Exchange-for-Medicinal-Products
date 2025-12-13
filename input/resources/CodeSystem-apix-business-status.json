@@ -10,6 +10,11 @@
     "content": "complete",
     "concept": [
         {
+            "code": "submitted",
+            "display": "Submitted",
+            "definition": "The application has been submitted by the applicant."
+        },
+        {
             "code": "received",
             "display": "Received",
             "definition": "The application or submission has been received by the regulator."

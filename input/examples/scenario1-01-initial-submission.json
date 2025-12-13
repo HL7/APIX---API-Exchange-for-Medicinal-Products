@@ -1,6 +1,6 @@
 {
     "resourceType": "Task",
-    "id": "task-workflow-step1",
+    "id": "scenario1-01-initial-submission",
     "meta": {
         "versionId": "1",
         "lastUpdated": "2025-11-15T09:00:00+01:00",

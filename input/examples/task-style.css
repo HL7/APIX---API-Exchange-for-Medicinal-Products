@@ -137,3 +137,9 @@ footer {
 .field-value {
     color: #1d1d1f;
 }
+
+.description-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
