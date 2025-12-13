@@ -1,0 +1,139 @@
+/* ============================================= */
+/* APIX – Apple-style rendering for Task examples */
+/* Light mode only – pure CSS – no XSL needed     */
+/* ============================================= */
+
+.apix-apple-task body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: hsl(240, 20%, 98%);
+    color: #1d1d1f;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.apix-apple-task .container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.apix-apple-task .header {
+    background: linear-gradient(135deg, #f5f5f7 0%, #eaeaf2 100%);
+    padding: 40px;
+    text-align: center;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.apix-apple-task .header h1 {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.apix-apple-task .header p {
+    margin: 0;
+    font-size: 18px;
+    color: #86868b;
+}
+
+.apix-apple-task .section {
+    padding: 36px 40px;
+    border-bottom: 1px solid #e5e5ea;
+}
+
+.apix-apple-task .section:last-child {
+    border-bottom: none;
+}
+
+.apix-apple-task .section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 24px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d2d2d7;
+    color: #1d1d1f;
+}
+
+.apix-apple-task table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 17px;
+}
+
+.apix-apple-task th {
+    text-align: left;
+    padding: 12px 0 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #86868b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.apix-apple-task td {
+    padding: 14px 0;
+    border-top: 1px solid #e5e5ea;
+    vertical-align: top;
+}
+
+.apix-apple-task td:first-child {
+    width: 280px;
+    color: #515154;
+    font-weight: 500;
+}
+
+.apix-apple-task .badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #e5e5ea;
+    color: #1d1d1f;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.apix-apple-task .documents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.apix-apple-task .doc-card {
+    background: #f9f9fb;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.2s ease;
+    border: 1px solid #e5e5ea;
+}
+
+.apix-apple-task .doc-card:hover {
+    background: #f0f0f5;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.apix-apple-task .doc-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.apix-apple-task .doc-type {
+    font-size: 14px;
+    color: #86868b;
+}
+
+.apix-apple-task .footer {
+    padding: 28px 40px;
+    text-align: center;
+    background: #f5f5f7;
+    color: #86868b;
+    font-size: 14px;
+}
