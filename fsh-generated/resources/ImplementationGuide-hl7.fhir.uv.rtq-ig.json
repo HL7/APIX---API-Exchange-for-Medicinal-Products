@@ -126,6 +126,16 @@
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
+      },
+      {
+        "reference": {
+          "reference": "Task/task-workflow-step1"
+        },
+        "name": "task-workflow-step1",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
       }
     ],
     "page": {
@@ -161,6 +171,12 @@
           "generation": "markdown",
           "name": "architecture.html",
           "sourceUrl": "architecture.html"
+        },
+        {
+          "title": "Workflow Example",
+          "generation": "markdown",
+          "name": "workflow.html",
+          "sourceUrl": "workflow.html"
         }
       ],
       "name": "toc.html",
