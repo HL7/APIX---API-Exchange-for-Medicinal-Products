@@ -9,7 +9,7 @@ It is important to note that throughout this workflow, the Regulator does not di
     
 The company initiates the process by submitting a task. This submission acts as the initial shelf-life update proposal.
     <br>
-**Example:** <a href="../examples/scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="../examples/scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
+**Example:** <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
 
 **Submission Content:**
     1.  Cover letter
@@ -27,7 +27,7 @@ The company initiates the process by submitting a task. This submission acts as 
     
 The regulator receives the task (detected via their own system integration), performs an initial validation, and updates the Initial Task to acknowledge receipt and provide validation results.
     <br>
-**Example:** <a href="../examples/scenario1-02-validation.json" target="_blank">JSON Resource</a> | <a href="../examples/scenario1-02-validation.html" target="_blank">HTML Action View</a>
+**Example:** <a href="Task-scenario1-02-validation.json" target="_blank">JSON Resource</a> | <a href="scenario1-02-validation.html" target="_blank">HTML Action View</a>
     
 *   Regulator updates the Task status to **Accepted**.
 *   Regulator prepares the **Acknowledgement of Receipt** and **Validation Results**.
@@ -42,7 +42,7 @@ The regulator begins the internal processing of the shelf-life update request.
     
 During processing, the regulator identifies a need for clarification or additional information.
     <br>
-**Example:** <a href="../examples/scenario1-03-questions.json" target="_blank">JSON Resource</a> | <a href="../examples/scenario1-03-questions.html" target="_blank">HTML View</a>
+**Example:** <a href="Task-scenario1-03-questions.json" target="_blank">JSON Resource</a> | <a href="scenario1-03-questions.html" target="_blank">HTML View</a>
 
 *   The Regulator posts a **new** Task with a specific question in `Task.input`.
 *   *Note: This Task has the same `groupIdentifier` as the initial task.*
@@ -52,7 +52,7 @@ During processing, the regulator identifies a need for clarification or addition
     
 The company reviews the question and provides the necessary information.
     <br>
-**Example:** <a href="../examples/scenario1-04-response.json" target="_blank">JSON Resource</a> | <a href="../examples/scenario1-04-response.html" target="_blank">HTML View</a>
+**Example:** <a href="Task-scenario1-04-response.json" target="_blank">JSON Resource</a> | <a href="scenario1-04-response.html" target="_blank">HTML View</a>
 
 *   Company posts a response to the **question Task** (updating it) with the content of the response in `Task.output`.
 *   *Note: This update triggers a notification to the Regulator.*
@@ -90,7 +90,7 @@ The regulator validates the response and closes the second query task.
     
 The review process concludes.
     <br>
-**Example:** <a href="../examples/scenario1-05-decision.json" target="_blank">JSON Resource</a> | <a href="../examples/scenario1-05-decision.html" target="_blank">HTML View</a>
+**Example:** <a href="Task-scenario1-05-decision.json" target="_blank">JSON Resource</a> | <a href="scenario1-05-decision.html" target="_blank">HTML View</a>
 
 *   Regulator updates the status of the **Initial Task** to **complete**.
 *   Regulator adds the **Cover Letter**, **Decision Letter**, and **Review Report** to `Task.output` of the Initial Task.

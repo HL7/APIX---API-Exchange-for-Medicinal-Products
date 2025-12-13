@@ -45,7 +45,7 @@ The following step-by-step example demonstrates a complete Type IB variation pro
 
 #### 1. Initial Submission (Company → Regulator)
 **Action:** The applicant initiates the procedure by submitting the dossier.
-*   **View Task:** <a href="scenario1-01-initial-submission.html" target="_blank">HTML View</a> / <a href="scenario1-01-initial-submission.json" target="_blank">JSON Resource</a>
+*   **View Task:** <a href="scenario1-01-initial-submission.html" target="_blank">HTML View</a> / <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a>
 *   **Key Data:**
     *   `code` = `initial-submission`
     *   `status` = `requested`
