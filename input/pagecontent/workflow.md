@@ -8,6 +8,9 @@ It is important to note that throughout this workflow, the Regulator does not di
 1.  **Company posts a Task to the regulator (Version 1)**
     
     The company initiates the process by submitting a task. This submission acts as the initial shelf-life update proposal.
+    <br>
+    **Example:** <a href="Task-task-workflow-step1.json" target="_blank">JSON Resource</a> | <a href="example-workflow-step1.html" target="_blank">HTML Action View</a>
+
     **Submission Content:**
     1.  Cover letter
     2.  Application form
@@ -23,6 +26,9 @@ It is important to note that throughout this workflow, the Regulator does not di
 2.  **Regulator Validates and Acknowledges (Version 2 of Initial Task)**
     
     The regulator receives the task (detected via their own system integration), performs an initial validation, and updates the Initial Task to acknowledge receipt and provide validation results.
+    <br>
+    **Example:** <a href="example-workflow-step2.json" target="_blank">JSON Resource</a> | <a href="example-workflow-step2.html" target="_blank">HTML Action View</a>
+    
     *   Regulator updates the Task status to **Accepted**.
     *   Regulator prepares the **Acknowledgement of Receipt** and **Validation Results**.
     *   Regulator adds these documents to `Task.output` and saves the Task.
@@ -35,6 +41,9 @@ It is important to note that throughout this workflow, the Regulator does not di
 4.  **Regulator finds an issue and Posts a new Task**
     
     During processing, the regulator identifies a need for clarification or additional information.
+    <br>
+    **Example:** <a href="Task-example-workflow-2-questions.json" target="_blank">JSON Resource</a> | <a href="Task-example-workflow-2-questions.html" target="_blank">HTML View</a>
+
     *   The Regulator posts a **new** Task with a specific question in `Task.input`.
     *   *Note: This Task has the same `groupIdentifier` as the initial task.*
     *   *Note: Creating this new Task triggers a notification to the Company.*
@@ -42,6 +51,9 @@ It is important to note that throughout this workflow, the Regulator does not di
 5.  **Company Posts a response**
     
     The company reviews the question and provides the necessary information.
+    <br>
+    **Example:** <a href="Task-example-workflow-3-response.json" target="_blank">JSON Resource</a> | <a href="Task-example-workflow-3-response.html" target="_blank">HTML View</a>
+
     *   Company posts a response to the **question Task** (updating it) with the content of the response in `Task.output`.
     *   *Note: This update triggers a notification to the Regulator.*
 
@@ -77,6 +89,9 @@ It is important to note that throughout this workflow, the Regulator does not di
 11. **Regulator completes the review (Version 3 of Initial Task)**
     
     The review process concludes.
+    <br>
+    **Example:** <a href="Task-example-workflow-4-decision.json" target="_blank">JSON Resource</a> | <a href="Task-example-workflow-4-decision.html" target="_blank">HTML View</a>
+
     *   Regulator updates the status of the **Initial Task** to **complete**.
     *   Regulator adds the **Cover Letter**, **Decision Letter**, and **Review Report** to `Task.output` of the Initial Task.
     *   *Note: This final update triggers a notification to the Company, signaling the end of the process.*

@@ -9,14 +9,7 @@
   "compose": {
     "include": [
       {
-        "system": "http://hl7.org/fhir/task-business-status",
-        "concept": [
-          { "code": "validated" },
-          { "code": "under-assessment" },
-          { "code": "clock-stop" },
-          { "code": "clock-restart" },
-          { "code": "consolidated-review" }
-        ]
+        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status"
       }
     ]
   }

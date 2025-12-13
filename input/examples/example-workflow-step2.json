@@ -1,0 +1,484 @@
+{
+    "resourceType": "Task",
+    "id": "task-workflow-step2",
+    "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-11-20T14:30:00+01:00",
+        "profile": [
+            "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+    },
+    "identifier": [
+        {
+            "use": "official",
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:workflow-step1-instance",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                        "code": "task-instance-uuid",
+                        "display": "Task Instance UUID"
+                    }
+                ]
+            }
+        },
+        {
+            "use": "official",
+            "system": "http://ema.europa.eu/procedure-number",
+            "value": "EMEA/H/C/001234/IB/0025",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                        "code": "regulator-procedure-number",
+                        "display": "Regulator Procedure Number"
+                    }
+                ]
+            }
+        }
+    ],
+    "groupIdentifier": {
+        "use": "official",
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:uuid:workflow-group-id-12345",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                    "code": "submission-group-uuid",
+                    "display": "Submission Group UUID"
+                }
+            ]
+        }
+    },
+    "status": "accepted",
+    "businessStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status",
+                "code": "validation-successful",
+                "display": "Validation Successful"
+            }
+        ]
+    },
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-type",
+                "code": "variation-type-ib",
+                "display": "Type IB Variation"
+            }
+        ]
+    },
+    "authoredOn": "2025-11-15T09:00:00+01:00",
+    "lastModified": "2025-11-20T14:30:00+01:00",
+    "requester": {
+        "reference": "#org-synthpharma-ag",
+        "display": "SynthPharma AG"
+    },
+    "requestedPerformer": [
+        {
+            "reference": {
+                "reference": "#org-ema-srm-hmed",
+                "display": "European Medicines Agency"
+            }
+        }
+    ],
+    "contained": [
+        {
+            "resourceType": "Organization",
+            "id": "org-synthpharma-ag",
+            "name": "SynthPharma AG",
+            "address": {
+                "type": "physical",
+                "text": "123 Synthetic Research Blvd, 4000 Basel, Switzerland",
+                "line": [
+                    "123 Synthetic Research Blvd"
+                ],
+                "city": "Basel",
+                "district": "Basel-Stadt",
+                "state": "Basel-Stadt",
+                "postalCode": "4000",
+                "country": "Switzerland"
+            },
+            "contact": [
+                {
+                    "name": {
+                        "text": "Dr. John Doe, Head of Regulatory Affairs"
+                    },
+                    "telecom": [
+                        {
+                            "system": "email",
+                            "value": "john.doe@synthpharma.example",
+                            "use": "work"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "resourceType": "Organization",
+            "id": "org-ema-srm-hmed",
+            "name": "European Medicines Agency – Human Medicines Evaluation Division",
+            "address": {
+                "type": "physical",
+                "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands",
+                "line": [
+                    "Domenico Scarlattilaan 6"
+                ],
+                "city": "Amsterdam",
+                "postalCode": "1083 HS",
+                "country": "Netherlands"
+            },
+            "contact": [
+                {
+                    "name": {
+                        "text": "Scientific and Regulatory Management"
+                    },
+                    "telecom": [
+                        {
+                            "system": "email",
+                            "value": "srm@ema.example.eu",
+                            "use": "work"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc1",
+            "type": {
+                "coding": [
+                    {
+                        "code": "cover-letter",
+                        "display": "Cover Letter"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Cover Letter.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc2",
+            "type": {
+                "coding": [
+                    {
+                        "code": "application-form",
+                        "display": "Application Form"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Application Form.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc3",
+            "type": {
+                "coding": [
+                    {
+                        "code": "annotated-label",
+                        "display": "Annotated Label"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Annotated Label.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc4",
+            "type": {
+                "coding": [
+                    {
+                        "code": "clean-label",
+                        "display": "Clean Label"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Clean Label.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc5",
+            "type": {
+                "coding": [
+                    {
+                        "code": "pack-mockup",
+                        "display": "Pack Mockup"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Pack Mockup.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc6",
+            "type": {
+                "coding": [
+                    {
+                        "code": "cmc-stability-summary",
+                        "display": "Stability Summary"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "CMC Doc 1 - Summary.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc7",
+            "type": {
+                "coding": [
+                    {
+                        "code": "cmc-stability-data",
+                        "display": "Stability Data"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "CMC Doc 2 - Data.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc8",
+            "type": {
+                "coding": [
+                    {
+                        "code": "cmc-stability-commitment",
+                        "display": "Stability Commitment"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "CMC Doc 3 - Commitment.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc9",
+            "type": {
+                "coding": [
+                    {
+                        "code": "cmc-ds-stability-summary",
+                        "display": "DS Stability Summary"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "CMC Doc 4 - DS Summary.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc10",
+            "type": {
+                "coding": [
+                    {
+                        "code": "cmc-ds-stability-data",
+                        "display": "DS Stability Data"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "CMC Doc 5 - DS Data.pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "output-ack",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "acknowledgement-receipt",
+                        "display": "Acknowledgement of Receipt"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Acknowledgement_Letter.pdf",
+                "contentType": "application/pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "output-validation",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "validation-report",
+                        "display": "Validation Report"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Validation_Report.pdf",
+                "contentType": "application/pdf"
+            }
+        }
+    ],
+    "input": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc1"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc2"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc3"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc4"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc5"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc6"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc7"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc8"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc9"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#doc10"
+            }
+        }
+    ],
+    "output": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#output-ack"
+            }
+        },
+        {
+            "type": {
+                "coding": [
+                    {
+                        "code": "regulatory-document"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "#output-validation"
+            }
+        }
+    ]
+}
