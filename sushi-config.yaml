@@ -22,20 +22,20 @@ pages:
     title: Use Cases
   apixtask.md:
     title: APIX Task Structure
+  workflow.md:
+    title: Workflow Example
   subscriptions.md:
     title: Real-Time Subscriptions
   architecture.md:
     title: Architecture
-  workflow.md:
-    title: Workflow Example
 
 menu:
   IG Home: index.html
   Use Cases: usecases.html
   APIX Task Structure: apixtask.html
+  Workflow Example: workflow.html
   Real-Time Subscriptions: subscriptions.html
   Architecture: architecture.html
-  Workflow Example: workflow.html
   Artifacts: artifacts.html
 
 instanceOptions:

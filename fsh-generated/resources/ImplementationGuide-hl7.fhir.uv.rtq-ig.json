@@ -161,6 +161,12 @@
           "sourceUrl": "apixtask.html"
         },
         {
+          "title": "Workflow Example",
+          "generation": "markdown",
+          "name": "workflow.html",
+          "sourceUrl": "workflow.html"
+        },
+        {
           "title": "Real-Time Subscriptions",
           "generation": "markdown",
           "name": "subscriptions.html",
@@ -171,12 +177,6 @@
           "generation": "markdown",
           "name": "architecture.html",
           "sourceUrl": "architecture.html"
-        },
-        {
-          "title": "Workflow Example",
-          "generation": "markdown",
-          "name": "workflow.html",
-          "sourceUrl": "workflow.html"
         }
       ],
       "name": "toc.html",
