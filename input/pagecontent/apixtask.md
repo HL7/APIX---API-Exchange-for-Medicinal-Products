@@ -1,6 +1,6 @@
 In APIX, the Task resource is the universal envelope and workflow engine for all biopharmaceutical regulatory interactions. Whether it is a clinical trial application, marketing authorization application, post-approval variation, response to questions,  decision letter, or review report, it is all represented as an individual **Task** resource.
 
-The following are examples of Tasks with synthetic content: <a href="html-example-apix-shelf-life-original.html">Sample Task (Shelf Life)</a>, <a href="example-workflow-1-initial-submission.html">Initial Submission</a>, <a href="example-workflow-2-questions.html">Questions</a>, <a href="example-workflow-3-response.html">Response</a>, and <a href="example-workflow-4-decision.html">Decision</a>.
+The following are examples of Tasks with synthetic content: <a href="html-example-apix-shelf-life-original.html">Sample Task (Shelf Life)</a>, <a href="scenario1-01-initial-submission.html">Initial Submission</a>, <a href="scenario1-03-questions.html">Questions</a>, <a href="scenario1-04-response.html">Response</a>, and <a href="scenario1-05-decision.html">Decision</a>.
 
 The following table provides an overview of the key elements of the APIX Task resource. For a technical description of the Task resource, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/StructureDefinition-apix-task.html">APIX Task profile</a>.
 
