@@ -1,0 +1,14 @@
+[APIX_CTD_Section]: CodeSystem-ctd-section.html
+[APIXBusinessStatusCS]: CodeSystem-apix-business-status.html
+[APIXBusinessStatusVS]: ValueSet-apix-business-status-vs.html
+[APIXDocumentReference]: StructureDefinition-apix-documentreference.html
+[APIXTask]: StructureDefinition-apix-task.html
+[APIXTaskCodeCS]: CodeSystem-apix-task-code.html
+[APIXTaskCodeVS]: ValueSet-apix-task-code-vs.html
+[APIXTaskInputTypeVS]: ValueSet-apix-task-input-type-vs.html
+[scenario1-01-initial-submission]: Task-scenario1-01-initial-submission.html
+[scenario1-02-validation]: Task-scenario1-02-validation.html
+[scenario1-03-questions]: Task-scenario1-03-questions.html
+[scenario1-04-response]: Task-scenario1-04-response.html
+[scenario1-05-decision]: Task-scenario1-05-decision.html
+[task-shelf-life-extension-synthpharma-2025]: Task-task-shelf-life-extension-synthpharma-2025.html
