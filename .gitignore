@@ -1,0 +1,12 @@
+# FHIR IG Build Artifacts
+output/
+temp/
+fsh-generated/
+input-cache/
+*.log
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+package-lock.json
+template/
