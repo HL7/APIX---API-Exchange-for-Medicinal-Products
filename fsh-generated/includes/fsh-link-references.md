@@ -8,7 +8,9 @@
 [APIXTaskInputTypeVS]: ValueSet-apix-task-input-type-vs.html
 [scenario1-01-initial-submission]: Task-scenario1-01-initial-submission.html
 [scenario1-02-validation]: Task-scenario1-02-validation.html
-[scenario1-03-questions]: Task-scenario1-03-questions.html
-[scenario1-04-response]: Task-scenario1-04-response.html
-[scenario1-05-decision]: Task-scenario1-05-decision.html
+[scenario1-03-finance-invoice]: Task-scenario1-03-finance-invoice.html
+[scenario1-04-finance-payment]: Task-scenario1-04-finance-payment.html
+[scenario1-05-technical-question]: Task-scenario1-05-technical-question.html
+[scenario1-06-technical-response]: Task-scenario1-06-technical-response.html
+[scenario1-07-final-decision]: Task-scenario1-07-final-decision.html
 [task-shelf-life-extension-synthpharma-2025]: Task-task-shelf-life-extension-synthpharma-2025.html
