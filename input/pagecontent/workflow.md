@@ -10,6 +10,8 @@ The workflow consists of three main phases: **Validation**, **Review**, and **De
 #### Phase 1: Submission and Validation
 
 **Step 1.0: Company posts a Task to the regulator (Initial Submission)**<br>
+Example: <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
+<br>
 The company initiates the process by submitting a task with the application package. In this example, the applicaiton contains the following:
 1.  Cover letter
 2.  Application form
@@ -28,6 +30,7 @@ The regulator validates the package.
 *   **Scenario A: Validation Passes** (Step 3.1)
     *   Regulator updates `Task.status` to **Accepted**.
     *   Regulator attaches Acknowledgement of Receipt and Validation Results.
+    *   Example: <a href="Task-scenario1-02-validation.json" target="_blank">JSON Resource</a> | <a href="scenario1-02-validation.html" target="_blank">HTML Action View</a>
 
 *   **Scenario B: Validation Fails** (Step 4.1)
     *   Regulator requests missing documents via a new Task.
