@@ -68,6 +68,16 @@
             "code": "withdrawn",
             "display": "Withdrawn",
             "definition": "The application has been withdrawn by the applicant."
+        },
+        {
+            "code": "payment-requested",
+            "display": "Payment Requested",
+            "definition": "A fee payment has been requested by the regulator."
+        },
+        {
+            "code": "payment-received",
+            "display": "Payment Received",
+            "definition": "The fee payment has been received and confirmed."
         }
     ]
 }

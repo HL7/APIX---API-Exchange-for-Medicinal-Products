@@ -14,7 +14,17 @@
         }
     ],
     "status": "completed",
+    "businessStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/apix-business-status",
+                "code": "payment-received",
+                "display": "Payment Received"
+            }
+        ]
+    },
     "intent": "order",
+    "priority": "routine",
     "code": {
         "coding": [
             {
@@ -33,19 +43,59 @@
     "authoredOn": "2025-03-05T09:00:00+01:00",
     "lastModified": "2025-03-06T14:00:00+01:00",
     "requester": {
-        "identifier": {
-            "system": "http://ema.europa.eu/regulators",
-            "value": "EMA"
-        },
+        "reference": "#org-ema",
         "display": "European Medicines Agency"
     },
     "owner": {
-        "identifier": {
-            "system": "http://ema.europa.eu/mah",
-            "value": "marketing-auth-holder"
-        },
+        "reference": "#org-pharma",
         "display": "Pharma Co. Ltd."
     },
+    "contained": [
+        {
+            "resourceType": "Organization",
+            "id": "org-ema",
+            "name": "European Medicines Agency"
+        },
+        {
+            "resourceType": "Organization",
+            "id": "org-pharma",
+            "name": "Pharma Co. Ltd."
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc-invoice-001",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
+                        "code": "invoice",
+                        "display": "Invoice"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "INV-2025-001.pdf",
+                "contentType": "application/pdf"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc-payment-proof",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
+                        "code": "proof-of-payment",
+                        "display": "Proof of Payment"
+                    }
+                ]
+            },
+            "valueAttachment": {
+                "title": "Payment-Confirmation.pdf",
+                "contentType": "application/pdf"
+            }
+        }
+    ],
     "input": [
         {
             "type": {
@@ -58,7 +108,7 @@
                 ]
             },
             "valueReference": {
-                "reference": "DocumentReference/doc-invoice-001",
+                "reference": "#doc-invoice-001",
                 "display": "INV-2025-001.pdf"
             }
         }
@@ -75,7 +125,7 @@
                 ]
             },
             "valueReference": {
-                "reference": "DocumentReference/doc-payment-proof",
+                "reference": "#doc-payment-proof",
                 "display": "Payment-Confirmation.pdf"
             }
         }

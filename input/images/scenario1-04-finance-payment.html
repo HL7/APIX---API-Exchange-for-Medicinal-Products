@@ -10,84 +10,131 @@
 
 <body>
     <div class="container">
+
+        <!-- 1. Header -->
         <header>
-            <h1>API-Exchange Task</h1>
-            <p>Financial Review: Payment Confirmed</p>
+            <h1>Task: Financial Review (Payment)</h1>
+            <p>HL7 FHIR R5 – APIX Implementation Guide</p>
         </header>
 
-        <!-- Task Description Card -->
+        <!-- 2. Task Description -->
         <div class="card">
-            <div class="card-title">Task Description</div>
+            <h2 class="card-title">Task Description</h2>
             <div class="description-text">
                 Financial Review: Payment Confirmed
             </div>
         </div>
 
-        <!-- Main Task Card -->
+        <!-- 3. Core Task Information -->
         <div class="card">
-            <div class="card-title">
-                Core Task Information
-                <span class="count-badge">Status: Completed</span>
-            </div>
+            <h2 class="card-title">Core Task Information</h2>
 
             <div class="field-list">
-                <div class="field-label">Task ID:</div>
-                <div class="field-value doc-code">scenario1-04-finance-payment</div>
+                <span class="field-label">Version ID</span>
+                <span class="field-value">2</span>
 
-                <div class="field-label">Type:</div>
-                <div class="field-value">Request Payment</div>
+                <span class="field-label">Task ID</span>
+                <span class="field-value">scenario1-04-finance-payment</span>
 
-                <div class="field-label">Subject:</div>
-                <div class="field-value">Acetaminophen 500mg Tablets</div>
+                <span class="field-label">Group Identifier</span>
+                <span class="field-value">urn:uuid:workflow-group-id-12345</span>
 
-                <div class="field-label">Requester:</div>
-                <div class="field-value">European Medicines Agency (EMA)</div>
+                <span class="field-label">Procedure ID</span>
+                <span class="field-value">PROC-2025-12345</span>
 
-                <div class="field-label">Owner:</div>
-                <div class="field-value">Pharma Co. Ltd.</div>
+                <span class="field-label">Status</span>
+                <span class="field-value"><span class="status-badge success">completed</span></span>
 
-                <div class="field-label">Intent:</div>
-                <div class="field-value">Order</div>
+                <span class="field-label">Business Status</span>
+                <span class="field-value"><span class="status-badge success">Payment Received</span></span>
 
-                <div class="field-label">Last Modified:</div>
-                <div class="field-value">2025-03-06</div>
+                <span class="field-label">Intent</span>
+                <span class="field-value">order</span>
+
+                <span class="field-label">Priority</span>
+                <span class="field-value">routine</span>
+            </div>
+
+            <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+
+            <div class="field-list">
+                <span class="field-label">Code</span>
+                <span class="field-value">Request Payment (request-payment)</span>
+
+                <span class="field-label">Authored</span>
+                <span class="field-value">2025-03-05 09:00:00 UTC+01:00</span>
+
+                <span class="field-label">Last Updated</span>
+                <span class="field-value">2025-03-06 14:00:00 UTC+01:00</span>
             </div>
         </div>
 
-        <!-- Inputs Module -->
-        <div class="module">
-            <h3>Inputs (from Regulator)</h3>
+        <!-- 3. Parties Involved -->
+        <div class="card">
+            <h2 class="card-title">Parties Involved</h2>
 
-            <div class="doc-item">
-                <div class="doc-header">
-                    <span class="doc-type">Invoice</span>
+            <div class="party-info">
+                <span class="party-role">Requester</span>
+                <div class="party-name">European Medicines Agency (EMA)</div>
+                <div class="party-details">
+                    <strong>Address:</strong> Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands<br>
+                    <strong>Contact:</strong> Scientific and Regulatory Management<br>
+                    <strong>Email:</strong> srm@ema.example.eu
                 </div>
-                <div class="doc-content">
-                    <div class="doc-name">INV-2025-001.pdf</div>
-                    <div class="doc-ref">Reference: DocumentReference/doc-invoice-001</div>
+            </div>
+
+            <div class="party-info">
+                <span class="party-role">Performer</span>
+                <div class="party-name">Pharma Co. Ltd.</div>
+                <div class="party-details">
+                    <strong>Address:</strong> 123 Synthetic Research Blvd, 4000 Basel, Switzerland<br>
+                    <strong>Contact:</strong> Dr. John Doe, Head of Regulatory Affairs<br>
+                    <strong>Email:</strong> john.doe@synthpharma.example
                 </div>
             </div>
         </div>
 
-        <!-- Outputs Module -->
-        <div class="module">
-            <h3>Outputs (from Company)</h3>
+        <!-- 4. Input Documents -->
+        <div class="card">
+            <div class="card-title">
+                Input Documents
+                <span class="count-badge">1 document</span>
+            </div>
 
-            <div class="doc-item">
-                <div class="doc-header">
-                    <span class="doc-type">Proof of Payment</span>
-                </div>
-                <div class="doc-content">
-                    <div class="doc-name">Payment-Confirmation.pdf</div>
-                    <div class="doc-ref">Reference: DocumentReference/doc-payment-proof</div>
+            <div class="module">
+                <h3>Financial Documents</h3>
+                <div class="doc-item">
+                    <div class="doc-type">Invoice</div>
+                    <span class="doc-code">invoice</span><br>
+                    INV-2025-001.pdf
                 </div>
             </div>
         </div>
 
-        <footer>
-            Authorized by API-Exchange Platform &bull; REST API v5.0
-        </footer>
+        <!-- 5. Output Documents -->
+        <div class="card">
+            <div class="card-title">
+                Output Documents
+                <span class="count-badge">1 document</span>
+            </div>
+
+            <div class="module">
+                <h3>Financial Responses</h3>
+                <div class="doc-item">
+                    <div class="doc-type">Proof of Payment</div>
+                    <span class="doc-code">proof-of-payment</span><br>
+                    Payment-Confirmation.pdf
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <footer>
+        HL7 FHIR R5 – API Exchange for Medicinal Products (APIX)<br>
+        Generated Render
+    </footer>
+
 </body>
 
 </html>
