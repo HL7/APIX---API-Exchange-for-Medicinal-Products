@@ -8,6 +8,10 @@
             "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
     },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Task: Validation of Type IB Variation</div>"
+    },
     "basedOn": [
         {
             "reference": "Task/scenario1-01-initial-submission",

@@ -45,12 +45,11 @@
                 <span class="field-label">Procedure ID</span>
                 <span class="field-value">PROC-2025-12345</span>
 
-                <span class="field-label">Status</span>
-                <span class="field-value"><span
-                        style="background:#34c759;color:white;padding:4px 10px;border-radius:8px;">completed</span></span>
+                <span class="field-label">Task Status</span>
+                <span class="field-value"><span class="status-badge success">completed</span></span>
 
                 <span class="field-label">Business Status</span>
-                <span class="field-value">Approved</span>
+                <span class="field-value"><span class="status-badge success">Approved</span></span>
 
                 <span class="field-label">Intent</span>
                 <span class="field-value">proposal</span>
@@ -77,19 +76,24 @@
         <div class="card">
             <h2 class="card-title">Parties Involved</h2>
 
-            <div style="margin-bottom:28px;">
-                <strong>Requester</strong><br>
-                European Medicines Agency – Human Medicines Evaluation Division<br>
-                <strong>Address:</strong><br> Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands<br>
-                <strong>Scientific and Regulatory Management</strong><br><strong>Email:</strong> srm@ema.example.eu<br>
+            <div class="party-info">
+                <span class="party-role">Requester</span>
+                <div class="party-name">European Medicines Agency – Human Medicines Evaluation Division</div>
+                <div class="party-details">
+                    <strong>Address:</strong> Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands<br>
+                    <strong>Contact:</strong> Scientific and Regulatory Management<br>
+                    <strong>Email:</strong> srm@ema.example.eu
+                </div>
             </div>
 
-            <div>
-                <strong>Performer</strong><br>
-                SynthPharma AG<br>
-                <strong>Address:</strong><br> 123 Synthetic Research Blvd, 4000 Basel, Switzerland<br>
-                <strong>Dr. John Doe, Head of Regulatory Affairs</strong><br><strong>Email:</strong>
-                john.doe@synthpharma.example<br>
+            <div class="party-info">
+                <span class="party-role">Performer</span>
+                <div class="party-name">SynthPharma AG</div>
+                <div class="party-details">
+                    <strong>Address:</strong> 123 Synthetic Research Blvd, 4000 Basel, Switzerland<br>
+                    <strong>Contact:</strong> Dr. John Doe, Head of Regulatory Affairs<br>
+                    <strong>Email:</strong> john.doe@synthpharma.example
+                </div>
             </div>
         </div>
 
