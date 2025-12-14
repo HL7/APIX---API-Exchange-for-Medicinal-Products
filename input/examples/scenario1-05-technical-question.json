@@ -1,16 +1,16 @@
 {
     "resourceType": "Task",
-    "id": "scenario1-05-decision",
+    "id": "scenario1-05-technical-question",
     "meta": {
         "versionId": "1",
-        "lastUpdated": "2025-04-20T09:00:00+01:00",
+        "lastUpdated": "2025-03-01T14:30:00+01:00",
         "profile": [
             "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
     },
     "text": {
         "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Final Decision: Approval for Type IB Variation</div>"
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Regulatory Questions: Request for additional stability data</div>"
     },
     "identifier": [
         {
@@ -24,7 +24,7 @@
                 ]
             },
             "system": "urn:ietf:rfc:3986",
-            "value": "urn:uuid:999e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3d"
+            "value": "urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
         }
     ],
     "partOf": [
@@ -96,17 +96,17 @@
         },
         {
             "resourceType": "DocumentReference",
-            "id": "docref-approval-letter",
+            "id": "docref-list-of-questions",
             "meta": {
                 "versionId": "1",
-                "lastUpdated": "2025-04-20T09:00:00+01:00",
+                "lastUpdated": "2025-03-01T14:30:00+01:00",
                 "profile": [
                     "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
                 ]
             },
             "masterIdentifier": {
                 "system": "urn:ietf:rfc:3986",
-                "value": "urn:uuid:70707070-7070-7070-7070-707070707070"
+                "value": "urn:uuid:40404040-4040-4040-4040-404040404040"
             },
             "status": "current",
             "type": {
@@ -118,62 +118,26 @@
                     }
                 ]
             },
-            "date": "2025-04-20T09:00:00+01:00",
+            "date": "2025-03-01T14:30:00+01:00",
             "content": [
                 {
                     "attachment": {
                         "contentType": "application/pdf",
-                        "title": "approval-letter.pdf",
-                        "creation": "2025-04-20T09:00:00+01:00",
-                        "data": "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
-                    }
-                }
-            ]
-        },
-        {
-            "resourceType": "DocumentReference",
-            "id": "docref-assessment-report",
-            "meta": {
-                "versionId": "1",
-                "lastUpdated": "2025-04-20T09:00:00+01:00",
-                "profile": [
-                    "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-                ]
-            },
-            "masterIdentifier": {
-                "system": "urn:ietf:rfc:3986",
-                "value": "urn:uuid:80808080-8080-8080-8080-808080808080"
-            },
-            "status": "current",
-            "type": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
-                        "code": "1.0",
-                        "display": "Cover Letter"
-                    }
-                ]
-            },
-            "date": "2025-04-20T09:00:00+01:00",
-            "content": [
-                {
-                    "attachment": {
-                        "contentType": "application/pdf",
-                        "title": "final-assessment-report.pdf",
-                        "creation": "2025-04-20T09:00:00+01:00",
+                        "title": "list-of-questions-EMA.pdf",
+                        "creation": "2025-03-01T14:30:00+01:00",
                         "data": "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
                     }
                 }
             ]
         }
     ],
-    "status": "completed",
+    "status": "requested",
     "businessStatus": {
         "coding": [
             {
                 "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status",
-                "code": "approved",
-                "display": "Approved"
+                "code": "clock-stop",
+                "display": "Clock Stop"
             }
         ]
     },
@@ -183,8 +147,8 @@
         "coding": [
             {
                 "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code",
-                "code": "approval",
-                "display": "Approval Letter / Positive Decision"
+                "code": "information-request",
+                "display": "Information Request"
             }
         ]
     },
@@ -218,8 +182,8 @@
             }
         }
     ],
-    "authoredOn": "2025-04-20T09:00:00+01:00",
-    "lastModified": "2025-04-20T09:00:00+01:00",
+    "authoredOn": "2025-03-01T14:30:00+01:00",
+    "lastModified": "2025-03-01T14:30:00+01:00",
     "input": [],
     "output": [
         {
@@ -232,22 +196,8 @@
                 ]
             },
             "valueReference": {
-                "reference": "#docref-approval-letter",
-                "display": "Approval Letter"
-            }
-        },
-        {
-            "type": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
-                        "code": "regulatory-document"
-                    }
-                ]
-            },
-            "valueReference": {
-                "reference": "#docref-assessment-report",
-                "display": "Final Assessment Report"
+                "reference": "#docref-list-of-questions",
+                "display": "List of Questions (LoQ)"
             }
         }
     ]

@@ -1,0 +1,87 @@
+{
+    "resourceType": "Task",
+    "id": "scenario1-04-finance-payment",
+    "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-03-06T14:00:00+01:00",
+        "profile": [
+            "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/apix-task"
+        ]
+    },
+    "partOf": [
+        {
+            "reference": "Task/scenario1-01-initial-submission"
+        }
+    ],
+    "status": "completed",
+    "intent": "order",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/apix-task-code",
+                "code": "request-payment",
+                "display": "Request Payment"
+            }
+        ]
+    },
+    "focus": {
+        "reference": "Bundle/bundle-epi-type2-example-acetaminophen"
+    },
+    "for": {
+        "reference": "MedicinalProductDefinition/medprod-acetaminophen"
+    },
+    "authoredOn": "2025-03-05T09:00:00+01:00",
+    "lastModified": "2025-03-06T14:00:00+01:00",
+    "requester": {
+        "identifier": {
+            "system": "http://ema.europa.eu/regulators",
+            "value": "EMA"
+        },
+        "display": "European Medicines Agency"
+    },
+    "owner": {
+        "identifier": {
+            "system": "http://ema.europa.eu/mah",
+            "value": "marketing-auth-holder"
+        },
+        "display": "Pharma Co. Ltd."
+    },
+    "input": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
+                        "code": "invoice",
+                        "display": "Invoice"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "DocumentReference/doc-invoice-001",
+                "display": "INV-2025-001.pdf"
+            }
+        }
+    ],
+    "output": [
+        {
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
+                        "code": "proof-of-payment",
+                        "display": "Proof of Payment"
+                    }
+                ]
+            },
+            "valueReference": {
+                "reference": "DocumentReference/doc-payment-proof",
+                "display": "Payment-Confirmation.pdf"
+            }
+        }
+    ],
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Financial Review: Payment Confirmed</div>"
+    }
+}
