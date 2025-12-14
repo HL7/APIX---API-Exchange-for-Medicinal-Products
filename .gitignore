@@ -1,7 +1,7 @@
 # FHIR IG Build Artifacts
 output/
 temp/
-fsh-generated/
+
 input-cache/
 *.log
 .DS_Store
