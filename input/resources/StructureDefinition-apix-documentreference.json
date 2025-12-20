@@ -4,10 +4,10 @@
     "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference",
     "version": "0.1.0",
     "name": "APIXDocumentReference",
-    "title": "APIX Regulatory DocumentReference (base64 only)",
+    "title": "APIX Regulatory DocumentReference",
     "status": "draft",
-    "date": "2025-11-24",
-    "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and categorized with CTD section headings.",
+    "date": "2025-12-20",
+    "description": "DocumentReference profile used in APIX regulatory submissions. Supports both embedded base64 data and referenced binaries via URL (Index Pattern). Includes support for versioning, lifecycle status, and CTD section categorization.",
     "fhirVersion": "5.0.0",
     "kind": "resource",
     "abstract": false,
@@ -20,98 +20,126 @@
                 "id": "DocumentReference.masterIdentifier",
                 "path": "DocumentReference.masterIdentifier",
                 "min": 1,
-                "short": "Unique permanent identifier for this document version",
+                "short": "Unique permanent identifier for this document set",
                 "description": "Business identifier that remains constant across all versions (typically a UUID). Required for traceability in regulatory submissions."
             },
             {
                 "id": "DocumentReference.status",
                 "path": "DocumentReference.status",
                 "min": 1,
-                "fixedCode": "current",
-                "short": "Status is fixed to 'current'",
-                "description": "In APIX regulatory submissions, all submitted documents are considered current at time of submission."
+                "short": "current | superseded | entered-in-error",
+                "description": "Technical status of the document reference. Typically 'current' for submissions."
+            },
+            {
+                "id": "DocumentReference.docStatus",
+                "path": "DocumentReference.docStatus",
+                "short": "preliminary | final | amended | appended",
+                "description": "Lifecycle status of the document content.",
+                "mustSupport": true
+            },
+            {
+                "id": "DocumentReference.version",
+                "path": "DocumentReference.version",
+                "short": "Business version of the document (e.g. 1.0, 2.1)",
+                "mustSupport": true
+            },
+            {
+                "id": "DocumentReference.category",
+                "path": "DocumentReference.category",
+                "short": "High-level categorization (e.g. CTD Module 1, Clinical Trial Data)",
+                "mustSupport": true
             },
             {
                 "id": "DocumentReference.type",
                 "path": "DocumentReference.type",
                 "min": 1,
                 "short": "CTD section code (e.g. 3.2.S.1.1)",
-                "description": "Coded representation of the CTD section to which this document belongs. Binding is required to the APIX CTD section value set.",
+                "description": "Coded representation of the specific document type or CTD section.",
                 "binding": {
                     "strength": "required",
                     "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/ctd-section-vs"
                 }
             },
             {
+                "id": "DocumentReference.relatesTo",
+                "path": "DocumentReference.relatesTo",
+                "short": "Relationships to other documents",
+                "description": "Used to link this document to previous versions (supersedes) or related material.",
+                "mustSupport": true
+            },
+            {
+                "id": "DocumentReference.description",
+                "path": "DocumentReference.description",
+                "short": "Human-readable summary of the document",
+                "mustSupport": true
+            },
+            {
+                "id": "DocumentReference.securityLabel",
+                "path": "DocumentReference.securityLabel",
+                "short": "Confidentiality/Security labels",
+                "mustSupport": true
+            },
+            {
                 "id": "DocumentReference.date",
                 "path": "DocumentReference.date",
                 "min": 1,
-                "short": "Date/time this document version was created",
-                "description": "The date and time this DocumentReference metadata record was created for the submission. This represents the 'submission timestamp' of the document to the APIX exchange."
+                "short": "Date/time this document reference was created",
+                "description": "The date and time this metadata record was created for the submission."
             },
             {
                 "id": "DocumentReference.content",
                 "path": "DocumentReference.content",
                 "min": 1,
-                "max": "1",
-                "short": "Single content element (APIX allows only one attachment per document)",
-                "description": "Regulatory submissions require exactly one attachment per DocumentReference."
+                "max": "1"
             },
             {
                 "id": "DocumentReference.content.attachment",
                 "path": "DocumentReference.content.attachment",
-                "min": 1,
-                "short": "The actual document content and metadata",
-                "description": "Contains the embedded document and its associated metadata."
+                "min": 1
             },
             {
                 "id": "DocumentReference.content.attachment.contentType",
                 "path": "DocumentReference.content.attachment.contentType",
-                "min": 1,
-                "short": "MIME type of the document (e.g. application/pdf)",
-                "description": "Official MIME type of the embedded document. Required for correct processing."
-            },
-            {
-                "id": "DocumentReference.content.attachment.title",
-                "path": "DocumentReference.content.attachment.title",
-                "min": 1,
-                "short": "Human-readable document name",
-                "description": "Full descriptive name of the file as it should appear in the submission (e.g. '3.2.S.1 - General Information - Drug Substance X.pdf')."
-            },
-            {
-                "id": "DocumentReference.content.attachment.creation",
-                "path": "DocumentReference.content.attachment.creation",
-                "min": 1,
-                "short": "Document creation date/time",
-                "description": "The date and time the original document file (PDF, XML, etc.) was authored or generated. This represents the 'file age' and may be earlier than the submission date."
+                "min": 1
             },
             {
                 "id": "DocumentReference.content.attachment.data",
                 "path": "DocumentReference.content.attachment.data",
-                "min": 1,
-                "short": "base64-encoded document content – REQUIRED",
-                "description": "The full document is embedded inline as base64. This is mandatory in APIX; external references are not permitted."
+                "min": 0,
+                "short": "Embedded base64 content (optional in Index Pattern)",
+                "description": "The full document content can be embedded here if desired, but for large files, use 'url' instead."
             },
             {
                 "id": "DocumentReference.content.attachment.url",
                 "path": "DocumentReference.content.attachment.url",
-                "max": "0",
-                "short": "External URLs prohibited",
-                "description": "APIX regulatory submissions do not allow external document references. All documents must be embedded using the 'data' element."
+                "min": 0,
+                "max": "1",
+                "short": "Reference to document on FHIR server or external URL",
+                "description": "The URL where the document content can be retrieved. This allows for the 'Index Pattern' where large binaries are stored separately."
             },
             {
                 "id": "DocumentReference.content.attachment.size",
                 "path": "DocumentReference.content.attachment.size",
                 "min": 0,
-                "short": "Size of the base64-encoded data in bytes",
-                "description": "Optional but recommended: exact size of the embedded document for validation and integrity checking."
+                "short": "Size of the document in bytes",
+                "mustSupport": true
+            },
+            {
+                "id": "DocumentReference.content.attachment.title",
+                "path": "DocumentReference.content.attachment.title",
+                "min": 1
+            },
+            {
+                "id": "DocumentReference.content.attachment.creation",
+                "path": "DocumentReference.content.attachment.creation",
+                "min": 1
             },
             {
                 "id": "DocumentReference.content.attachment.hash",
                 "path": "DocumentReference.content.attachment.hash",
                 "min": 0,
-                "short": "SHA-1 or SHA-256 hash of the original document",
-                "description": "Optional cryptographic hash used for integrity verification of the embedded document."
+                "short": "Integrity check for the document content",
+                "mustSupport": true
             }
         ]
     }

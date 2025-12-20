@@ -62,8 +62,8 @@
         "id": "Task.contained:documentReference",
         "path": "Task.contained",
         "sliceName": "documentReference",
-        "short": "Embedded Regulatory Document",
-        "definition": "The official regulatory document content (base64) embedded within the Task.",
+        "short": "Embedded or Referenced Regulatory Document",
+        "definition": "The official regulatory document content, either embedded (base64) within the Task or referenced via URI (Index Pattern).",
         "min": 0,
         "max": "*",
         "type": [
@@ -627,7 +627,7 @@
         "min": 0,
         "max": "*",
         "mustSupport": true,
-        "short": "Regulatory document (CTD section, via DocumentReference)"
+        "short": "Regulatory document (CTD section, via DocumentReference index)"
       },
       {
         "id": "Task.input:regulatoryDocument.type",
@@ -679,7 +679,7 @@
         "min": 0,
         "max": "*",
         "mustSupport": true,
-        "short": "Regulatory document produced as output (via DocumentReference)"
+        "short": "Regulatory document produced as output (via DocumentReference index)"
       },
       {
         "id": "Task.output:regulatoryDocument.type",

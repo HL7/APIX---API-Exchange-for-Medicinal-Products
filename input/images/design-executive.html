@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIX - Executive Dashboard View</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            /* Indigo */
+            --secondary: #8b5cf6;
+            /* Violet */
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--dark);
+            color: white;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .nav-item.active {
+            background-color: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+        }
+
+        .nav-item:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 32px 48px;
+            overflow-y: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .breadcrumb {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 99px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .badge.info {
+            background: #e0e7ff;
+            color: var(--primary);
+        }
+
+        .badge.success {
+            background: #d1fae5;
+            color: var(--success);
+        }
+
+        .badge.neutral {
+            background: #f3f4f6;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e5e7eb;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            background: var(--card-bg);
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 0 auto 8px;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .step.active .step-circle {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+        }
+
+        .step.completed .step-circle {
+            border-color: var(--success);
+            background: var(--success);
+            color: white;
+        }
+
+        .step-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .step.active .step-label {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Split View */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .doc-list {
+            padding: 0;
+        }
+
+        .doc-item {
+            padding: 16px 24px;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+
+        .doc-item:hover {
+            background: #f9fafb;
+        }
+
+        .doc-icon {
+            width: 36px;
+            height: 36px;
+            background: #e0e7ff;
+            color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 16px;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-title {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 14px;
+        }
+
+        .doc-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .btn-action {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-action:hover {
+            background: #f3f4f6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <span>⚡️</span> APIX<span style="color:white; opacity:0.6;">Portal</span>
+        </div>
+        <nav>
+            <a href="#" class="nav-item">Dashboard</a>
+            <a href="#" class="nav-item active">● Active Tasks</a>
+            <a href="#" class="nav-item">Archive</a>
+            <a href="#" class="nav-item">Settings</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="header">
+            <div>
+                <div class="breadcrumb">Applications / WonderDrug / Type IB</div>
+                <h1 class="page-title">Type IB Variation: Submission</h1>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size:12px; color:#6b7280;">Last Updated</div>
+                <div style="font-weight:600;">2 Hours Ago</div>
+            </div>
+        </div>
+
+        <!-- KPI Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Task Status</div>
+                <div class="stat-value">
+                    Requested
+                    <span class="badge info">Active</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Business Status</div>
+                <div class="stat-value">
+                    Submitted
+                    <span class="badge neutral">Pending</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Priority</div>
+                <div class="stat-value" style="color:var(--success);">Routine</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Document Count</div>
+                <div class="stat-value">10 <span
+                        style="font-size:14px; font-weight:500; color:#6b7280; margin-left:auto;">Files</span></div>
+            </div>
+        </div>
+
+        <!-- Workflow Timeline -->
+        <div class="timeline-section">
+            <div class="section-title">Workflow Progress</div>
+            <div class="timeline">
+                <div class="step active">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Submission</div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Validation</div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Assessment</div>
+                </div>
+                <div class="step">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Decision</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Documents List -->
+            <div class="card">
+                <div class="card-header">
+                    Input Documents
+                    <span class="badge neutral">Module 1 & 3</span>
+                </div>
+                <div class="doc-list">
+                    <!-- Item 1 -->
+                    <div class="doc-item">
+                        <div style="display:flex; align-items:center;">
+                            <div class="doc-icon">📄</div>
+                            <div class="doc-info">
+                                <div class="doc-title">Cover Letter</div>
+                                <div class="doc-meta">PDF • 1.2 MB • cover-letter</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-action">View</a>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="doc-item">
+                        <div style="display:flex; align-items:center;">
+                            <div class="doc-icon">📝</div>
+                            <div class="doc-info">
+                                <div class="doc-title">Application Form</div>
+                                <div class="doc-meta">PDF • 2.4 MB • application-form</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-action">View</a>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="doc-item">
+                        <div style="display:flex; align-items:center;">
+                            <div class="doc-icon">🏷️</div>
+                            <div class="doc-info">
+                                <div class="doc-title">Combined Label (Clean & Annotated)</div>
+                                <div class="doc-meta">PDF • 5.0 MB • label-set</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-action">View</a>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="doc-item">
+                        <div style="display:flex; align-items:center;">
+                            <div class="doc-icon">💊</div>
+                            <div class="doc-info">
+                                <div class="doc-title">CMC Stability Data Package</div>
+                                <div class="doc-meta">ZIP • 14.5 MB • cmc-data-full</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-action">Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parties / Meta -->
+            <div>
+                <div class="card" style="margin-bottom:24px;">
+                    <div class="card-header">Current Owner</div>
+                    <div style="padding:24px; text-align:center;">
+                        <div
+                            style="width:60px; height:60px; background:#f3f4f6; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:24px;">
+                            🏛️</div>
+                        <div style="font-weight:700; margin-bottom:4px;">EMA</div>
+                        <div style="font-size:13px; color:#6b7280;">Human Medicines Evaluation Division</div>
+                        <a href="mailto:srm@ema.example.eu"
+                            style="display:block; margin-top:12px; font-size:13px; color:var(--primary); text-decoration:none;">Contact
+                            Support</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Requester</div>
+                    <div style="padding:24px;">
+                        <div style="font-weight:600; margin-bottom:4px;">SynthPharma AG</div>
+                        <div style="font-size:13px; color:#6b7280; line-height:1.5;">
+                            Dr. John Doe<br>
+                            Head of Regulatory Affairs<br>
+                            Basel, Switzerland
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

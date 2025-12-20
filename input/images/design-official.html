@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIX - Official Record</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, "Georgia", serif;
+            background-color: #525659;
+            /* PDF Viewer grey */
+            margin: 0;
+            padding: 40px;
+            color: #111;
+        }
+
+        .page {
+            background-color: white;
+            max-width: 800px;
+            /* A4 width approx */
+            margin: 0 auto;
+            padding: 60px 80px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            min-height: 1100px;
+            /* A4 height approx */
+        }
+
+        .header-section {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-style: italic;
+            color: #444;
+        }
+
+        .reference-block {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .ref-group div {
+            margin-bottom: 4px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        td,
+        th {
+            padding: 8px 4px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            font-weight: bold;
+            width: 30%;
+        }
+
+        .party-block {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fdfdfd;
+        }
+
+        .party-role {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .party-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .stamp-area {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-box {
+            width: 200px;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .watermark {
+            color: #eee;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="header-section">
+            <h1>Regulatory Task Record</h1>
+            <div class="subtitle">API Exchange for Medicinal Products (APIX) - Official Extract</div>
+        </div>
+
+        <div class="reference-block">
+            <div class="ref-group">
+                <div><span class="label">Date:</span> November 15, 2025</div>
+                <div><span class="label">Time:</span> 09:00:00 UTC+01:00</div>
+            </div>
+            <div class="ref-group" style="text-align: right;">
+                <div><span class="label">Control ID:</span> 999e7d2a-8b1c-4d9f</div>
+                <div><span class="label">Version:</span> 1.0 (Original)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">1. Task Overview</div>
+            <table>
+                <tr>
+                    <th>Type:</th>
+                    <td>Type IB Variation</td>
+                </tr>
+                <tr>
+                    <th>Status:</th>
+                    <td>REQUESTED</td>
+                </tr>
+                <tr>
+                    <th>Intent:</th>
+                    <td>ORDER</td>
+                </tr>
+                <tr>
+                    <th>Priority:</th>
+                    <td>ROUTINE</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">2. Involved Parties</div>
+
+            <div class="party-block">
+                <div class="party-role">Requester (Applicant)</div>
+                <div class="party-name">SynthPharma AG</div>
+                <div>123 Synthetic Research Blvd, 4000 Basel, Switzerland</div>
+                <div><i>Representative: Dr. John Doe</i></div>
+            </div>
+
+            <div class="party-block">
+                <div class="party-role">Performer (Regulator)</div>
+                <div class="party-name">European Medicines Agency</div>
+                <div>Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands</div>
+                <div><i>Department: Human Medicines Evaluation Division</i></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">3. Submission Content Manifest</div>
+            <p style="font-size:13px; margin-bottom:15px;">The following documents are attached to this regulatory task:
+            </p>
+
+            <table>
+                <thead>
+                    <tr style="background:#f0f0f0;">
+                        <th style="width:20%">Type</th>
+                        <th style="width:20%">Code</th>
+                        <th style="width:60%">Filename</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Module 1</td>
+                        <td>cover-letter</td>
+                        <td>Cover Letter.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>Module 1</td>
+                        <td>application-form</td>
+                        <td>Application Form.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>Module 1</td>
+                        <td>annotated-label</td>
+                        <td>Annotated Label.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>Module 1</td>
+                        <td>pack-mockup</td>
+                        <td>Pack Mockup.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>Module 3</td>
+                        <td>stability-summary</td>
+                        <td>CMC Doc 1 - Summary.pdf</td>
+                    </tr>
+                    <tr>
+                        <td>Module 3</td>
+                        <td>stability-data</td>
+                        <td>CMC Doc 2 - Data.pdf</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="stamp-area">
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Qr_code_example_300.png/220px-Qr_code_example_300.png"
+                    style="width:80px; opacity:0.6;">
+            </div>
+            <div class="signature-box">
+                Digital Signature Valid<br>
+                Nov 15, 2025
+            </div>
+        </div>
+
+        <div class="watermark">
+            Generated by APIX Reference Implementation • Page 1 of 1
+        </div>
+
+    </div>
+
+</body>
+
+</html>

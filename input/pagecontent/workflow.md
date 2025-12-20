@@ -7,23 +7,32 @@ It is important to note that throughout this workflow, the Regulator does not di
 
 The workflow consists of three main phases: **Validation**, **Review**, and **Decision**.
 
+#### Phase 0: Registration and Connection
+
+**Step 0.1: Company Registers with Regulator**<br>
+Before any submission can occur, the Company performs a one-time registration with the Regulator's API portal. The Regulator registers the Company as an `Organization` resource and provides the necessary API credentials (e.g., OAuth2 Client ID and Secret).
+
+**Step 0.2: Company Connects to API**<br>
+The Company authenticates and establishes a connection to the Regulator's FHIR server. This confirms that the Company is authorized to post resources for their medicinal products.
+
 #### Phase 1: Submission and Validation
 
-**Step 1.0: Company posts a Task to the regulator (Initial Submission)**<br>
-Example: <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
-<br>
-The company initiates the process by submitting a task with the application package. In this example, the application contains the following:
+**Step 1.0: Company Prepares and Posts Submission (Initial Submission)**<br>
+Instead of a monolithic ZIP file, the Company follows a granular "Index Pattern" to submit the application. This ensures high performance and scalability even for massive datasets.
 
-1.  Cover letter
-2.  Application form
-3.  Annotated label
-4.  Clean label
-5.  Pack mockup
-6.  CMC doc #1: Drug Product: Stability Summary and Conclusions
-7.  CMC doc #2: Drug Product: Stability Data
-8.  CMC doc #3: Drug Product: Stability Commitment (if original section needs an update)
-9.  CMC doc #4: Drug Substance: Stability Summary and Conclusions (if any new stability data/ storage period updates)
-10. CMC doc #5: Drug Substance: Stability Data (if applicable)
+**Step 1.1: Upload Binaries and Bundles**<br>
+The Company posts each component of the submission to the regulator server. Depending on the format, they use different FHIR resources:
+*   **PDF Documents** (e.g., Cover Letter, Application Form, Pack Mockup) are posted as `Binary` resources.
+*   **Structured Labeling** (Clean and Annotated JSON) are posted as **Document Bundles** (specifically `document` type Bundles containing ePI resources).
+*   **CMC Data** (Stability Summary and Data) are posted as **Transaction Bundles** (logically grouping individual CMC data resources).
+
+**Step 1.2: Create DocumentReferences**<br>
+For each uploaded resource from Step 1.1, the Company creates a `DocumentReference`. The `DocumentReference` acts as a "Library Card," containing metadata (type, CTD section) and a pointer (`attachment.url`) to the server-assigned ID of the Binary or Bundle.
+
+**Step 1.3: Create and Post the Task**<br>
+Finally, the Company creates a `Task` resource. This Task serves as the "Orchestrator." It contains the procedure metadata and references the `DocumentReference` resources created in Step 1.2 in its `Task.input` field.
+
+Example: <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
 
 **Step 2.0: Regulator Validates Application**<br>
 The regulator validates the package.
@@ -47,25 +56,31 @@ The regulator conducts technical and administrative reviews simultaneously.
 
 *   **Track A: Compliance Check** (Step 5.2.1)
     *   Regulator checks compliance of the scientific data.
-*   **Track B: Financial Review** (New Requirement)
+*   **Track B: Financial Review** (Step 5.B.1)
     *   **Step 5.B.1**: Regulator reviews financials and determines a fee is due.
-    *   **Step 5.B.2**: Regulator posts a new Payment Request Task containing the Invoice.
-        <br>
-        Example: <a href="Task-scenario1-03-finance-invoice.json" target="_blank">JSON Resource</a> | <a href="scenario1-03-finance-invoice.html" target="_blank">HTML Action View</a>
-    *   **Step 5.B.3**: Company pays and updates the Payment Task with Proof of Payment.
+    *   **Step 5.B.3**: Company performs the payment.
+        1. Company posts the proof of payment (PDF `Binary`).
+        2. Company creates a `DocumentReference` for the proof of payment.
+        3. Company updates the **Payment Task** by adding the `DocumentReference` as an **output** (status remains `in-progress`).
         <br>
         Example: <a href="Task-scenario1-04-finance-payment.json" target="_blank">JSON Resource</a> | <a href="scenario1-04-finance-payment.html" target="_blank">HTML Action View</a>
-    *   **Step 5.B.4**: Regulator confirms payment and marks the Payment Task as **Completed**.
+    *   **Step 5.B.4**: Regulator verifies the output proof and updates the **Payment Task** status to **Completed**.
 
 **Step 5.3: Issue Resolution (Loop)**<br>
-If issues are found during review:
-*   **Step 5.3.1**: Regulator posts a **Question Task** (Request for Clarification).
+If issues are found during technical review:
+*   **Step 5.3.1**: Regulator posts a **Questionnaire** (Request for Clarification).
+    1. Regulator posts the `Questionnaire` (JSON) to the server.
+    2. Regulator creates a `DocumentReference` for the Questionnaire.
+    3. Regulator creates a **Question Task** with the `DocumentReference` as an **input**.
     <br>
     Example: <a href="Task-scenario1-05-technical-question.json" target="_blank">JSON Resource</a> | <a href="scenario1-05-technical-question.html" target="_blank">HTML View</a>
 *   **Step 5.3.2**: Company posts a **Response** to the Question Task.
+    1. Company posts a `QuestionnaireResponse` (JSON) to the server.
+    2. Company creates a `DocumentReference` for the response.
+    3. Company updates the **Question Task** by referencing the response in the **output** (status remains `in-progress`).
     <br>
     Example: <a href="Task-scenario1-06-technical-response.json" target="_blank">JSON Resource</a> | <a href="scenario1-06-technical-response.html" target="_blank">HTML View</a>
-*   **Step 5.3.3**: Regulator reviews the response. (If satisfactory, the Question Task is marked Completed. If not, the loop continues).
+*   **Step 5.3.3**: Regulator reviews the response. (If satisfactory, the Regulator marks the Question Task as **Completed** and the main review continues).
 
 #### Phase 3: Final Decision
 
@@ -83,9 +98,22 @@ sequenceDiagram
     participant C as Company
     participant R as Regulator
     
+    %% Phase 0: Registration
+    Note over C,R: Phase 0: Registration & Connection
+    C->>R: 0.1 Register with Regulator Portal
+    R-->>C: Client Credentials & Org ID
+    C->>R: 0.2 OAuth2 Authentication
+    
     %% Phase 1: Submission
     Note over C,R: Phase 1: Submission & Validation
-    C->>R: 1.0 Submit Application Package
+    par Upload Binaries/Bundles
+        C->>R: 1.1 POST PDFs (Binary)
+        C->>R: 1.1 POST Labels (Document Bundles)
+        C->>R: 1.1 POST CMC (Transaction Bundles)
+    end
+    C->>R: 1.2 POST DocumentReferences (IDs/Links)
+    C->>R: 1.3 POST Task (Orchestrator Index)
+    
     activate R
     R->>R: 2.0 Validate Application
     
@@ -109,21 +137,33 @@ sequenceDiagram
         rect rgb(255, 250, 240)
             Note right of R: Financial Review
             R->>R: Review Financials
-            R->>C: 5.B.2 Request Payment (Invoice)
+            Note over R: 5.B.2 Invoice Sequence
+            R->>R: POST Invoice (Binary/Resource)
+            R->>R: POST DocumentReference
+            R->>C: POST Payment Task (Input: DocRef)
             activate C
-            C-->>R: 5.B.3 Payment Confirmation
+            Note over C: 5.B.3 Payment Sequence
+            C->>C: POST Proof of Payment (Binary)
+            C->>C: POST DocumentReference
+            C-->>R: Update Task (Add Output DocRef)
             deactivate C
-            R->>R: 5.B.4 Confirm Payment
+            R->>R: 5.B.4 Verify Proof & Set Task: completed
         end
     end
     
     loop Issue Resolution
         alt Issue Found
-            R->>C: 5.3.1 Request Clarification (Question)
+            Note over R: 5.3.1 Question Sequence
+            R->>R: POST Questionnaire
+            R->>R: POST DocumentReference
+            R->>C: POST Question Task (Input: DocRef)
             activate C
-            C-->>R: 5.3.2 Provide Clarification
+            Note over C: 5.3.2 Response Sequence
+            C->>C: POST QuestionnaireResponse
+            C->>C: POST DocumentReference
+            C-->>R: Update Task (Add Output DocRef)
             deactivate C
-            R->>R: 5.3.3 Review Response
+            R->>R: 5.3.3 Review & Set Task: completed
         else No Issues
             R->>R: Proceed to Decision
         end
