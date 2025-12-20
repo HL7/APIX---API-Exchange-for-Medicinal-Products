@@ -73,4 +73,24 @@ sequenceDiagram
     and Audit Logging
         APIX->>APIX: 9. Create Provenance Record
     end
+
 </pre>
+
+### Data Governance and Security
+
+The APIX "Index Pattern" relies on a **logical separation** of data rather than physical silos. This approach ensures scalability while maintaining strict intellectual property (IP) protection.
+
+#### Logical Data Separation (Multi-Tenancy)
+In a shared regulatory environment, data for different medicinal products (e.g., Drug A vs. Drug B) sits in a common storage layer but is differentiated by FHIR metadata:
+
+*   **Subject Linking**: Every `DocumentReference` is linked to a specific `MedicinalProductDefinition` via the `subject` field, ensuring documents are contextually tied to the correct product lifecycle.
+*   **Metadata Categorization**: The `category` and `type` fields (using CTD Module and Section codes) provide the structural hierarchy needed to organize large submissions within the product context.
+*   **Shared Infrastructure**: While physical separation (e.g., dedicated database instances per company) is an implementation choice, the APIX standard is designed to work in a multi-tenant environment where metadata-driven filters provide the necessary isolation.
+
+#### IP Protection and Access Control
+To protect company trade secrets and clinical data, the following security principles are applied:
+
+1.  **SMART on FHIR & OAuth2**: All access is authenticated via system-level or user-level JWT tokens. These tokens carry claims about the user's organizational affiliation (e.g., `Org: SynthPharma`).
+2.  **Attribute-Based Access Control (ABAC)**: The regulator's FHIR server acts as a Policy Enforcement Point. Every query is intercepted to ensure that a company can only search for or retrieve resources that "belong" to their organizational compartment.
+3.  **Security Labels**: The `DocumentReference.securityLabel` field allows for granular confidentiality tagging (e.g., `R` for Restricted). Access is denied unless the requester’s security clearance matches the document's label.
+4.  **Provenance & Integrity**: Every upload is tracked via a `Provenance` resource, providing a cryptographic audit trail that proves the origin and integrity of the submission, ensuring no unauthorized party has modified or accessed the index.
