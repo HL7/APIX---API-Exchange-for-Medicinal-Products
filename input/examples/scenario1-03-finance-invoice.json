@@ -5,66 +5,112 @@
         "versionId": "1",
         "lastUpdated": "2025-03-05T09:00:00+01:00",
         "profile": [
-            "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/apix-task"
+            "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
     },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Financial Review: Payment Requested (Invoice #INV-2025-001)</div>"
+    },
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:invoice-task-uuid"
+        }
+    ],
     "partOf": [
         {
             "reference": "Task/scenario1-01-initial-submission"
         }
     ],
     "status": "requested",
-    "intent": "order",
+    "intent": "proposal",
     "code": {
         "coding": [
             {
-                "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/apix-task-code",
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code",
                 "code": "request-payment",
                 "display": "Request Payment"
             }
         ]
     },
-    "focus": {
-        "reference": "Bundle/bundle-epi-type2-example-acetaminophen"
-    },
     "for": {
-        "reference": "MedicinalProductDefinition/medprod-acetaminophen"
+        "reference": "MedicinalProductDefinition/example-ma",
+        "display": "WonderDrug 50mg Tablets"
     },
     "authoredOn": "2025-03-05T09:00:00+01:00",
     "lastModified": "2025-03-05T09:00:00+01:00",
     "requester": {
-        "identifier": {
-            "system": "http://ema.europa.eu/regulators",
-            "value": "EMA"
-        },
+        "reference": "#org-ema-srm-hmed",
         "display": "European Medicines Agency"
     },
-    "owner": {
-        "identifier": {
-            "system": "http://ema.europa.eu/mah",
-            "value": "marketing-auth-holder"
+    "requestedPerformer": [
+        {
+            "reference": {
+                "reference": "#org-synthpharma-ag",
+                "display": "SynthPharma AG"
+            }
+        }
+    ],
+    "contained": [
+        {
+            "resourceType": "Organization",
+            "id": "org-synthpharma-ag",
+            "name": "SynthPharma AG",
+            "address": {
+                "text": "123 Synthetic Research Blvd, 4000 Basel, Switzerland"
+            }
         },
-        "display": "Pharma Co. Ltd."
-    },
+        {
+            "resourceType": "Organization",
+            "id": "org-ema-srm-hmed",
+            "name": "European Medicines Agency – Human Medicines Evaluation Division",
+            "address": {
+                "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands"
+            }
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "docref-invoice",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "m1.0",
+                        "display": "Invoice"
+                    }
+                ]
+            },
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "url": "https://api.ema.example/binaries/invoices/INV-2025-001.pdf",
+                        "title": "INV-2025-001.pdf",
+                        "size": 450000,
+                        "creation": "2025-03-05T08:00:00+01:00"
+                    }
+                }
+            ]
+        }
+    ],
     "input": [
         {
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
-                        "code": "invoice",
-                        "display": "Invoice"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
             "valueReference": {
-                "reference": "DocumentReference/doc-invoice-001",
-                "display": "INV-2025-001.pdf"
+                "reference": "#docref-invoice"
             }
         }
-    ],
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Financial Review: Payment Requested (Invoice #INV-2025-001)</div>"
-    }
+    ]
 }

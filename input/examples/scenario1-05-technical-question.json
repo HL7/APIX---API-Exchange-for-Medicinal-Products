@@ -109,6 +109,8 @@
                 "value": "urn:uuid:40404040-4040-4040-4040-404040404040"
             },
             "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
             "type": {
                 "coding": [
                     {
@@ -122,10 +124,11 @@
             "content": [
                 {
                     "attachment": {
-                        "contentType": "application/pdf",
-                        "title": "list-of-questions-EMA.pdf",
-                        "creation": "2025-03-01T14:30:00+01:00",
-                        "data": "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.ema.example/questionnaires/q-shelf-life-limit.json",
+                        "title": "List of Questions (Questionnaire)",
+                        "size": 12400,
+                        "creation": "2025-03-01T14:20:00+01:00"
                     }
                 }
             ]
@@ -152,24 +155,8 @@
             }
         ]
     },
-    "for": {
-        "reference": "MedicinalProductDefinition/example-ma",
-        "display": "WonderDrug 50mg Tablets"
-    },
-    "groupIdentifier": {
-        "use": "official",
-        "system": "urn:ietf:rfc:3986",
-        "value": "urn:uuid:workflow-group-id-12345",
-        "type": {
-            "coding": [
-                {
-                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
-                    "code": "submission-group-uuid",
-                    "display": "Submission Group UUID"
-                }
-            ]
-        }
-    },
+    "authoredOn": "2025-03-01T14:30:00+01:00",
+    "lastModified": "2025-03-01T14:30:00+01:00",
     "requester": {
         "reference": "#org-ema-srm-hmed",
         "display": "European Medicines Agency"
@@ -182,15 +169,12 @@
             }
         }
     ],
-    "authoredOn": "2025-03-01T14:30:00+01:00",
-    "lastModified": "2025-03-01T14:30:00+01:00",
-    "input": [],
-    "output": [
+    "input": [
         {
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
                         "code": "regulatory-document"
                     }
                 ]

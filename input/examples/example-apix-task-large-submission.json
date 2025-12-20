@@ -45,6 +45,19 @@
             "resourceType": "DocumentReference",
             "id": "docref-m1-cover",
             "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
@@ -60,7 +73,8 @@
                         "contentType": "application/pdf",
                         "url": "https://api.synthpharma.example/binaries/nda-12345/m1/cover-letter.pdf",
                         "title": "Cover Letter.pdf",
-                        "size": 1250000
+                        "size": 1250000,
+                        "creation": "2025-12-20T14:00:00Z"
                     }
                 }
             ]
@@ -69,6 +83,19 @@
             "resourceType": "DocumentReference",
             "id": "docref-m3-stability-data",
             "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m3",
+                            "display": "Module 3"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
@@ -84,7 +111,8 @@
                         "contentType": "application/zip",
                         "url": "https://api.synthpharma.example/binaries/nda-12345/m3/stability-package.zip",
                         "title": "Stability Data Package (60GB Referenced)",
-                        "size": 64424509440
+                        "size": 64424509440,
+                        "creation": "2025-12-15T10:00:00Z"
                     }
                 }
             ]
@@ -93,6 +121,19 @@
             "resourceType": "DocumentReference",
             "id": "docref-m5-clinical-study",
             "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m5",
+                            "display": "Module 5"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
@@ -108,7 +149,8 @@
                         "contentType": "application/pdf",
                         "url": "https://api.synthpharma.example/binaries/nda-12345/m5/study-report-001.pdf",
                         "title": "Clinical Study Report - Phase III.pdf",
-                        "size": 45000000
+                        "size": 45000000,
+                        "creation": "2025-12-18T09:00:00Z"
                     }
                 }
             ]
@@ -127,6 +169,7 @@
         ]
     },
     "authoredOn": "2025-12-20T14:15:00Z",
+    "lastModified": "2025-12-20T14:15:00Z",
     "requester": {
         "reference": "#org-synthpharma-ag"
     },

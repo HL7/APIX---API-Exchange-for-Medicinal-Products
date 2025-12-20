@@ -12,6 +12,8 @@ def load_json(path):
         return json.load(f)
 
 def get_contained_resource(resource, ref_id):
+    if not ref_id or not isinstance(ref_id, str):
+        return None
     if ref_id.startswith('#'):
         ref_id = ref_id[1:]
     
@@ -35,6 +37,9 @@ def get_address_html(org):
         return "N/A"
     
     addr = org.get('address', {})
+    if isinstance(addr, list) and len(addr) > 0:
+        addr = addr[0]
+        
     if 'text' in addr:
         lines.append(addr['text'])
     else:
@@ -54,7 +59,13 @@ def get_contact_html(org):
     contacts = org.get('contact', [])
     html = ""
     for c in contacts:
-        name = c.get('name', {}).get('text', 'Contact')
+        name_obj = c.get('name')
+        name = "Contact"
+        if isinstance(name_obj, dict):
+            name = name_obj.get('text', 'Contact')
+        elif isinstance(name_obj, str):
+            name = name_obj
+            
         phone = ""
         email = ""
         for t in c.get('telecom', []):
@@ -105,7 +116,7 @@ def categorize_docs(docs):
             'type': attachment.get('contentType')
         }
         
-        if code.startswith('1') or code in ['cover-letter', 'application-form']:
+        if code.startswith('1') or code in ['cover-letter', 'application-form', 'invoice', 'proof-of-payment']:
             modules['Module 1'].append(item)
         elif code.startswith('2'):
             modules['Module 2'].append(item)
@@ -119,6 +130,46 @@ def categorize_docs(docs):
             modules['Other'].append(item)
             
     return modules
+
+def generate_docs_html(doc_resources):
+    if not doc_resources:
+        return '<div style="padding:20px; color:#6b7280; font-style:italic;">No documents in this section.</div>'
+        
+    modules = categorize_docs(doc_resources)
+    html = ""
+    for mod_name, items in modules.items():
+        if not items:
+            continue
+            
+        html += f'<div class="module-group"><div class="module-title">{mod_name}</div>'
+        for item in items:
+            size_str = ""
+            if item.get('size'):
+                if item['size'] >= 1024*1024*1024:
+                    size_str = f" • {item['size'] / 1024 / 1024 / 1024:.2f} GB"
+                else:
+                    size_str = f" • {item['size'] / 1024 / 1024:.2f} MB"
+            
+            link_label = "View Document"
+            if item.get('url'):
+                link_label = "View External"
+            
+            url = item.get('url', '#')
+            
+            html += f"""
+            <div class="doc-row">
+                <div class="doc-info">
+                    <div class="doc-icon">📄</div>
+                    <div>
+                        <div class="doc-name">{item['display'] or item['code']}</div>
+                        <div class="doc-meta"><span style="font-family:monospace; background:#f1f5f9; padding:1px 4px; border-radius:4px;">{item['code']}</span>{size_str} • {item['title']}</div>
+                    </div>
+                </div>
+                <a href="{url}" class="btn-view">{link_label}</a>
+            </div>
+            """
+        html += "</div>"
+    return html
 
 def main():
     json_path = JSON_FILE
@@ -143,6 +194,16 @@ def main():
     status = data.get('status', 'N/A')
     priority = data.get('priority', 'N/A')
     
+    # Text Field (Description)
+    task_description = data.get('text', {}).get('div', 'No description provided.')
+    # Strip HTML tags from div if it's there
+    if task_description.startswith('<div'):
+        import re
+        task_description = re.sub('<[^<]+?>', '', task_description)
+    
+    business_status_coding = data.get('businessStatus', {}).get('coding', [{}])[0]
+    business_status = business_status_coding.get('display', business_status_coding.get('code', 'N/A'))
+    
     task_coding = data.get('code', {}).get('coding', [{}])[0]
     task_type_display = task_coding.get('display', 'Task')
     task_type_code = task_coding.get('code', '')
@@ -154,147 +215,46 @@ def main():
     requester = get_contained_resource(data, requester_ref)
     
     performer_ref = (data.get('owner', {}) or data.get('requesterPerformer', {})).get('reference', '')
+    if not performer_ref and data.get('requestedPerformer'):
+        req_perf = data.get('requestedPerformer')[0]
+        if isinstance(req_perf, dict):
+            performer_ref = req_perf.get('reference', {}).get('reference', '')
+            
     performer = get_contained_resource(data, performer_ref)
     
-    inputs = data.get('input', [])
-    doc_resources = []
-    for inp in inputs:
-        ref = inp.get('valueReference', {}).get('reference', '')
-        if ref.startswith('#'):
-            res = get_contained_resource(data, ref)
-            if res:
-                doc_resources.append(res)
-    
-    modules = categorize_docs(doc_resources)
-    
-    docs_html = ""
-    for mod_name, items in modules.items():
-        if not items:
-            continue
-            
-        docs_html += f'<div class="module"><h3>{mod_name}</h3>'
-        for item in items:
-            size_str = ""
-            if item.get('size'):
-                if item['size'] >= 1024*1024*1024:
-                    size_str = f" • {item['size'] / 1024 / 1024 / 1024:.2f} GB"
-                else:
-                    size_str = f" • {item['size'] / 1024 / 1024:.2f} MB"
-            
-            link_html = ""
-            if item.get('url'):
-                link_html = f'<a href="{item["url"]}" style="color:#007aff; text-decoration:none; font-weight:600;">View External</a>'
-            else:
-                link_html = '<span style="color:#666;">Embedded Data</span>'
-            
-            docs_html += f"""
-            <div class="doc-item">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                    <div>
-                        <div class="doc-type">{item['display'] or item['code']}</div>
-                        <span class="doc-code">{item['code']}</span>{size_str}<br>
-                        {item['title']}
-                    </div>
-                    <div>
-                        {link_html}
-                    </div>
-                </div>
-            </div>
-            """
-        docs_html += "</div>"
+    # Resolve Documents
+    def resolve_refs(entries):
+        resources = []
+        for entry in entries:
+            ref = entry.get('valueReference', {}).get('reference', '')
+            if ref.startswith('#'):
+                res = get_contained_resource(data, ref)
+                if res:
+                    resources.append(res)
+        return resources
 
+    input_resources = resolve_refs(data.get('input', []))
+    output_resources = resolve_refs(data.get('output', []))
+    
+    input_docs_html = generate_docs_html(input_resources)
+    output_docs_html = generate_docs_html(output_resources)
+    
     html_template = None
     if template_path and os.path.exists(template_path):
         with open(template_path, 'r') as f:
             html_template = f.read()
     
-    is_external_template = (html_template is not None)
-
     if not html_template:
-        html_template = """<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APIX Task – {task_title}</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: linear-gradient(to bottom, #f2f6fa, #e8eef5); color: #1d1d1f; margin: 0; padding: 40px 20px; line-height: 1.5; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        header { background: linear-gradient(135deg, #007aff, #5ac8fa); color: white; padding: 40px 24px; border-radius: 18px; text-align: center; box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3); margin-bottom: 36px; }
-        header h1 { margin: 0 0 8px; font-size: 32px; font-weight: 600; }
-        header p { margin: 0; opacity: 0.95; font-size: 17px; }
-        .card { background: white; border-radius: 18px; padding: 32px; margin-bottom: 32px; box-shadow: 0 8px 28px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.06); transition: all 0.25s ease; }
-        .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
-        .card-title { font-size: 24px; font-weight: 600; color: #007aff; margin: 0 0 24px 0; padding-bottom: 12px; border-bottom: 1px solid #e5e5ea; display: flex; justify-content: space-between; align-items: center; }
-        .count-badge { background: #007aff; color: white; font-size: 14px; font-weight: 600; padding: 6px 14px; border-radius: 20px; }
-        .module { margin: 24px 0; padding: 20px; background: #f8fbff; border-radius: 14px; border-left: 5px solid #007aff; }
-        .module h3 { margin: 0 0 16px 0; font-size: 18px; color: #007aff; font-weight: 600; }
-        .doc-item { background: white; border: 1px solid #d1e4ff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .doc-type { font-weight: 600; color: #007aff; font-size: 15px; }
-        .doc-code { font-family: Menlo, Monaco, Consolas, monospace; background: #e5f2ff; padding: 2px 8px; border-radius: 6px; font-size: 13px; }
-        footer { text-align: center; padding: 50px; color: #666; font-size: 14px; }
-        .field-label { font-weight: 600; color: #555; }
-    </style>
-</head>
-<body>
-<div class="container">
-<header>
-    <h1>Task: {task_title}</h1>
-    <p>HL7 FHIR R5 – APIX Implementation Guide</p>
-</header>
-<div class="card">
-    <h2 class="card-title">Core Task Information</h2>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div>
-            <span class="field-label">ID</span><br>{task_id}<br><br>
-            <span class="field-label">Status</span><br><span style="background:#007aff;color:white;padding:4px 10px;border-radius:8px;">{status}</span><br><br>
-            <span class="field-label">Priority</span><br>{priority}
-        </div>
-        <div>
-            <span class="field-label">Code</span><br>{task_type_display} ({task_type_code})<br><br>
-            <span class="field-label">Authored</span><br>{authored_on}<br><br>
-            <span class="field-label">Last Updated</span><br>{last_modified}
-        </div>
-    </div>
-</div>
-<div class="card">
-    <h2 class="card-title">Parties Involved</h2>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-        <div class="party-info">
-            <span style="font-weight:600; color:#007aff;">Requester</span><br>
-            <div style="font-size:16px; font-weight:500; margin:8px 0;">{requester_name}</div>
-            <div style="font-size:14px; color:#555;">{requester_address}</div>
-            {requester_contact}
-        </div>
-        <div class="party-info">
-            <span style="font-weight:600; color:#007aff;">Performer/Owner</span><br>
-            <div style="font-size:16px; font-weight:500; margin:8px 0;">{performer_name}</div>
-            <div style="font-size:14px; color:#555;">{performer_address}</div>
-            {performer_contact}
-        </div>
-    </div>
-</div>
-<div class="card">
-    <div class="card-title">
-        Input Documents
-        <span class="count-badge">{doc_count} total</span>
-    </div>
-    {input_docs_html}
-</div>
-</div>
-<footer>
-    HL7 FHIR R5 – API Exchange for Medicinal Products (APIX)<br>
-    Render Generated on {render_date}
-</footer>
-</body>
-</html>
-"""
+        # Fallback to a basic internal template if external fails
+        html_template = "<html><body><h1>{task_title}</h1>{input_docs_html}</body></html>"
 
     replacements = {
         "{task_title}": task_type_display,
         "{task_id}": task_id,
         "{status}": status,
+        "{business_status}": business_status,
         "{priority}": priority,
+        "{task_description}": task_description,
         "{task_type_display}": task_type_display,
         "{task_type_code}": task_type_code,
         "{authored_on}": format_date(authored_on),
@@ -305,8 +265,9 @@ def main():
         "{performer_name}": performer.get('name', 'Unknown') if performer else 'Unknown',
         "{performer_address}": get_address_html(performer),
         "{performer_contact}": get_contact_html(performer),
-        "{doc_count}": str(len(inputs)),
-        "{input_docs_html}": docs_html,
+        "{doc_count}": str(len(input_resources) + len(output_resources)),
+        "{input_docs_html}": input_docs_html,
+        "{output_docs_html}": output_docs_html,
         "{render_date}": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     }
 

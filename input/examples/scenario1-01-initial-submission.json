@@ -10,7 +10,7 @@
     },
     "text": {
         "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Task: Initial Submission of Type IB Variation</div>"
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Task: Initial Submission of Type IB Variation (Shelf-Life)</div>"
     },
     "identifier": [
         {
@@ -141,152 +141,295 @@
         {
             "resourceType": "DocumentReference",
             "id": "doc1",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "cover-letter",
                         "display": "Cover Letter"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "Cover Letter.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "url": "https://api.synthpharma.example/binaries/submission-123/m1/cover-letter.pdf",
+                        "title": "Cover Letter.pdf",
+                        "size": 1250000,
+                        "creation": "2025-11-15T08:30:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc2",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "application-form",
                         "display": "Application Form"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "Application Form.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "url": "https://api.synthpharma.example/binaries/submission-123/m1/app-form.pdf",
+                        "title": "Application Form.pdf",
+                        "size": 3400000,
+                        "creation": "2025-11-15T08:35:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc3",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "annotated-label",
                         "display": "Annotated Label"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "Annotated Label.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/bundles/submission-123/m1/annotated-label.json",
+                        "title": "Annotated Label (Bundle)",
+                        "size": 45000,
+                        "creation": "2025-11-14T16:00:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc4",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "clean-label",
                         "display": "Clean Label"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "Clean Label.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/bundles/submission-123/m1/clean-label.json",
+                        "title": "Clean Label (Bundle)",
+                        "size": 42000,
+                        "creation": "2025-11-14T16:05:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc5",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "pack-mockup",
                         "display": "Pack Mockup"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "Pack Mockup.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "text/html",
+                        "url": "https://api.synthpharma.example/binaries/submission-123/m1/mockup.html",
+                        "title": "Pack Mockup.html",
+                        "size": 890000,
+                        "creation": "2025-11-14T10:00:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc6",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m3",
+                            "display": "Module 3"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "cmc-stability-summary",
                         "display": "Stability Summary"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "CMC Doc 1 - Summary.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/bundles/submission-123/m3/stability-summary.json",
+                        "title": "CMC Doc 1 - Summary (Transaction Bundle)",
+                        "size": 156000,
+                        "creation": "2025-11-12T14:30:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc7",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m3",
+                            "display": "Module 3"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "cmc-stability-data",
                         "display": "Stability Data"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "CMC Doc 2 - Data.pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/bundles/submission-123/m3/stability-data.json",
+                        "title": "CMC Doc 2 - Data (Transaction Bundle)",
+                        "size": 5600000,
+                        "creation": "2025-11-12T14:35:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
             "id": "doc8",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m3",
+                            "display": "Module 3"
+                        }
+                    ]
+                }
+            ],
             "type": {
                 "coding": [
                     {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "cmc-stability-commitment",
                         "display": "Stability Commitment"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "CMC Doc 3 - Commitment.pdf"
-            }
-        },
-        {
-            "resourceType": "DocumentReference",
-            "id": "doc9",
-            "type": {
-                "coding": [
-                    {
-                        "code": "cmc-ds-stability-summary",
-                        "display": "DS Stability Summary"
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/bundles/submission-123/m3/stability-commitment.json",
+                        "title": "CMC Doc 3 - Commitment (Transaction Bundle)",
+                        "size": 24000,
+                        "creation": "2025-11-12T14:40:00+01:00"
                     }
-                ]
-            },
-            "valueAttachment": {
-                "title": "CMC Doc 4 - DS Summary.pdf"
-            }
-        },
-        {
-            "resourceType": "DocumentReference",
-            "id": "doc10",
-            "type": {
-                "coding": [
-                    {
-                        "code": "cmc-ds-stability-data",
-                        "display": "DS Stability Data"
-                    }
-                ]
-            },
-            "valueAttachment": {
-                "title": "CMC Doc 5 - DS Data.pdf"
-            }
+                }
+            ]
         }
     ],
     "input": [
@@ -294,7 +437,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -306,7 +451,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -318,7 +465,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -330,7 +479,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -342,7 +493,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -354,7 +507,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -366,7 +521,9 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
@@ -378,36 +535,14 @@
             "type": {
                 "coding": [
                     {
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
             "valueReference": {
                 "reference": "#doc8"
-            }
-        },
-        {
-            "type": {
-                "coding": [
-                    {
-                        "code": "regulatory-document"
-                    }
-                ]
-            },
-            "valueReference": {
-                "reference": "#doc9"
-            }
-        },
-        {
-            "type": {
-                "coding": [
-                    {
-                        "code": "regulatory-document"
-                    }
-                ]
-            },
-            "valueReference": {
-                "reference": "#doc10"
             }
         }
     ]

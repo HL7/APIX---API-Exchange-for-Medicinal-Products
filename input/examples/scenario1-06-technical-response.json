@@ -29,8 +29,8 @@
     ],
     "partOf": [
         {
-            "reference": "Task/scenario1-03-questions",
-            "display": "Questions Task"
+            "reference": "Task/scenario1-05-technical-question",
+            "display": "Technical Question Task"
         }
     ],
     "contained": [
@@ -96,55 +96,47 @@
         },
         {
             "resourceType": "DocumentReference",
-            "id": "docref-responses",
-            "meta": {
-                "versionId": "1",
-                "lastUpdated": "2025-03-15T10:00:00+01:00",
-                "profile": [
-                    "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-                ]
-            },
-            "masterIdentifier": {
-                "system": "urn:ietf:rfc:3986",
-                "value": "urn:uuid:50505050-5050-5050-5050-505050505050"
-            },
+            "id": "docref-responses-qresponse",
             "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
             "type": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
                         "code": "1.0",
-                        "display": "Cover Letter"
+                        "display": "Cover Letter / Response"
                     }
                 ]
             },
+            "relatesTo": [
+                {
+                    "code": "appends",
+                    "target": {
+                        "reference": "DocumentReference/docref-list-of-questions",
+                        "display": "List of Questions (LoQ)"
+                    }
+                }
+            ],
             "date": "2025-03-15T10:00:00+01:00",
             "content": [
                 {
                     "attachment": {
-                        "contentType": "application/pdf",
-                        "title": "response-to-questions.pdf",
-                        "creation": "2025-03-15T10:00:00+01:00",
-                        "data": "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/questionnaire-responses/qr123.json",
+                        "title": "Response to Questions (QuestionnaireResponse)",
+                        "size": 18400,
+                        "creation": "2025-03-15T09:45:00+01:00"
                     }
                 }
             ]
         },
         {
             "resourceType": "DocumentReference",
-            "id": "docref-stability-data",
-            "meta": {
-                "versionId": "1",
-                "lastUpdated": "2025-03-15T10:00:00+01:00",
-                "profile": [
-                    "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-                ]
-            },
-            "masterIdentifier": {
-                "system": "urn:ietf:rfc:3986",
-                "value": "urn:uuid:60606060-6060-6060-6060-606060606060"
-            },
+            "id": "docref-stability-data-annex",
             "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
             "type": {
                 "coding": [
                     {
@@ -158,16 +150,17 @@
             "content": [
                 {
                     "attachment": {
-                        "contentType": "application/json",
-                        "title": "raw-stability-data.json",
-                        "creation": "2025-03-15T10:00:00+01:00",
-                        "data": "eyAianNvbi1kYXRhIjogInN0YWJpbGl0eSIgfQ=="
+                        "contentType": "application/fhir+json",
+                        "url": "https://api.synthpharma.example/bundles/submission-123/m3/stability-data-v2.json",
+                        "title": "Updated Stability Data (Transaction Bundle)",
+                        "size": 5800000,
+                        "creation": "2025-03-14T11:00:00+01:00"
                     }
                 }
             ]
         }
     ],
-    "status": "requested",
+    "status": "in-progress",
     "businessStatus": {
         "coding": [
             {
@@ -219,35 +212,38 @@
         }
     ],
     "authoredOn": "2025-03-15T10:00:00+01:00",
-    "input": [
+    "lastModified": "2025-03-15T10:00:00+01:00",
+    "input": [],
+    "output": [
         {
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
             "valueReference": {
-                "reference": "#docref-responses",
-                "display": "Applicant Responses"
+                "reference": "#docref-responses-qresponse",
+                "display": "Applicant QuestionnaireResponse"
             }
         },
         {
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
-                        "code": "regulatory-document"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
             "valueReference": {
-                "reference": "#docref-stability-data",
-                "display": "Annex: Raw Stability Data"
+                "reference": "#docref-stability-data-annex",
+                "display": "Annex: Updated Stability Data"
             }
         }
-    ],
-    "output": []
+    ]
 }

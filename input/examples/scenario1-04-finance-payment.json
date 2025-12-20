@@ -5,9 +5,15 @@
         "versionId": "2",
         "lastUpdated": "2025-03-06T14:00:00+01:00",
         "profile": [
-            "http://hl7.org/fhir/uv/rtq-ig/StructureDefinition/apix-task"
+            "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
     },
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:invoice-task-uuid"
+        }
+    ],
     "partOf": [
         {
             "reference": "Task/scenario1-01-initial-submission"
@@ -17,83 +23,120 @@
     "businessStatus": {
         "coding": [
             {
-                "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/apix-business-status",
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status",
                 "code": "payment-received",
                 "display": "Payment Received"
             }
         ]
     },
-    "intent": "order",
+    "intent": "proposal",
     "priority": "routine",
     "code": {
         "coding": [
             {
-                "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/apix-task-code",
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code",
                 "code": "request-payment",
                 "display": "Request Payment"
             }
         ]
     },
-    "focus": {
-        "reference": "Bundle/bundle-epi-type2-example-acetaminophen"
-    },
     "for": {
-        "reference": "MedicinalProductDefinition/medprod-acetaminophen"
+        "reference": "MedicinalProductDefinition/example-ma",
+        "display": "WonderDrug 50mg Tablets"
     },
     "authoredOn": "2025-03-05T09:00:00+01:00",
     "lastModified": "2025-03-06T14:00:00+01:00",
     "requester": {
-        "reference": "#org-ema",
+        "reference": "#org-ema-srm-hmed",
         "display": "European Medicines Agency"
     },
-    "owner": {
-        "reference": "#org-pharma",
-        "display": "Pharma Co. Ltd."
-    },
+    "requestedPerformer": [
+        {
+            "reference": {
+                "reference": "#org-synthpharma-ag",
+                "display": "SynthPharma AG"
+            }
+        }
+    ],
     "contained": [
         {
             "resourceType": "Organization",
-            "id": "org-ema",
-            "name": "European Medicines Agency"
+            "id": "org-synthpharma-ag",
+            "name": "SynthPharma AG",
+            "address": {
+                "text": "123 Synthetic Research Blvd, 4000 Basel, Switzerland"
+            }
         },
         {
             "resourceType": "Organization",
-            "id": "org-pharma",
-            "name": "Pharma Co. Ltd."
+            "id": "org-ema-srm-hmed",
+            "name": "European Medicines Agency – Human Medicines Evaluation Division",
+            "address": {
+                "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands"
+            }
         },
         {
             "resourceType": "DocumentReference",
-            "id": "doc-invoice-001",
+            "id": "docref-invoice",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
-                        "code": "invoice",
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "m1.0",
                         "display": "Invoice"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "INV-2025-001.pdf",
-                "contentType": "application/pdf"
-            }
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "url": "https://api.ema.example/binaries/invoices/INV-2025-001.pdf",
+                        "title": "INV-2025-001.pdf",
+                        "size": 450000,
+                        "creation": "2025-03-05T08:00:00+01:00"
+                    }
+                }
+            ]
         },
         {
             "resourceType": "DocumentReference",
-            "id": "doc-payment-proof",
+            "id": "docref-payment-proof",
+            "status": "current",
+            "docStatus": "final",
+            "version": "1.0",
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
-                        "code": "proof-of-payment",
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "m1.0",
                         "display": "Proof of Payment"
                     }
                 ]
             },
-            "valueAttachment": {
-                "title": "Payment-Confirmation.pdf",
-                "contentType": "application/pdf"
-            }
+            "relatesTo": [
+                {
+                    "code": "appends",
+                    "target": {
+                        "reference": "DocumentReference/docref-invoice",
+                        "display": "Invoice #INV-2025-001"
+                    }
+                }
+            ],
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "url": "https://api.synthpharma.example/binaries/payments/confirm-inv-2025-001.pdf",
+                        "title": "Payment-Confirmation.pdf",
+                        "size": 280000,
+                        "creation": "2025-03-06T13:30:00+01:00"
+                    }
+                }
+            ]
         }
     ],
     "input": [
@@ -101,15 +144,14 @@
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
-                        "code": "invoice",
-                        "display": "Invoice"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
             "valueReference": {
-                "reference": "#doc-invoice-001",
-                "display": "INV-2025-001.pdf"
+                "reference": "#docref-invoice"
             }
         }
     ],
@@ -118,20 +160,15 @@
             "type": {
                 "coding": [
                     {
-                        "system": "http://hl7.org/fhir/uv/rtq-ig/CodeSystem/ctd-section",
-                        "code": "proof-of-payment",
-                        "display": "Proof of Payment"
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
+                        "code": "regulatory-document",
+                        "display": "Regulatory Document"
                     }
                 ]
             },
             "valueReference": {
-                "reference": "#doc-payment-proof",
-                "display": "Payment-Confirmation.pdf"
+                "reference": "#docref-payment-proof"
             }
         }
-    ],
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Financial Review: Payment Confirmed</div>"
-    }
+    ]
 }
