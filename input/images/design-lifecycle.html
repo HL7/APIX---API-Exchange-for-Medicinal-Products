@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIX - Dossier Dashboard Visualization</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --border: #e2e8f0;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .sidebar-history {
+            width: 400px;
+            background: white;
+            border-left: 1px solid var(--border);
+            padding: 40px 30px;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.02);
+            overflow-y: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .table th {
+            text-align: left;
+            padding: 16px;
+            background: #f8fafc;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .table td {
+            padding: 16px;
+            border-top: 1px solid #f1f5f9;
+            font-size: 14px;
+        }
+
+        .table tr:hover {
+            background: #f5f3ff;
+            cursor: pointer;
+        }
+
+        .table tr.active {
+            background: #f5f3ff;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+            top: 5px;
+        }
+
+        .time-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .his-title {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .his-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .module-badge {
+            background: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <h1 style="font-weight: 800; margin-bottom: 30px;">{dossier_title}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Document Name</th>
+                    <th>Current Version</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {dossier_rows}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="sidebar-history">
+        <h2 style="font-size: 18px; font-weight: 800; margin-bottom: 30px;" id="sidebar-title">Version History</h2>
+        <div id="lifecycle-content">
+            {lifecycle_sidebar_content}
+        </div>
+    </div>
+
+    <script>
+        function updateSidebar(docName, historyHtml) {
+            document.getElementById('sidebar-title').innerText = docName + " History";
+            document.getElementById('lifecycle-content').innerHTML = historyHtml;
+
+            // Highlights active row
+            const rows = document.querySelectorAll('tr');
+            rows.forEach(r => r.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

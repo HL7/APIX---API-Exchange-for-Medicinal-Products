@@ -131,6 +131,86 @@ def categorize_docs(docs):
             
     return modules
 
+def get_all_task_docs():
+    """Scans all JSON tasks in the examples directory to build a logical document history."""
+    examples_dir = '/Users/a001/Documents/GitHub/APIX---API-Exchange-for-Medicinal-Products/input/examples'
+    all_docs = []
+    for filename in os.listdir(examples_dir):
+        if filename.endswith('.json'):
+            path = os.path.join(examples_dir, filename)
+            try:
+                data = load_json(path)
+                if data.get('resourceType') == 'Task':
+                    # Extract all DocumentReferences (contained or linked)
+                    for res in data.get('contained', []):
+                        if res.get('resourceType') == 'DocumentReference':
+                            res['_source_task'] = data.get('id', 'Unknown')
+                            res['_source_date'] = data.get('lastModified', '')
+                            all_docs.append(res)
+            except:
+                continue
+    return all_docs
+
+def generate_dossier_rows(current_docs, all_history):
+    if not current_docs:
+        return '<tr><td colspan="4" style="text-align:center; padding:20px;">No documents found.</td></tr>'
+    
+    # Group history by Doc Type Code for the sidebar simulation
+    history_by_type = {}
+    for doc in all_history:
+        code = doc.get('type', {}).get('coding', [{}])[0].get('code', 'unknown')
+        if code not in history_by_type:
+            history_by_type[code] = []
+        history_by_type[code].append(doc)
+    
+    # Sort history items by date/version descending
+    for code in history_by_type:
+        history_by_type[code].sort(key=lambda x: (x.get('version', '0'), x.get('_source_date', '')), reverse=True)
+
+    html = ""
+    for doc in current_docs:
+        doc_type_coding = doc.get('type', {}).get('coding', [{}])[0]
+        category_coding = (doc.get('category') or [{}])[0].get('coding', [{}])[0]
+        
+        module = category_coding.get('display', category_coding.get('code', 'Other'))
+        code = doc_type_coding.get('code', 'unknown')
+        doc_name = doc_type_coding.get('display', doc_type_coding.get('code', 'Untitled'))
+        version = doc.get('version', '1.0')
+        status = doc.get('status', 'current')
+        
+        status_color = "#10b981" if status == 'current' else "#64748b"
+        
+        # Build the history HTML for this specific doc to be injected via JS
+        history_html = ""
+        items = history_by_type.get(code, [doc])
+        for item in items:
+            iv = item.get('version', '1.0')
+            idate = format_date(item.get('_source_date', ''))
+            is_current = (iv == version)
+            dot_color = "#6366f1" if is_current else "#cbd5e1"
+            
+            history_html += f"""
+            <div class='timeline-item'>
+                <div class='dot' style='background:{dot_color}'></div>
+                <div class='time-label'>{idate} (VERSION {iv})</div>
+                <div class='his-title'>{item.get('_source_task')}</div>
+                <div class='his-meta'>ID: {item.get('id')} | Status: {item.get('status')}</div>
+            </div>
+            """
+        
+        # Escape single quotes in history_html for the JS call
+        safe_history = history_html.replace("'", "\\'").replace("\n", "")
+        
+        html += f"""
+        <tr onclick="updateSidebar('{doc_name}', '{safe_history}')">
+            <td><span class="module-badge">{module}</span></td>
+            <td><strong>{doc_name}</strong></td>
+            <td>v{version}</td>
+            <td style="color:{status_color}">{status.capitalize()}</td>
+        </tr>
+        """
+    return html
+
 def generate_docs_html(doc_resources):
     if not doc_resources:
         return '<div style="padding:20px; color:#6b7280; font-style:italic;">No documents in this section.</div>'
@@ -236,6 +316,10 @@ def main():
     input_resources = resolve_refs(data.get('input', []))
     output_resources = resolve_refs(data.get('output', []))
     
+    # Calculate Lifecycle History
+    all_history = get_all_task_docs()
+    dossier_rows = generate_dossier_rows(input_resources + output_resources, all_history)
+    
     input_docs_html = generate_docs_html(input_resources)
     output_docs_html = generate_docs_html(output_resources)
     
@@ -268,6 +352,9 @@ def main():
         "{doc_count}": str(len(input_resources) + len(output_resources)),
         "{input_docs_html}": input_docs_html,
         "{output_docs_html}": output_docs_html,
+        "{dossier_title}": f"Dossier Index: {task_id}",
+        "{dossier_rows}": dossier_rows,
+        "{lifecycle_sidebar_content}": "Select a row to view version history.",
         "{render_date}": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     }
 

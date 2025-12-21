@@ -94,3 +94,29 @@ To protect company trade secrets and clinical data, the following security princ
 2.  **Attribute-Based Access Control (ABAC)**: The regulator's FHIR server acts as a Policy Enforcement Point. Every query is intercepted to ensure that a company can only search for or retrieve resources that "belong" to their organizational compartment.
 3.  **Security Labels**: The `DocumentReference.securityLabel` field allows for granular confidentiality tagging (e.g., `R` for Restricted). Access is denied unless the requester’s security clearance matches the document's label.
 4.  **Provenance & Integrity**: Every upload is tracked via a `Provenance` resource, providing a cryptographic audit trail that proves the origin and integrity of the submission, ensuring no unauthorized party has modified or accessed the index.
+
+### Binary Upload Guide (Post-then-Link)
+
+To handle large documents (e.g., 20MB PDFs) or massive data packages (e.g., 50GB stability datasets) without impacting API performance, APIX utilizes a two-step **"Post-then-Link"** mechanism.
+
+#### Step 1: Upload Raw Binary
+The submittor posts the file as a raw octet-stream directly to the `/Binary` endpoint. This avoids the overhead of Base64 encoding.
+
+*   **Request**: `POST [base]/Binary`
+*   **Header**: `Content-Type: application/pdf` (or appropriate MIME type)
+*   **Body**: Raw binary bytes.
+*   **Response**: `201 Created` with a `Location` header (e.g., `Location: Binary/123`).
+
+#### Step 2: Create Metadata Link (`DocumentReference`)
+The submittor creates a `DocumentReference` resource that "claims" the binary and provides regulatory context (CTD section, title, etc.).
+
+*   **Content URL**: Set `DocumentReference.content.attachment.url` to the ID received in Step 1 (`Binary/123`).
+*   **Metadata**: Add `category` (e.g., Module 3) and `type` (e.g., Stability Report) to allow for indexing and search.
+
+#### Step 3: Orchestrate via Task
+The `DocumentReference` ID is added to the `Task.input` or `Task.output` array. The regulator can now discover the file through the Task and only retrieve the binary payload if needed.
+
+#### Technical Benefits
+*   **Memory Efficiency**: The server can stream the binary directly to storage without loading the entire file into memory.
+*   **Scalability**: Supports massive files that would otherwise exceed JSON size limits.
+*   **Resume-ability**: If an upload is interrupted, only the specific Binary needs to be retried, not the entire submission package.

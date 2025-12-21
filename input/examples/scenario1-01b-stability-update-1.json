@@ -1,0 +1,237 @@
+{
+    "resourceType": "Task",
+    "id": "scenario1-01b-stability-update-1",
+    "meta": {
+        "versionId": "2",
+        "lastUpdated": "2025-11-20T10:00:00+01:00",
+        "profile": [
+            "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Task: Stability Update #1 (Type IB Variation)</div>"
+    },
+    "identifier": [
+        {
+            "use": "official",
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:uuid:workflow-step1-instance",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                        "code": "task-instance-uuid",
+                        "display": "Task Instance UUID"
+                    }
+                ]
+            }
+        }
+    ],
+    "groupIdentifier": {
+        "use": "official",
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:uuid:workflow-group-id-12345",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type",
+                    "code": "submission-group-uuid",
+                    "display": "Submission Group UUID"
+                }
+            ]
+        }
+    },
+    "status": "requested",
+    "businessStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status",
+                "code": "submitted",
+                "display": "Submitted"
+            }
+        ]
+    },
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-type",
+                "code": "variation-type-ib",
+                "display": "Type IB Variation"
+            }
+        ]
+    },
+    "authoredOn": "2025-11-15T09:00:00+01:00",
+    "lastModified": "2025-11-20T10:00:00+01:00",
+    "requester": {
+        "reference": "#org-synthpharma-ag",
+        "display": "SynthPharma AG"
+    },
+    "requestedPerformer": [
+        {
+            "reference": {
+                "reference": "#org-ema-srm-hmed",
+                "display": "European Medicines Agency"
+            }
+        }
+    ],
+    "contained": [
+        {
+            "resourceType": "Organization",
+            "id": "org-synthpharma-ag",
+            "name": "SynthPharma AG",
+            "address": {
+                "type": "physical",
+                "text": "123 Synthetic Research Blvd, 4000 Basel, Switzerland"
+            }
+        },
+        {
+            "resourceType": "Organization",
+            "id": "org-ema-srm-hmed",
+            "name": "European Medicines Agency – Human Medicines Evaluation Division"
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc1",
+            "status": "current",
+            "version": "1.0",
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "cover-letter",
+                        "display": "Cover Letter"
+                    }
+                ]
+            },
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "url": "binaries/m1/cover-letter.pdf",
+                        "title": "Cover Letter.pdf",
+                        "creation": "2025-11-15T08:30:00+01:00"
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc4-v2",
+            "status": "current",
+            "version": "1.1",
+            "relatesTo": [
+                {
+                    "code": "replaces",
+                    "target": {
+                        "reference": "DocumentReference/doc4"
+                    }
+                }
+            ],
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m1",
+                            "display": "Module 1"
+                        }
+                    ]
+                }
+            ],
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "clean-label",
+                        "display": "Clean Label"
+                    }
+                ]
+            },
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "bundles/m1/clean-label-v1.1.json",
+                        "title": "Clean Label v1.1",
+                        "creation": "2025-11-19T14:00:00+01:00"
+                    }
+                }
+            ]
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "doc6-v2",
+            "status": "current",
+            "version": "1.1",
+            "relatesTo": [
+                {
+                    "code": "replaces",
+                    "target": {
+                        "reference": "DocumentReference/doc6"
+                    }
+                }
+            ],
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module",
+                            "code": "m3",
+                            "display": "Module 3"
+                        }
+                    ]
+                }
+            ],
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "cmc-stability-summary",
+                        "display": "Stability Summary"
+                    }
+                ]
+            },
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/fhir+json",
+                        "url": "bundles/m3/stability-summary-v1.1.json",
+                        "title": "Stability Summary v1.1",
+                        "creation": "2025-11-18T16:00:00+01:00"
+                    }
+                }
+            ]
+        }
+    ],
+    "input": [
+        {
+            "valueReference": {
+                "reference": "#doc1"
+            }
+        },
+        {
+            "valueReference": {
+                "reference": "#doc4-v2"
+            }
+        },
+        {
+            "valueReference": {
+                "reference": "#doc6-v2"
+            }
+        }
+    ]
+}
