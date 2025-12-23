@@ -41,7 +41,7 @@ APIX is architecture-agnostic, supporting both centralized and decentralized exc
 #### Centralized vs. Decentralized Exchange
 
 <div style="text-align: center; margin: 20px 0;">
-  <img src="centralized%20vs%20decentralized%20exchange%20models.png" alt="Centralized vs Decentralized Exchange Models" width="600">
+  <img src="centralized%20vs%20decentralized%20exchange%20models.png" alt="Centralized vs Decentralized Exchange Models" width="800">
 </div>
 
 ---

@@ -1,4 +1,5 @@
-The following architecture components are illustrative suggestions only. Implementers are free to select any technologies or platforms (including on-premises, cloud-based, or hybrid solutions) that meet the specified functional requirements.
+> [!NOTE]
+> The architecture components below are illustrative suggestions only. Implementers are free to select any technologies or platforms (including on-premises, cloud-based, or hybrid solutions) that meet the specified functional requirements.
 
 <table style="width:100%; border-collapse: collapse; border: 1px solid #d0d0d0;">
   <thead>

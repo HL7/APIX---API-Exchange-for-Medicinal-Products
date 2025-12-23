@@ -1,6 +1,7 @@
 APIX creates transparency in regulatory submissions by leveraging the **HL7 FHIR R5 Subscription Framework**. Instead of manually checking portals or waiting for emails, systems can subscribe to specific events and receive immediate, machine-readable notifications.
 
-This capability underpins the **Unified Status Tracking** use case, providing a "FedEx-style" visibility into the regulatory lifecycle.
+> [!NOTE]
+> This capability underpins the **Unified Status Tracking** use case, providing a "FedEx-style" visibility into the regulatory lifecycle.
 
 ### How It Works (Conceptual)
 
@@ -83,7 +84,8 @@ By storing the notification history, an organization can automatically reconstru
 *   **Clock-Stop Duration:** Time elapsed while `status = on-hold`
 *   **Process Bottlenecks:** Visualizing which step (Validation vs Assessment vs Response) consumes the most time.
 
-This raw data enables the "Free Performance Dashboards" mentioned in the [IG Home](index.html).
+> [!TIP]
+> This raw data enables the "Free Performance Dashboards" mentioned in the [IG Home](index.html).
 
 ### Conceptual Visualization
 The following charts illustrate how raw subscription data can be transformed into executive insights.

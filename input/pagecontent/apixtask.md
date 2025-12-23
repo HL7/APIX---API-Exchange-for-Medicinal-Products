@@ -180,7 +180,8 @@ The following table lists each status and its purpose throughout the workflow.
   </tbody>
 </table>
 
-> **ready** and **failed** are not used in the core APIX workflow.
+> [!NOTE]
+> The FHIR Task statuses **ready** and **failed** are not used in the core APIX workflow.
 
 #### Typical State Transitions in a Regulatory Procedure
 The following table demonstrates how the Status on a given Task changes throughout a regulatory activity.
