@@ -70,5 +70,7 @@ APIX is designed to complement and accelerate global regulatory standards:
 
 ---
 
-> [!NOTE]
-> For a step-by-step technical walkthrough of these use cases, visit the [Workflow](workflow.html) page.
+<div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">Note</p>
+  <p>For a step-by-step technical walkthrough of these use cases, visit the <a href="workflow.html">Workflow</a> page.</p>
+</div>

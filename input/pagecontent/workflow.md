@@ -1,8 +1,10 @@
 This page provides a detailed workflow example for a "shelf-life update" scenario, illustrating the process between a Company and a Regulator using APIX Tasks.
 
 ### Notification Mechanism
-> [!IMPORTANT]
-> Throughout this workflow, the Regulator does not directly "send" messages to the Company. Instead, the Regulator updates the `Task.status` or content of the `Task` resource on the regulator server. The Company, having subscribed to the Task, receives a notification from the regulator's Subscription service whenever a change occurs.
+<div class="markdown-alert markdown-alert-important">
+  <p class="markdown-alert-title">Important</p>
+  <p>Throughout this workflow, the Regulator does not directly "send" messages to the Company. Instead, the Regulator updates the <code>Task.status</code> or content of the <code>Task</code> resource on the regulator server. The Company, having subscribed to the Task, receives a notification from the regulator's Subscription service whenever a change occurs.</p>
+</div>
 
 ### Shelf-life Update Workflow
 

@@ -1,5 +1,7 @@
-> [!NOTE]
-> The architecture components below are illustrative suggestions only. Implementers are free to select any technologies or platforms (including on-premises, cloud-based, or hybrid solutions) that meet the specified functional requirements.
+<div class="markdown-alert markdown-alert-note">
+  <p class="markdown-alert-title">Note</p>
+  <p>The architecture components below are illustrative suggestions only. Implementers are free to select any technologies or platforms (including on-premises, cloud-based, or hybrid solutions) that meet the specified functional requirements.</p>
+</div>
 
 <table style="width:100%; border-collapse: collapse; border: 1px solid #d0d0d0;">
   <thead>
