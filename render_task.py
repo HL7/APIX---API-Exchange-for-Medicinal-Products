@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import shutil
 from datetime import datetime
 
 # File paths
@@ -366,6 +367,13 @@ def main():
         f.write(html_content)
     
     print(f"Successfully generated {instance_output_file}")
+    
+    # Copy supporting JS for IG compatibility
+    js_src = os.path.join(os.path.dirname(template_path), 'lifecycle.js')
+    js_dest = os.path.join(os.path.dirname(instance_output_file), 'lifecycle.js')
+    if os.path.exists(js_src):
+        shutil.copy(js_src, js_dest)
+        print(f"Copied {js_src} to {js_dest}")
 
 if __name__ == "__main__":
     main()
