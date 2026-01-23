@@ -1,0 +1,42 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "APIXTaskOutputTypeCS",
+  "id": "apix-task-output-type",
+  "title": "APIX Task Output Types Code System",
+  "description": "Code system for task output types in APIX regulatory submissions",
+  "url": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type",
+  "concept": [
+    {
+      "code": "regulatory-document",
+      "display": "Regulatory Document",
+      "definition": "A regulatory document produced as output"
+    },
+    {
+      "code": "assessment-report",
+      "display": "Assessment Report",
+      "definition": "Regulatory assessment or evaluation report"
+    },
+    {
+      "code": "approval-letter",
+      "display": "Approval Letter",
+      "definition": "Regulatory approval decision"
+    },
+    {
+      "code": "information-request",
+      "display": "Information Request",
+      "definition": "List of questions or additional information requests"
+    },
+    {
+      "code": "validation-report",
+      "display": "Validation Report",
+      "definition": "Technical validation report"
+    }
+  ],
+  "version": "0.1.0",
+  "caseSensitive": true,
+  "date": "2025-12-13",
+  "publisher": "Gravitate Health Project",
+  "count": 5
+}

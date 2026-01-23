@@ -27,17 +27,18 @@
     "resource": [
       {
         "reference": {
-          "reference": "CodeSystem/ctd-section"
+          "reference": "ValueSet/apix-ctd-section-vs"
         },
-        "description": "Code system defining all relevant CTD/eCTD section codes used in APIX regulatory submissions to EMA, FDA, PMDA and other agencies. Based on ICH M4 guidelines.",
         "name": "APIX CTD/eCTD Section Code System",
+        "description": "Value set for CTD section codes used in APIX regulatory submissions",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "CodeSystem/apix-business-status"
+          "reference": "CodeSystem/ctd-section"
         },
-        "name": "APIX Regulatory Business Status",
+        "name": "APIX CTD/eCTD Section Code System",
+        "description": "Code system defining all relevant CTD/eCTD section codes used in APIX regulatory submissions to EMA, FDA, PMDA and other agencies. Based on ICH M4 guidelines.",
         "isExample": false
       },
       {
@@ -45,22 +46,39 @@
           "reference": "ValueSet/apix-business-status-vs"
         },
         "name": "APIX Regulatory Business Status",
+        "description": "Value set for regulatory business status in APIX submissions",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-business-status"
+        },
+        "name": "APIX Regulatory Business Status",
+        "description": "Code system for regulatory business status in APIX submissions",
         "isExample": false
       },
       {
         "reference": {
           "reference": "StructureDefinition/apix-documentreference"
         },
-        "description": "DocumentReference profile used in APIX regulatory submissions. All documents are fully embedded as base64 (no external URLs allowed) and categorized with CTD section headings.",
-        "name": "APIX Regulatory DocumentReference (base64 only)",
+        "name": "APIX Regulatory DocumentReference",
+        "description": "DocumentReference profile used in APIX regulatory submissions. Supports both embedded base64 data and referenced binaries via URL (Index Pattern). Includes support for versioning, lifecycle status, and CTD section categorization.",
         "isExample": false
       },
       {
         "reference": {
           "reference": "StructureDefinition/apix-task"
         },
-        "description": "Task profile for APIX regulatory submission workflows",
         "name": "APIX Regulatory Task",
+        "description": "Task profile for APIX regulatory submission workflows",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-submission-type-vs"
+        },
+        "name": "APIX Submission Types",
+        "description": "Value set for submission types in APIX regulatory procedures",
         "isExample": false
       },
       {
@@ -68,6 +86,7 @@
           "reference": "CodeSystem/apix-task-code"
         },
         "name": "APIX Task Code System",
+        "description": "Code system for regulatory task types in APIX submissions",
         "isExample": false
       },
       {
@@ -75,6 +94,7 @@
           "reference": "ValueSet/apix-task-code-vs"
         },
         "name": "APIX Task Codes ValueSet",
+        "description": "Value set for task codes in APIX regulatory submissions",
         "isExample": false
       },
       {
@@ -82,6 +102,23 @@
           "reference": "ValueSet/apix-task-input-type-vs"
         },
         "name": "APIX Task Input Types",
+        "description": "Value set for task input types in APIX regulatory submissions",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-task-input-type"
+        },
+        "name": "APIX Task Input Types Code System",
+        "description": "Code system for task input types in APIX regulatory submissions",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-task-output-type"
+        },
+        "name": "APIX Task Output Types Code System",
+        "description": "Code system for task output types in APIX regulatory submissions",
         "isExample": false
       },
       {
@@ -89,6 +126,26 @@
           "reference": "Task/scenario1-01-initial-submission"
         },
         "name": "scenario1-01-initial-submission",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Task/scenario1-01b-stability-update-1"
+        },
+        "name": "scenario1-01b-stability-update-1",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Task/scenario1-01c-stability-update-2"
+        },
+        "name": "scenario1-01c-stability-update-2",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -109,14 +166,20 @@
           "reference": "Task/scenario1-03-finance-invoice"
         },
         "name": "scenario1-03-finance-invoice",
-        "isExample": true
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
       },
       {
         "reference": {
           "reference": "Task/scenario1-04-finance-payment"
         },
         "name": "scenario1-04-finance-payment",
-        "isExample": true
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
       },
       {
         "reference": {
@@ -143,6 +206,16 @@
           "reference": "Task/scenario1-07-final-decision"
         },
         "name": "scenario1-07-final-decision",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Task/task-nda-submission-index-2025"
+        },
+        "name": "task-nda-submission-index-2025",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"

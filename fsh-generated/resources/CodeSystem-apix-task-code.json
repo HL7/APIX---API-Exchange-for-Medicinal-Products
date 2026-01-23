@@ -1,0 +1,62 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "APIXTaskCodeCS",
+  "id": "apix-task-code",
+  "title": "APIX Task Code System",
+  "description": "Code system for regulatory task types in APIX submissions",
+  "url": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code",
+  "concept": [
+    {
+      "code": "initial-submission",
+      "display": "Initial Submission",
+      "definition": "First submission of a new application or major variation"
+    },
+    {
+      "code": "supplement",
+      "display": "Supplement / Variation",
+      "definition": "Post-authorization change (Type IA, IB, II, extension, etc.)"
+    },
+    {
+      "code": "response-to-questions",
+      "display": "Response to Information Request",
+      "definition": "Applicant response to regulator questions"
+    },
+    {
+      "code": "information-request",
+      "display": "List of Questions / Information Request",
+      "definition": "Regulator raises questions or requests additional data"
+    },
+    {
+      "code": "validation-report",
+      "display": "Validation Report",
+      "definition": "Technical or business validation outcome"
+    },
+    {
+      "code": "approval",
+      "display": "Approval Letter / Positive Decision",
+      "definition": "Final positive regulatory decision"
+    },
+    {
+      "code": "rejection",
+      "display": "Rejection / Negative Decision",
+      "definition": "Final negative regulatory decision"
+    },
+    {
+      "code": "withdrawal",
+      "display": "Withdrawal by Applicant",
+      "definition": "Applicant withdraws the procedure"
+    },
+    {
+      "code": "annual-report",
+      "display": "Periodic Safety Update Report / Annual Report",
+      "definition": "PSUR, DSUR, or other periodic report"
+    }
+  ],
+  "version": "0.1.0",
+  "caseSensitive": true,
+  "date": "2025-12-13",
+  "publisher": "Gravitate Health Project",
+  "count": 9
+}

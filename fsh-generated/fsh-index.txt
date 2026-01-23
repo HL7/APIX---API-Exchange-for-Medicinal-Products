@@ -1,1 +1,13 @@
-Output File  Name  Type  FSH File  Lines
+Output File                                      Name                   Type        FSH File                              Lines
+CodeSystem-apix-business-status.json             APIXBusinessStatusCS   CodeSystem  CodeSystem-apix-business-status.fsh   1 - 26
+CodeSystem-apix-task-code.json                   APIXTaskCodeCS         CodeSystem  CodeSystem-apix-task-code.fsh         1 - 21
+CodeSystem-apix-task-input-type.json             APIXTaskInputTypeCS    CodeSystem  CodeSystem-apix-task-input-type.fsh   1 - 19
+CodeSystem-apix-task-output-type.json            APIXTaskOutputTypeCS   CodeSystem  CodeSystem-apix-task-output-type.fsh  1 - 17
+CodeSystem-ctd-section.json                      APIXCTDSECTION         CodeSystem  CodeSystem-ctd-section.fsh            1 - 75
+StructureDefinition-apix-documentreference.json  APIXDocumentReference  Profile     Profile-apix-documentreference.fsh    1 - 77
+StructureDefinition-apix-task.json               APIXTask               Profile     Profile-apix-task.fsh                 1 - 169
+ValueSet-apix-business-status-vs.json            APIXBusinessStatusVS   ValueSet    ValueSet-apix-business-status-vs.fsh  1 - 11
+ValueSet-apix-ctd-section-vs.json                APIXCTDSectionVS       ValueSet    ValueSet-apix-ctd-section-vs.fsh      1 - 11
+ValueSet-apix-submission-type-vs.json            APIXSubmissionTypeVS   ValueSet    ValueSet-apix-submission-type-vs.fsh  1 - 11
+ValueSet-apix-task-code-vs.json                  APIXTaskCodeVS         ValueSet    ValueSet-apix-task-code-vs.fsh        1 - 11
+ValueSet-apix-task-input-type-vs.json            APIXTaskInputTypeVS    ValueSet    ValueSet-apix-task-input-type-vs.fsh  1 - 16

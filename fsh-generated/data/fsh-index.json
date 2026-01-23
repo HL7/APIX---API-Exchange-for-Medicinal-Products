@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "outputFile": "CodeSystem-apix-business-status.json",
+    "fshName": "APIXBusinessStatusCS",
+    "fshType": "CodeSystem",
+    "fshFile": "CodeSystem-apix-business-status.fsh",
+    "startLine": 1,
+    "endLine": 26
+  },
+  {
+    "outputFile": "CodeSystem-apix-task-code.json",
+    "fshName": "APIXTaskCodeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "CodeSystem-apix-task-code.fsh",
+    "startLine": 1,
+    "endLine": 21
+  },
+  {
+    "outputFile": "CodeSystem-apix-task-input-type.json",
+    "fshName": "APIXTaskInputTypeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "CodeSystem-apix-task-input-type.fsh",
+    "startLine": 1,
+    "endLine": 19
+  },
+  {
+    "outputFile": "CodeSystem-apix-task-output-type.json",
+    "fshName": "APIXTaskOutputTypeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "CodeSystem-apix-task-output-type.fsh",
+    "startLine": 1,
+    "endLine": 17
+  },
+  {
+    "outputFile": "CodeSystem-ctd-section.json",
+    "fshName": "APIXCTDSECTION",
+    "fshType": "CodeSystem",
+    "fshFile": "CodeSystem-ctd-section.fsh",
+    "startLine": 1,
+    "endLine": 75
+  },
+  {
+    "outputFile": "StructureDefinition-apix-documentreference.json",
+    "fshName": "APIXDocumentReference",
+    "fshType": "Profile",
+    "fshFile": "Profile-apix-documentreference.fsh",
+    "startLine": 1,
+    "endLine": 77
+  },
+  {
+    "outputFile": "StructureDefinition-apix-task.json",
+    "fshName": "APIXTask",
+    "fshType": "Profile",
+    "fshFile": "Profile-apix-task.fsh",
+    "startLine": 1,
+    "endLine": 169
+  },
+  {
+    "outputFile": "ValueSet-apix-business-status-vs.json",
+    "fshName": "APIXBusinessStatusVS",
+    "fshType": "ValueSet",
+    "fshFile": "ValueSet-apix-business-status-vs.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "ValueSet-apix-ctd-section-vs.json",
+    "fshName": "APIXCTDSectionVS",
+    "fshType": "ValueSet",
+    "fshFile": "ValueSet-apix-ctd-section-vs.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "ValueSet-apix-submission-type-vs.json",
+    "fshName": "APIXSubmissionTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "ValueSet-apix-submission-type-vs.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "ValueSet-apix-task-code-vs.json",
+    "fshName": "APIXTaskCodeVS",
+    "fshType": "ValueSet",
+    "fshFile": "ValueSet-apix-task-code-vs.fsh",
+    "startLine": 1,
+    "endLine": 11
+  },
+  {
+    "outputFile": "ValueSet-apix-task-input-type-vs.json",
+    "fshName": "APIXTaskInputTypeVS",
+    "fshType": "ValueSet",
+    "fshFile": "ValueSet-apix-task-input-type-vs.fsh",
+    "startLine": 1,
+    "endLine": 16
+  }
+]

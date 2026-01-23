@@ -1,0 +1,152 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "apix-documentreference",
+  "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference",
+  "version": "0.1.0",
+  "name": "APIXDocumentReference",
+  "title": "APIX Regulatory DocumentReference",
+  "status": "draft",
+  "date": "2025-12-20",
+  "publisher": "Gravitate Health Project",
+  "description": "DocumentReference profile used in APIX regulatory submissions. Supports both embedded base64 data and referenced binaries via URL (Index Pattern). Includes support for versioning, lifecycle status, and CTD section categorization.",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "short": "Unique permanent identifier for this document set",
+        "definition": "Business identifier that remains constant across all versions (typically a UUID). Required for traceability in regulatory submissions.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.version",
+        "path": "DocumentReference.version",
+        "short": "Business version of the document (e.g. 1.0, 2.1)",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "definition": "Technical status of the document reference. Typically 'current' for submissions."
+      },
+      {
+        "id": "DocumentReference.docStatus",
+        "path": "DocumentReference.docStatus",
+        "short": "preliminary | final | amended | appended",
+        "definition": "Lifecycle status of the document content.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "short": "CTD section code (e.g. 3.2.S.1.1)",
+        "definition": "Coded representation of the specific document type or CTD section.",
+        "min": 1,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "DocumentType"
+            }
+          ],
+          "strength": "required",
+          "description": "Precise type of clinical document.",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-ctd-section-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.category",
+        "path": "DocumentReference.category",
+        "short": "High-level categorization (e.g. CTD Module 1, Clinical Trial Data)",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "short": "Date/time this document reference was created",
+        "definition": "The date and time this metadata record was created for the submission.",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.relatesTo",
+        "path": "DocumentReference.relatesTo",
+        "definition": "Used to link this document to previous versions (supersedes) or related material.",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.description",
+        "path": "DocumentReference.description",
+        "short": "Human-readable summary of the document",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.securityLabel",
+        "path": "DocumentReference.securityLabel",
+        "short": "Confidentiality/Security labels",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content",
+        "path": "DocumentReference.content",
+        "short": "Document content",
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.content.attachment",
+        "path": "DocumentReference.content.attachment",
+        "short": "Attachment with document data"
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "short": "MIME type of the document",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "short": "Embedded base64 content (optional in Index Pattern)",
+        "definition": "The full document content can be embedded here if desired, but for large files, use 'url' instead."
+      },
+      {
+        "id": "DocumentReference.content.attachment.url",
+        "path": "DocumentReference.content.attachment.url",
+        "short": "Reference to document on FHIR server or external URL",
+        "definition": "The URL where the document content can be retrieved. This allows for the 'Index Pattern' where large binaries are stored separately."
+      },
+      {
+        "id": "DocumentReference.content.attachment.size",
+        "path": "DocumentReference.content.attachment.size",
+        "short": "Size of the document in bytes",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.hash",
+        "path": "DocumentReference.content.attachment.hash",
+        "short": "Integrity check for the document content",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.title",
+        "path": "DocumentReference.content.attachment.title",
+        "short": "Human-readable title of the document",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.content.attachment.creation",
+        "path": "DocumentReference.content.attachment.creation",
+        "short": "Date/time the document was created",
+        "min": 1
+      }
+    ]
+  }
+}

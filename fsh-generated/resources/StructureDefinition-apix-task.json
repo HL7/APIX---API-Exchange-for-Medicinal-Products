@@ -1,0 +1,767 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "apix-task",
+  "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task",
+  "version": "0.1.0",
+  "name": "APIXTask",
+  "title": "APIX Regulatory Task",
+  "status": "draft",
+  "date": "2025-12-13",
+  "publisher": "Gravitate Health Project",
+  "description": "Task profile for APIX regulatory submission workflows",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Task",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Task",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Task.meta",
+        "path": "Task.meta",
+        "min": 1
+      },
+      {
+        "id": "Task.meta.versionId",
+        "path": "Task.meta.versionId",
+        "min": 1
+      },
+      {
+        "id": "Task.meta.lastUpdated",
+        "path": "Task.meta.lastUpdated",
+        "min": 1
+      },
+      {
+        "id": "Task.meta.profile",
+        "path": "Task.meta.profile",
+        "min": 1,
+        "max": "1",
+        "fixedCanonical": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+      },
+      {
+        "id": "Task.text",
+        "path": "Task.text",
+        "short": "Human-readable narrative",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.contained",
+        "path": "Task.contained",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "Embedded or Referenced Regulatory Document",
+        "definition": "The official regulatory document content, either embedded (base64) within the Task or referenced via URI (Index Pattern).",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.contained:documentReference",
+        "path": "Task.contained",
+        "sliceName": "documentReference",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "DocumentReference",
+            "profile": [
+              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Task.identifier",
+        "path": "Task.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type.coding.code"
+            }
+          ],
+          "rules": "closed",
+          "description": "One mandatory technical UUID identifier and one optional regulator procedure number"
+        },
+        "short": "Task instance UUID (required) + official regulator procedure number (optional)",
+        "min": 1,
+        "max": "2"
+      },
+      {
+        "id": "Task.identifier:TaskInstance",
+        "path": "Task.identifier",
+        "sliceName": "TaskInstance",
+        "short": "Technical UUID for this specific Task instance",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.identifier:TaskInstance.type",
+        "path": "Task.identifier.type",
+        "min": 1
+      },
+      {
+        "id": "Task.identifier:TaskInstance.type.coding",
+        "path": "Task.identifier.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.identifier:TaskInstance.type.coding.system",
+        "path": "Task.identifier.type.coding.system",
+        "patternUri": "http://terminology.hl7.org/CodeSystem/v2-0203"
+      },
+      {
+        "id": "Task.identifier:TaskInstance.type.coding.code",
+        "path": "Task.identifier.type.coding.code",
+        "min": 1,
+        "patternCode": "RI"
+      },
+      {
+        "id": "Task.identifier:TaskInstance.system",
+        "path": "Task.identifier.system",
+        "patternUri": "urn:ietf:rfc:3986"
+      },
+      {
+        "id": "Task.identifier:TaskInstance.value",
+        "path": "Task.identifier.value",
+        "min": 1,
+        "patternString": "urn:uuid:"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber",
+        "path": "Task.identifier",
+        "sliceName": "RegulatorProcedureNumber",
+        "short": "Official regulator procedure/submission number (EMA, FDA, PMDA, etc.)",
+        "min": 0,
+        "max": "1"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.type",
+        "path": "Task.identifier.type",
+        "min": 1
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.type.coding",
+        "path": "Task.identifier.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.type.coding.system",
+        "path": "Task.identifier.type.coding.system",
+        "patternUri": "http://terminology.hl7.org/CodeSystem/v2-0203"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.type.coding.code",
+        "path": "Task.identifier.type.coding.code",
+        "min": 1,
+        "patternCode": "RN"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.system",
+        "path": "Task.identifier.system",
+        "min": 1,
+        "patternUri": "https://ema.europa.eu/procedure"
+      },
+      {
+        "id": "Task.identifier:RegulatorProcedureNumber.value",
+        "path": "Task.identifier.value",
+        "short": "The actual regulator-assigned procedure number (format varies by authority)",
+        "min": 1
+      },
+      {
+        "id": "Task.groupIdentifier",
+        "path": "Task.groupIdentifier",
+        "short": "Parent/Set ID – groups all Tasks in the same regulatory procedure",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.businessStatus",
+        "path": "Task.businessStatus",
+        "short": "Detailed regulatory status (e.g., clock-stop)",
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "TaskBusinessStatus"
+            }
+          ],
+          "strength": "required",
+          "description": "The domain-specific business-contextual sub-state of the task.  For example: \"Blood drawn\", \"IV inserted\", \"Awaiting physician signature\", etc.",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-business-status-vs"
+        }
+      },
+      {
+        "id": "Task.intent",
+        "path": "Task.intent",
+        "fixedCode": "proposal",
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "TaskIntent"
+            }
+          ],
+          "strength": "required",
+          "description": "Distinguishes whether the task is a proposal, plan or full order.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent|5.0.0"
+        }
+      },
+      {
+        "id": "Task.priority",
+        "path": "Task.priority",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.code",
+        "path": "Task.code",
+        "min": 1,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "TaskCode"
+            }
+          ],
+          "strength": "extensible",
+          "description": "Codes to identify what the task involves.  These will typically be specific to a particular workflow.",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-submission-type-vs"
+        }
+      },
+      {
+        "id": "Task.description",
+        "path": "Task.description",
+        "max": "0"
+      },
+      {
+        "id": "Task.focus",
+        "path": "Task.focus",
+        "max": "0"
+      },
+      {
+        "id": "Task.for",
+        "path": "Task.for",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.encounter",
+        "path": "Task.encounter",
+        "max": "0"
+      },
+      {
+        "id": "Task.requestedPeriod",
+        "path": "Task.requestedPeriod",
+        "short": "Requested period for task fulfilment",
+        "definition": "The period during which the regulatory timeline (e.g., clock start to decision deadline) for the medicinal product procedure or response will be performed.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPeriod.start",
+        "path": "Task.requestedPeriod.start",
+        "short": "Clock-start / earliest allowed start",
+        "definition": "The date/time when the regulatory clock starts or the earliest the task may begin.",
+        "comment": "Example: Day 0 of a marketing-authorisation procedure, validation completion date, etc.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPeriod.end",
+        "path": "Task.requestedPeriod.end",
+        "short": "Deadline / clock-stop date",
+        "definition": "The latest date/time by which the task must be completed.",
+        "comment": "Example: Day 210 of centralised procedure, response deadline to List of Questions, etc.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.executionPeriod",
+        "path": "Task.executionPeriod",
+        "max": "0"
+      },
+      {
+        "id": "Task.authoredOn",
+        "path": "Task.authoredOn",
+        "min": 1
+      },
+      {
+        "id": "Task.lastModified",
+        "path": "Task.lastModified",
+        "min": 1
+      },
+      {
+        "id": "Task.requester",
+        "path": "Task.requester",
+        "short": "Requesting organization",
+        "definition": "The organization that is requesting the medicinal product data exchange task.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Task.requestedPerformer",
+        "path": "Task.requestedPerformer",
+        "short": "Requesting performer organization",
+        "definition": "The organization that is designated to perform/fill the medicinal product data exchange task on behalf of the requester.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.owner",
+        "path": "Task.owner",
+        "max": "0"
+      },
+      {
+        "id": "Task.relevantHistory",
+        "path": "Task.relevantHistory",
+        "max": "0"
+      },
+      {
+        "id": "Task.restriction",
+        "path": "Task.restriction",
+        "max": "0"
+      },
+      {
+        "id": "Task.input",
+        "path": "Task.input",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "type.coding"
+            }
+          ],
+          "rules": "open",
+          "description": "Slicing by Task.input.type.coding to support regulatoryDocument and future input types"
+        },
+        "short": "Input parameters for the task",
+        "definition": "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.input:regulatoryDocument",
+        "path": "Task.input",
+        "sliceName": "regulatoryDocument",
+        "short": "Regulatory document (CTD section, via DocumentReference index)",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Task.input:regulatoryDocument.type.coding",
+        "path": "Task.input.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.input:regulatoryDocument.type.coding.system",
+        "path": "Task.input.type.coding.system",
+        "patternUri": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type"
+      },
+      {
+        "id": "Task.input:regulatoryDocument.type.coding.code",
+        "path": "Task.input.type.coding.code",
+        "patternCode": "regulatory-document"
+      },
+      {
+        "id": "Task.input:regulatoryDocument.type.coding.display",
+        "path": "Task.input.type.coding.display",
+        "patternString": "Regulatory Document"
+      },
+      {
+        "id": "Task.input:regulatoryDocument.value[x]",
+        "path": "Task.input.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+            ]
+          },
+          {
+            "code": "boolean"
+          },
+          {
+            "code": "canonical"
+          },
+          {
+            "code": "code"
+          },
+          {
+            "code": "date"
+          },
+          {
+            "code": "dateTime"
+          },
+          {
+            "code": "decimal"
+          },
+          {
+            "code": "id"
+          },
+          {
+            "code": "instant"
+          },
+          {
+            "code": "integer"
+          },
+          {
+            "code": "integer64"
+          },
+          {
+            "code": "markdown"
+          },
+          {
+            "code": "oid"
+          },
+          {
+            "code": "positiveInt"
+          },
+          {
+            "code": "string"
+          },
+          {
+            "code": "time"
+          },
+          {
+            "code": "unsignedInt"
+          },
+          {
+            "code": "uri"
+          },
+          {
+            "code": "url"
+          },
+          {
+            "code": "uuid"
+          },
+          {
+            "code": "Address"
+          },
+          {
+            "code": "Age"
+          },
+          {
+            "code": "Annotation"
+          },
+          {
+            "code": "Attachment"
+          },
+          {
+            "code": "CodeableConcept"
+          },
+          {
+            "code": "CodeableReference"
+          },
+          {
+            "code": "Coding"
+          },
+          {
+            "code": "ContactPoint"
+          },
+          {
+            "code": "Count"
+          },
+          {
+            "code": "Distance"
+          },
+          {
+            "code": "Duration"
+          },
+          {
+            "code": "HumanName"
+          },
+          {
+            "code": "Identifier"
+          },
+          {
+            "code": "Money"
+          },
+          {
+            "code": "Period"
+          },
+          {
+            "code": "Quantity"
+          },
+          {
+            "code": "Range"
+          },
+          {
+            "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
+          },
+          {
+            "code": "Reference"
+          },
+          {
+            "code": "SampledData"
+          },
+          {
+            "code": "Signature"
+          },
+          {
+            "code": "Timing"
+          },
+          {
+            "code": "ContactDetail"
+          },
+          {
+            "code": "DataRequirement"
+          },
+          {
+            "code": "Expression"
+          },
+          {
+            "code": "ParameterDefinition"
+          },
+          {
+            "code": "RelatedArtifact"
+          },
+          {
+            "code": "TriggerDefinition"
+          },
+          {
+            "code": "UsageContext"
+          },
+          {
+            "code": "Availability"
+          },
+          {
+            "code": "ExtendedContactDetail"
+          },
+          {
+            "code": "Dosage"
+          },
+          {
+            "code": "Meta"
+          }
+        ]
+      },
+      {
+        "id": "Task.output",
+        "path": "Task.output",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "type.coding"
+            }
+          ],
+          "rules": "open",
+          "description": "Slicing by Task.output.type.coding to support regulatoryDocument and future output types"
+        },
+        "short": "Output produced by the task",
+        "definition": "Outputs produced by the task in the context of medicinal product regulatory procedures.",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.output:regulatoryDocument",
+        "path": "Task.output",
+        "sliceName": "regulatoryDocument",
+        "short": "Regulatory document produced as output (via DocumentReference index)",
+        "min": 0,
+        "max": "*"
+      },
+      {
+        "id": "Task.output:regulatoryDocument.type.coding",
+        "path": "Task.output.type.coding",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Task.output:regulatoryDocument.type.coding.system",
+        "path": "Task.output.type.coding.system",
+        "patternUri": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type"
+      },
+      {
+        "id": "Task.output:regulatoryDocument.type.coding.code",
+        "path": "Task.output.type.coding.code",
+        "patternCode": "regulatory-document"
+      },
+      {
+        "id": "Task.output:regulatoryDocument.type.coding.display",
+        "path": "Task.output.type.coding.display",
+        "patternString": "Regulatory Document"
+      },
+      {
+        "id": "Task.output:regulatoryDocument.value[x]",
+        "path": "Task.output.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+            ]
+          },
+          {
+            "code": "boolean"
+          },
+          {
+            "code": "canonical"
+          },
+          {
+            "code": "code"
+          },
+          {
+            "code": "date"
+          },
+          {
+            "code": "dateTime"
+          },
+          {
+            "code": "decimal"
+          },
+          {
+            "code": "id"
+          },
+          {
+            "code": "instant"
+          },
+          {
+            "code": "integer"
+          },
+          {
+            "code": "integer64"
+          },
+          {
+            "code": "markdown"
+          },
+          {
+            "code": "oid"
+          },
+          {
+            "code": "positiveInt"
+          },
+          {
+            "code": "string"
+          },
+          {
+            "code": "time"
+          },
+          {
+            "code": "unsignedInt"
+          },
+          {
+            "code": "uri"
+          },
+          {
+            "code": "url"
+          },
+          {
+            "code": "uuid"
+          },
+          {
+            "code": "Address"
+          },
+          {
+            "code": "Age"
+          },
+          {
+            "code": "Annotation"
+          },
+          {
+            "code": "Attachment"
+          },
+          {
+            "code": "CodeableConcept"
+          },
+          {
+            "code": "CodeableReference"
+          },
+          {
+            "code": "Coding"
+          },
+          {
+            "code": "ContactPoint"
+          },
+          {
+            "code": "Count"
+          },
+          {
+            "code": "Distance"
+          },
+          {
+            "code": "Duration"
+          },
+          {
+            "code": "HumanName"
+          },
+          {
+            "code": "Identifier"
+          },
+          {
+            "code": "Money"
+          },
+          {
+            "code": "Period"
+          },
+          {
+            "code": "Quantity"
+          },
+          {
+            "code": "Range"
+          },
+          {
+            "code": "Ratio"
+          },
+          {
+            "code": "RatioRange"
+          },
+          {
+            "code": "Reference"
+          },
+          {
+            "code": "SampledData"
+          },
+          {
+            "code": "Signature"
+          },
+          {
+            "code": "Timing"
+          },
+          {
+            "code": "ContactDetail"
+          },
+          {
+            "code": "DataRequirement"
+          },
+          {
+            "code": "Expression"
+          },
+          {
+            "code": "ParameterDefinition"
+          },
+          {
+            "code": "RelatedArtifact"
+          },
+          {
+            "code": "TriggerDefinition"
+          },
+          {
+            "code": "UsageContext"
+          },
+          {
+            "code": "Availability"
+          },
+          {
+            "code": "ExtendedContactDetail"
+          },
+          {
+            "code": "Dosage"
+          },
+          {
+            "code": "Meta"
+          }
+        ]
+      }
+    ]
+  }
+}

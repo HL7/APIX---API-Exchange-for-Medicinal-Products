@@ -1,0 +1,87 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "draft",
+  "content": "complete",
+  "name": "APIXBusinessStatusCS",
+  "id": "apix-business-status",
+  "title": "APIX Regulatory Business Status",
+  "description": "Code system for regulatory business status in APIX submissions",
+  "url": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status",
+  "concept": [
+    {
+      "code": "submitted",
+      "display": "Submitted",
+      "definition": "The application has been submitted by the applicant."
+    },
+    {
+      "code": "received",
+      "display": "Received",
+      "definition": "The application or submission has been received by the regulator."
+    },
+    {
+      "code": "validation-successful",
+      "display": "Validation Successful",
+      "definition": "The technical and administrative validation has been completed successfully."
+    },
+    {
+      "code": "validation-failed",
+      "display": "Validation Failed",
+      "definition": "The submission failed validation and cannot proceed."
+    },
+    {
+      "code": "under-assessment",
+      "display": "Under Assessment",
+      "definition": "The submission is currently undergoing scientific review."
+    },
+    {
+      "code": "clock-stop",
+      "display": "Clock Stop",
+      "definition": "The review timeline is paused, typically waiting for applicant response to questions."
+    },
+    {
+      "code": "clock-restart",
+      "display": "Clock Restart",
+      "definition": "The review timeline has resumed following receipt of a response."
+    },
+    {
+      "code": "consolidated-review",
+      "display": "Consolidated Review",
+      "definition": "Comments from multiple assessors are being consolidated."
+    },
+    {
+      "code": "decision-pending",
+      "display": "Decision Pending",
+      "definition": "The assessment is complete and the final decision is being prepared."
+    },
+    {
+      "code": "approved",
+      "display": "Approved",
+      "definition": "The application has been approved."
+    },
+    {
+      "code": "rejected",
+      "display": "Rejected",
+      "definition": "The application has been rejected."
+    },
+    {
+      "code": "withdrawn",
+      "display": "Withdrawn",
+      "definition": "The application has been withdrawn by the applicant."
+    },
+    {
+      "code": "payment-requested",
+      "display": "Payment Requested",
+      "definition": "A fee payment has been requested by the regulator."
+    },
+    {
+      "code": "payment-received",
+      "display": "Payment Received",
+      "definition": "The fee payment has been received and confirmed."
+    }
+  ],
+  "version": "0.1.0",
+  "caseSensitive": true,
+  "date": "2025-12-13",
+  "publisher": "Gravitate Health Project",
+  "count": 14
+}
