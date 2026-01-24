@@ -141,9 +141,7 @@ Description: "Task profile for APIX regulatory submission workflows"
       * system = "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type"
       * code = #regulatory-document
       * display = "Regulatory Document"
-  * value[x] 1..1
-    * ^type.code = "Reference"
-    * ^type.targetProfile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+  * value[x] only Reference(APIXDocumentReference)
 
 // Task Output with slicing
 * output 0..* MS
