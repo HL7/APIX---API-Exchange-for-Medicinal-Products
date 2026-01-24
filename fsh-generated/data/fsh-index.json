@@ -48,12 +48,20 @@
     "endLine": 77
   },
   {
+    "outputFile": "StructureDefinition-apix-organization.json",
+    "fshName": "APIXOrganization",
+    "fshType": "Profile",
+    "fshFile": "Profile-apix-organization.fsh",
+    "startLine": 1,
+    "endLine": 50
+  },
+  {
     "outputFile": "StructureDefinition-apix-task.json",
     "fshName": "APIXTask",
     "fshType": "Profile",
     "fshFile": "Profile-apix-task.fsh",
     "startLine": 1,
-    "endLine": 169
+    "endLine": 175
   },
   {
     "outputFile": "ValueSet-apix-business-status-vs.json",

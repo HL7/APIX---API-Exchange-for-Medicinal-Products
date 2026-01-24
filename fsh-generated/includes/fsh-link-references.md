@@ -1,5 +1,6 @@
 [APIXCTDSectionVS]: ValueSet-apix-ctd-section-vs.html
 [APIXCTDSECTION]: CodeSystem-ctd-section.html
+[APIXOrganization]: StructureDefinition-apix-organization.html
 [APIXBusinessStatusVS]: ValueSet-apix-business-status-vs.html
 [APIXBusinessStatusCS]: CodeSystem-apix-business-status.html
 [APIXDocumentReference]: StructureDefinition-apix-documentreference.html

@@ -43,6 +43,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/apix-organization"
+        },
+        "name": "APIX Organization",
+        "description": "Organization profile for APIX regulatory workflows, derived from and compatible with ePI requirements.",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "ValueSet/apix-business-status-vs"
         },
         "name": "APIX Regulatory Business Status",
