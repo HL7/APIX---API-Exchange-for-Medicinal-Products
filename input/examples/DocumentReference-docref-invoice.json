@@ -1,0 +1,34 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "docref-invoice",
+  "status": "current",
+  "docStatus": "final",
+  "version": "1.0",
+  "masterIdentifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:invoice-docref-uuid"
+  },
+  "date": "2025-03-05T08:00:00+01:00",
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+        "code": "1.0",
+        "display": "Cover Letter"
+      }
+    ]
+  },
+  "title": "Invoice #INV-2025-001",
+  "description": "Financial invoice for regulatory submission review",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://api.ema.example/binaries/invoices/INV-2025-001.pdf",
+        "title": "INV-2025-001.pdf",
+        "size": 450000,
+        "creation": "2025-03-05T08:00:00+01:00"
+      }
+    }
+  ]
+}

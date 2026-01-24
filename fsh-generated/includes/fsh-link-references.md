@@ -10,6 +10,7 @@
 [APIXTaskInputTypeVS]: ValueSet-apix-task-input-type-vs.html
 [APIXTaskInputTypeCS]: CodeSystem-apix-task-input-type.html
 [APIXTaskOutputTypeCS]: CodeSystem-apix-task-output-type.html
+[docref-invoice]: DocumentReference-docref-invoice.html
 [scenario1-01-initial-submission]: Task-scenario1-01-initial-submission.html
 [scenario1-01b-stability-update-1]: Task-scenario1-01b-stability-update-1.html
 [scenario1-01c-stability-update-2]: Task-scenario1-01c-stability-update-2.html
@@ -21,3 +22,4 @@
 [scenario1-07-final-decision]: Task-scenario1-07-final-decision.html
 [task-nda-submission-index-2025]: Task-task-nda-submission-index-2025.html
 [task-shelf-life-extension-synthpharma-2025]: Task-task-shelf-life-extension-synthpharma-2025.html
+[example-ma]: MedicinalProductDefinition-example-ma.html

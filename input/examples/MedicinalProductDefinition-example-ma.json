@@ -1,0 +1,51 @@
+{
+  "resourceType": "MedicinalProductDefinition",
+  "id": "example-ma",
+  "name": "WonderDrug",
+  "combinedPharmaceuticalDoseForm": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/uv/emedicinal-product-info/CodeSystem/manufactured-item-dose-form-category-cs",
+        "code": "TabletPellet",
+        "display": "Tablet/Pellet"
+      }
+    ]
+  },
+  "doseForm": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/uv/emedicinal-product-info/CodeSystem/manufactured-item-dose-form-cs",
+        "code": "100000073664",
+        "display": "Tablet"
+      }
+    ]
+  },
+  "classification": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/uv/emedicinal-product-info/CodeSystem/atc-code-cs",
+          "code": "C06DX01",
+          "display": "Other medicinal products"
+        }
+      ]
+    }
+  ],
+  "characteristic": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/uv/emedicinal-product-info/CodeSystem/product-characteristic-cs",
+            "code": "100000073456",
+            "display": "Strength"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 50,
+        "unit": "mg"
+      }
+    }
+  ]
+}

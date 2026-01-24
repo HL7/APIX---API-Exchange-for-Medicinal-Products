@@ -123,6 +123,14 @@
       },
       {
         "reference": {
+          "reference": "DocumentReference/docref-invoice"
+        },
+        "description": "Financial invoice for regulatory submission review",
+        "name": "Invoice #INV-2025-001",
+        "isExample": true
+      },
+      {
+        "reference": {
           "reference": "Task/scenario1-01-initial-submission"
         },
         "name": "scenario1-01-initial-submission",
@@ -230,6 +238,13 @@
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
         ]
+      },
+      {
+        "reference": {
+          "reference": "MedicinalProductDefinition/example-ma"
+        },
+        "name": "WonderDrug",
+        "isExample": true
       }
     ],
     "page": {
