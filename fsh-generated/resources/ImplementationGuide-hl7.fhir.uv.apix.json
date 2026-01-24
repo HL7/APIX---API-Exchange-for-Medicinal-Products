@@ -19,6 +19,17 @@
     }
   ],
   "description": "A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "001",
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "display": "World"
+        }
+      ]
+    }
+  ],
   "packageId": "hl7.fhir.uv.apix",
   "fhirVersion": [
     "5.0.0"
@@ -313,6 +324,139 @@
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
         "value": "ci-build"
+      },
+      {
+        "code": {
+          "code": "0",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "1",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "2",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "3",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "4",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "5",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "6",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "7",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "8",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "9",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "10",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "11",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "12",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "13",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "14",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "15",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "16",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "17",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
+      },
+      {
+        "code": {
+          "code": "18",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "[object Object]"
       },
       {
         "code": {

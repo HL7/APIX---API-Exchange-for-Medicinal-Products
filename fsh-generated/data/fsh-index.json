@@ -61,7 +61,7 @@
     "fshType": "Profile",
     "fshFile": "Profile-apix-task.fsh",
     "startLine": 1,
-    "endLine": 177
+    "endLine": 175
   },
   {
     "outputFile": "ValueSet-apix-business-status-vs.json",

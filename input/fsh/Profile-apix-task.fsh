@@ -78,8 +78,6 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 * intent 1..1
   * ^fixedCode = #proposal
-  * ^binding.strength = #required
-  * ^binding.valueSet = "http://hl7.org/fhir/ValueSet/request-intent|5.0.0"
 
 * priority 1..1 MS
   * ^binding.strength = #required

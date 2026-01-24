@@ -203,18 +203,7 @@
       {
         "id": "Task.intent",
         "path": "Task.intent",
-        "fixedCode": "proposal",
-        "binding": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString": "TaskIntent"
-            }
-          ],
-          "strength": "required",
-          "description": "Distinguishes whether the task is a proposal, plan or full order.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/request-intent|5.0.0"
-        }
+        "fixedCode": "proposal"
       },
       {
         "id": "Task.priority",
