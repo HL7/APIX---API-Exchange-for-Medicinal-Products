@@ -168,6 +168,12 @@ Description: "Task profile for APIX regulatory submission workflows"
 * focus 0..0
 * for 0..1 MS
 * encounter 0..0
-* executionPeriod 0..0
+* executionPeriod 0..1 MS
+  * ^short = "Actual execution period"
+  * ^definition = "The actual time period during which the task was performed (e.g., when validation actually started and when it was completed)."
+  * start 0..1 MS
+    * ^short = "Actual start time"
+  * end 0..1 MS
+    * ^short = "Actual completion time"
 * relevantHistory 0..0
 * restriction 0..0

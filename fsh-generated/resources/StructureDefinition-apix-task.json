@@ -284,7 +284,21 @@
       {
         "id": "Task.executionPeriod",
         "path": "Task.executionPeriod",
-        "max": "0"
+        "short": "Actual execution period",
+        "definition": "The actual time period during which the task was performed (e.g., when validation actually started and when it was completed).",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.executionPeriod.start",
+        "path": "Task.executionPeriod.start",
+        "short": "Actual start time",
+        "mustSupport": true
+      },
+      {
+        "id": "Task.executionPeriod.end",
+        "path": "Task.executionPeriod.end",
+        "short": "Actual completion time",
+        "mustSupport": true
       },
       {
         "id": "Task.authoredOn",
