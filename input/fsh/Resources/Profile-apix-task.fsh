@@ -4,10 +4,10 @@ Id: apix-task
 Title: "APIX Regulatory Task"
 Description: "Task profile for APIX regulatory submission workflows"
 * ^url = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-* ^version = "0.1.0"
-* ^status = #draft
-* ^date = "2025-12-13"
-* ^publisher = "Gravitate Health Project"
+
+
+
+
 
 // Meta elements
 * meta 1..1

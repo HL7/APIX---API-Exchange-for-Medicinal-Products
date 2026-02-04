@@ -3,66 +3,59 @@ canonical: http://hl7.org/fhir/uv/apix
 name: ApixIG
 title: API for the Exchange of Medicinal Product Information (APIX)
 description: A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).
-status: draft # draft | active | retired | unknown
+status: active # draft | active | retired | unknown
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
+    valueCode: brr
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm  #<<<<< this to to inform the publisher of the default FMM level for the artifacts in this IG
+    valueInteger: 1
 version: 0.1.0
 fhirVersion: 5.0.0 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2025+
 releaseLabel: ci-build
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+dependencies:
+    hl7.fhir.extensions.r5:
+        uri: https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/
+        version: 5.3.0
 jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
+
 publisher:
-  name: Gravitate Health Project
-  url: https://www.gravitatehealth.eu/
-  # email: test@example.org
+  name: HL7 International / Biomedical Research and Regulation
+  url: http://www.hl7.org/Special/committees/rcrim
+  # name: Gravitate Health Project
+  # url: https://www.gravitatehealth.eu/
+
 
 parameters:
-  - code: joy
-    value: "true"
-  - code: show-summary-table
-    value: "true"
-  - code: path-resource
-    value: input/resources
-  - code: path-pages
-    value: input/pagecontent
-  - code: path-liquid
-    value: template/liquid
-  - code: path-qa
-    value: temp/qa
-  - code: path-temp
-    value: temp/pages
-  - code: path-output
-    value: output
-  - code: path-tx-cache
-    value: input-cache/txcache
-  - code: path-suppressed-warnings
-    value: input/ignoreWarnings.txt
-  - code: path-history
-    value: http://hl7.org/fhir/uv/apix/history.html
-  - code: template-html
-    value: template/index.html
-  - code: template-md
-    value: template/page.html
-  - code: apply-contact
-    value: "true"
-  - code: apply-jurisdiction
-    value: "true"
-  - code: apply-publisher
-    value: "true"
-  - code: apply-version
-    value: "true"
-  - code: active-tables
-    value: "true"
-  - code: fhire-wg
-    value: brr
+  apply-contact: true
+  apply-jurisdiction: true
+  apply-publisher: true
+  apply-version: true
+  apply-wg: true
 
 pages:
   index.md:
     title: IG Home
   usecases.md:
-    title: Use Cases
+    title: Use Cases  
+  apixinteractionpattern.md:
+    title: APIX Interaction Example
   apixtask.md:
     title: APIX Task Structure
+  apixsubscription.md:
+    title: Subscription
+  apixsubscriptionTopic.md:
+    title: SubscriptionTopic 
+  apixsubscriptionNotificationAndStatus.md:
+    title: SubscriptionNotification Bundle/SubscriptionStatus
+  apixorganizationEndpoint.md:
+    title: Endpoint/Organization
+  apixdocumentReference.md: 
+    title: DocumentReference
   workflow.md:
     title: Workflow Example
   subscriptions.md:
@@ -73,9 +66,16 @@ pages:
 menu:
   IG Home: index.html
   Use Cases: usecases.html
-  APIX Task Structure: apixtask.html
+  Key elements:
+    Task: apixtask.html
+    Subscription: apixsubscription.html
+    SubscriptionTopic: apixsubscriptionTopic.html
+    SubscriptionNotification Bundle/SubscriptionStatus: apixsubscriptionNotificationAndStatus.html
+    Endpoint/Organization: apixorganizationEndpoint.html
+    DocumentReference: apixdocumentReference.html
   Workflow Example: workflow.html
   Real-Time Subscriptions: subscriptions.html
+  APIX Interaction Example: apixinteractionpattern.html
   Architecture: architecture.html
   Artifacts: artifacts.html
 

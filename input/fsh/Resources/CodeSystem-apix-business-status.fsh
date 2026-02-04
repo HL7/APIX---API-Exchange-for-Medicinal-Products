@@ -2,13 +2,12 @@ CodeSystem: APIXBusinessStatusCS
 Id: apix-business-status
 Title: "APIX Regulatory Business Status"
 Description: "Code system for regulatory business status in APIX submissions"
-* ^url = "http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status"
-* ^version = "0.1.0"
-* ^status = #draft
+
 * ^caseSensitive = true
-* ^content = #complete
-* ^date = "2025-12-13"
-* ^publisher = "Gravitate Health Project"
+* ^experimental = false
+
+
+
 
 * #submitted "Submitted" "The application has been submitted by the applicant."
 * #received "Received" "The application or submission has been received by the regulator."

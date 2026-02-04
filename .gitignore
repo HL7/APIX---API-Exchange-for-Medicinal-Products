@@ -10,3 +10,16 @@ input-cache/
 node_modules/
 package-lock.json
 template/
+_updatePublisher.sh
+_updatePublisher.sh
+_updatePublisher.bat
+_genonce.sh
+_genonce.bat
+_gencontinuous.sh
+_gencontinuous.bat
+_build.bat
+fsh-generated/resources/ValueSet-apix-task-input-type-vs.json
+/fsh-generated
+/fsh-generated/data
+_updatePublisher.sh
+/fsh-generated

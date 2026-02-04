@@ -37,7 +37,7 @@ The following table provides an overview of the key elements of the APIX Task re
 <td><code>Task.identifier</code></td>
 <td>1..2</td>
 <td>• Canonical Task UUID (mandatory)<br>• Procedure-scoped number (optional), e.g. <code>EMEA/H/C/001234/II/0045</code></td>
-<td>Technical ID + Official Procedure Number</td>
+<td>Technical ID + Official Procedure Number, useful in precise filtering of status‑change notifications</td>
 </tr>
 <tr>
 <td><code>Task.status</code></td>
@@ -85,13 +85,13 @@ The following table provides an overview of the key elements of the APIX Task re
 <td><code>Task.input</code></td>
 <td>0..*</td>
 <td>type = <code>regulatory-document</code><br>valueReference = Reference(DocumentReference)</td>
-<td>Primary mechanism to attach submission content</td>
+<td>Primary mechanism to attach submission content, or for a Regulator to ask questions or make requests. Can reference DocumentReferences.</td>
 </tr>
 <tr>
 <td><code>Task.output</code></td>
 <td>0..*</td>
 <td>type = <code>regulatory-document</code><br>valueReference = Reference(DocumentReference)</td>
-<td>Used by the regulator to return assessment reports, decisions, etc.</td>
+<td>Used by the regulator to return assessment reports, decisions, etc. Or, used by Applicant to provide responses to Regulator questions or requests. Can reference DocumentReferences.</td>
 </tr>
 <tr>
 <td><code>Task.groupIdentifier</code></td>
@@ -100,10 +100,16 @@ The following table provides an overview of the key elements of the APIX Task re
 <td>Identical across every Task in the same regulatory procedure</td>
 </tr>
 <tr>
+<td><code>Task.basedOn</code></td>
+<td>0..*</td>
+<td>Reference to the parent Task (e.g. a response points to the question Task), ordered lineage of Tasks (oldest → newest).</td>
+<td>The element is an ordered array with the most distant ancestor Task as the first Task of the array (e.g. an initial request for review). The parent Task will be in the last position of the array.</td> 
+</tr>
+<tr>
 <td><code>Task.partOf</code></td>
 <td>0..*</td>
-<td>Reference to the parent Task (e.g. a response points to the question Task)</td>
-<td>Explicitly builds threads and hierarchies</td>
+<td>Reference to a set of Tasks </td>
+<td>Explicitly can build threads and hierarchies of Task to be performed as one set.</td> 
 </tr>
 <tr>
 <td><code>Task.requester</code></td>
@@ -112,10 +118,16 @@ The following table provides an overview of the key elements of the APIX Task re
 <td>Fixed for the entire procedure lifecycle</td>
 </tr>
 <tr>
-<td><code>Task.requestedPerformer</code></td>
+<td><code>Task.owner</code></td>
+<td>0..1</td>
+<td>Organization responsible for completion and mangement of the Task</td>
+<td>Designated performer Organization (e.g. Applicant or Regulator). In FHIR, the Task.owner data element is defined as the entity responsible for managing task execution and status, having the "Performer; Executer" role. In this IG, it is the Organization which controls the Task.status and which indicates Task completion. e.g. A Regulator is the Task.owner of an initial application Task to review an application. The Regulator determines if the application Task is complete, noting the outcome with Task.output. An Applicant would be the the Organization in Task.owner for a Task assigned to the Applicant by the Regulator. Upon the Applicant's completion of the Task, and the Applicant providing a response in Task.output, the Regulator determines if an additional Task or child Task is necessary.</td> 
+</tr>
+<tr>
+<td><code>Task.performer</code></td>
 <td>0..1</td>
 <td>Organization producing/performing the task</td>
-<td>Designated performer (e.g. Applicant or Regulator)</td>
+<td>Can be different from the Task.owner. The Task.owner Organization is responsible for the Task execution and tracking completion.</td>
 </tr>
 <tr>
 <td><code>Task.businessStatus</code></td>
@@ -141,10 +153,11 @@ The following table provides an overview of the key elements of the APIX Task re
 ### Task Identifiers
 Each regulatory message (initial submission, response to questions, approval letter) is a separate **Task** instance. 
 
-Each Task is connected by three identifiers: 
+Each Task is connected by four identifiers: 
 1. `Task.groupIdentifier` is a common UUID used to group all Tasks within a regulatory activity.
-2. `Task.RegulatoryProcedureIdentifier` is the procedure number or application number assigned by the regulator. 
-3. `partOf` relates a child Task to its parent Task.
+2. `Task.RegulatoryProcedureIdentifier` is the procedure number or application number assigned by the regulator.
+3. `basedOn` relates a child Task to its parent Task. 
+3. `partOf` indicates a set of Tasks performed together.
 
 ### Task Status
 In addition to the identifiers mentioned above, APIX uses **Task Status** ([see here for the Task Status Valueset](http://hl7.org/fhir/ValueSet/task-status)) to drive the the regulatory workflow.

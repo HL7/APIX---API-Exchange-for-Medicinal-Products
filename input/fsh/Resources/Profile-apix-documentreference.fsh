@@ -4,10 +4,10 @@ Id: apix-documentreference
 Title: "APIX Regulatory DocumentReference"
 Description: "DocumentReference profile used in APIX regulatory submissions. Supports both embedded base64 data and referenced binaries via URL (Index Pattern). Includes support for versioning, lifecycle status, and CTD section categorization."
 * ^url = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-* ^version = "0.1.0"
-* ^status = #draft
+
+
 * ^date = "2025-12-20"
-* ^publisher = "Gravitate Health Project"
+
 
 * identifier 1..1 MS
   * ^short = "Unique permanent identifier for this document set"
