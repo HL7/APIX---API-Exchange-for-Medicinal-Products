@@ -17,6 +17,8 @@ APIX uses Subscriptions for two primary regulatory event types:
 
 These two patterns allow APIX participants to receive immediate, event‑driven updates without polling.
 
+[Example Subscription](Subscription-Subscription-TaskStatusChange-FullResource.html)
+
 ---
 
 ### Key Elements of the APIX Subscription Resource

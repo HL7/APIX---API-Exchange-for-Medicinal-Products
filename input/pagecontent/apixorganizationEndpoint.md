@@ -4,6 +4,10 @@ In APIX, **Organization** and **Endpoint** work together to represent the partie
 
 The **Endpoint.managingOrganization** element is especially important: it identifies which Organization owns or controls the Endpoint, ensuring that only the appropriate party can modify or maintain the connection details. Together, Organization and Endpoint form the identity and communication layer of the APIX ecosystem.
 
+[Example Organization](Organization-1002.html)
+[Example Endpoint](Endpoint-1003.html)
+[Example Endpoint with header element](Endpoint-1005.html)
+
 ---
 
 ### Organization

@@ -7,6 +7,8 @@ When a Subscription is triggered in APIX, the FHIR server sends a **Subscription
 
 Together, the SubscriptionNotification Bundle and SubscriptionStatus provide a complete picture of both the triggering event and the associated metadata, enabling APIX clients to react immediately and reliably to regulatory workflow changes.
 
+[Example Bundle](Bundle-eee72492-c236-41f7-a7ba-3af356204f4c.html)
+
 ---
 
 ### SubscriptionNotification Bundle

@@ -40,8 +40,8 @@ The Regulator:
   - A **FHIR Organization** representing the Regulatory agency  
   - A **FHIR Endpoint** for the Regulator to receive notifications  
 - Has published **SubscriptionTopics** for:
-  - `Task.status` updates filterable by `Task.identifier`
-  - Task creation filterable by `Task.owner`
+  - `Task.status` updates filterable by `Task.identifier` [Example](SubscriptionTopic-TaskStatusChangeWithIdentifierFilter.html)
+  - Task creation filterable by `Task.owner` [Example](SubscriptionTopic-TaskCreationWithOrganizationAssignedFilter.html)
 
 Optional regulator‑side Subscriptions may monitor:
 
@@ -57,8 +57,8 @@ The Applicant:
 
 - Obtains authorization to the Regulator’s FHIR server (e.g., SMART‑on‑FHIR).
 - Registers:
-  - A **FHIR Organization** for the Applicant organization
-  - A **FHIR Endpoint** for receiving notifications  
+  - A **FHIR Organization** for the Applicant organization [Organization example](Organization-1002.html)
+  - A **FHIR Endpoint** for receiving notifications  [Endpoint example](Endpoint-1003.html)
 - Operates under access rules ensuring:
   - They may update only Tasks where they are `Task.owner`
   - They may only view Tasks where they are `Task.owner` or `Task.requestor`
@@ -85,7 +85,7 @@ The Task is posted to the Regulator’s FHIR server.
 
 #### **Applicant (or Regulator's system) Creates a Subscription for Status Updates**
 
-To receive real‑time updates, the Applicant (or Regulator's system) creates a Subscription:
+To receive real‑time updates, the Applicant (or Regulator's system) creates a Subscription [Example](Subscription-Subscription-TaskStatusChange-FullResource.html):
 
 - `Subscription.topic =` Task‑status SubscriptionTopic URL  
 - `Subscription.filter_by =` the Task’s identifier  
@@ -108,7 +108,7 @@ The Regulator updates:
 
 `Task.status = accepted`
 
-This triggers the Applicant’s Subscription for Task status updates filtered by the `Task.identifier`, generating a **SubscriptionNotification**.
+This triggers the Applicant’s Subscription for Task status updates filtered by the `Task.identifier`, generating a **SubscriptionNotification** [Example](Bundle-eee72492-c236-41f7-a7ba-3af356204f4c.html).
 
 The Applicant now knows the request has been received and accepted.
 
