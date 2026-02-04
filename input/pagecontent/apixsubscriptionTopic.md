@@ -11,6 +11,7 @@ Clients use SubscriptionTopics to understand:
 A Subscription must reference a SubscriptionTopic by its canonical URL. For example, a Subscription that notifies on **Task.status** changes will reference the SubscriptionTopic that defines the status‑change trigger and its associated FHIRPath criteria.
 
 [Example SubscriptionTopic Task status update](SubscriptionTopic-TaskStatusChangeWithIdentifierFilter.html)
+
 [Example SubscriptionTopic Task creation, filtered by owner](SubscriptionTopic-TaskCreationWithOrganizationAssignedFilter.html)
 
 ---
