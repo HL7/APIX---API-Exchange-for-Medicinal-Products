@@ -2,17 +2,10 @@ CodeSystem: APIXCTDSECTION
 Id: ctd-section
 Title: "APIX CTD/eCTD Section Code System"
 Description: "Code system defining all relevant CTD/eCTD section codes used in APIX regulatory submissions to EMA, FDA, PMDA and other agencies. Based on ICH M4 guidelines."
-* ^url = "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section"
-* ^version = "0.1.0"
 * ^status = #active
-* ^experimental = false
-* ^date = "2025-11-24"
-* ^publisher = "Gravitate Health Project"
-* ^contact.name = "Gravitate Health FHIR Implementation Guide"
-* ^contact.telecom.system = #url
-* ^contact.telecom.value = "https://github.com/HL7/APIX---API-Exchange-for-Medicinal-Products/"
 * ^caseSensitive = true
-* ^content = #complete
+* ^experimental = false
+
 
 // Module 1: Administrative Information
 * #1.0 "Cover Letter"

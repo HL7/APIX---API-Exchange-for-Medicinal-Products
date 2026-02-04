@@ -3,3 +3,6 @@
 # Add warning and/or information messages here after you've confirmed that they aren't really a problem
 # (And include comments like this justifying why)
 # See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
+
+# This is an unresolved issue for FHIR-I see https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/http.3A.2F.2Fhl7.2Eorg.2Ffhir.2FValueSet.2Fjurisdiction.20deprecated.20warnin/with/381972830
+Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0

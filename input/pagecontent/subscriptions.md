@@ -5,11 +5,23 @@ APIX creates transparency in regulatory submissions by leveraging the **HL7 FHIR
   <p>This capability underpins the <strong>Unified Status Tracking</strong> use case, providing a "FedEx-style" visibility into the regulatory lifecycle.</p>
 </div>
 
+### Key Points about FHIR Task and its use 
+1. **Task.owner:** In FHIR, the Task.owner data element is defined as the entity responsible for managing task execution, having the "Performer; Executer" role. In this IG, it is the Organization which controls the Task.status and which indicates Task completion. e.g. A Regulator is the Task.owner of an initial application Task to review an application. The Regulator determines if the application Task is complete, noting the outcome with Task.output. 
+
 ### How It Works (Conceptual)
 
-1.  **Subscribe:** The Applicant's system (e.g., RIM) sends a `Subscription` resource to the Regulator's APIX server.
-2.  **Trigger:** A change occurs (e.g., an assessor changes a Task status from `received` to `in-progress`).
-3.  **Notify:** The Regulator's server matches the change to the Subscription criteria and immediately sends a notification to the Applicant's endpoint.
+1.  **SubscriptionTopic:** The Regulator server hosts SubscriptionTopics which allow a client system to 'subscribe' to certain events. In our case, there should be a SubscriptionTopic that allows Subscriptions to status changes of a specific Task. Additionally, the Regulator system will need a SubscriptionTopic that allows the Regulator to subscribe applicant systems to receive notification when Tasks are created with the Applicant system as the Task owner. 
+
+Applicant System
+2a.  **Subscribe:** The Applicant's system (e.g., RIM) sends a `Subscription` resource to the Regulator's APIX server that registers for the 
+3b.  **Trigger:** A change occurs (e.g., an assessor changes a Task status from `received` to `in-progress`).
+4b.  **Notify:** The Regulator's server matches the change to the Subscription criteria and immediately sends a notification to the Applicant's endpoint.
+
+Regulator System
+2a.  **Subscribe:** The Regulator system sends a `Subscription` resource to the Regulator's APIX server that registers a subcription for the Task creation SubscriptionTopic, filtered to respond only to specific Tasks where the Applicant is the Task.owner. 
+3b.  **Trigger:** A change occurs (e.g., an assessor changes a Task status from `received` to `in-progress`).
+4b.  **Notify:** The Regulator's server matches the change to the Subscription criteria and immediately sends a notification to the Applicant's endpoint.
+
 
 ### The Topic-Based Subscription Model
 

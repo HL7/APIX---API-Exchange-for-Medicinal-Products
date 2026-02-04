@@ -2,13 +2,10 @@ CodeSystem: APIXTaskCodeCS
 Id: apix-task-code
 Title: "APIX Task Code System"
 Description: "Code system for regulatory task types in APIX submissions"
-* ^url = "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code"
-* ^version = "0.1.0"
-* ^status = #draft
+
 * ^caseSensitive = true
-* ^content = #complete
-* ^date = "2025-12-13"
-* ^publisher = "Gravitate Health Project"
+
+* ^experimental = false
 
 * #initial-submission "Initial Submission" "First submission of a new application or major variation"
 * #supplement "Supplement / Variation" "Post-authorization change (Type IA, IB, II, extension, etc.)"

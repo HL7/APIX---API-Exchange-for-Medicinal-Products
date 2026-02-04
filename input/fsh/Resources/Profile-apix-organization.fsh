@@ -4,9 +4,9 @@ Id: apix-organization
 Title: "APIX Organization"
 Description: "Organization profile for APIX regulatory workflows, derived from and compatible with ePI requirements."
 * ^url = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-organization"
-* ^version = "0.1.0"
-* ^status = #draft
-* ^publisher = "Gravitate Health Project"
+
+
+
 
 // Identifiers
 * identifier 1..* MS
@@ -48,3 +48,5 @@ Description: "Organization profile for APIX regulatory workflows, derived from a
 * contact.address.postalCode ^short = "Postal code for area"
 * contact.address.country 0..1 MS
 * contact.address.country ^short = "Country (e.g., can be ISO 3166 2 or 3 letter code)"
+
+* endpoint 1..* MS

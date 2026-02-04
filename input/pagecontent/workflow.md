@@ -3,7 +3,7 @@ This page provides a detailed workflow example for a "shelf-life update" scenari
 ### Notification Mechanism
 <div class="markdown-alert markdown-alert-important">
   <p class="markdown-alert-title">Important</p>
-  <p>Throughout this workflow, the Regulator does not directly "send" messages to the Company. Instead, the Regulator updates the <code>Task.status</code> or content of the <code>Task</code> resource on the regulator server. The Company, having subscribed to the Task, receives a notification from the regulator's Subscription service whenever a change occurs.</p>
+  <p>Throughout this workflow, the Regulator does not directly "send" messages to the Company. Instead, the Regulator updates the <code>Task.status</code> or content of the <code>Task</code> resource on the regulator server. The Company, having subscribed to the Task, receives a notification from the regulator's Subscription service whenever a change occurs, including when Tasks are created.</p>
 </div>
 
 ### Shelf-life Update Workflow
@@ -13,7 +13,7 @@ The workflow consists of three main phases: **Validation**, **Review**, and **De
 #### Phase 0: Registration and Connection
 
 **Step 0.1: Company Registers with Regulator**<br>
-Before any submission can occur, the Company performs a one-time registration with the Regulator's API portal. The Regulator registers the Company as an `Organization` resource and provides the necessary API credentials (e.g., OAuth2 Client ID and Secret).
+Before any submission can occur, the Company performs a one-time registration with the Regulator's API portal. The Regulator registers the Company as an `Organization` resource and provides the necessary API credentials (e.g., OAuth2 Client ID and Secret). The Company also registers an `Endpoint`, a FHIR Resource which contains the url for the actual endpoint where subscription notifications should be sent.
 
 **Step 0.2: Company Connects to API**<br>
 The Company authenticates and establishes a connection to the Regulator's FHIR server. This confirms that the Company is authorized to post resources for their medicinal products.
@@ -55,7 +55,7 @@ The regulator validates the package.
 Once validated, the application enters the review phase. Multiple reviews may happen in parallel.
 
 **Step 5.0: Parallel Review Tracks**<br>
-The regulator conducts technical and administrative reviews simultaneously.
+The regulator conducts technical and administrative reviews simultaneously, all of which are through creation of a Task with the `Task.owner` as the Organzation responsible for completeing or responding to the Task.
 
 *   **Track A: Compliance Check** (Step 5.2.1)
     *   Regulator checks compliance of the scientific data.
@@ -88,7 +88,7 @@ If issues are found during technical review:
 #### Phase 3: Final Decision
 
 **Step 6.0: Final Decision**<br>
-The regulator makes a final determination.
+The regulator makes a final determination, indicating the inital `Task.status` complete and adding documents to the `Task.ouput`.
 <br>
 Example: <a href="Task-scenario1-07-final-decision.json" target="_blank">JSON Resource</a> | <a href="scenario1-07-final-decision.html" target="_blank">HTML View</a>
 

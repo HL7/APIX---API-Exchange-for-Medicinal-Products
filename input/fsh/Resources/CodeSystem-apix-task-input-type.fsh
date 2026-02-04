@@ -2,13 +2,9 @@ CodeSystem: APIXTaskInputTypeCS
 Id: apix-task-input-type
 Title: "APIX Task Input Types Code System"
 Description: "Code system for task input types in APIX regulatory submissions"
-* ^url = "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type"
-* ^version = "0.1.0"
-* ^status = #draft
+
 * ^caseSensitive = true
-* ^content = #complete
-* ^date = "2025-12-13"
-* ^publisher = "Gravitate Health Project"
+* ^experimental = false
 
 * #regulatory-document "Regulatory Document" "A regulatory document to be submitted or referenced"
 * #epi-bundle "ePI Bundle" "Electronic Product Information bundle"
