@@ -100,7 +100,7 @@ To protect company trade secrets and clinical data, the following security princ
 
 ### Binary Upload Guide (Post-then-Link)
 
-To handle large documents (e.g., 20MB PDFs) or massive data packages (e.g., 50GB stability datasets) without impacting API performance, APIX utilizes a two-step **"Post-then-Link"** mechanism.
+To handle large documents (e.g., 20MB PDFs) or massive data packages (e.g., 50GB stability datasets) without impacting API performance, APIX utilizes a two-step **"Post-then-Link"** mechanism. This approach aligns with platform guidance: [Microsoft Azure](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-best-practices#storing-binary-data-in-fhir-resources) notes that binary payloads larger than 1.5 MB introduce access inefficiencies for search and retrieval operations, and several major FHIR server implementations—including [Smile CDR](https://smilecdr.com/docs/fhir_repository/binary_data.html#:~:text=13.16.2.1Binary%20Storage%20Mode,storage%2C%20the%20following%20settings%20apply) and [Google Cloud Healthcare](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores.fhir/Binary-create#:~:text=This%20method%20can%20be%20used,are%20larger%20than%2010%20MB.) —support Binary ingestion as a stream rather than a single in‑memory upload.
 
 #### Step 1: Upload Raw Binary
 The submittor posts the file as a raw octet-stream directly to the `/Binary` endpoint. This avoids the overhead of Base64 encoding.
