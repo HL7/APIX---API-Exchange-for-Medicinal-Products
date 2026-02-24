@@ -5,10 +5,6 @@ Title: "APIX Regulatory Task"
 Description: "Task profile for APIX regulatory submission workflows"
 * ^url = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 
-
-
-
-
 // Meta elements
 * meta 1..1
   * versionId 1..1
@@ -112,14 +108,14 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 // For CodeableReference, we can constrain the allowed profile for the reference part using 'only CodeableReference(...)'.
 * requestedPerformer only CodeableReference(APIXOrganization)
-* requestedPerformer 1..1 MS
+* requestedPerformer 0..1 MS
   * ^short = "The ''Desired Actor'' - e.g. Biologics Team or Dr. Smith"
   * ^definition = "The type of person or specific entity the requester **wants** to do the work. In regulatory context: 'Assign this CMC review to the Biologics Team' (Group) or 'Assign this to Dr. Smith' (Individual)."
 
 * owner only Reference(APIXOrganization)
-* owner 0..1 MS
+* owner 1..1 MS
   * ^short = "The ''Accountable Actor'' - e.g. Specific Regulatory Specialist"
-  * ^definition = "The person or system currently **responsible** for executing the Task. Use this when a specific user has accepted the task and is currently performing it. Mandatory when status is 'in-progress'."
+  * ^definition = "The organization, person or system currently **responsible** for executing the Task."
 
 // Task Input with slicing
 * input 0..* MS
