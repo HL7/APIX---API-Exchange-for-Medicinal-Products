@@ -10,11 +10,11 @@ Usage: #example
 * identifier[0].use = #official
 * identifier[=].system = "urn:ietf:rfc:3986"
 * identifier[=].value = "urn:uuid:workflow-step1-instance"
-* identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
+// * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
 * identifier[=].system = "http://ema.europa.eu/procedure-number"
 * identifier[=].value = "EMEA/H/C/001234/IB/0025"
-* identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
+// * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
 * groupIdentifier.use = #official
 * groupIdentifier.system = "urn:ietf:rfc:3986"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
@@ -23,7 +23,7 @@ Usage: #example
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#validation-successful "Validation Successful"
 * intent = #order
 * priority = #routine
-* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-type#variation-type-ib "Type IB Variation"
+* code = apix-task-code#variation-type-ib "Type IB Variation"
 * authoredOn = "2025-11-15T09:00:00+01:00"
 * lastModified = "2025-11-20T14:30:00+01:00"
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"

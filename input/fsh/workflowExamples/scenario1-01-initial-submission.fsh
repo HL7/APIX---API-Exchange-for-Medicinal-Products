@@ -18,7 +18,7 @@ Usage: #example
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#submitted "Submitted"
 * intent = #order
 * priority = #routine
-* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-type#variation-type-ib "Type IB Variation"
+* code = apix-task-code#variation-type-ib "Type IB Variation"
 * authoredOn = "2025-11-15T09:00:00+01:00"
 * lastModified = "2025-11-15T09:00:00+01:00"
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"
@@ -48,7 +48,9 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m1 "Module 1"
+
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter"
 * content.attachment.contentType = #application/pdf
 * content.attachment.url = "https://api.synthpharma.example/binaries/submission-123/m1/cover-letter.pdf"
@@ -64,7 +66,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m1 "Module 1"
 * type = #application-form "Application Form"
 * content.attachment.contentType = #application/pdf
 * content.attachment.url = "https://api.synthpharma.example/binaries/submission-123/m1/app-form.pdf"
@@ -80,7 +83,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m1 "Module 1"
 * type = #annotated-label "Annotated Label"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m1/annotated-label.json"
@@ -96,7 +100,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m1 "Module 1"
 * type = #clean-label "Clean Label"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m1/clean-label.json"
@@ -127,7 +132,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
 * type = #cmc-stability-summary "Stability Summary"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-summary.json"
@@ -143,7 +149,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-data.json"
@@ -159,7 +166,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
+//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
+* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
 * type = #cmc-stability-commitment "Stability Commitment"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-commitment.json"
