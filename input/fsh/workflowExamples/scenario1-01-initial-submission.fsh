@@ -117,7 +117,7 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.2 "Pack Mockup"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.2 "Mock-ups" //"Pack Mockup"
 * content.attachment.contentType = #text/html
 * content.attachment.url = "https://api.synthpharma.example/binaries/submission-123/m1/mockup.html"
 * content.attachment.title = "Pack Mockup.html"

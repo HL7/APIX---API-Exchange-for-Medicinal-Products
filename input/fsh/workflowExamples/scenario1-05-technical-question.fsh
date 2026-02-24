@@ -14,7 +14,7 @@ Usage: #example
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
 * intent = #proposal
 * priority = #routine
-* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "Information Request"
+* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "List of Questions / Information Request"
 * authoredOn = "2025-03-01T14:30:00+01:00"
 * lastModified = "2025-03-01T14:30:00+01:00"
 * requester = Reference(org-ema-srm-hmed) "European Medicines Agency"

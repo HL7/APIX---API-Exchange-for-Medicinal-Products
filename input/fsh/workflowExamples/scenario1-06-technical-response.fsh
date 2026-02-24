@@ -39,7 +39,7 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter / Response"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter" //"Response"
 * relatesTo.code = #appends
 * relatesTo.target = Reference(docref-list-of-questions) "List of Questions (LoQ)"
 * date = "2025-03-15T10:00:00+01:00"
