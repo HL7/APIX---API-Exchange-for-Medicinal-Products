@@ -9,7 +9,7 @@ Usage: #example
 * basedOn = Reference(scenario1-01-initial-submission)
 * identifier[0].use = #official
 * identifier[=].system = "urn:ietf:rfc:3986"
-* identifier[=].value = "urn:uuid:workflow-step1-instance"
+* identifier[=].value = "urn:uuid:d7f9bc88-658f-418a-ba4c-40307099603e"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
 * identifier[=].system = "http://ema.europa.eu/procedure-number"
@@ -21,7 +21,7 @@ Usage: #example
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 * status = #accepted
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#validation-successful "Validation Successful"
-* intent = #order
+* intent = #proposal
 * priority = #routine
 * code = apix-task-code#variation-type-ib "Type IB Variation"
 * authoredOn = "2025-11-15T09:00:00+01:00"
@@ -48,9 +48,9 @@ Usage: #example
 * input[8].valueReference = Reference(doc9)
 * input[9].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
 * input[9].valueReference = Reference(doc10)
-* output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
 * output[0].valueReference = Reference(output-ack)
-* output[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* output[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
 * output[1].valueReference = Reference(output-validation)
 
 Instance: doc9

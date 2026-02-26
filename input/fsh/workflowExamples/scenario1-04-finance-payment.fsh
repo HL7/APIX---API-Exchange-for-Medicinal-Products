@@ -7,7 +7,7 @@ Usage: #example
 * meta.lastUpdated = "2025-03-06T14:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 * identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:invoice-task-uuid"
+* identifier.value = "urn:uuid:5dbf06dc-e8f5-4f2b-bd69-a034dacb2836"
 * partOf = Reference(scenario1-01-initial-submission)
 * status = #completed
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#payment-received "Payment Received"
@@ -15,6 +15,9 @@ Usage: #example
 * priority = #routine
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#request-payment "Request Payment"
 * for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
+* groupIdentifier.use = #official
+* groupIdentifier.system = "urn:ietf:rfc:3986"
+* groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-03-05T09:00:00+01:00"
 * lastModified = "2025-03-06T14:00:00+01:00"
 * requester = Reference(org-ema-srm-hmed) "European Medicines Agency"

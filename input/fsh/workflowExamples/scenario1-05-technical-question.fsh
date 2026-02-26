@@ -15,6 +15,9 @@ Usage: #example
 * intent = #proposal
 * priority = #routine
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "List of Questions / Information Request"
+* groupIdentifier.use = #official
+* groupIdentifier.system = "urn:ietf:rfc:3986"
+* groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-03-01T14:30:00+01:00"
 * lastModified = "2025-03-01T14:30:00+01:00"
 * requester = Reference(org-ema-srm-hmed) "European Medicines Agency"

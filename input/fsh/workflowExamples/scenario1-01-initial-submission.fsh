@@ -8,7 +8,7 @@ Usage: #example
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 * identifier.use = #official
 * identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:workflow-step1-instance"
+* identifier.value = "urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189726"
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * groupIdentifier.use = #official
 * groupIdentifier.system = "urn:ietf:rfc:3986"
@@ -16,7 +16,7 @@ Usage: #example
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 * status = #requested
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#submitted "Submitted"
-* intent = #order
+* intent = #proposal
 * priority = #routine
 * code = apix-task-code#variation-type-ib "Type IB Variation"
 * authoredOn = "2025-11-15T09:00:00+01:00"

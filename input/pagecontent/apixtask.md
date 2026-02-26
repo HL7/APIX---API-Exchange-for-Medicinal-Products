@@ -35,7 +35,7 @@ The following table provides an overview of the key elements of the APIX Task re
 </tr>
 <tr>
 <td><code>Task.identifier</code></td>
-<td>1..2</td>
+<td>1..*</td>
 <td>• Canonical Task UUID (mandatory)<br>• Procedure-scoped number (optional), e.g. <code>EMEA/H/C/001234/II/0045</code></td>
 <td>Technical ID + Official Procedure Number, useful in precise filtering of status‑change notifications</td>
 </tr>

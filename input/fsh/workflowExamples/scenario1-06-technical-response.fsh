@@ -25,10 +25,10 @@ Usage: #example
 * authoredOn = "2025-03-15T10:00:00+01:00"
 * lastModified = "2025-03-15T10:00:00+01:00"
 * output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
-* output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#cover-letter "Cover Letter"
+* output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#cover-letter "Cover Letter"
 * output[0].valueReference = Reference(docref-responses-qresponse) "Applicant QuestionnaireResponse"
 * output[+].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
-* output[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* output[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#stability-data "Stability Data"
 * output[1].valueReference = Reference(docref-stability-data-annex) "Annex: Updated Stability Data"
 
 Instance: docref-responses-qresponse
