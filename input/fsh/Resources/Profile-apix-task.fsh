@@ -3,6 +3,8 @@
 Invariant: statusreason-conditional-require
 Description: "A status reason is required when the status is rejected or cancelled."
 Severity: #error
+Expression: "((status = 'rejected') or (status = 'cancelled')) implies statusReason.exists()"
+//Expression: "(((status = 'rejected') or (status = 'cancelled')) and statusReason.exists()) or (((status = 'rejected') or (status = 'cancelled')).not())"
 
 //"urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
 Invariant: identifier-is-uuid
@@ -15,6 +17,9 @@ Parent: Task
 Id: apix-task
 Title: "APIX Regulatory Task"
 Description: "Task profile for APIX regulatory submission workflows"
+
+// if placed on statusReason it will be ignored when statusReason is absent
+* obeys statusreason-conditional-require
 
 // Meta elements
 * meta 1..1
@@ -78,7 +83,8 @@ Description: "Task profile for APIX regulatory submission workflows"
   * ^binding.valueSet = Canonical(apix-business-status-vs)
   * ^binding.description = "Detailed regulatory status such as clock-stop"
   
-* statusReason obeys statusreason-conditional-require
+* statusReason ^short = "Required if status is rejected or cancelled"
+* statusReason ^definition = "Required if status is rejected or cancelled. Reason for current status." 
 
 * intent 1..1
 * intent = http://hl7.org/fhir/request-intent#proposal
