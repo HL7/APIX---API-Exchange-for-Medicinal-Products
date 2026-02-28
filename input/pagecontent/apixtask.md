@@ -142,7 +142,7 @@ The following table provides an overview of the key elements of the APIX Task re
 <td>Starting point for regulatory cycle-time metrics</td>
 </tr>
 <tr>
-<td><code>Task.lastModified</code></td>
+<td><code>Task.lastUpdated</code></td>
 <td>1..1</td>
 <td>Automatically updated on every change</td>
 <td>Critical for audit and performance reporting</td>

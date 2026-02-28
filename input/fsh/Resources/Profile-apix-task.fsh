@@ -25,6 +25,7 @@ Description: "Task profile for APIX regulatory submission workflows"
 * meta 1..1
   * versionId 1..1
   * lastUpdated 1..1
+  * lastUpdated ^short = "Automatically updated on every change"
 //  * profile 1..1
 //  * profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 
@@ -89,7 +90,9 @@ Description: "Task profile for APIX regulatory submission workflows"
 * intent 1..1
 * intent = http://hl7.org/fhir/request-intent#proposal
 
-* code 1..1
+* code 1..1 MS
+  * ^short = "Defines the regulatory message type and triggers specific business rules"
+  * ^definition = "Defines the regulatory message type and triggers specific business rules"
   * ^binding.strength = #extensible
   * ^binding.valueSet = Canonical(apix-submission-type-vs)
 
@@ -108,12 +111,14 @@ Description: "Task profile for APIX regulatory submission workflows"
     * ^comment = "Example: Day 210 of centralised procedure, response deadline to List of Questions, etc."
 
 * authoredOn 1..1
+* authoredOn ^short = "Date/time the sender created the Task"
+* authoredOn ^definition = "Starting point for regulatory cycle-time metrics."
 
 * lastModified 1..1
 
 * requester only Reference(APIXOrganization)
 * requester 1..1 MS
-  * ^short = "The ''Author'' - e.g. Regulatory Authority or Senior Manager"
+  * ^short = "Applicant Organization that initiated the procedure, e.g. Regulatory Authority or Submitting Organization"
   * ^definition = "The person or system that **created** the Task and wants the work done. In regulatory context: The Regulatory Authority (e.g., FDA/EMA) or a senior manager initiating a submission review."
   
 * performer
@@ -165,7 +170,11 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 * focus 0..1
 * for 0..1 MS
+  * ^short = "Identifies the medicinal product that is the subject"
+  * ^definition = "Identifies the medicinal product that is the subject of the process"
+
 * basedOn MS
+* basedOn ^short = "Reference to the parent Task (e.g. a response points to the question Task), ordered lineage of Tasks (oldest → newest)."
 * encounter 0..0
 * executionPeriod 0..1 MS
   * ^short = "Actual execution period"
@@ -176,3 +185,4 @@ Description: "Task profile for APIX regulatory submission workflows"
     * ^short = "Actual completion time"
 * relevantHistory 0..0
 * restriction 0..0
+* authoredOn
