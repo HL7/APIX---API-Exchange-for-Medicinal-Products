@@ -44,7 +44,7 @@ Note: To keep the server healthy, buisness rules should be determined at what fr
 
 <tr>
 <td><code>DocumentReference.type</code></td>
-<td>0..1</td>
+<td>1..1</td>
 <td>e.g. Stability Report, Study Protocol</td>
 <td>Describes the document’s regulatory purpose</td>
 </tr>
@@ -58,7 +58,7 @@ Note: To keep the server healthy, buisness rules should be determined at what fr
 
 <tr>
 <td><code>DocumentReference.date</code></td>
-<td>0..1</td>
+<td>1..1</td>
 <td>Date/time of creation</td>
 <td>Useful for audit trails and version tracking</td>
 </tr>
