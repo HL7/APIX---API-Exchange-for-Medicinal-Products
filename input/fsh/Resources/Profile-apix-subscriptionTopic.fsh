@@ -16,7 +16,7 @@ Description: "SubscriptionTopic notifying an organization when a Task is created
 
 // Require one canFilterBy
 * canFilterBy 1..1
-* canFilterBy.description = "Filter by requested Performer Organization"
+* canFilterBy.description = "Filter by Owner (assigned) Organization"
 * canFilterBy.resource = #Task
 * canFilterBy.filterParameter = "owner"
 * canFilterBy.filterDefinition = "http://hl7.org/fhir/SearchParameter/Task-owner"

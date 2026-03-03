@@ -40,6 +40,9 @@ Description: "DocumentReference profile used in APIX regulatory submissions. Sup
 * description 0..1 MS
   * ^short = "Human-readable summary of the document"
 
+* subject MS
+  * ^short = "Used to link to specific products, such as a `MedicinalProductDefinition`"
+
 * securityLabel 0..* MS
   * ^short = "Confidentiality/Security labels"
 
@@ -60,7 +63,7 @@ Description: "DocumentReference profile used in APIX regulatory submissions. Sup
   * ^short = "Embedded base64 content (optional in Index Pattern)"
   * ^definition = "The full document content can be embedded here if desired, but for large files, use 'url' instead."
 
-* content.attachment.url 0..1
+* content.attachment.url 1..1
   * ^short = "Reference to document on FHIR server or external URL"
   * ^definition = "The URL where the document content can be retrieved. This allows for the 'Index Pattern' where large binaries are stored separately."
 

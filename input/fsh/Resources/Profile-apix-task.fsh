@@ -185,4 +185,3 @@ Description: "Task profile for APIX regulatory submission workflows"
     * ^short = "Actual completion time"
 * relevantHistory 0..0
 * restriction 0..0
-* authoredOn
