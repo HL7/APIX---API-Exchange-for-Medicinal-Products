@@ -85,7 +85,7 @@ Usage: #example
 * version = "1.0"
 //* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m1 "Module 1"
-* type = #annotated-label "Annotated Label"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet" //"annotated-label "Annotated Label"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m1/annotated-label.json"
 * content.attachment.title = "Annotated Label (Bundle)"
@@ -102,7 +102,7 @@ Usage: #example
 * version = "1.0"
 //* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m1 "Module 1"
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m1 "Module 1"
-* type = #clean-label "Clean Label"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet" //"clean-label "Clean Label"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m1/clean-label.json"
 * content.attachment.title = "Clean Label (Bundle)"
@@ -134,7 +134,7 @@ Usage: #example
 * version = "1.0"
 //* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
-* type = #cmc-stability-summary "Stability Summary"
+* type = #3.2.P.8.1 "Stability Summary and Conclusion" //"Stability Summary"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-summary.json"
 * content.attachment.title = "CMC Doc 1 - Summary (Transaction Bundle)"
@@ -168,7 +168,7 @@ Usage: #example
 * version = "1.0"
 //* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
-* type = #cmc-stability-commitment "Stability Commitment"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.2 "Post-approval Stability Protocol and Commitment"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-commitment.json"
 * content.attachment.title = "CMC Doc 3 - Commitment (Transaction Bundle)"

@@ -1,15 +1,15 @@
 Instance: Subscription-TaskStatusChange-FullResource
-InstanceOf: Subscription
+InstanceOf: APIXSubscription
 Title: "Subscription for Task Status Change with Identifier Filter"
 Description: "Subscription example to Task change status with an identifier filter, and sending full-resource."
-
-* identifier[0].system = "submitterOrgSubscriptions"
+Usage: #example
+* identifier[0].system = "http://example.org/submitterOrgSubscriptions"
 * identifier[0].value = "task-miami10-status-subscription-1c5143fa-e247-405b-8bbc-a0f4025c11ad"
 
 * status = #requested
-* topic = "http://localhost:8080/fhir//SubscriptionTopic/1000"
+* topic = "http://example.org/localhost:8080/fhir//SubscriptionTopic/1000"
 
-* managingEntity.reference = "Organization/1004"
+* managingEntity = Reference(Organization-1002)
 
 * reason = "Monitor status transitions for a specific Task"
 
@@ -17,9 +17,9 @@ Description: "Subscription example to Task change status with an identifier filt
 * filterBy[0].filterParameter = "identifier"
 * filterBy[0].value = "systeminternalToSubmitter|miami10"
 
-* channelType.code = #rest-hook
+* channelType = http://terminology.hl7.org/CodeSystem/subscription-channel-type#rest-hook
 
-* endpoint = "http://host.docker.internal:3001/fhir-subscription-notify"
+* endpoint = "http://example.org/host.docker.internal:3001/fhir-subscription-notify"
 
 * heartbeatPeriod = 300
 * timeout = 5

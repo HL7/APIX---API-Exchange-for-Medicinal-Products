@@ -6,3 +6,45 @@
 
 # This is an unresolved issue for FHIR-I see https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/http.3A.2F.2Fhl7.2Eorg.2Ffhir.2FValueSet.2Fjurisdiction.20deprecated.20warnin/with/381972830
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+Reference to experimental CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+
+# Ignore for now
+Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
+
+# The APIC DocumentReference Profile does not use http://hl7.org/fhir/ValueSet/doc-typecodes|5.0.0, it uses a non-clinical valueset specific to its use case
+% None of the codings provided are in the value set 'FHIR Document Type Codes'%
+% DocumentReference.type: None of the codings provided are in the value set 'FHIR Document Type Codes'%
+
+# Slices are intentional and are examples of other slices that can occur
+%This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+%This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/apix/StructureDefinition/apix-organization|0.1.0%
+
+# These references are intended
+%Reference to experimental CodeSystem http://hl7.org/fhir/request-intent|5.0.0
+INFORMATION: MedicinalProductDefinition/example-ma: MedicinalProductDefinition.name[0].usage[0].country: Reference to draft CodeSystem urn:iso:std:iso:3166|20210120
+
+# Identifiers not intended to resolve it is an example
+%No definition could be found for URL value 'http://ema.europa.eu/identifier'
+
+# These come from the base Task Resource
+WARNING: StructureDefinition/apix-task: StructureDefinition.snapshot.element[45].binding: The definition for the element 'Task.priority' binds to the value set 'http://hl7.org/fhir/ValueSet/request-priority|5.0.0' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/apix-task: StructureDefinition.snapshot.element[65].binding: The definition for the element 'Task.requestedPerformer' binds to the value set 'http://hl7.org/fhir/ValueSet/performer-role|5.0.0' which is experimental, but this structure is not labeled as experimental
+
+# These are related to items in the base FHIR R5 SubscriptionTopic Resource
+ERROR: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/structuredefinition-implements could not be found so is not allowed here
+ERROR: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.extension[0].url: No definition could be found for URL value 'http://hl7.org/fhir/StructureDefinition/structuredefinition-implements'
+WARNING: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.snapshot.element[35].definition: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.snapshot.element[53].definition: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.snapshot.element[59].comment: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.snapshot.element[68].comment: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.snapshot.element[12].binding: The definition for the element 'SubscriptionTopic.versionAlgorithm[x]' binds to the value set 'http://hl7.org/fhir/ValueSet/version-algorithm|5.0.0' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/task-creation-with-organization-assigned-filter: StructureDefinition.snapshot.element[23].binding: The definition for the element 'SubscriptionTopic.jurisdiction' binds to the value set 'http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0' which is experimental, but this structure is not labeled as experimental
+ERROR: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/structuredefinition-implements could not be found so is not allowed here
+ERROR: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.extension[0].url: No definition could be found for URL value 'http://hl7.org/fhir/StructureDefinition/structuredefinition-implements'
+WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[35].definition: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[53].definition: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[59].comment: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[68].comment: The markdown contains content that appears to be an embedded HTML tag starting at '<a'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[12].binding: The definition for the element 'SubscriptionTopic.versionAlgorithm[x]' binds to the value set 'http://hl7.org/fhir/ValueSet/version-algorithm|5.0.0' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[23].binding: The definition for the element 'SubscriptionTopic.jurisdiction' binds to the value set 'http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0' which is experimental, but this structure is not labeled as experimental
+

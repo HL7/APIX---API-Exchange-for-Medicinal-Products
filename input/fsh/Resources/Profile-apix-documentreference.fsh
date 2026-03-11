@@ -27,7 +27,7 @@ Description: "DocumentReference profile used in APIX regulatory submissions. Sup
 * category 0..1 MS
   * ^short = "High-level categorization (e.g. CTD Module 1, Clinical Trial Data)"
   * ^binding.strength = #extensible
-  * ^binding.valueSet = apix-ctd-module-vs
+  * ^binding.valueSet = Canonical(apix-ctd-module-vs)
 
 * type 1..1 MS
   * ^short = "CTD section code (e.g. 3.2.S.1.1)"

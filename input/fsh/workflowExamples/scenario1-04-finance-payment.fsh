@@ -36,7 +36,7 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* type = #m1.0 "Invoice"
+* type = #invoice "Invoice"
 * description = "Financial invoice for regulatory submission review"
 * content.attachment.contentType = #application/pdf
 * content.attachment.url = "https://api.ema.example/binaries/invoices/INV-2025-001.pdf"
@@ -54,8 +54,8 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* type = #m1.0 "Proof of Payment"
-* relatesTo.code = #appends
+* type = #proofOfPayment "Proof of Payment"
+* relatesTo.code = http://hl7.org/fhir/document-relationship-type#appends
 * relatesTo.target = Reference(docref-invoice) "Invoice #INV-2025-001"
 * content.attachment.contentType = #application/pdf
 * content.attachment.url = "https://api.synthpharma.example/binaries/payments/confirm-inv-2025-001.pdf"

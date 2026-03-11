@@ -45,7 +45,8 @@ Usage: #example
 * content.attachment.contentType = #application/pdf
 * content.attachment.title = "approval-letter.pdf"
 * content.attachment.creation = "2025-04-20T09:00:00+01:00"
-* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
+//* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
+* content.attachment.url = "http://example.org/FHIR/Binary/101"
 * identifier[0].system = "urn:ietf:rfc:3986"
 * identifier[0].value = "urn:uuid:70707070-7070-7070-7070-707070707070"
 
@@ -64,6 +65,7 @@ Usage: #example
 * content.attachment.contentType = #application/pdf
 * content.attachment.title = "final-assessment-report.pdf"
 * content.attachment.creation = "2025-04-20T09:00:00+01:00"
-* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
+//* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
+* content.attachment.url = "http://example.org/FHIR/Binary/102"
 * identifier[0].system = "urn:ietf:rfc:3986"
 * identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808080"

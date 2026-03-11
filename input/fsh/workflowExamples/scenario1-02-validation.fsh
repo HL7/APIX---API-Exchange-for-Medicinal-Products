@@ -12,7 +12,7 @@ Usage: #example
 * identifier[=].value = "urn:uuid:d7f9bc88-658f-418a-ba4c-40307099603e"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
-* identifier[=].system = "http://ema.europa.eu/procedure-number"
+* identifier[=].system = "http://example.org/ema.europa.eu/procedure-number"
 * identifier[=].value = "EMEA/H/C/001234/IB/0025"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
 * groupIdentifier.use = #official
@@ -59,8 +59,9 @@ Title: "doc9"
 Description: "Example DocumentReference"
 Usage: #example
 * status = #current
-* type = #cmc-ds-stability-summary "DS Stability Summary"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.1 "Stability Summary and Conclusion" //"DS Stability Summary"
 * content.attachment.title = "CMC Doc 4 - DS Summary.pdf"
+* content.attachment.contentType = #application/pdf
 
 
 Instance: doc10
@@ -69,8 +70,9 @@ Title: "doc10"
 Description: "Example DocumentReference"
 Usage: #example
 * status = #current
-* type = #cmc-ds-stability-data "DS Stability Data"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"  //"DS Stability Data"
 * content.attachment.title = "CMC Doc 5 - DS Data.pdf"
+* content.attachment.contentType = #application/pdf
 
 
 Instance: output-ack

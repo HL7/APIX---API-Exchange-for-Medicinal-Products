@@ -51,7 +51,7 @@ Description: "Task profile for APIX regulatory submission workflows"
   * ^slicing.rules = #open
   * ^slicing.description = "At least one mandatory technical UUID identifier and one optional regulator procedure number"
 
-* identifier contains TaskInstance 1..1 and RegulatorProcedureNumber 0..1
+* identifier contains TaskInstance 1..1 MS and RegulatorProcedureNumber 0..1 MS
 
 * identifier[TaskInstance] obeys identifier-is-uuid
   * ^short = "Technical UUID for this specific Task instance"

@@ -8,10 +8,12 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2026-02-02T00:22:09.017+00:00"
 
-* identifier[0].system = "regulator-system"
+* identifier[0].system = "http://example.org/regulator-system"
 * identifier[0].value = "findMEanywhereUsingThisSystemAndValue"
 
 * status = #active
+
+* managingOrganization = Reference(Organization-1002)
 
 * connectionType[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"
 * connectionType[0].coding[0].code = #hl7-fhir-subscription-notify
@@ -22,7 +24,7 @@ Usage: #example
 * payload[0].type[0].coding[0].code = #any
 * payload[0].type[0].coding[0].display = "Any"
 
-* address = "http://host.docker.internal:3001/fhir-subscription-notify"
+* address = "http://example.org/host.docker.internal:3001/fhir-subscription-notify"
 
 Instance: Endpoint-1005
 InstanceOf: EndpointSubscriptionNotify
@@ -34,7 +36,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2026-02-02T00:22:34.166+00:00"
 
-* identifier[0].system = "submitter-system"
+* identifier[0].system = "http://example.org/submitter-system"
 * identifier[0].value = "findMEanywhereUsingThisSystemAndValue"
 
 * status = #active
@@ -48,6 +50,6 @@ Usage: #example
 * payload[0].type[0].coding[0].code = #any
 * payload[0].type[0].coding[0].display = "Any"
 
-* address = "http://host.docker.internal:3000/fhir-subscription-notify"
+* address = "http://example.org/host.docker.internal:3000/fhir-subscription-notify"
 
 * header[0] = "Authorization: Bearer {{token}}"

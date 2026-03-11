@@ -40,7 +40,7 @@ Usage: #example
 * docStatus = #final
 * version = "1.0"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter" //"Response"
-* relatesTo.code = #appends
+* relatesTo.code = http://hl7.org/fhir/document-relationship-type#appends
 * relatesTo.target = Reference(docref-list-of-questions) "List of Questions (LoQ)"
 * date = "2025-03-15T10:00:00+01:00"
 * content.attachment.contentType = #application/fhir+json

@@ -8,7 +8,7 @@ Description: "Organization example with Endpoint."
 * meta.versionId = "1"
 * meta.lastUpdated = "2026-02-02T00:22:09.017+00:00"
 
-* identifier[0].system = "http://somesystemRegulator"
+* identifier[0].system = "http://example.org/somesystemRegulator"
 * identifier[0].value = "110"
 
 * name = "Stupendous Regulator"
@@ -28,5 +28,5 @@ Description: "Organization example with Endpoint."
 * contact[0].address.postalCode = "90129"
 * contact[0].address.country = "USA"
 
-* endpoint[0].reference = "Endpoint/1003"
+* endpoint[0] = Reference(Endpoint-1003)
 * endpoint[0].display = "Subscription notification endpoint"
