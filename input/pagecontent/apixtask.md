@@ -71,9 +71,9 @@ The following table provides an overview of the key elements of the APIX Task re
 </tr>
 <tr>
 <td><code>Task.for</code></td>
-<td>0..1</td>
-<td>Reference to <code>MedicinalProductDefinition</code> or <code>RegulatedAuthorization</code></td>
-<td>Identifies the medicinal product that is the subject of the procedure</td>
+<td>0..*</td>
+<td>Reference to <code>MedicinalProductDefinition</code> or <code>RegulatedAuthorization</code> or <code>Group</code> or <code>List</code></td>
+<td>Identifies the medicinal product(s) that is/are the subject of the process. Use Group or List FHIR Resource for multiple products.</td>
 </tr>
 <tr>
 <td><code>Task.requestedPeriod</code></td>
@@ -114,20 +114,20 @@ The following table provides an overview of the key elements of the APIX Task re
 <tr>
 <td><code>Task.requester</code></td>
 <td>1..1</td>
-<td>Applicant Organization that initiated the procedure</td>
+<td>Organization that initiated the task</td>
 <td>Fixed for the entire procedure lifecycle</td>
 </tr>
 <tr>
 <td><code>Task.owner</code></td>
 <td>0..1</td>
-<td>Organization responsible for completion and mangement of the Task</td>
-<td>Designated performer Organization (e.g. Applicant or Regulator). In FHIR, the Task.owner data element is defined as the entity responsible for managing task execution and status, having the "Performer; Executer" role. In this IG, it is the Organization which controls the Task.status and which indicates Task completion. e.g. A Regulator is the Task.owner of an initial application Task to review an application. The Regulator determines if the application Task is complete, noting the outcome with Task.output. An Applicant would be the the Organization in Task.owner for a Task assigned to the Applicant by the Regulator. Upon the Applicant's completion of the Task, and the Applicant providing a response in Task.output, the Regulator determines if an additional Task or child Task is necessary.</td> 
+<td>Organization responsible for fulfilling the Task</td>
+<td>Designated performer Organization (e.g. Applicant or Regulator). In FHIR, the Task.owner data element is defined as the entity responsible for managing task execution and status, having the "Performer; Executer" role. In this IG, it is  additionally the Organization which controls the Task.status and which indicates Task completion. e.g. A Regulator is the Task.owner of an initial application Task to review an application. The Regulator determines if the application Task is complete, noting the outcome with Task.output. An Applicant would be the the Organization in Task.owner for a Task assigned to the Applicant by the Regulator. Upon the Applicant's completion of the Task, and the Applicant providing a response in Task.output and changing status to 'complete,' the Regulator determines if an additional Task or child Task is necessary for further clarification.</td> 
 </tr>
 <tr>
 <td><code>Task.performer</code></td>
 <td>0..1</td>
-<td>Organization producing/performing the task</td>
-<td>Can be different from the Task.owner. The Task.owner Organization is responsible for the Task execution and tracking completion.</td>
+<td>Organization or individual producing/performing the task</td>
+<td>Organization or individual who performed the task. Can be different from the Task.owner.</td>
 </tr>
 <tr>
 <td><code>Task.businessStatus</code></td>

@@ -24,7 +24,7 @@ Description: "Task profile for APIX regulatory submission workflows"
 // Meta elements
 * meta 1..1
   * versionId 1..1
-  * lastUpdated 1..1
+//  * lastUpdated 1..1
   * lastUpdated ^short = "Automatically updated on every change"
 //  * profile 1..1
 //  * profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -55,21 +55,12 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 * identifier[TaskInstance] obeys identifier-is-uuid
   * ^short = "Technical UUID for this specific Task instance"
-//  * type 1..1
-//    * coding 1..1
-//      * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
-//      * code = #RI
   * system = "urn:ietf:rfc:3986"
-// * value 1..1
-//   * ^patternString = "urn:uuid:"
+
 
 * identifier[RegulatorProcedureNumber]
   * ^short = "Official regulator procedure/submission number (EMA, FDA, PMDA, etc.)"
   * MS
-//  * type 1..1
-//    * coding 1..1
-//      * system = "http://terminology.hl7.org/CodeSystem/v2-0203"
-//      * code = #RN
   * system 1..1
     * ^patternUri = "https://ema.europa.eu/procedure"
   * value 1..1
@@ -80,7 +71,7 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 * businessStatus 0..1
   * ^short = "Detailed regulatory status (e.g., clock-stop)"
-  * ^binding.strength = #required
+  * ^binding.strength = #example
   * ^binding.valueSet = Canonical(apix-business-status-vs)
   * ^binding.description = "Detailed regulatory status such as clock-stop"
   
@@ -93,7 +84,7 @@ Description: "Task profile for APIX regulatory submission workflows"
 * code 1..1 MS
   * ^short = "Defines the regulatory message type and triggers specific business rules"
   * ^definition = "Defines the regulatory message type and triggers specific business rules"
-  * ^binding.strength = #extensible
+  * ^binding.strength = #example
   * ^binding.valueSet = Canonical(apix-submission-type-vs)
 
 * description 0..0
@@ -118,13 +109,13 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 * requester only Reference(APIXOrganization)
 * requester 1..1 MS
-  * ^short = "Applicant Organization that initiated the procedure, e.g. Regulatory Authority or Submitting Organization"
+  * ^short = "Organization that initiated the task"
   * ^definition = "The person or system that **created** the Task and wants the work done. In regulatory context: The Regulatory Authority (e.g., FDA/EMA) or a senior manager initiating a submission review."
   
 * performer
 * performer 0..1 MS
-  * ^short = "Organization producing/performing the task"
-  * ^definition = "Can be different from the Task.owner. The Task.owner Organization is responsible for the Task execution and tracking completion."
+  * ^short = "Organization or individual who performed the task"
+  * ^definition = "Organization or individual who performed the task. Can be different from the Task.owner."
  
 //Deprecated
 // For CodeableReference, we can constrain the allowed profile for the reference part using 'only CodeableReference(...)'.
@@ -135,43 +126,47 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 * owner only Reference(APIXOrganization)
 * owner 0..1 MS
-  * ^short = "The ''Accountable Actor'', Organization accountable for Task execution."
-  * ^definition = "The organization, person or system currently **responsible** for executing and managing the Task."
+  * ^short = "The Organization accountable for fulfilling the Task."
+  * ^definition = "The organization, person or system currently **responsible** for fulfillng the Task."
 
 // Task Input with slicing
 * input 0..* MS
   * ^short = "Input parameters for the task"
   * ^definition = "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures."
-* input ^slicing.discriminator.type = #value
-* input ^slicing.discriminator.path = "type"
-* input ^slicing.rules = #open  
-* input ^slicing.description = "Slicing to support regulatoryDocument and future input types"
+* input.type MS
+  * ^short = "Input type  indicates the type of input, such as the code used ion a DocumentReference type"
+//* input ^slicing.discriminator.type = #value
+//* input ^slicing.discriminator.path = "type"
+//* input ^slicing.rules = #open  
+//* input ^slicing.description = "Slicing to support regulatoryDocument and future input types"
 
-* input contains regulatoryDocument 0..* MS
-* input[regulatoryDocument]
-  * ^short = "Regulatory document (CTD section, via DocumentReference index)"
-* input[regulatoryDocument].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
-* input[regulatoryDocument].value[x] only Reference(APIXDocumentReference)
+//* input contains regulatoryDocument 0..* MS
+//* input[regulatoryDocument]
+//  * ^short = "Regulatory document (CTD section, via DocumentReference index)"
+//* input[regulatoryDocument].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+//* input[regulatoryDocument].value[x] only Reference(APIXDocumentReference)
 
 // Task Output with slicing
 * output 0..* MS
   * ^short = "Output produced by the task"
   * ^definition = "Outputs produced by the task in the context of medicinal product regulatory procedures."
-  * ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "type"
-  * ^slicing.rules = #open
-  * ^slicing.description = "Slicing by Task.output.type.coding to support regulatoryDocument and future output types"
+* output.type MS
+  * ^short = "Output type indicates the type of output, such as the code used in a DocumentReference type"
+//  * ^slicing.discriminator.type = #value
+//  * ^slicing.discriminator.path = "type"
+//  * ^slicing.rules = #open
+//  * ^slicing.description = "Slicing by Task.output.type.coding to support regulatoryDocument and future output types"
 
-* output contains regulatoryDocument 0..* MS
-* output[regulatoryDocument]
-  * ^short = "Regulatory document produced as output (via DocumentReference index)"
-* output[regulatoryDocument].type  = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
-* output[regulatoryDocument].value[x] only Reference(APIXDocumentReference)
+//* output contains regulatoryDocument 0..* MS
+//* output[regulatoryDocument]
+//  * ^short = "Regulatory document produced as output (via DocumentReference index)"
+//* output[regulatoryDocument].type  = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
+//* output[regulatoryDocument].value[x] only Reference(APIXDocumentReference)
 
 * focus 0..1
 * for 0..1 MS
-  * ^short = "Identifies the medicinal product that is the subject"
-  * ^definition = "Identifies the medicinal product that is the subject of the process"
+  * ^short = "Identifies the medicinal product(s) that is the subject. For multiple products use Group or List FHIR Resource"
+  * ^definition = "Identifies the medicinal product(s) that is the subject of the process, use Group or List FHIR Resource is there are multiple."
 
 * basedOn MS
 * basedOn ^short = "Reference to the parent Task (e.g. a response points to the question Task), ordered lineage of Tasks (oldest → newest)."

@@ -1,10 +1,11 @@
 CodeSystem: APIXTaskInputTypeCS
 Id: apix-task-input-type
-Title: "APIX Task Input Types Code System"
-Description: "Code system for task input types in APIX regulatory submissions"
-
+Title: "Example APIX Task Input Types Code System"
+Description: "Example Code system for task input types in APIX regulatory submissions"
+//* ^url = "http://example.org/CodeSystem/apix-task-input-type"
+* ^status = #draft
 * ^caseSensitive = true
-* ^experimental = false
+* ^experimental = true
 
 * #regulatory-document "Regulatory Document" "A regulatory document to be submitted or referenced"
 * #epi-bundle "ePI Bundle" "Electronic Product Information bundle"

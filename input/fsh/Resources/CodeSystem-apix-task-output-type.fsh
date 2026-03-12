@@ -1,10 +1,11 @@
 CodeSystem: APIXTaskOutputTypeCS
 Id: apix-task-output-type
-Title: "APIX Task Output Types Code System"
-Description: "Code system for task output types in APIX regulatory submissions"
-
+Title: "Example APIX Task Output Types Code System"
+Description: "Example Code system for task output types in APIX regulatory submissions"
+//* ^url = "http://example.org/CodeSystem/apix-task-output-type"
+* ^status = #draft
 * ^caseSensitive = true
-* ^experimental = false
+* ^experimental = true
 
 * #cover-letter "Cover Letter" "Cover letter for the submission"
 * #questionnaire-response "Questionnaire Response" "Response to information requests or questions"

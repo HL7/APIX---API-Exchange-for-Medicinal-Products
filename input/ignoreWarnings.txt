@@ -48,3 +48,6 @@ WARNING: StructureDefinition/task-status-change-with-identifier-filter: Structur
 WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[12].binding: The definition for the element 'SubscriptionTopic.versionAlgorithm[x]' binds to the value set 'http://hl7.org/fhir/ValueSet/version-algorithm|5.0.0' which is experimental, but this structure is not labeled as experimental
 WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[23].binding: The definition for the element 'SubscriptionTopic.jurisdiction' binds to the value set 'http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0' which is experimental, but this structure is not labeled as experimental
 
+# will be replaced with docref types
+%Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type|0.1.0
+%Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type|0.1.0
