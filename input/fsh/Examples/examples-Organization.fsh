@@ -19,8 +19,8 @@ Description: "Organization example with Endpoint."
 * contact[0].telecom[1].system = #fax
 * contact[0].telecom[1].value = "8018425556"
 
-* contact[0].telecom[2].system = #email
-* contact[0].telecom[2].value = "mushi@gaipan.gov"
+* contact[0].telecom[email].system = #email
+* contact[0].telecom[email].value = "mushi@gaipan.gov"
 
 * contact[0].address.line[0] = "789"
 * contact[0].address.city = "Six-seven"

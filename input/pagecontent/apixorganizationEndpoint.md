@@ -41,7 +41,7 @@ The **Endpoint.managingOrganization** element is especially important: it identi
 
 <tr>
 <td><code>Organization.endpoint</code></td>
-<td>0..*</td>
+<td>1..*</td>
 <td>Reference to <code>Endpoint</code></td>
 <td>Links the Organization to the technical endpoint used for receiving notifications or other automated interactions</td>
 </tr>

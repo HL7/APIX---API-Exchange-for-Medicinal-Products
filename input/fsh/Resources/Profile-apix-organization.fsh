@@ -5,9 +5,6 @@ Title: "APIX Organization"
 Description: "Organization profile for APIX regulatory workflows, derived from and compatible with ePI requirements."
 * ^url = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-organization"
 
-
-
-
 // Identifiers
 * identifier 1..* MS
 * identifier.system 1..1
@@ -18,20 +15,22 @@ Description: "Organization profile for APIX regulatory workflows, derived from a
 * alias 0..* MS
 * description 0..1 MS
 * type 0..* MS 
+  * ^binding.strength = #example
+  * ^binding.valueSet = "https://www.fda.gov/industry/structured-product-labeling-resources/business-operation"
 
 // Contact details - aligned with Organization-uv-epi
 // In R5, Organization.address is removed? Or at least in this context we use contact.address
-* contact 0..* MS
+* contact 1..* MS
 * contact.telecom ^slicing.discriminator.type = #value
 * contact.telecom ^slicing.discriminator.path = "system"
 * contact.telecom ^slicing.rules = #open
-* contact.telecom contains phone 0..1 and email 0..1 and url 0..1
+* contact.telecom contains phone 0..1 and email 1..1 //and url 0..1
 * contact.telecom[phone].system = #phone
 * contact.telecom[phone].value 1..
 * contact.telecom[email].system = #email
 * contact.telecom[email].value 1..
-* contact.telecom[url].system = #url
-* contact.telecom[url].value 1..
+//* contact.telecom[url].system = #url
+//* contact.telecom[url].value 1..
 
 * contact.address 0..1 MS
 * contact.address.text 0..1 MS
@@ -47,6 +46,6 @@ Description: "Organization profile for APIX regulatory workflows, derived from a
 * contact.address.postalCode 0..1 MS
 * contact.address.postalCode ^short = "Postal code for area"
 * contact.address.country 0..1 MS
-* contact.address.country ^short = "Country (e.g., can be ISO 3166 2 or 3 letter code)"
+* contact.address.country ^short = "Country (e.g., can be ISO 3166 2 letter code)"
 
 * endpoint 1..* MS
