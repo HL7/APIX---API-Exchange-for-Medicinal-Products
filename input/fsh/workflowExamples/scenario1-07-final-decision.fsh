@@ -1,29 +1,74 @@
+//Instance: scenario1-07-final-decision
+//InstanceOf: Task
+//Title: "scenario1 07 final decision"
+//Description: "Example Task Approval Letter / Positive Decision"
+//Usage: #example
+//* meta.versionId = "3"
+//* meta.lastUpdated = "2025-04-20T09:00:00+01:00"
+//* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+// * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
+//* identifier.system = "urn:ietf:rfc:3986"
+//* identifier.value = "urn:uuid:999e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3d"
+//* partOf = Reference(scenario1-01-initial-submission) "Initial Submission Task"
+//* status = #completed
+//* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#approved "Approved"
+//* intent = #proposal
+//* priority = #routine
+//* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#approval "Approval Letter / Positive Decision"
+//* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
+//* groupIdentifier.use = #official
+//* groupIdentifier.system = "urn:ietf:rfc:3986"
+//* groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
+// * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
+//* requester = Reference(Organization/org-ema-srm-hmed) "European Medicines Agency"
+//* owner = Reference(Organization/org-synthpharma-ag) "SynthPharma AG"
+
+
 Instance: scenario1-07-final-decision
 InstanceOf: Task
-Title: "scenario1 07 final decision"
-Description: "Example Task Approval Letter / Positive Decision"
+Title: "scenario1-07-final-decision"
+Description: "Completetion of Scenario 01 initial submission Task - Example Task Type IB Variation. This is the initial submision Task but in the completed form"
 Usage: #example
 * meta.versionId = "3"
-* meta.lastUpdated = "2025-04-20T09:00:00+01:00"
+* meta.lastUpdated = "2026-04-20T09:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-// * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
+* identifier.use = #official
 * identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:999e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3d"
-* partOf = Reference(scenario1-01-initial-submission) "Initial Submission Task"
-* status = #completed
-* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#approved "Approved"
-* intent = #proposal
-* priority = #routine
-* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#approval "Approval Letter / Positive Decision"
-* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
+* identifier.value = "urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189726"
+// * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * groupIdentifier.use = #official
 * groupIdentifier.system = "urn:ietf:rfc:3986"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
-* requester = Reference(Organization/org-ema-srm-hmed) "European Medicines Agency"
-* owner = Reference(Organization/org-synthpharma-ag) "SynthPharma AG"
-* authoredOn = "2025-04-20T09:00:00+01:00"
-* lastModified = "2025-04-20T09:00:00+01:00"
+
+* status = #completed
+
+* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#approved "Approved"
+* intent = #proposal
+* priority = #routine
+* code = apix-task-code#variation-type-ib "Type IB Variation"
+* authoredOn = "2025-11-15T09:00:00+01:00"
+
+* requester = Reference(org-synthpharma-ag) "SynthPharma AG"
+* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* input[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#cover-letter "Cover Letter"
+* input[0].valueReference = Reference(doc1)
+* input[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[1].valueReference = Reference(doc2)
+* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[2].valueReference = Reference(doc3)
+* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[3].valueReference = Reference(doc4)
+* input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[4].valueReference = Reference(doc5)
+* input[5].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[5].valueReference = Reference(doc6)
+* input[6].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[6].valueReference = Reference(doc7)
+* input[7].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[7].valueReference = Reference(doc8)
+
+* lastModified = "2026-04-20T09:00:00+01:00"
 * output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document
 * output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#cover-letter "Cover Letter"
 * output[0].valueReference = Reference(docref-approval-letter) "Approval Letter"

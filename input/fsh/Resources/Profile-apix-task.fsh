@@ -134,7 +134,7 @@ Description: "Task profile for APIX regulatory submission workflows"
   * ^short = "Input parameters for the task"
   * ^definition = "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures."
 * input.type MS
-  * ^short = "Input type  indicates the type of input, such as the code used ion a DocumentReference type"
+  * ^short = "Input type  indicates the type of input, such as the code used as a DocumentReference type"
 //* input ^slicing.discriminator.type = #value
 //* input ^slicing.discriminator.path = "type"
 //* input ^slicing.rules = #open  
@@ -151,7 +151,7 @@ Description: "Task profile for APIX regulatory submission workflows"
   * ^short = "Output produced by the task"
   * ^definition = "Outputs produced by the task in the context of medicinal product regulatory procedures."
 * output.type MS
-  * ^short = "Output type indicates the type of output, such as the code used in a DocumentReference type"
+  * ^short = "Output type indicates the type of output, such as the code used as a DocumentReference type"
 //  * ^slicing.discriminator.type = #value
 //  * ^slicing.discriminator.path = "type"
 //  * ^slicing.rules = #open
