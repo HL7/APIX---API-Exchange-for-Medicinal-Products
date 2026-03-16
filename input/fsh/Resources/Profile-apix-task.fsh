@@ -45,17 +45,20 @@ Description: "Task profile for APIX regulatory submission workflows"
 
 // Identifiers with slicing
 * identifier 1..* MS
-  * ^short = "Task instance UUID (required) + official regulator procedure number (optional)"
-  * ^slicing.discriminator.type = #value
-  * ^slicing.discriminator.path = "system"
+  * ^short = "Task instance UUID (required) + official regulator procedure number (optional), other identifiers allowed as well"
+  * ^slicing.discriminator[0].type = #value
+  * ^slicing.discriminator[0].path = "type"
+  * ^slicing.discriminator[1].type = #value
+  * ^slicing.discriminator[1].path = "system"
   * ^slicing.rules = #open
-  * ^slicing.description = "At least one mandatory technical UUID identifier and one optional regulator procedure number"
+  * ^slicing.description = "At least one mandatory technical UUID identifier. A regulator procedure number is optional."
 
 * identifier contains TaskInstance 1..1 MS and RegulatorProcedureNumber 0..1 MS
 
 * identifier[TaskInstance] obeys identifier-is-uuid
   * ^short = "Technical UUID for this specific Task instance"
-  * system = "urn:ietf:rfc:3986"
+  * type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+  //* system = "urn:ietf:rfc:3986"
 
 
 * identifier[RegulatorProcedureNumber]
@@ -135,6 +138,8 @@ Description: "Task profile for APIX regulatory submission workflows"
   * ^definition = "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures."
 * input.type MS
   * ^short = "Input type  indicates the type of input, such as the code used as a DocumentReference type"
+  * ^binding.strength = #example
+  * ^binding.valueSet = Canonical(apix-ctd-section-vs)
 //* input ^slicing.discriminator.type = #value
 //* input ^slicing.discriminator.path = "type"
 //* input ^slicing.rules = #open  
@@ -152,6 +157,8 @@ Description: "Task profile for APIX regulatory submission workflows"
   * ^definition = "Outputs produced by the task in the context of medicinal product regulatory procedures."
 * output.type MS
   * ^short = "Output type indicates the type of output, such as the code used as a DocumentReference type"
+  * ^binding.strength = #example
+  * ^binding.valueSet = Canonical(apix-ctd-section-vs)
 //  * ^slicing.discriminator.type = #value
 //  * ^slicing.discriminator.path = "type"
 //  * ^slicing.rules = #open

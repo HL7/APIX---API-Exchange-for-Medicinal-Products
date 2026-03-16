@@ -6,10 +6,11 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-03-05T09:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-* identifier.system = "urn:ietf:rfc:3986"
+* identifier.system = "http://example.org/european-med-agency/task-id"
 * identifier.value = "urn:uuid:5dbf06dc-e8f5-4f2b-bd69-a034dacb2836"
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "urn:ietf:rfc:3986"
+* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-03-05T09:00:00+01:00"
 * partOf = Reference(scenario1-01-initial-submission)
@@ -17,7 +18,7 @@ Usage: #example
 * intent = #proposal
 * priority = #routine
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#request-payment "Request Payment"
-* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
+//* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
 * lastModified = "2025-03-05T09:00:00+01:00"
 * requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"

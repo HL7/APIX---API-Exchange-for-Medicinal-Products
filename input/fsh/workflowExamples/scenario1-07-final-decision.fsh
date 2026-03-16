@@ -33,11 +33,12 @@ Usage: #example
 * meta.lastUpdated = "2026-04-20T09:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 * identifier.use = #official
-* identifier.system = "urn:ietf:rfc:3986"
+* identifier.system = "http://example.org/european-med-agency/task-id"
 * identifier.value = "urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189726"
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "urn:ietf:rfc:3986"
+* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 
@@ -92,7 +93,7 @@ Usage: #example
 * content.attachment.creation = "2025-04-20T09:00:00+01:00"
 //* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
 * content.attachment.url = "http://example.org/FHIR/Binary/101"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/european-med-agency/docref-id"
 * identifier[0].value = "urn:uuid:70707070-7070-7070-7070-707070707070"
 
 

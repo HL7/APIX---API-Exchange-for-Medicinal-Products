@@ -71,7 +71,7 @@ The following table provides an overview of the key elements of the APIX Task re
 </tr>
 <tr>
 <td><code>Task.for</code></td>
-<td>0..*</td>
+<td>0..1</td>
 <td>Reference to <code>MedicinalProductDefinition</code> or <code>RegulatedAuthorization</code> or <code>Group</code> or <code>List</code></td>
 <td>Identifies the medicinal product(s) that is/are the subject of the process. Use Group or List FHIR Resource for multiple products.</td>
 </tr>

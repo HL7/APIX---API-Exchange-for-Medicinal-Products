@@ -8,15 +8,16 @@ Usage: #example
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 * basedOn = Reference(scenario1-01-initial-submission)
 * identifier[0].use = #official
-* identifier[=].system = "urn:ietf:rfc:3986"
+* identifier[=].system = "http://example.org/european-med-agency/task-id"
 * identifier[=].value = "urn:uuid:d7f9bc88-658f-418a-ba4c-40307099603e"
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
 * identifier[=].system = "http://example.org/ema.europa.eu/procedure-number"
 * identifier[=].value = "EMEA/H/C/001234/IB/0025"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "urn:ietf:rfc:3986"
+* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 * status = #accepted

@@ -1,28 +1,53 @@
 Instance: scenario1-06-technical-response
 InstanceOf: Task
 Title: "scenario1 06 technical response"
-Description: "Example Task Response to Information Request"
+Description: "Example Task Response to Information Request, fulfillment of information request Scenario1 05 technical question"
 Usage: #example
-* meta.versionId = "1"
-* meta.lastUpdated = "2025-03-15T10:00:00+01:00"
+//* meta.versionId = "1"
+//* meta.lastUpdated = "2025-03-15T10:00:00+01:00"
+//* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+// * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
+//* identifier.system = "http://example.org/european-med-agency/task-id"
+//* identifier.value = "urn:uuid:888e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3c"
+//* partOf = Reference(scenario1-05-technical-question) "Technical Question Task"
+//* status = #in-progress
+//* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#submitted "Submitted"
+//* intent = #proposal
+//* priority = #routine
+//* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#response-to-questions "Response to Information Request"
+//* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
+//* groupIdentifier.use = #official
+//* groupIdentifier.system = "urn:ietf:rfc:3986"
+//* groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
+// * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
+//* requester = Reference(org-synthpharma-ag) "SynthPharma AG"
+//* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+//* authoredOn = "2025-03-15T10:00:00+01:00"
+
+* meta.versionId = "2"
+* meta.lastUpdated = "2025-03-01T14:30:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
-* identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:888e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3c"
-* partOf = Reference(scenario1-05-technical-question) "Technical Question Task"
-* status = #in-progress
-* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#submitted "Submitted"
+* identifier.system = "http://example.org/european-med-agency/task-id"
+* identifier.value = "urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+* partOf = Reference(scenario1-01-initial-submission) "Initial Submission Task"
+* status = #requested
+* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
 * intent = #proposal
 * priority = #routine
-* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#response-to-questions "Response to Information Request"
-* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
+* code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "List of Questions / Information Request"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "urn:ietf:rfc:3986"
+* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
-// * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
-* requester = Reference(org-synthpharma-ag) "SynthPharma AG"
-* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
-* authoredOn = "2025-03-15T10:00:00+01:00"
+* authoredOn = "2025-03-01T14:30:00+01:00"
+* lastModified = "2025-03-01T14:30:00+01:00"
+* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* owner = Reference(org-synthpharma-ag) "SynthPharma AG"
+* input.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document
+* input.valueReference = Reference(docref-list-of-questions) "List of Questions (LoQ)"
+
+
 * lastModified = "2025-03-15T10:00:00+01:00"
 * output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
 * output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#cover-letter "Cover Letter"

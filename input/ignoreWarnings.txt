@@ -50,4 +50,4 @@ WARNING: StructureDefinition/task-status-change-with-identifier-filter: Structur
 
 # will be replaced with docref types
 %Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type|0.1.0
-%Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type|0.1.0
+%Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type|0.1.0
