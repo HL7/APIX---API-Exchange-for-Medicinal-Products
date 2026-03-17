@@ -3,7 +3,7 @@ canonical: http://hl7.org/fhir/uv/apix
 name: ApixIG
 title: API for the Exchange of Medicinal Product Information (APIX)
 description: A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).
-status: active # draft | active | retired | unknown
+status: draft # draft | active | retired | unknown
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
     valueCode: brr
