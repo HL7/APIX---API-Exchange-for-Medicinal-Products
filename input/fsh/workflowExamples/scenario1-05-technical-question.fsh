@@ -40,7 +40,7 @@ Usage: #example
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter"
 * date = "2025-03-01T14:30:00+01:00"
 * content.attachment.contentType = #application/fhir+json
-* content.attachment.url = "https://api.ema.example/questionnaires/q-shelf-life-limit.json"
+* content.attachment.url = "https://build.fhir.org/ig/HL7/rtq-ig/Questionnaire/questionnaire-ID001"
 * content.attachment.title = "List of Questions (Questionnaire)"
 * content.attachment.size = 12400
 * content.attachment.creation = "2025-03-01T14:20:00+01:00"

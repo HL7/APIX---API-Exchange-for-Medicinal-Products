@@ -32,13 +32,13 @@ Usage: #example
 * input[2].valueReference = Reference(doc3)
 * input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet" 
 * input[3].valueReference = Reference(doc4)
-* input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.2 "Mock-ups"
 * input[4].valueReference = Reference(doc5)
-* input[5].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[5].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.1 "Stability Summary and Conclusion"
 * input[5].valueReference = Reference(doc6)
-* input[6].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[6].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
 * input[6].valueReference = Reference(doc7)
-* input[7].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[7].type =  http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.S.7 "Stability (Drug Substance)" //http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.2 "Post-approval Stability Protocol and Commitment"
 * input[7].valueReference = Reference(doc8)
 
 Instance: doc1
@@ -133,13 +133,12 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-//* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
-* type = #3.2.P.8.1 "Stability Summary and Conclusion" //"Stability Summary"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.1 "Stability Summary and Conclusion"
 * content.attachment.contentType = #application/fhir+json
-* content.attachment.url = "Binary/1004" //"https://api.synthpharma.example/bundles/submission-123/m3/stability-summary.json"
-* content.attachment.title = "CMC Doc 1 - Summary (Transaction Bundle)"
-* content.attachment.size = 156000
+* content.attachment.url = "Binary/binary-1004"
+* content.attachment.title = "STABILITY SUMMARY AND CONCLUSIONS ON STELBAT TABLETS, 20 MG"
+* content.attachment.size = 116000
 * content.attachment.creation = "2025-11-12T14:30:00+01:00"
 
 Instance: doc7
@@ -154,24 +153,26 @@ Usage: #example
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
 * content.attachment.contentType = #application/fhir+json
-* content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-data.json"
-* content.attachment.title = "CMC Doc 2 - Data (Transaction Bundle)"
-* content.attachment.size = 5600000
+* content.attachment.url = "Binary/binary-1005"
+* content.attachment.title = "STABILITY DATA ON STELBAT TABLETS, 20MG"
+* content.attachment.size = 312000
 * content.attachment.creation = "2025-11-12T14:35:00+01:00"
 
 Instance: doc8
 InstanceOf: DocumentReference
 Title: "doc8"
-Description: "Example DocumentReference Stability Commitment"
+Description: "Example DocumentReference Stability Data"
 Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
 //* category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-module#m3 "Module 3"
 * category = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#m3 "Module 3"
-* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.2 "Post-approval Stability Protocol and Commitment"
+//* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.2 "Post-approval Stability Protocol and Commitment"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.S.7 "Stability (Drug Substance)"
 * content.attachment.contentType = #application/fhir+json
-* content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-commitment.json"
-* content.attachment.title = "CMC Doc 3 - Commitment (Transaction Bundle)"
-* content.attachment.size = 24000
+//* content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-commitment.json"
+* content.attachment.url = "Binary/binary-1006"
+* content.attachment.title = "STABILITY DATA ON API"
+* content.attachment.size = 238000
 * content.attachment.creation = "2025-11-12T14:40:00+01:00"

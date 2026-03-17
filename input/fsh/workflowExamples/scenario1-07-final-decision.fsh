@@ -52,21 +52,21 @@ Usage: #example
 
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"
 * owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
-* input[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#cover-letter "Cover Letter"
+* input[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter"
 * input[0].valueReference = Reference(doc1)
-* input[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[1].type = #application-form "Application Form"
 * input[1].valueReference = Reference(doc2)
-* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet"
 * input[2].valueReference = Reference(doc3)
-* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet" 
 * input[3].valueReference = Reference(doc4)
-* input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#regulatory-document "Regulatory Document"
+* input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.2 "Mock-ups"
 * input[4].valueReference = Reference(doc5)
-* input[5].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[5].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.1 "Stability Summary and Conclusion"
 * input[5].valueReference = Reference(doc6)
-* input[6].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[6].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
 * input[6].valueReference = Reference(doc7)
-* input[7].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type#stability-data "Stability Data"
+* input[7].type =  http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.S.7 "Stability (Drug Substance)" //http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.2 "Post-approval Stability Protocol and Commitment"
 * input[7].valueReference = Reference(doc8)
 
 * lastModified = "2026-04-20T09:00:00+01:00"
