@@ -24,7 +24,7 @@ Usage: #example
 //* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
 //* authoredOn = "2025-03-15T10:00:00+01:00"
 
-* meta.versionId = "2"
+* meta.versionId = "3"
 * meta.lastUpdated = "2025-03-01T14:30:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
@@ -32,7 +32,7 @@ Usage: #example
 * identifier.value = "urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
 * identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
 * partOf = Reference(scenario1-01-initial-submission) "Initial Submission Task"
-* status = #requested
+* status = #completed
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
 * intent = #proposal
 * priority = #routine
