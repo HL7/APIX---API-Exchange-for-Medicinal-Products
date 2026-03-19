@@ -47,7 +47,7 @@ Usage: #example
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://build.fhir.org/ig/HL7/rtq-ig/Questionnaire-questionnaire-ID001.html"
 * content.attachment.title = "List of Questions (Questionnaire)"
-* content.attachment.size = 29,988
+* content.attachment.size = 29988
 * content.attachment.creation = "2025-03-01T14:20:00+01:00"
 * identifier[0].system = "urn:ietf:rfc:3986"
 * identifier[0].value = "urn:uuid:40404040-4040-4040-4040-404040404040"
