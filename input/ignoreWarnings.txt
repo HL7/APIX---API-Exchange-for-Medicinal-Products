@@ -21,7 +21,7 @@ Most code systems defined in HL7 IGs will need to move to THO later during the p
 # These references are intended
 %Reference to experimental CodeSystem http://hl7.org/fhir/request-intent|5.0.0
 
-# These come from the base Task Resource
+# These are found in the base FHIR R5 Task Resource
 WARNING: StructureDefinition/apix-task: StructureDefinition.snapshot.element[45].binding: The definition for the element 'Task.priority' binds to the value set 'http://hl7.org/fhir/ValueSet/request-priority|5.0.0' which is experimental, but this structure is not labeled as experimental
 WARNING: StructureDefinition/apix-task: StructureDefinition.snapshot.element[65].binding: The definition for the element 'Task.requestedPerformer' binds to the value set 'http://hl7.org/fhir/ValueSet/performer-role|5.0.0' which is experimental, but this structure is not labeled as experimental
 
@@ -57,3 +57,9 @@ INFORMATION: Bundle/eee72492-c236-41f7-a7ba-3af356204f4c: Bundle.entry[0].resour
 # The value set is being used soley as an example binding set - the binding used is example - it is not used in validation, only for illustration.
 WARNING: StructureDefinition/apix-organization: StructureDefinition.snapshot.element[19].binding.valueSet: A definition could not be found for Canonical URL 'https://www.fda.gov/industry/structured-product-labeling-resources/business-operation'
 WARNING: StructureDefinition/apix-organization: StructureDefinition.differential.element[4].binding.valueSet: A definition could not be found for Canonical URL 'https://www.fda.gov/industry/structured-product-labeling-resources/business-operation'
+
+# These will be adressed before publication and are specific to the HL7 IG balloting process, not related to implmentation
+ERROR: There is no jira specification file defined with the expected name of FHIR-apix in the xml folder of the  https://github.com/HL7/Jira-Spec-Artifacts project.  This must exist before ballot or publication.
+WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
