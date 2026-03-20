@@ -18,6 +18,15 @@ Description: "Code system defining all relevant CTD/eCTD section codes used in A
 * #m1 #1.4 "Information about the Experts" "Information about the Experts"
 * #m1 #1.8.1 "Risk Management Plan" "Risk Management Plan"
 * #m1 #1.9 "Pharmacovigilance System" "Pharmacovigilance System"
+* #m1 #application-form "Application Form" "Application Form"
+* #m1 #invoice-reg-fee "Invoice Regulatory Fee" "Invoice Regulatory Fee"
+* #m1 #proof-Of-payment "Proof of Payment" "Proof of Payment"
+* #m1 #acknowledgement-receipt "Acknowledgement of Receipt" "Acknowledgement of Receipt"
+* #m1 #validation-report "Validation Report" "Validation Report"
+* #m1 #list-of-questions "List of Questions" "List of Questions"
+* #m1 #applicant-questionnaireResponse" "Applicant QuestionnaireResponse" "Applicant QuestionnaireResponse"
+* #m1 #approval-letter "Approval Letter" "Regulatory Approval Letter"
+* #m1 #assessment-report "Assessment Report" "Regulatory Assessment Report"
 
 // Module 2: Overviews and Summaries
 * #m2 "Module 2" "Module 2: Overviews and Summaries"

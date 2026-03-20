@@ -13,7 +13,6 @@ Most code systems defined in HL7 IGs will need to move to THO later during the p
 
 # The APIC DocumentReference Profile does not use http://hl7.org/fhir/ValueSet/doc-typecodes|5.0.0, it uses a non-clinical valueset specific to its use case
 % None of the codings provided are in the value set 'FHIR Document Type Codes'%
-% DocumentReference.type: None of the codings provided are in the value set 'FHIR Document Type Codes'%
 
 # Slices are intentional and are examples of other slices that can occur
 %This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
@@ -21,10 +20,6 @@ Most code systems defined in HL7 IGs will need to move to THO later during the p
 
 # These references are intended
 %Reference to experimental CodeSystem http://hl7.org/fhir/request-intent|5.0.0
-INFORMATION: MedicinalProductDefinition/example-ma: MedicinalProductDefinition.name[0].usage[0].country: Reference to draft CodeSystem urn:iso:std:iso:3166|20210120
-
-# Identifiers not intended to resolve it is an example
-%No definition could be found for URL value 'http://ema.europa.eu/identifier'
 
 # These come from the base Task Resource
 WARNING: StructureDefinition/apix-task: StructureDefinition.snapshot.element[45].binding: The definition for the element 'Task.priority' binds to the value set 'http://hl7.org/fhir/ValueSet/request-priority|5.0.0' which is experimental, but this structure is not labeled as experimental
@@ -48,6 +43,17 @@ WARNING: StructureDefinition/task-status-change-with-identifier-filter: Structur
 WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[12].binding: The definition for the element 'SubscriptionTopic.versionAlgorithm[x]' binds to the value set 'http://hl7.org/fhir/ValueSet/version-algorithm|5.0.0' which is experimental, but this structure is not labeled as experimental
 WARNING: StructureDefinition/task-status-change-with-identifier-filter: StructureDefinition.snapshot.element[23].binding: The definition for the element 'SubscriptionTopic.jurisdiction' binds to the value set 'http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0' which is experimental, but this structure is not labeled as experimental
 
-# will be replaced with docref types
-%Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type|0.1.0
-%Reference to experimental CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type|0.1.0
+# Intended to be draft for now
+%Reference to draft CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status|0.1.0%
+%Reference to draft CodeSystem http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code|0.1.0%
+
+# To address at a later time - has no effect on demo
+%The resource status 'draft' and the standards status 'trial-use' may not be consistent and should be reviewed%
+
+# Not applicable as the Bundle is an example of an Event Notification Type Bundle
+INFORMATION: Bundle/eee72492-c236-41f7-a7ba-3af356204f4c: Bundle.entry[0].resource/*SubscriptionStatus/09efceb7-abdc-4dc8-bc31-0788baf65dbd*/.notificationEvent[0].focus: The URL 'Task/scenario1-01-initial-submission' cannot be resolved unless the fullURL is a RESTFul base URL, or a baseURL has been provided and the Bundle is a batch or transaction
+INFORMATION: Bundle/eee72492-c236-41f7-a7ba-3af356204f4c: Bundle.entry[0].resource/*SubscriptionStatus/09efceb7-abdc-4dc8-bc31-0788baf65dbd*/.subscription: The URL 'Subscription/Subscription-TaskStatusChange-FullResource' cannot be resolved unless the fullURL is a RESTFul base URL, or a baseURL has been provided and the Bundle is a batch or transaction
+
+# The value set is being used soley as an example binding set - the binding used is example - it is not used in validation, only for illustration.
+WARNING: StructureDefinition/apix-organization: StructureDefinition.snapshot.element[19].binding.valueSet: A definition could not be found for Canonical URL 'https://www.fda.gov/industry/structured-product-labeling-resources/business-operation'
+WARNING: StructureDefinition/apix-organization: StructureDefinition.differential.element[4].binding.valueSet: A definition could not be found for Canonical URL 'https://www.fda.gov/industry/structured-product-labeling-resources/business-operation'

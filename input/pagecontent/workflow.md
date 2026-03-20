@@ -35,7 +35,7 @@ For each uploaded resource from Step 1.1, the Company creates a `DocumentReferen
 **Step 1.3: Create and Post the Task**<br>
 Finally, the Company creates a `Task` resource. This Task serves as the "Orchestrator." It contains the procedure metadata and references the `DocumentReference` resources created in Step 1.2 in its `Task.input` field.
 
-Example: <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
+Example: <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
 
 **Step 2.0: Regulator Validates Application**<br>
 The regulator validates the package.
@@ -43,7 +43,7 @@ The regulator validates the package.
 *   **Scenario A: Validation Passes** (Step 3.1)
     *   Regulator updates `Task.status` to **Accepted**.
     *   Regulator attaches Acknowledgement of Receipt and Validation Results.
-    *   Example: <a href="Task-scenario1-02-validation.json" target="_blank">JSON Resource</a> | <a href="scenario1-02-validation.html" target="_blank">HTML Action View</a>
+    *   Example: <a href="Task-scenario1-02-validation.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-02-validation.html" target="_blank">HTML Action View</a>
 
 *   **Scenario B: Validation Fails** (Step 4.1)
     *   Regulator requests missing documents via a new Task.
@@ -66,7 +66,7 @@ The regulator conducts technical and administrative reviews simultaneously, all 
         2. Company creates a `DocumentReference` for the proof of payment.
         3. Company updates the **Payment Task** by adding the `DocumentReference` as an **output** (status remains `in-progress`).
         <br>
-        Example: <a href="Task-scenario1-04-finance-payment.json" target="_blank">JSON Resource</a> | <a href="scenario1-04-finance-payment.html" target="_blank">HTML Action View</a>
+        Example: <a href="Task-scenario1-04-finance-payment.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-04-finance-payment.html" target="_blank">HTML Action View</a>
     *   **Step 5.B.4**: Regulator verifies the output proof and updates the **Payment Task** status to **Completed**.
 
 **Step 5.3: Issue Resolution (Loop)**<br>
@@ -76,13 +76,13 @@ If issues are found during technical review:
     2. Regulator creates a `DocumentReference` for the Questionnaire.
     3. Regulator creates a **Question Task** with the `DocumentReference` as an **input**.
     <br>
-    Example: <a href="Task-scenario1-05-technical-question.json" target="_blank">JSON Resource</a> | <a href="scenario1-05-technical-question.html" target="_blank">HTML View</a>
+    Example: <a href="Task-scenario1-05-technical-question.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-05-technical-question.html" target="_blank">HTML View</a>
 *   **Step 5.3.2**: Company posts a **Response** to the Question Task.
     1. Company posts a `QuestionnaireResponse` (JSON) to the server.
     2. Company creates a `DocumentReference` for the response.
     3. Company updates the **Question Task** by referencing the response in the **output** (status remains `in-progress`).
     <br>
-    Example: <a href="Task-scenario1-06-technical-response.json" target="_blank">JSON Resource</a> | <a href="scenario1-06-technical-response.html" target="_blank">HTML View</a>
+    Example: <a href="Task-scenario1-06-technical-response.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-06-technical-response.html" target="_blank">HTML View</a>
 *   **Step 5.3.3**: Regulator reviews the response. (If satisfactory, the Regulator marks the Question Task as **Completed** and the main review continues).
 
 #### Phase 3: Final Decision
@@ -90,7 +90,7 @@ If issues are found during technical review:
 **Step 6.0: Final Decision**<br>
 The regulator makes a final determination, indicating the inital `Task.status` complete and adding documents to the `Task.ouput`.
 <br>
-Example: <a href="Task-scenario1-07-final-decision.json" target="_blank">JSON Resource</a> | <a href="scenario1-07-final-decision.html" target="_blank">HTML View</a>
+Example: <a href="Task-scenario1-07-final-decision.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-07-final-decision.html" target="_blank">HTML View</a>
 
 ---
 

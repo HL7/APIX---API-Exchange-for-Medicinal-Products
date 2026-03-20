@@ -1,6 +1,6 @@
 ValueSet: APIXCTDSectionVS
 Id: apix-ctd-section-vs
-Title: "APIX CTD/eCTD Section Code System"
+Title: "Value Set APIX CTD/eCTD Section Code System"
 Description: "Value set for CTD section codes used in APIX regulatory submissions"
 * ^url = "http://hl7.org/fhir/uv/apix/ValueSet/apix-ctd-section-vs"
 
