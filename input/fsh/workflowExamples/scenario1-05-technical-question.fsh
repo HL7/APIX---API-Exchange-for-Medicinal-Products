@@ -15,7 +15,7 @@ Usage: #example
 * identifier.system = "http://example.org/european-med-agency/task-id"
 * identifier.value = "urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
 * identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
-* partOf = Reference(scenario1-01-initial-submission) "Initial Submission Task"
+* basedOn = Reference(scenario1-01-initial-submission) "Initial Submission Task"
 * status = #requested
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
 * intent = #proposal
@@ -27,6 +27,8 @@ Usage: #example
 * authoredOn = "2025-03-01T14:30:00+01:00"
 * lastModified = "2025-03-01T14:30:00+01:00"
 * requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requestedPeriod.start = "2025-03-01T14:30:00+01:00"
+* requestedPeriod.end = "2025-03-08T14:30:00+01:00"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"
 * input.type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#list-of-questions "List of Questions"
 * input.valueReference = Reference(docref-list-of-questions) "List of Questions (LoQ)"

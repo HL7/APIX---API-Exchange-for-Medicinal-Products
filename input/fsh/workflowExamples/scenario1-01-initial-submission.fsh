@@ -19,7 +19,7 @@ Usage: #example
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * groupIdentifier.use = #official
 * groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
-* groupIdentifier.value = "urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189727"
+* groupIdentifier.value = "urn:uuid:workflow-group-id-12345" //"urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189727"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 * status = #requested
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#submitted "Submitted"

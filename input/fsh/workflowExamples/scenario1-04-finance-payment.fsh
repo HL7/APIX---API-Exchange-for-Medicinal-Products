@@ -20,7 +20,7 @@ Usage: #example
 * groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-03-05T09:00:00+01:00"
-* partOf = Reference(scenario1-01-initial-submission)
+* basedOn = Reference(scenario1-01-initial-submission)
 * status = #completed
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#payment-received "Payment Received"
 * intent = #proposal

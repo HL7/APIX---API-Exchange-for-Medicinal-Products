@@ -29,6 +29,7 @@ Usage: #example
 * intent = #proposal
 * priority = #routine
 * code = apix-task-code#variation-type-ib "Type IB Variation"
+* basedOn = Reference(scenario1-01-initial-submission)
 * authoredOn = "2025-11-15T09:00:00+01:00"
 * lastModified = "2025-11-20T14:30:00+01:00"
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"
