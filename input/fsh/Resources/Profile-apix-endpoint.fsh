@@ -15,4 +15,3 @@ Description: "Endpoint requiring identifier, name, and connectionType of hl7-fhi
 * connectionType.coding 1..* MS
 * connectionType.coding.system = "http://hl7.org/fhir/uv/apix/CodeSystem/apix-temp"
 * connectionType.coding.code = #hl7-fhir-subscription-notify "HL7 FHIR Subscription Notification Endpoint"
-
