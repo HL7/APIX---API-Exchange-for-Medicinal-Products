@@ -14,7 +14,7 @@ Usage: #example
 
 <div style=\"margin:24px 0;padding:20px;background:#f8fbff;border-radius:14px;border-left:5px solid #007aff;\">
 
-<div style=\"margin:0 0 16px 0;font-size:18px;color:#007aff;font-weight:600;\">Financial Documents</div><div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Invoice</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">invoice</span><br />INV-2025-001.pdf</div></div></div><div style=\"background:#ffffff;border-radius:18px;padding:32px;margin-bottom:32px;box-shadow:0 8px 28px rgba(0,0,0,0.08),0 2px 10px rgba(0,0,0,0.06);\">
+<div style=\"margin:0 0 16px 0;font-size:18px;color:#007aff;font-weight:600;\">Financial Documents</div><div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Invoice</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">invoice</span><br /><a href=\"DocumentReference-docref-invoice.html\">http://example.org/FHIR/DocumentReference/docref-invoice</a><div>Invoice Regulatory Fee</div></div></div></div><div style=\"background:#ffffff;border-radius:18px;padding:32px;margin-bottom:32px;box-shadow:0 8px 28px rgba(0,0,0,0.08),0 2px 10px rgba(0,0,0,0.06);\">
 
 <div style=\"font-size:24px;font-weight:600;color:#007aff;margin:0 0 24px 0;padding-bottom:12px;border-bottom:1px solid #e5e5ea;display:flex;justify-content:space-between;align-items:center;\">Output Documents</div><div style=\"text-align:center;padding:40px 20px;color:#888;background:#f9f9f9;border-radius:14px;\">No output content yet (waiting for payment).</div>
 
@@ -49,7 +49,7 @@ Usage: #example
 
 Instance: docref-invoice
 InstanceOf: DocumentReference
-Title: "Invoice for Regulatiry Submission Review"
+Title: "Invoice for Regulatory Submission Review"
 Description: "Example DocumentReference Invoice"
 Usage: #example
 * id = "docref-invoice"
