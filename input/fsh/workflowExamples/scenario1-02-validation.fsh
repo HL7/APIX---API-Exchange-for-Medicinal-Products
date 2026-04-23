@@ -27,7 +27,7 @@ Usage: #example
 
 <div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Annotated Label</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">annotated-label</span><br /><a href=\"DocumentReference-doc3.html\">http://example.org/FHIR/DocumentReference/annotated-label</a><div>SPC, Labelling and Package Leaflet</div></div>
 
-<div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Clean Label</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">clean-label</span><br /><a href=\"DocumentReference-doc4.html\">http://example.org/FHIR/DocumentReference/clean-labele</a><div>SPC, Labelling and Package Leaflet</div></div>
+<div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Clean Label</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">clean-label</span><br /><a href=\"DocumentReference-doc4.html\">http://example.org/FHIR/DocumentReference/clean-label</a><div>SPC, Labelling and Package Leaflet</div></div>
 
 <div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Pack Mockup</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">pack-mockup</span><br /><a href=\"DocumentReference-doc5.html\">http://example.org/FHIR/DocumentReference/mock-ups</a><div>Mock-ups</div></div>
 
@@ -81,9 +81,9 @@ Usage: #example
 * input[0].valueReference = Reference(doc1)
 * input[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#application-form "Application Form"
 * input[1].valueReference = Reference(doc2)
-* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet"
+* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.14.1.2 "Annotated draft labeling text"
 * input[2].valueReference = Reference(doc3)
-* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet" 
+* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.14.1.3 "Draft labeling text"
 * input[3].valueReference = Reference(doc4)
 * input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.2 "Mock-ups"
 * input[4].valueReference = Reference(doc5)

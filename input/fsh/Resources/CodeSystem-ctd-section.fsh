@@ -16,6 +16,8 @@ Description: "Code system defining all relevant CTD/eCTD section codes used in A
 * #m1 #1.3.2 "Mock-ups" "Mock-ups"
 * #m1 #1.3.3 "Specimens" "Specimens"
 * #m1 #1.4 "Information about the Experts" "Information about the Experts"
+* #m1 #1.14.1.2 "Annotated draft labeling text" "Annotated draft labeling text"
+* #m1 #1.14.1.3 "Draft labeling text" "Draft labeling text"
 * #m1 #1.8.1 "Risk Management Plan" "Risk Management Plan"
 * #m1 #1.9 "Pharmacovigilance System" "Pharmacovigilance System"
 * #m1 #application-form "Application Form" "Application Form"
