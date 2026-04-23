@@ -1,4 +1,15 @@
-This page provides a detailed workflow example for a "shelf-life update" scenario, illustrating the process between a Company and a Regulator using APIX Tasks.
+<!-- WORKFLOW DEEP-DIVE HEADER -->
+<div style="margin-bottom:32px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Workflow Deep-Dive</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">Detailed technical walkthrough of a "shelf-life update" scenario, illustrating every FHIR resource exchange between a Company and a Regulator.</p>
+</div>
+
+<div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:14px 18px; margin-bottom:32px; font-size:.85em; color:#1d4ed8; display:flex; gap:10px; align-items:flex-start;">
+  <span style="flex-shrink:0;">💡</span>
+  <span><strong>Looking for a business-friendly overview?</strong> Start with the <a href="workflow-overview.html" style="color:#1d4ed8; font-weight:600;">Workflow Overview</a> page, which covers the three phases at a high level before diving into the technical details below.</span>
+</div>
+
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 ### Notification Mechanism
 <div class="markdown-alert markdown-alert-important">

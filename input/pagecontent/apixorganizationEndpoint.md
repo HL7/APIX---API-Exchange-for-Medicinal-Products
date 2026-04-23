@@ -1,4 +1,13 @@
-## Organization and Endpoint
+<!-- ORGANIZATION & ENDPOINT PAGE -->
+<div style="margin-bottom:16px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Organization & Endpoint</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">Organizations represent the parties in regulatory exchange (Applicants and Regulators), while Endpoints define the technical channels for receiving notifications.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#ecfdf5,#eff6ff); border:1px solid #a7f3d0; border-radius:12px; padding:20px 24px; margin-bottom:24px;">
+  <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">Think of Organization as your <strong>digital business card</strong> on the FHIR server — it identifies who you are. The Endpoint is your <strong>mailbox address</strong> — where the server delivers webhook notifications. Together they form the identity and communication layer of APIX.</p>
+</div>
 
 In APIX, **Organization** and **Endpoint** work together to represent the parties involved in regulatory exchange and the technical channels used for communication. An **Organization** represents either an Applicant or a Regulator on the FHIR server and includes the contact and identification details needed throughout a regulatory procedure. Organizations may reference one or more **Endpoints**, which define the technical connection details for receiving notifications or other machine‑to‑machine interactions.
 

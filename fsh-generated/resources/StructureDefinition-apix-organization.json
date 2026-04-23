@@ -2,11 +2,9 @@
   "resourceType": "StructureDefinition",
   "id": "apix-organization",
   "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-organization",
-  "version": "0.1.0",
   "name": "APIXOrganization",
   "title": "APIX Organization",
   "status": "draft",
-  "publisher": "Gravitate Health Project",
   "description": "Organization profile for APIX regulatory workflows, derived from and compatible with ePI requirements.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
@@ -35,7 +33,18 @@
       {
         "id": "Organization.type",
         "path": "Organization.type",
-        "mustSupport": true
+        "mustSupport": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "OrganizationType"
+            }
+          ],
+          "strength": "example",
+          "description": "Used to categorize the organization.",
+          "valueSet": "https://www.fda.gov/industry/structured-product-labeling-resources/business-operation"
+        }
       },
       {
         "id": "Organization.name",
@@ -56,6 +65,7 @@
       {
         "id": "Organization.contact",
         "path": "Organization.contact",
+        "min": 1,
         "mustSupport": true
       },
       {
@@ -69,7 +79,8 @@
             }
           ],
           "rules": "open"
-        }
+        },
+        "min": 1
       },
       {
         "id": "Organization.contact.telecom:phone",
@@ -93,7 +104,7 @@
         "id": "Organization.contact.telecom:email",
         "path": "Organization.contact.telecom",
         "sliceName": "email",
-        "min": 0,
+        "min": 1,
         "max": "1"
       },
       {
@@ -104,24 +115,6 @@
       },
       {
         "id": "Organization.contact.telecom:email.value",
-        "path": "Organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Organization.contact.telecom:url",
-        "path": "Organization.contact.telecom",
-        "sliceName": "url",
-        "min": 0,
-        "max": "1"
-      },
-      {
-        "id": "Organization.contact.telecom:url.system",
-        "path": "Organization.contact.telecom.system",
-        "min": 1,
-        "patternCode": "url"
-      },
-      {
-        "id": "Organization.contact.telecom:url.value",
         "path": "Organization.contact.telecom.value",
         "min": 1
       },
@@ -165,7 +158,13 @@
       {
         "id": "Organization.contact.address.country",
         "path": "Organization.contact.address.country",
-        "short": "Country (e.g., can be ISO 3166 2 or 3 letter code)",
+        "short": "Country (e.g., can be ISO 3166 2 letter code)",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.endpoint",
+        "path": "Organization.endpoint",
+        "min": 1,
         "mustSupport": true
       }
     ]

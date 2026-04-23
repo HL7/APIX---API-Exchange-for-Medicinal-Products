@@ -1,4 +1,13 @@
-## SubscriptionNotification Bundle and SubscriptionStatus
+<!-- NOTIFICATION & STATUS PAGE -->
+<div style="margin-bottom:16px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Notification & Status</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">When a Subscription is triggered, the FHIR server sends a SubscriptionNotification Bundle containing event metadata and the payload resources.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#fff7ed,#eff6ff); border:1px solid #fed7aa; border-radius:12px; padding:20px 24px; margin-bottom:24px;">
+  <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">When a notification fires, the system sends a <strong>message bundle</strong> to your endpoint that says: "Here is what changed, here is the updated Task, and here is why you were notified." This gives your systems everything they need to react automatically — updating dashboards, triggering workflows, or alerting staff.</p>
+</div>
 
 When a Subscription is triggered in APIX, the FHIR server sends a **SubscriptionNotification Bundle** to the subscriber’s configured endpoint. This Bundle contains two essential components:
 

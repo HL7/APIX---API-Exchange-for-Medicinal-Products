@@ -19,6 +19,11 @@
       "definition": "Post-authorization change (Type IA, IB, II, extension, etc.)"
     },
     {
+      "code": "variation-type-ib",
+      "display": "Type IB Variation",
+      "definition": "Minor, post-approval change to a medicinal product's marketing authorization that has minimal impact on quality, safety, or efficacy"
+    },
+    {
       "code": "response-to-questions",
       "display": "Response to Information Request",
       "definition": "Applicant response to regulator questions"
@@ -52,11 +57,15 @@
       "code": "annual-report",
       "display": "Periodic Safety Update Report / Annual Report",
       "definition": "PSUR, DSUR, or other periodic report"
+    },
+    {
+      "code": "request-payment",
+      "display": "Request Payment",
+      "definition": "Requested payment of regulatory fees"
     }
   ],
-  "version": "0.1.0",
+  "hierarchyMeaning": "is-a",
   "caseSensitive": true,
-  "date": "2025-12-13",
-  "publisher": "Gravitate Health Project",
-  "count": 9
+  "experimental": false,
+  "count": 11
 }

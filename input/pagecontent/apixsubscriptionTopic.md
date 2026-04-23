@@ -1,4 +1,13 @@
-## SubscriptionTopic
+<!-- SUBSCRIPTION TOPIC PAGE -->
+<div style="margin-bottom:16px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">SubscriptionTopic</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">Defines the event types a FHIR server monitors and notifies subscribers about — the server-side trigger definitions that power real-time regulatory notifications.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#faf5ff,#eff6ff); border:1px solid #e9d5ff; border-radius:12px; padding:20px 24px; margin-bottom:24px;">
+  <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">A SubscriptionTopic is the <strong>event catalogue</strong> published by the regulator's server. It tells implementers: "These are the events you can subscribe to" — such as "Task status changed" or "New Task created for your organization." Clients then create Subscriptions that reference these topics.</p>
+</div>
 
 A **SubscriptionTopic** defines the event types that a FHIR server is capable of monitoring and notifying subscribers about. While a **Subscription** represents an individual client’s request to receive notifications, the **SubscriptionTopic** describes the *server‑side triggers* that determine when those notifications occur.
 

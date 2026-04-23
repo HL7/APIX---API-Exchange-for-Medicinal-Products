@@ -11,22 +11,67 @@
 
 <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
   <li>
-    <a href="index.html">IG Home</a>
+    <a href="index.html">Home</a>
   </li>
   <li>
-    <a href="usecases.html">Use Cases</a>
+    <a href="gettingstarted.html">Getting Started</a>
   </li>
-  <li>
-    <a href="apixtask.html">APIX Task Structure</a>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Business Context
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="usecases.html">Use Cases</a>
+      </li>
+      <li>
+        <a href="workflow-overview.html">Workflow Overview</a>
+      </li>
+      <li>
+        <a href="subscriptions.html">Real-Time Subscriptions</a>
+      </li>
+    </ul>
   </li>
-  <li>
-    <a href="workflow.html">Workflow Example</a>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Technical Details
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="architecture.html">Architecture</a>
+      </li>
+      <li>
+        <a href="apixinteractionpattern.html">Interaction Pattern</a>
+      </li>
+      <li>
+        <a href="workflow.html">Workflow Deep-Dive</a>
+      </li>
+    </ul>
   </li>
-  <li>
-    <a href="subscriptions.html">Real-Time Subscriptions</a>
-  </li>
-  <li>
-    <a href="architecture.html">Architecture</a>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Key Resources
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="apixtask.html">APIX Task</a>
+      </li>
+      <li>
+        <a href="apixsubscription.html">Subscription</a>
+      </li>
+      <li>
+        <a href="apixsubscriptionTopic.html">SubscriptionTopic</a>
+      </li>
+      <li>
+        <a href="apixsubscriptionNotificationAndStatus.html">Notification &amp; Status</a>
+      </li>
+      <li>
+        <a href="apixorganizationEndpoint.html">Organization &amp; Endpoint</a>
+      </li>
+      <li>
+        <a href="apixdocumentReference.html">DocumentReference</a>
+      </li>
+    </ul>
   </li>
   <li>
     <a href="artifacts.html">Artifacts</a>

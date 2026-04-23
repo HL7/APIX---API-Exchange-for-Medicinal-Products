@@ -3,12 +3,10 @@
   "status": "draft",
   "name": "APIXBusinessStatusVS",
   "id": "apix-business-status-vs",
-  "title": "APIX Regulatory Business Status",
+  "title": "Value Set APIX Regulatory Business Status",
   "description": "Value set for regulatory business status in APIX submissions",
   "url": "http://hl7.org/fhir/uv/apix/ValueSet/apix-business-status-vs",
-  "version": "0.1.0",
-  "date": "2025-12-13",
-  "publisher": "Gravitate Health Project",
+  "experimental": false,
   "compose": {
     "include": [
       {

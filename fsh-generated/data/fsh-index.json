@@ -1,106 +1,410 @@
 [
   {
+    "outputFile": "Binary-binary-1004.json",
+    "fshName": "binary-1004",
+    "fshType": "Instance",
+    "fshFile": "exampleBinaries/3.2.S.7.1_Stability_Summary_and_Conclusions_pdf.fsh",
+    "startLine": 1,
+    "endLine": 8
+  },
+  {
+    "outputFile": "Binary-binary-1005.json",
+    "fshName": "binary-1005",
+    "fshType": "Instance",
+    "fshFile": "exampleBinaries/3.2.P.8.3_Stability_Data_pdf.fsh",
+    "startLine": 1,
+    "endLine": 8
+  },
+  {
+    "outputFile": "Binary-binary-1006.json",
+    "fshName": "binary-1006",
+    "fshType": "Instance",
+    "fshFile": "exampleBinaries/3.2.S.7.3_Stability_Data_pdf.fsh",
+    "startLine": 1,
+    "endLine": 8
+  },
+  {
+    "outputFile": "Bundle-eee72492-c236-41f7-a7ba-3af356204f4c.json",
+    "fshName": "Bundle-SubscriptionNotification-TaskIdOnly",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-SubscriptionNotification.fsh",
+    "startLine": 1,
+    "endLine": 25
+  },
+  {
     "outputFile": "CodeSystem-apix-business-status.json",
     "fshName": "APIXBusinessStatusCS",
     "fshType": "CodeSystem",
-    "fshFile": "CodeSystem-apix-business-status.fsh",
+    "fshFile": "Resources/CodeSystem-apix-business-status.fsh",
     "startLine": 1,
-    "endLine": 26
+    "endLine": 25
   },
   {
     "outputFile": "CodeSystem-apix-task-code.json",
     "fshName": "APIXTaskCodeCS",
     "fshType": "CodeSystem",
-    "fshFile": "CodeSystem-apix-task-code.fsh",
+    "fshFile": "Resources/CodeSystem-apix-task-code.fsh",
     "startLine": 1,
     "endLine": 21
   },
   {
-    "outputFile": "CodeSystem-apix-task-input-type.json",
-    "fshName": "APIXTaskInputTypeCS",
+    "outputFile": "CodeSystem-apix-temp.json",
+    "fshName": "APIXTEMPCODES",
     "fshType": "CodeSystem",
-    "fshFile": "CodeSystem-apix-task-input-type.fsh",
+    "fshFile": "Resources/CodeSystem-apix-temp.fsh",
     "startLine": 1,
-    "endLine": 19
-  },
-  {
-    "outputFile": "CodeSystem-apix-task-output-type.json",
-    "fshName": "APIXTaskOutputTypeCS",
-    "fshType": "CodeSystem",
-    "fshFile": "CodeSystem-apix-task-output-type.fsh",
-    "startLine": 1,
-    "endLine": 17
+    "endLine": 10
   },
   {
     "outputFile": "CodeSystem-ctd-section.json",
     "fshName": "APIXCTDSECTION",
     "fshType": "CodeSystem",
-    "fshFile": "CodeSystem-ctd-section.fsh",
+    "fshFile": "Resources/CodeSystem-ctd-section.fsh",
     "startLine": 1,
-    "endLine": 75
+    "endLine": 83
+  },
+  {
+    "outputFile": "DocumentReference-doc1.json",
+    "fshName": "doc1",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 61,
+    "endLine": 77
+  },
+  {
+    "outputFile": "DocumentReference-doc2.json",
+    "fshName": "doc2",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 79,
+    "endLine": 94
+  },
+  {
+    "outputFile": "DocumentReference-doc3.json",
+    "fshName": "doc3",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 96,
+    "endLine": 111
+  },
+  {
+    "outputFile": "DocumentReference-doc4.json",
+    "fshName": "doc4",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 113,
+    "endLine": 128
+  },
+  {
+    "outputFile": "DocumentReference-doc5.json",
+    "fshName": "doc5",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 130,
+    "endLine": 143
+  },
+  {
+    "outputFile": "DocumentReference-doc6.json",
+    "fshName": "doc6",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 145,
+    "endLine": 159
+  },
+  {
+    "outputFile": "DocumentReference-doc7.json",
+    "fshName": "doc7",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 161,
+    "endLine": 175
+  },
+  {
+    "outputFile": "DocumentReference-doc8.json",
+    "fshName": "doc8",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 177,
+    "endLine": 193
+  },
+  {
+    "outputFile": "DocumentReference-docref-approval-letter.json",
+    "fshName": "docref-approval-letter",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-07-final-decision.fsh",
+    "startLine": 115,
+    "endLine": 132
+  },
+  {
+    "outputFile": "DocumentReference-docref-assessment-report.json",
+    "fshName": "docref-assessment-report",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-07-final-decision.fsh",
+    "startLine": 135,
+    "endLine": 152
+  },
+  {
+    "outputFile": "DocumentReference-docref-invoice.json",
+    "fshName": "docref-invoice",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-03-finance-invoice.fsh",
+    "startLine": 50,
+    "endLine": 67
+  },
+  {
+    "outputFile": "DocumentReference-docref-list-of-questions.json",
+    "fshName": "docref-list-of-questions",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-05-technical-question.fsh",
+    "startLine": 59,
+    "endLine": 78
+  },
+  {
+    "outputFile": "DocumentReference-docref-payment-proof.json",
+    "fshName": "docref-payment-proof",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-04-finance-payment.fsh",
+    "startLine": 38,
+    "endLine": 53
+  },
+  {
+    "outputFile": "DocumentReference-docref-responses-qresponse.json",
+    "fshName": "docref-responses-qresponse",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-06-technical-response.fsh",
+    "startLine": 87,
+    "endLine": 103
+  },
+  {
+    "outputFile": "DocumentReference-docref-stability-data-annex.json",
+    "fshName": "docref-stability-data-annex",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-06-technical-response.fsh",
+    "startLine": 106,
+    "endLine": 120
+  },
+  {
+    "outputFile": "DocumentReference-output-ack.json",
+    "fshName": "output-ack",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-02-validation.fsh",
+    "startLine": 76,
+    "endLine": 84
+  },
+  {
+    "outputFile": "DocumentReference-output-validation.json",
+    "fshName": "output-validation",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-02-validation.fsh",
+    "startLine": 87,
+    "endLine": 95
+  },
+  {
+    "outputFile": "Endpoint-1003.json",
+    "fshName": "Endpoint-1003",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-Endpoint.fsh",
+    "startLine": 1,
+    "endLine": 27
+  },
+  {
+    "outputFile": "Endpoint-1005.json",
+    "fshName": "Endpoint-1005",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-Endpoint.fsh",
+    "startLine": 29,
+    "endLine": 55
+  },
+  {
+    "outputFile": "Organization-1002.json",
+    "fshName": "Organization-1002",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-Organization.fsh",
+    "startLine": 1,
+    "endLine": 32
+  },
+  {
+    "outputFile": "Organization-org-ema-srm-hmed.json",
+    "fshName": "org-ema-srm-hmed",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-reused-FHIR-instances.fsh",
+    "startLine": 21,
+    "endLine": 37
+  },
+  {
+    "outputFile": "Organization-org-synthpharma-ag.json",
+    "fshName": "org-synthpharma-ag",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-reused-FHIR-instances.fsh",
+    "startLine": 1,
+    "endLine": 19
   },
   {
     "outputFile": "StructureDefinition-apix-documentreference.json",
     "fshName": "APIXDocumentReference",
     "fshType": "Profile",
-    "fshFile": "Profile-apix-documentreference.fsh",
+    "fshFile": "Resources/Profile-apix-documentreference.fsh",
     "startLine": 1,
-    "endLine": 77
+    "endLine": 82
   },
   {
     "outputFile": "StructureDefinition-apix-organization.json",
     "fshName": "APIXOrganization",
     "fshType": "Profile",
-    "fshFile": "Profile-apix-organization.fsh",
+    "fshFile": "Resources/Profile-apix-organization.fsh",
     "startLine": 1,
-    "endLine": 50
+    "endLine": 51
+  },
+  {
+    "outputFile": "StructureDefinition-apix-subscription.json",
+    "fshName": "APIXSubscription",
+    "fshType": "Profile",
+    "fshFile": "Resources/Profile-apix-subscription.fsh",
+    "startLine": 1,
+    "endLine": 9
   },
   {
     "outputFile": "StructureDefinition-apix-task.json",
     "fshName": "APIXTask",
     "fshType": "Profile",
-    "fshFile": "Profile-apix-task.fsh",
+    "fshFile": "Resources/Profile-apix-task.fsh",
+    "startLine": 15,
+    "endLine": 189
+  },
+  {
+    "outputFile": "StructureDefinition-endpoint-subscription-notify.json",
+    "fshName": "EndpointSubscriptionNotify",
+    "fshType": "Profile",
+    "fshFile": "Resources/Profile-apix-endpoint.fsh",
     "startLine": 1,
-    "endLine": 175
+    "endLine": 17
+  },
+  {
+    "outputFile": "StructureDefinition-task-creation-with-organization-assigned-filter.json",
+    "fshName": "TaskCreationWithOrganizationAssignedFilterTopic",
+    "fshType": "Profile",
+    "fshFile": "Resources/Profile-apix-subscriptionTopic.fsh",
+    "startLine": 1,
+    "endLine": 25
+  },
+  {
+    "outputFile": "StructureDefinition-task-status-change-with-identifier-filter.json",
+    "fshName": "TaskStatusChangeWithIdentifierFilterTopic",
+    "fshType": "Profile",
+    "fshFile": "Resources/Profile-apix-subscriptionTopic.fsh",
+    "startLine": 27,
+    "endLine": 42
+  },
+  {
+    "outputFile": "Subscription-Subscription-TaskStatusChange-FullResource.json",
+    "fshName": "Subscription-TaskStatusChange-FullResource",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-Subscription.fsh",
+    "startLine": 1,
+    "endLine": 28
+  },
+  {
+    "outputFile": "SubscriptionTopic-TaskCreationWithOrganizationAssignedFilter.json",
+    "fshName": "TaskCreationWithOrganizationAssignedFilter",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-SubscriptionTopic.fsh",
+    "startLine": 18,
+    "endLine": 36
+  },
+  {
+    "outputFile": "SubscriptionTopic-TaskStatusChangeWithIdentifierFilter.json",
+    "fshName": "TaskStatusChangeWithIdentifierFilter",
+    "fshType": "Instance",
+    "fshFile": "Examples/examples-SubscriptionTopic.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
+    "outputFile": "Task-scenario1-01-initial-submission.json",
+    "fshName": "scenario1-01-initial-submission",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-01-initial-submission.fsh",
+    "startLine": 1,
+    "endLine": 59
+  },
+  {
+    "outputFile": "Task-scenario1-02-validation.json",
+    "fshName": "scenario1-02-validation",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-02-validation.fsh",
+    "startLine": 1,
+    "endLine": 74
+  },
+  {
+    "outputFile": "Task-scenario1-03-finance-invoice.json",
+    "fshName": "scenario1-03-finance-invoice",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-03-finance-invoice.fsh",
+    "startLine": 1,
+    "endLine": 48
+  },
+  {
+    "outputFile": "Task-scenario1-04-finance-payment.json",
+    "fshName": "scenario1-04-finance-payment",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-04-finance-payment.fsh",
+    "startLine": 1,
+    "endLine": 36
+  },
+  {
+    "outputFile": "Task-scenario1-05-technical-question.json",
+    "fshName": "scenario1-05-technical-question",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-05-technical-question.fsh",
+    "startLine": 1,
+    "endLine": 57
+  },
+  {
+    "outputFile": "Task-scenario1-06-technical-response.json",
+    "fshName": "scenario1-06-technical-response",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-06-technical-response.fsh",
+    "startLine": 1,
+    "endLine": 85
+  },
+  {
+    "outputFile": "Task-scenario1-07-final-decision.json",
+    "fshName": "scenario1-07-final-decision",
+    "fshType": "Instance",
+    "fshFile": "workflowExamples/scenario1-07-final-decision.fsh",
+    "startLine": 27,
+    "endLine": 113
   },
   {
     "outputFile": "ValueSet-apix-business-status-vs.json",
     "fshName": "APIXBusinessStatusVS",
     "fshType": "ValueSet",
-    "fshFile": "ValueSet-apix-business-status-vs.fsh",
+    "fshFile": "Resources/ValueSet-apix-business-status-vs.fsh",
     "startLine": 1,
     "endLine": 11
+  },
+  {
+    "outputFile": "ValueSet-apix-ctd-module-vs.json",
+    "fshName": "APIXCTDModuleVS",
+    "fshType": "ValueSet",
+    "fshFile": "Resources/ValueSet-apix-ctd-module-vs.fsh",
+    "startLine": 1,
+    "endLine": 21
   },
   {
     "outputFile": "ValueSet-apix-ctd-section-vs.json",
     "fshName": "APIXCTDSectionVS",
     "fshType": "ValueSet",
-    "fshFile": "ValueSet-apix-ctd-section-vs.fsh",
+    "fshFile": "Resources/ValueSet-apix-ctd-section-vs.fsh",
     "startLine": 1,
-    "endLine": 11
+    "endLine": 14
   },
   {
     "outputFile": "ValueSet-apix-submission-type-vs.json",
     "fshName": "APIXSubmissionTypeVS",
     "fshType": "ValueSet",
-    "fshFile": "ValueSet-apix-submission-type-vs.fsh",
+    "fshFile": "Resources/ValueSet-apix-submission-type-vs.fsh",
     "startLine": 1,
     "endLine": 11
-  },
-  {
-    "outputFile": "ValueSet-apix-task-code-vs.json",
-    "fshName": "APIXTaskCodeVS",
-    "fshType": "ValueSet",
-    "fshFile": "ValueSet-apix-task-code-vs.fsh",
-    "startLine": 1,
-    "endLine": 11
-  },
-  {
-    "outputFile": "ValueSet-apix-task-input-type-vs.json",
-    "fshName": "APIXTaskInputTypeVS",
-    "fshType": "ValueSet",
-    "fshFile": "ValueSet-apix-task-input-type-vs.fsh",
-    "startLine": 1,
-    "endLine": 16
   }
 ]

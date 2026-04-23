@@ -1,4 +1,13 @@
-## DocumentReference
+<!-- DOCUMENT REFERENCE PAGE -->
+<div style="margin-bottom:16px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">DocumentReference</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The metadata wrapper for regulatory documents submitted as part of a procedure — linking descriptive information with the actual payload stored on the FHIR server.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#fff7ed,#eff6ff); border:1px solid #fed7aa; border-radius:12px; padding:20px 24px; margin-bottom:24px;">
+  <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">A DocumentReference is like a <strong>library card</strong> for a regulatory file. You first upload the actual file (PDF, JSON, etc.) to the server, then create a DocumentReference that describes it — title, type, CTD section, author. This metadata wrapper is what gets attached to Tasks, allowing the regulator to discover and retrieve documents on demand.</p>
+</div>
 
 In APIX, the **DocumentReference** resource provides the metadata wrapper for regulatory documents submitted as part of a procedure. It links descriptive information (title, category, CTD section, author) with the actual payload stored separately on the FHIR server. E.g. A binary file is uploaded first as a raw `Binary` resource, and the DocumentReference then “claims” that binary by referencing it through `DocumentReference.content.attachment.url`.
 

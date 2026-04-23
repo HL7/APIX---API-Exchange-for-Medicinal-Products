@@ -79,9 +79,7 @@
       "definition": "The fee payment has been received and confirmed."
     }
   ],
-  "version": "0.1.0",
   "caseSensitive": true,
-  "date": "2025-12-13",
-  "publisher": "Gravitate Health Project",
+  "experimental": false,
   "count": 14
 }

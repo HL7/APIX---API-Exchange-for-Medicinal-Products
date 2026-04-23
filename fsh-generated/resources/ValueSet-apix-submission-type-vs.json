@@ -6,9 +6,7 @@
   "title": "APIX Submission Types",
   "description": "Value set for submission types in APIX regulatory procedures",
   "url": "http://hl7.org/fhir/uv/apix/ValueSet/apix-submission-type-vs",
-  "version": "0.1.0",
-  "date": "2025-12-13",
-  "publisher": "Gravitate Health Project",
+  "experimental": false,
   "compose": {
     "include": [
       {

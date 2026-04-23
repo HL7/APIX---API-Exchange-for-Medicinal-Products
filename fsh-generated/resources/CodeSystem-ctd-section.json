@@ -9,209 +9,323 @@
   "url": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
   "concept": [
     {
-      "code": "1.0",
-      "display": "Cover Letter"
-    },
-    {
-      "code": "1.2",
-      "display": "Administrative Information"
-    },
-    {
-      "code": "1.3.1",
-      "display": "SPC, Labelling and Package Leaflet"
-    },
-    {
-      "code": "1.3.2",
-      "display": "Mock-ups"
-    },
-    {
-      "code": "1.3.3",
-      "display": "Specimens"
-    },
-    {
-      "code": "1.4",
-      "display": "Information about the Experts"
-    },
-    {
-      "code": "1.8.1",
-      "display": "Risk Management Plan"
-    },
-    {
-      "code": "1.9",
-      "display": "Pharmacovigilance System"
-    },
-    {
-      "code": "2.2",
-      "display": "Introduction"
-    },
-    {
-      "code": "2.3",
-      "display": "Quality Overall Summary"
-    },
-    {
-      "code": "2.4",
-      "display": "Nonclinical Overview"
-    },
-    {
-      "code": "2.5",
-      "display": "Clinical Overview"
-    },
-    {
-      "code": "2.6",
-      "display": "Nonclinical Summary"
-    },
-    {
-      "code": "2.7",
-      "display": "Clinical Summary"
-    },
-    {
-      "code": "3.2.S.1",
-      "display": "General Information (Drug Substance)"
-    },
-    {
-      "code": "3.2.S.1.1",
-      "display": "Nomenclature"
-    },
-    {
-      "code": "3.2.S.1.2",
-      "display": "Structure"
-    },
-    {
-      "code": "3.2.S.1.3",
-      "display": "General Properties"
-    },
-    {
-      "code": "3.2.S.2",
-      "display": "Manufacture (Drug Substance)"
-    },
-    {
-      "code": "3.2.S.3",
-      "display": "Characterisation (Drug Substance)"
-    },
-    {
-      "code": "3.2.S.4",
-      "display": "Control of Drug Substance"
-    },
-    {
-      "code": "3.2.S.5",
-      "display": "Reference Standards or Materials"
-    },
-    {
-      "code": "3.2.S.6",
-      "display": "Container Closure System"
-    },
-    {
-      "code": "3.2.S.7",
-      "display": "Stability (Drug Substance)"
-    },
-    {
-      "code": "3.2.P.1",
-      "display": "Description and Composition of the Drug Product"
-    },
-    {
-      "code": "3.2.P.2",
-      "display": "Pharmaceutical Development"
-    },
-    {
-      "code": "3.2.P.3",
-      "display": "Manufacture (Drug Product)"
-    },
-    {
-      "code": "3.2.P.4",
-      "display": "Control of Excipients"
-    },
-    {
-      "code": "3.2.P.5",
-      "display": "Control of Drug Product"
-    },
-    {
-      "code": "3.2.P.5.1",
-      "display": "Specification(s)"
-    },
-    {
-      "code": "3.2.P.5.6",
-      "display": "Justification of Specification(s)"
-    },
-    {
-      "code": "3.2.P.8",
-      "display": "Stability (Drug Product)"
-    },
-    {
-      "code": "3.2.P.8.1",
-      "display": "Stability Summary and Conclusion"
-    },
-    {
-      "code": "3.2.P.8.2",
-      "display": "Post-approval Stability Protocol and Commitment"
-    },
-    {
-      "code": "3.2.P.8.3",
-      "display": "Stability Data"
-    },
-    {
-      "code": "3.2.A.1",
-      "display": "Facilities and Equipment"
-    },
-    {
-      "code": "3.2.A.2",
-      "display": "Adventitious Agents Safety Evaluation"
-    },
-    {
-      "code": "3.2.A.3",
-      "display": "Excipients"
-    },
-    {
-      "code": "3.2.R",
-      "display": "Regional Information"
-    },
-    {
-      "code": "4.1",
-      "display": "Table of Contents (Nonclinical)"
-    },
-    {
-      "code": "4.2",
-      "display": "Study Reports (Nonclinical)"
-    },
-    {
-      "code": "5.1",
-      "display": "Table of Contents (Clinical)"
-    },
-    {
-      "code": "5.2",
-      "display": "Tabular Listing of All Clinical Studies"
-    },
-    {
-      "code": "5.3",
-      "display": "Clinical Study Reports"
-    },
-    {
-      "code": "5.3.5",
-      "display": "Reports of Efficacy and Safety Studies"
-    },
-    {
-      "code": "5.3.5.1",
-      "display": "Study Reports of Controlled Clinical Studies"
-    },
-    {
-      "code": "5.3.5.3",
-      "display": "Reports of Analysis of Data from More than One Study"
-    }
-  ],
-  "version": "0.1.0",
-  "experimental": false,
-  "date": "2025-11-24",
-  "publisher": "Gravitate Health Project",
-  "contact": [
-    {
-      "name": "Gravitate Health FHIR Implementation Guide",
-      "telecom": [
+      "code": "m1",
+      "display": "Module 1",
+      "definition": "Module 1: Administrative Information",
+      "concept": [
         {
-          "system": "url",
-          "value": "https://github.com/HL7/APIX---API-Exchange-for-Medicinal-Products/"
+          "code": "1.0",
+          "display": "Cover Letter",
+          "definition": "Cover Letter"
+        },
+        {
+          "code": "1.2",
+          "display": "Administrative Information",
+          "definition": "Administrative Information"
+        },
+        {
+          "code": "1.3.1",
+          "display": "SPC, Labelling and Package Leaflet",
+          "definition": "SPC, Labelling and Package Leaflet"
+        },
+        {
+          "code": "1.3.2",
+          "display": "Mock-ups",
+          "definition": "Mock-ups"
+        },
+        {
+          "code": "1.3.3",
+          "display": "Specimens",
+          "definition": "Specimens"
+        },
+        {
+          "code": "1.4",
+          "display": "Information about the Experts",
+          "definition": "Information about the Experts"
+        },
+        {
+          "code": "1.8.1",
+          "display": "Risk Management Plan",
+          "definition": "Risk Management Plan"
+        },
+        {
+          "code": "1.9",
+          "display": "Pharmacovigilance System",
+          "definition": "Pharmacovigilance System"
+        },
+        {
+          "code": "application-form",
+          "display": "Application Form",
+          "definition": "Application Form"
+        },
+        {
+          "code": "invoice-reg-fee",
+          "display": "Invoice Regulatory Fee",
+          "definition": "Invoice Regulatory Fee"
+        },
+        {
+          "code": "proof-Of-payment",
+          "display": "Proof of Payment",
+          "definition": "Proof of Payment"
+        },
+        {
+          "code": "acknowledgement-receipt",
+          "display": "Acknowledgement of Receipt",
+          "definition": "Acknowledgement of Receipt"
+        },
+        {
+          "code": "validation-report",
+          "display": "Validation Report",
+          "definition": "Validation Report"
+        },
+        {
+          "code": "list-of-questions",
+          "display": "List of Questions",
+          "definition": "List of Questions"
+        },
+        {
+          "code": "applicant-questionnaireResponse\"",
+          "display": "Applicant QuestionnaireResponse",
+          "definition": "Applicant QuestionnaireResponse"
+        },
+        {
+          "code": "approval-letter",
+          "display": "Approval Letter",
+          "definition": "Regulatory Approval Letter"
+        },
+        {
+          "code": "assessment-report",
+          "display": "Assessment Report",
+          "definition": "Regulatory Assessment Report"
+        }
+      ]
+    },
+    {
+      "code": "m2",
+      "display": "Module 2",
+      "definition": "Module 2: Overviews and Summaries",
+      "concept": [
+        {
+          "code": "2.2",
+          "display": "Introduction",
+          "definition": "Introduction"
+        },
+        {
+          "code": "2.3",
+          "display": "Quality Overall Summary",
+          "definition": "Quality Overall Summary"
+        },
+        {
+          "code": "2.4",
+          "display": "Nonclinical Overview",
+          "definition": "Nonclinical Overview"
+        },
+        {
+          "code": "2.5",
+          "display": "Clinical Overview",
+          "definition": "Clinical Overview"
+        },
+        {
+          "code": "2.6",
+          "display": "Nonclinical Summary",
+          "definition": "Nonclinical Summary"
+        },
+        {
+          "code": "2.7",
+          "display": "Clinical Summary",
+          "definition": "Clinical Summary"
+        }
+      ]
+    },
+    {
+      "code": "m3",
+      "display": "Module 3",
+      "definition": "Module 3: Quality (CMC)",
+      "concept": [
+        {
+          "code": "3.2.S.1",
+          "display": "General Information (Drug Substance)",
+          "definition": "General Information (Drug Substance)"
+        },
+        {
+          "code": "3.2.S.1.1",
+          "display": "Nomenclature",
+          "definition": "Nomenclature"
+        },
+        {
+          "code": "3.2.S.1.2",
+          "display": "Structure",
+          "definition": "Structure"
+        },
+        {
+          "code": "3.2.S.1.3",
+          "display": "General Properties",
+          "definition": "General Properties"
+        },
+        {
+          "code": "3.2.S.2",
+          "display": "Manufacture (Drug Substance)",
+          "definition": "Manufacture (Drug Substance)"
+        },
+        {
+          "code": "3.2.S.3",
+          "display": "Characterisation (Drug Substance)",
+          "definition": "Characterisation (Drug Substance)"
+        },
+        {
+          "code": "3.2.S.4",
+          "display": "Control of Drug Substance",
+          "definition": "Control of Drug Substance"
+        },
+        {
+          "code": "3.2.S.5",
+          "display": "Reference Standards or Materials",
+          "definition": "Reference Standards or Materials"
+        },
+        {
+          "code": "3.2.S.6",
+          "display": "Container Closure System",
+          "definition": "Container Closure System"
+        },
+        {
+          "code": "3.2.S.7",
+          "display": "Stability (Drug Substance)",
+          "definition": "Stability (Drug Substance)"
+        },
+        {
+          "code": "3.2.P.1",
+          "display": "Description and Composition of the Drug Product",
+          "definition": "Description and Composition of the Drug Product"
+        },
+        {
+          "code": "3.2.P.2",
+          "display": "Pharmaceutical Development",
+          "definition": "Pharmaceutical Development"
+        },
+        {
+          "code": "3.2.P.3",
+          "display": "Manufacture (Drug Product)",
+          "definition": "Manufacture (Drug Product)"
+        },
+        {
+          "code": "3.2.P.4",
+          "display": "Control of Excipients",
+          "definition": "Control of Excipients"
+        },
+        {
+          "code": "3.2.P.5",
+          "display": "Control of Drug Product",
+          "definition": "Control of Drug Product"
+        },
+        {
+          "code": "3.2.P.5.1",
+          "display": "Specification(s)",
+          "definition": "Specification(s)"
+        },
+        {
+          "code": "3.2.P.5.6",
+          "display": "Justification of Specification(s)",
+          "definition": "Justification of Specification(s)"
+        },
+        {
+          "code": "3.2.P.8",
+          "display": "Stability (Drug Product)",
+          "definition": "Stability (Drug Product)"
+        },
+        {
+          "code": "3.2.P.8.1",
+          "display": "Stability Summary and Conclusion",
+          "definition": "Stability Summary and Conclusion"
+        },
+        {
+          "code": "3.2.P.8.2",
+          "display": "Post-approval Stability Protocol and Commitment",
+          "definition": "Post-approval Stability Protocol and Commitment"
+        },
+        {
+          "code": "3.2.P.8.3",
+          "display": "Stability Data",
+          "definition": "Stability Data"
+        },
+        {
+          "code": "3.2.A.1",
+          "display": "Facilities and Equipment",
+          "definition": "Facilities and Equipment"
+        },
+        {
+          "code": "3.2.A.2",
+          "display": "Adventitious Agents Safety Evaluation",
+          "definition": "Adventitious Agents Safety Evaluation"
+        },
+        {
+          "code": "3.2.A.3",
+          "display": "Excipients",
+          "definition": "Excipients"
+        },
+        {
+          "code": "3.2.R",
+          "display": "Regional Information",
+          "definition": "Regional Information"
+        }
+      ]
+    },
+    {
+      "code": "m4",
+      "display": "Module 4",
+      "definition": "Module 4: Nonclinical Study Reports",
+      "concept": [
+        {
+          "code": "4.1",
+          "display": "Table of Contents (Nonclinical)",
+          "definition": "Table of Contents (Nonclinical)"
+        },
+        {
+          "code": "4.2",
+          "display": "Study Reports (Nonclinical)",
+          "definition": "Study Reports (Nonclinical)"
+        }
+      ]
+    },
+    {
+      "code": "m5",
+      "display": "Module 5",
+      "definition": "Module 5: Clinical Study Reports",
+      "concept": [
+        {
+          "code": "5.1",
+          "display": "Table of Contents (Clinical)",
+          "definition": "Table of Contents (Clinical)"
+        },
+        {
+          "code": "5.2",
+          "display": "Tabular Listing of All Clinical Studies",
+          "definition": "Tabular Listing of All Clinical Studies"
+        },
+        {
+          "code": "5.3",
+          "display": "Clinical Study Reports",
+          "definition": "Clinical Study Reports"
+        },
+        {
+          "code": "5.3.5",
+          "display": "Reports of Efficacy and Safety Studies",
+          "definition": "Reports of Efficacy and Safety Studies"
+        },
+        {
+          "code": "5.3.5.1",
+          "display": "Study Reports of Controlled Clinical Studies",
+          "definition": "Study Reports of Controlled Clinical Studies"
+        },
+        {
+          "code": "5.3.5.3",
+          "display": "Reports of Analysis of Data from More than One Study",
+          "definition": "Reports of Analysis of Data from More than One Study"
         }
       ]
     }
   ],
   "caseSensitive": true,
-  "count": 47
+  "experimental": false,
+  "hierarchyMeaning": "is-a",
+  "count": 61
 }

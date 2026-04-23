@@ -38,44 +38,52 @@ parameters:
 
 pages:
   index.md:
-    title: IG Home
+    title: Home
+  gettingstarted.md:
+    title: Getting Started
   usecases.md:
-    title: Use Cases  
+    title: Use Cases
+  workflow-overview.md:
+    title: Workflow Overview
+  workflow.md:
+    title: Workflow Deep-Dive
+  subscriptions.md:
+    title: Real-Time Subscriptions
+  architecture.md:
+    title: Architecture
   apixinteractionpattern.md:
-    title: APIX Interaction Example
+    title: Interaction Pattern
   apixtask.md:
     title: APIX Task Structure
   apixsubscription.md:
     title: Subscription
   apixsubscriptionTopic.md:
-    title: SubscriptionTopic 
+    title: SubscriptionTopic
   apixsubscriptionNotificationAndStatus.md:
-    title: SubscriptionNotification Bundle/SubscriptionStatus
+    title: Notification & Status
   apixorganizationEndpoint.md:
-    title: Endpoint/Organization
-  apixdocumentReference.md: 
+    title: Organization & Endpoint
+  apixdocumentReference.md:
     title: DocumentReference
-  workflow.md:
-    title: Workflow Example
-  subscriptions.md:
-    title: Real-Time Subscriptions
-  architecture.md:
-    title: Architecture
 
 menu:
-  IG Home: index.html
-  Use Cases: usecases.html
-  Key elements:
-    Task: apixtask.html
+  Home: index.html
+  Getting Started: gettingstarted.html
+  Business Context:
+    Use Cases: usecases.html
+    Workflow Overview: workflow-overview.html
+    Real-Time Subscriptions: subscriptions.html
+  Technical Details:
+    Architecture: architecture.html
+    Interaction Pattern: apixinteractionpattern.html
+    Workflow Deep-Dive: workflow.html
+  Key Resources:
+    APIX Task: apixtask.html
     Subscription: apixsubscription.html
     SubscriptionTopic: apixsubscriptionTopic.html
-    SubscriptionNotification Bundle/SubscriptionStatus: apixsubscriptionNotificationAndStatus.html
-    Endpoint/Organization: apixorganizationEndpoint.html
+    Notification & Status: apixsubscriptionNotificationAndStatus.html
+    Organization & Endpoint: apixorganizationEndpoint.html
     DocumentReference: apixdocumentReference.html
-  Workflow Example: workflow.html
-  Real-Time Subscriptions: subscriptions.html
-  APIX Interaction Example: apixinteractionpattern.html
-  Architecture: architecture.html
   Artifacts: artifacts.html
 
 instanceOptions:

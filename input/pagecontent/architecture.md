@@ -1,7 +1,15 @@
-<div class="markdown-alert markdown-alert-note">
-  <p class="markdown-alert-title">Note</p>
-  <p>The architecture components below are illustrative suggestions only. Implementers are free to select any technologies or platforms (including on-premises, cloud-based, or hybrid solutions) that meet the specified functional requirements.</p>
+<!-- ARCHITECTURE PAGE -->
+<div style="margin-bottom:32px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Architecture</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The technical infrastructure required to implement APIX in production. This page covers FHIR server requirements, authentication, system landscape, data governance, and binary upload patterns.</p>
 </div>
+
+<div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:14px 18px; margin-bottom:32px; font-size:.85em; color:#78350f; display:flex; gap:10px; align-items:flex-start;">
+  <span style="flex-shrink:0; font-size:1rem;">ℹ️</span>
+  <span><strong>Note:</strong> The architecture components below are illustrative suggestions only. Implementers are free to select any technologies or platforms (including on-premises, cloud-based, or hybrid solutions) that meet the specified functional requirements.</span>
+</div>
+
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <table style="width:100%; border-collapse: collapse; border: 1px solid #d0d0d0;">
   <thead>

@@ -2,12 +2,10 @@
   "resourceType": "StructureDefinition",
   "id": "apix-documentreference",
   "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference",
-  "version": "0.1.0",
   "name": "APIXDocumentReference",
   "title": "APIX Regulatory DocumentReference",
   "status": "draft",
   "date": "2025-12-20",
-  "publisher": "Gravitate Health Project",
   "description": "DocumentReference profile used in APIX regulatory submissions. Supports both embedded base64 data and referenced binaries via URL (Index Pattern). Includes support for versioning, lifecycle status, and CTD section categorization.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
@@ -50,6 +48,7 @@
         "short": "CTD section code (e.g. 3.2.S.1.1)",
         "definition": "Coded representation of the specific document type or CTD section.",
         "min": 1,
+        "mustSupport": true,
         "binding": {
           "extension": [
             {
@@ -67,6 +66,23 @@
         "path": "DocumentReference.category",
         "short": "High-level categorization (e.g. CTD Module 1, Clinical Trial Data)",
         "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "ReferencedItemCategory"
+            }
+          ],
+          "strength": "extensible",
+          "description": "High-level kind of document at a macro level.",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-ctd-module-vs"
+        }
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "short": "Used to link to specific products, such as a `MedicinalProductDefinition`",
         "mustSupport": true
       },
       {
@@ -121,7 +137,8 @@
         "id": "DocumentReference.content.attachment.url",
         "path": "DocumentReference.content.attachment.url",
         "short": "Reference to document on FHIR server or external URL",
-        "definition": "The URL where the document content can be retrieved. This allows for the 'Index Pattern' where large binaries are stored separately."
+        "definition": "The URL where the document content can be retrieved. This allows for the 'Index Pattern' where large binaries are stored separately.",
+        "min": 1
       },
       {
         "id": "DocumentReference.content.attachment.size",

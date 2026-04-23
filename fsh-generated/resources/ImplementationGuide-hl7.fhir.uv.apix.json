@@ -1,19 +1,33 @@
 {
   "resourceType": "ImplementationGuide",
   "id": "hl7.fhir.uv.apix",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "brr"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
   "url": "http://hl7.org/fhir/uv/apix/ImplementationGuide/hl7.fhir.uv.apix",
   "version": "0.1.0",
   "name": "ApixIG",
   "title": "API for the Exchange of Medicinal Product Information (APIX)",
   "status": "draft",
-  "publisher": "Gravitate Health Project",
+  "publisher": "HL7 International / Biomedical Research and Regulation",
   "contact": [
     {
-      "name": "Gravitate Health Project",
+      "name": "HL7 International / Biomedical Research and Regulation",
       "telecom": [
         {
           "system": "url",
-          "value": "https://www.gravitatehealth.eu/"
+          "value": "http://www.hl7.org/Special/committees/rcrim"
         }
       ]
     }
@@ -34,14 +48,22 @@
   "fhirVersion": [
     "5.0.0"
   ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.uv.extensions",
+      "version": "current",
+      "uri": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "id": "hl7_fhir_uv_extensions"
+    }
+  ],
   "definition": {
     "resource": [
       {
         "reference": {
-          "reference": "ValueSet/apix-ctd-section-vs"
+          "reference": "ValueSet/apix-ctd-module-vs"
         },
-        "name": "APIX CTD/eCTD Section Code System",
-        "description": "Value set for CTD section codes used in APIX regulatory submissions",
+        "name": "APIX CTD/eCTD Module Value Set",
+        "description": "Value set for CTD module codes used in APIX regulatory submissions",
         "isExample": false
       },
       {
@@ -54,18 +76,18 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/apix-organization"
+          "reference": "StructureDefinition/endpoint-subscription-notify"
         },
-        "name": "APIX Organization",
-        "description": "Organization profile for APIX regulatory workflows, derived from and compatible with ePI requirements.",
+        "name": "APIX Endpoint for FHIR Subscription Notifications",
+        "description": "Endpoint requiring identifier, name, and connectionType of hl7-fhir-subscription-notify.",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "ValueSet/apix-business-status-vs"
+          "reference": "StructureDefinition/apix-organization"
         },
-        "name": "APIX Regulatory Business Status",
-        "description": "Value set for regulatory business status in APIX submissions",
+        "name": "APIX Organization",
+        "description": "Organization profile for APIX regulatory workflows, derived from and compatible with ePI requirements.",
         "isExample": false
       },
       {
@@ -102,6 +124,22 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/apix-subscription"
+        },
+        "name": "APIX Subscription",
+        "description": "Subscription Profile for APIX interactions.",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/task-creation-with-organization-assigned-filter"
+        },
+        "name": "APIX Task Assignment and Creation With Organization Filter",
+        "description": "SubscriptionTopic notifying an organization when a Task is created and assigned to them.",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/apix-task-code"
         },
         "name": "APIX Task Code System",
@@ -110,69 +148,236 @@
       },
       {
         "reference": {
-          "reference": "ValueSet/apix-task-code-vs"
+          "reference": "StructureDefinition/task-status-change-with-identifier-filter"
         },
-        "name": "APIX Task Codes ValueSet",
-        "description": "Value set for task codes in APIX regulatory submissions",
+        "name": "APIX Task Status Change With Identifier Filter",
+        "description": "Triggers when a Task.status value changes and allows filtering by Task.identifier.",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "ValueSet/apix-task-input-type-vs"
+          "reference": "Binary/binary-1004"
         },
-        "name": "APIX Task Input Types",
-        "description": "Value set for task input types in APIX regulatory submissions",
-        "isExample": false
+        "name": "binary-1004",
+        "description": "3.2.S.7.1_Stability_Summary_and_Conclusions_pdf",
+        "isExample": true
       },
       {
         "reference": {
-          "reference": "CodeSystem/apix-task-input-type"
+          "reference": "Binary/binary-1005"
         },
-        "name": "APIX Task Input Types Code System",
-        "description": "Code system for task input types in APIX regulatory submissions",
-        "isExample": false
+        "name": "binary-1005",
+        "description": "3.2.P.8.3_Stability_Data_pdf",
+        "isExample": true
       },
       {
         "reference": {
-          "reference": "CodeSystem/apix-task-output-type"
+          "reference": "Binary/binary-1006"
         },
-        "name": "APIX Task Output Types Code System",
-        "description": "Code system for task output types in APIX regulatory submissions",
-        "isExample": false
+        "name": "binary-1006",
+        "description": "3.2.S.7.3_Stability_Data_pdf",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc1"
+        },
+        "name": "doc1",
+        "description": "Example DocumentReference Cover Letter",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc2"
+        },
+        "name": "doc2",
+        "description": "Example DocumentReference Application Form",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc3"
+        },
+        "name": "doc3",
+        "description": "Example DocumentReference Annotated Label",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc4"
+        },
+        "name": "doc4",
+        "description": "Example DocumentReference Clean Label",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc5"
+        },
+        "name": "doc5",
+        "description": "Example DocumentReference Pack Mockup",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc6"
+        },
+        "name": "doc6",
+        "description": "Example DocumentReference Stability Summary",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc7"
+        },
+        "name": "doc7",
+        "description": "Example DocumentReference Stability Data",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/doc8"
+        },
+        "name": "doc8",
+        "description": "Example DocumentReference Stability Data",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/docref-approval-letter"
+        },
+        "name": "docref approval letter",
+        "description": "Example DocumentReference Approval Letter",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/docref-assessment-report"
+        },
+        "name": "docref assessment report",
+        "description": "Example DocumentReference Assessment Report",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/docref-list-of-questions"
+        },
+        "name": "docref list of questions",
+        "description": "Example DocumentReference Cover Letter",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/docref-payment-proof"
+        },
+        "name": "docref payment proof",
+        "description": "Example DocumentReference Proof of Payment",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/docref-responses-qresponse"
+        },
+        "name": "docref responses qresponse",
+        "description": "Example DocumentReference Cover Letter / Response",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/docref-stability-data-annex"
+        },
+        "name": "docref stability data annex",
+        "description": "Example DocumentReference Stability Data",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Endpoint/1005"
+        },
+        "name": "Example APIX interaction Endpoint with header",
+        "description": "Example APIX interaction Endpoint with header information; payload is very loosely defined, sufficient where payload considerations are handled internally and not exposed. Note identifier.   n",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/endpoint-subscription-notify"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Endpoint/1003"
+        },
+        "name": "Example basic APIX interaction Endpoint",
+        "description": "Example basic APIX interaction Endpoint, payload is very loosely defined; payload considerations are handled internally and not exposed. Note identifier.",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/endpoint-subscription-notify"
+        ]
       },
       {
         "reference": {
           "reference": "DocumentReference/docref-invoice"
         },
-        "description": "Financial invoice for regulatory submission review",
-        "name": "Invoice #INV-2025-001",
+        "name": "Invoice for Regulatiry Submission Review",
+        "description": "Example DocumentReference Invoice",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/org-ema-srm-hmed"
+        },
+        "name": "Organization European Medicines Agency â€“ Human Medicines Evaluation Division",
+        "description": "Example Organization European Medicines Agency â€“ Human Medicines Evaluation Division",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "Organization/1002"
+        },
+        "name": "Organization example with Endpoint",
+        "description": "Organization example with Endpoint.",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-organization"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "Organization/org-synthpharma-ag"
+        },
+        "name": "Organization SynthPharma AG",
+        "description": "Example Organization SynthPharma AG",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/output-ack"
+        },
+        "name": "output ack",
+        "description": "Example DocumentReference Acknowledgement of Receipt",
+        "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "DocumentReference/output-validation"
+        },
+        "name": "output validation",
+        "description": "Example DocumentReference Validation Report",
         "isExample": true
       },
       {
         "reference": {
           "reference": "Task/scenario1-01-initial-submission"
         },
-        "name": "scenario1-01-initial-submission",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-        ]
-      },
-      {
-        "reference": {
-          "reference": "Task/scenario1-01b-stability-update-1"
-        },
-        "name": "scenario1-01b-stability-update-1",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-        ]
-      },
-      {
-        "reference": {
-          "reference": "Task/scenario1-01c-stability-update-2"
-        },
-        "name": "scenario1-01c-stability-update-2",
+        "name": "scenario1 01 initial submission",
+        "description": "Example Task Type IB Variation",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -182,7 +387,8 @@
         "reference": {
           "reference": "Task/scenario1-02-validation"
         },
-        "name": "scenario1-02-validation",
+        "name": "scenario1 02 validation",
+        "description": "Example Task Type IB Variation",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -192,7 +398,8 @@
         "reference": {
           "reference": "Task/scenario1-03-finance-invoice"
         },
-        "name": "scenario1-03-finance-invoice",
+        "name": "scenario1 03 finance invoice original Task",
+        "description": "Example Task Request Payment - original",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -202,7 +409,8 @@
         "reference": {
           "reference": "Task/scenario1-04-finance-payment"
         },
-        "name": "scenario1-04-finance-payment",
+        "name": "scenario1 04 finance payment reflected by invoice Task update",
+        "description": "Example Task Request Payment - payment has been made",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -212,7 +420,8 @@
         "reference": {
           "reference": "Task/scenario1-05-technical-question"
         },
-        "name": "scenario1-05-technical-question",
+        "name": "scenario1 05 technical question",
+        "description": "Example Task Information Request",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -222,7 +431,8 @@
         "reference": {
           "reference": "Task/scenario1-06-technical-response"
         },
-        "name": "scenario1-06-technical-response",
+        "name": "scenario1 06 technical response",
+        "description": "Example Task Response to Information Request, fulfillment of information request Scenario1 05 technical question",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -233,6 +443,7 @@
           "reference": "Task/scenario1-07-final-decision"
         },
         "name": "scenario1-07-final-decision",
+        "description": "Completetion of Scenario 01 initial submission Task - Example Task Type IB Variation. This is the initial submision Task but in the completed form",
         "isExample": true,
         "profile": [
           "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
@@ -240,30 +451,68 @@
       },
       {
         "reference": {
-          "reference": "Task/task-nda-submission-index-2025"
+          "reference": "Subscription/Subscription-TaskStatusChange-FullResource"
         },
-        "name": "task-nda-submission-index-2025",
+        "name": "Subscription for Task Status Change with Identifier Filter",
+        "description": "Subscription example to Task change status with an identifier filter, and sending full-resource.",
         "isExample": true,
         "profile": [
-          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-subscription"
         ]
       },
       {
         "reference": {
-          "reference": "Task/task-shelf-life-extension-synthpharma-2025"
+          "reference": "Bundle/eee72492-c236-41f7-a7ba-3af356204f4c"
         },
-        "name": "task-shelf-life-extension-synthpharma-2025",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
-        ]
-      },
-      {
-        "reference": {
-          "reference": "MedicinalProductDefinition/example-ma"
-        },
-        "name": "WonderDrug",
+        "name": "SubscriptionNotification Task ID Only",
+        "description": "SubscriptionNotification Bundle example Task id only.",
         "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "SubscriptionTopic/TaskCreationWithOrganizationAssignedFilter"
+        },
+        "name": "Task Assignment and Creation With Organization Filter",
+        "description": "SubscriptionTopic for a health authority to notify an organization when that organization has been assigned a new Task.",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/task-creation-with-organization-assigned-filter"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "SubscriptionTopic/TaskStatusChangeWithIdentifierFilter"
+        },
+        "name": "Task Status Change With Identifier Filter",
+        "description": "Triggers when a Task.status value changes. Allows subscriptions to filter by Task.identifier.",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/apix/StructureDefinition/task-status-change-with-identifier-filter"
+        ]
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/apix-temp"
+        },
+        "name": "Temporary APIX Codes",
+        "description": "These codes are intended to be added to the appropriate HL7 Terminology code system",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-ctd-section-vs"
+        },
+        "name": "Value Set APIX CTD/eCTD Section Code System",
+        "description": "Value set for CTD section codes used in APIX regulatory submissions",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/apix-business-status-vs"
+        },
+        "name": "Value Set APIX Regulatory Business Status",
+        "description": "Value set for regulatory business status in APIX submissions",
+        "isExample": false
       }
     ],
     "page": {
@@ -271,10 +520,16 @@
       "generation": "html",
       "page": [
         {
-          "title": "IG Home",
+          "title": "Home",
           "generation": "markdown",
           "name": "index.html",
           "sourceUrl": "index.html"
+        },
+        {
+          "title": "Getting Started",
+          "generation": "markdown",
+          "name": "gettingstarted.html",
+          "sourceUrl": "gettingstarted.html"
         },
         {
           "title": "Use Cases",
@@ -283,13 +538,13 @@
           "sourceUrl": "usecases.html"
         },
         {
-          "title": "APIX Task Structure",
+          "title": "Workflow Overview",
           "generation": "markdown",
-          "name": "apixtask.html",
-          "sourceUrl": "apixtask.html"
+          "name": "workflow-overview.html",
+          "sourceUrl": "workflow-overview.html"
         },
         {
-          "title": "Workflow Example",
+          "title": "Workflow Deep-Dive",
           "generation": "markdown",
           "name": "workflow.html",
           "sourceUrl": "workflow.html"
@@ -305,6 +560,48 @@
           "generation": "markdown",
           "name": "architecture.html",
           "sourceUrl": "architecture.html"
+        },
+        {
+          "title": "Interaction Pattern",
+          "generation": "markdown",
+          "name": "apixinteractionpattern.html",
+          "sourceUrl": "apixinteractionpattern.html"
+        },
+        {
+          "title": "APIX Task Structure",
+          "generation": "markdown",
+          "name": "apixtask.html",
+          "sourceUrl": "apixtask.html"
+        },
+        {
+          "title": "Subscription",
+          "generation": "markdown",
+          "name": "apixsubscription.html",
+          "sourceUrl": "apixsubscription.html"
+        },
+        {
+          "title": "SubscriptionTopic",
+          "generation": "markdown",
+          "name": "apixsubscriptionTopic.html",
+          "sourceUrl": "apixsubscriptionTopic.html"
+        },
+        {
+          "title": "Notification & Status",
+          "generation": "markdown",
+          "name": "apixsubscriptionNotificationAndStatus.html",
+          "sourceUrl": "apixsubscriptionNotificationAndStatus.html"
+        },
+        {
+          "title": "Organization & Endpoint",
+          "generation": "markdown",
+          "name": "apixorganizationEndpoint.html",
+          "sourceUrl": "apixorganizationEndpoint.html"
+        },
+        {
+          "title": "DocumentReference",
+          "generation": "markdown",
+          "name": "apixdocumentReference.html",
+          "sourceUrl": "apixdocumentReference.html"
         }
       ],
       "name": "toc.html",
@@ -327,136 +624,38 @@
       },
       {
         "code": {
-          "code": "0",
+          "code": "apply-contact",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "[object Object]"
+        "value": "true"
       },
       {
         "code": {
-          "code": "1",
+          "code": "apply-jurisdiction",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "[object Object]"
+        "value": "true"
       },
       {
         "code": {
-          "code": "2",
+          "code": "apply-publisher",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "[object Object]"
+        "value": "true"
       },
       {
         "code": {
-          "code": "3",
+          "code": "apply-version",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "[object Object]"
+        "value": "true"
       },
       {
         "code": {
-          "code": "4",
+          "code": "apply-wg",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "5",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "6",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "7",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "8",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "9",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "10",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "11",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "12",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "13",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "14",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "15",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "16",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "17",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
-      },
-      {
-        "code": {
-          "code": "18",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "[object Object]"
+        "value": "true"
       },
       {
         "code": {

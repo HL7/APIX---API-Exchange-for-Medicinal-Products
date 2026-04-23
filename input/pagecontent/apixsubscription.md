@@ -1,4 +1,13 @@
-## Subscription
+<!-- SUBSCRIPTION PAGE -->
+<div style="margin-bottom:16px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Subscription</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The Subscription resource delivers real-time notifications when regulatory events occur — task status changes, new assignments, and decisions.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#ecfdf5,#eff6ff); border:1px solid #a7f3d0; border-radius:12px; padding:20px 24px; margin-bottom:24px;">
+  <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">A Subscription is like a <strong>notification rule</strong>. You tell the FHIR server: "Notify me when this specific Task changes status" or "Notify me when the regulator creates a new Task assigned to my organization." The server automatically sends a webhook notification every time the condition is met — no polling required.</p>
+</div>
 
 In APIX, the **Subscription** resource is the mechanism that delivers real‑time notifications when regulatory events occur. A Subscription becomes active when:
 

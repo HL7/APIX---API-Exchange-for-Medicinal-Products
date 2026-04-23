@@ -1,4 +1,22 @@
-In APIX, the Task resource is the universal envelope and workflow engine for all biopharmaceutical regulatory interactions. Whether it is a clinical trial application, marketing authorization application, post-approval variation, response to questions,  decision letter, or review report, it is all represented as an individual **Task** resource.
+<!-- APIX TASK PAGE -->
+<div style="margin-bottom:32px;">
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">APIX Task Structure</h2>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The Task resource is the universal envelope and workflow engine for all biopharmaceutical regulatory interactions — submissions, questions, decisions, and payments are all represented as individual Task resources.</p>
+</div>
+
+<div style="background:linear-gradient(135deg,#eff6ff,#faf5ff); border:1px solid #bfdbfe; border-radius:12px; padding:20px 24px; margin-bottom:16px;">
+  <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">Think of a Task as a <strong>regulatory envelope</strong>. When you submit an application, you create a Task containing references to your documents. When the regulator has questions, they create a new Task assigned to you. When the decision is made, the original Task is completed with the decision letter attached. Each Task has a status that progresses through the lifecycle — giving both sides real-time visibility.</p>
+</div>
+
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px;">
+  <a href="Task-scenario1-01-initial-submission.html" style="text-decoration:none; background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:6px 12px; font-size:.8em; font-weight:600; color:#1d4ed8;">📤 Initial Submission</a>
+  <a href="Task-scenario1-05-technical-question.html" style="text-decoration:none; background:#fff7ed; border:1px solid #fed7aa; border-radius:6px; padding:6px 12px; font-size:.8em; font-weight:600; color:#c2410c;">❓ Questions</a>
+  <a href="Task-scenario1-06-technical-response.json" style="text-decoration:none; background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:6px 12px; font-size:.8em; font-weight:600; color:#047857;">💬 Response</a>
+  <a href="Task-scenario1-07-final-decision.html" style="text-decoration:none; background:#faf5ff; border:1px solid #e9d5ff; border-radius:6px; padding:6px 12px; font-size:.8em; font-weight:600; color:#7e22ce;">📩 Decision</a>
+</div>
+
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 24px;"/>
 
 <!-- a href="html-example-apix-shelf-life-original.html">Sample Task (Shelf Life)</a -->
 

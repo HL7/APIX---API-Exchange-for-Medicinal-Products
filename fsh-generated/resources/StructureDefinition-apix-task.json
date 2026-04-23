@@ -2,12 +2,9 @@
   "resourceType": "StructureDefinition",
   "id": "apix-task",
   "url": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task",
-  "version": "0.1.0",
   "name": "APIXTask",
   "title": "APIX Regulatory Task",
   "status": "draft",
-  "date": "2025-12-13",
-  "publisher": "Gravitate Health Project",
   "description": "Task profile for APIX regulatory submission workflows",
   "fhirVersion": "5.0.0",
   "kind": "resource",
@@ -17,6 +14,19 @@
   "derivation": "constraint",
   "differential": {
     "element": [
+      {
+        "id": "Task",
+        "path": "Task",
+        "constraint": [
+          {
+            "key": "statusreason-conditional-require",
+            "severity": "error",
+            "human": "A status reason is required when the status is rejected or cancelled.",
+            "expression": "((status = 'rejected') or (status = 'cancelled')) implies statusReason.exists()",
+            "source": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+          }
+        ]
+      },
       {
         "id": "Task.meta",
         "path": "Task.meta",
@@ -30,14 +40,7 @@
       {
         "id": "Task.meta.lastUpdated",
         "path": "Task.meta.lastUpdated",
-        "min": 1
-      },
-      {
-        "id": "Task.meta.profile",
-        "path": "Task.meta.profile",
-        "min": 1,
-        "max": "1",
-        "fixedCanonical": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+        "short": "Automatically updated on every change"
       },
       {
         "id": "Task.text",
@@ -47,52 +50,25 @@
         "mustSupport": true
       },
       {
-        "id": "Task.contained",
-        "path": "Task.contained",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "profile",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "short": "Embedded or Referenced Regulatory Document",
-        "definition": "The official regulatory document content, either embedded (base64) within the Task or referenced via URI (Index Pattern).",
-        "mustSupport": true
-      },
-      {
-        "id": "Task.contained:documentReference",
-        "path": "Task.contained",
-        "sliceName": "documentReference",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "DocumentReference",
-            "profile": [
-              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-            ]
-          }
-        ]
-      },
-      {
         "id": "Task.identifier",
         "path": "Task.identifier",
         "slicing": {
           "discriminator": [
             {
               "type": "value",
-              "path": "type.coding.code"
+              "path": "type"
+            },
+            {
+              "type": "value",
+              "path": "system"
             }
           ],
-          "rules": "closed",
-          "description": "One mandatory technical UUID identifier and one optional regulator procedure number"
+          "rules": "open",
+          "description": "At least one mandatory technical UUID identifier. A regulator procedure number is optional."
         },
-        "short": "Task instance UUID (required) + official regulator procedure number (optional)",
+        "short": "Task instance UUID (required) + official regulator procedure number (optional), other identifiers allowed as well",
         "min": 1,
-        "max": "2"
+        "mustSupport": true
       },
       {
         "id": "Task.identifier:TaskInstance",
@@ -100,40 +76,31 @@
         "sliceName": "TaskInstance",
         "short": "Technical UUID for this specific Task instance",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "constraint": [
+          {
+            "key": "identifier-is-uuid",
+            "severity": "error",
+            "human": "Identifier value must be a urn:uuid",
+            "expression": "value.matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')",
+            "source": "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
+          }
+        ],
+        "mustSupport": true
       },
       {
         "id": "Task.identifier:TaskInstance.type",
         "path": "Task.identifier.type",
-        "min": 1
-      },
-      {
-        "id": "Task.identifier:TaskInstance.type.coding",
-        "path": "Task.identifier.type.coding",
         "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Task.identifier:TaskInstance.type.coding.system",
-        "path": "Task.identifier.type.coding.system",
-        "patternUri": "http://terminology.hl7.org/CodeSystem/v2-0203"
-      },
-      {
-        "id": "Task.identifier:TaskInstance.type.coding.code",
-        "path": "Task.identifier.type.coding.code",
-        "min": 1,
-        "patternCode": "RI"
-      },
-      {
-        "id": "Task.identifier:TaskInstance.system",
-        "path": "Task.identifier.system",
-        "patternUri": "urn:ietf:rfc:3986"
-      },
-      {
-        "id": "Task.identifier:TaskInstance.value",
-        "path": "Task.identifier.value",
-        "min": 1,
-        "patternString": "urn:uuid:"
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "code": "RI",
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "display": "Resource identifier"
+            }
+          ]
+        }
       },
       {
         "id": "Task.identifier:RegulatorProcedureNumber",
@@ -141,29 +108,8 @@
         "sliceName": "RegulatorProcedureNumber",
         "short": "Official regulator procedure/submission number (EMA, FDA, PMDA, etc.)",
         "min": 0,
-        "max": "1"
-      },
-      {
-        "id": "Task.identifier:RegulatorProcedureNumber.type",
-        "path": "Task.identifier.type",
-        "min": 1
-      },
-      {
-        "id": "Task.identifier:RegulatorProcedureNumber.type.coding",
-        "path": "Task.identifier.type.coding",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Task.identifier:RegulatorProcedureNumber.type.coding.system",
-        "path": "Task.identifier.type.coding.system",
-        "patternUri": "http://terminology.hl7.org/CodeSystem/v2-0203"
-      },
-      {
-        "id": "Task.identifier:RegulatorProcedureNumber.type.coding.code",
-        "path": "Task.identifier.type.coding.code",
-        "min": 1,
-        "patternCode": "RN"
+        "max": "1",
+        "mustSupport": true
       },
       {
         "id": "Task.identifier:RegulatorProcedureNumber.system",
@@ -178,11 +124,23 @@
         "min": 1
       },
       {
+        "id": "Task.basedOn",
+        "path": "Task.basedOn",
+        "short": "Reference to the parent Task (e.g. a response points to the question Task), ordered lineage of Tasks (oldest → newest).",
+        "mustSupport": true
+      },
+      {
         "id": "Task.groupIdentifier",
         "path": "Task.groupIdentifier",
         "short": "Parent/Set ID – groups all Tasks in the same regulatory procedure",
         "min": 1,
         "mustSupport": true
+      },
+      {
+        "id": "Task.statusReason",
+        "path": "Task.statusReason",
+        "short": "Required if status is rejected or cancelled",
+        "definition": "Required if status is rejected or cancelled. Reason for current status."
       },
       {
         "id": "Task.businessStatus",
@@ -195,26 +153,23 @@
               "valueString": "TaskBusinessStatus"
             }
           ],
-          "strength": "required",
-          "description": "The domain-specific business-contextual sub-state of the task.  For example: \"Blood drawn\", \"IV inserted\", \"Awaiting physician signature\", etc.",
+          "strength": "example",
+          "description": "Detailed regulatory status such as clock-stop",
           "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-business-status-vs"
         }
       },
       {
         "id": "Task.intent",
         "path": "Task.intent",
-        "fixedCode": "proposal"
-      },
-      {
-        "id": "Task.priority",
-        "path": "Task.priority",
-        "min": 1,
-        "mustSupport": true
+        "patternCode": "proposal"
       },
       {
         "id": "Task.code",
         "path": "Task.code",
+        "short": "Defines the regulatory message type and triggers specific business rules",
+        "definition": "Defines the regulatory message type and triggers specific business rules",
         "min": 1,
+        "mustSupport": true,
         "binding": {
           "extension": [
             {
@@ -222,7 +177,7 @@
               "valueString": "TaskCode"
             }
           ],
-          "strength": "extensible",
+          "strength": "example",
           "description": "Codes to identify what the task involves.  These will typically be specific to a particular workflow.",
           "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-submission-type-vs"
         }
@@ -233,13 +188,10 @@
         "max": "0"
       },
       {
-        "id": "Task.focus",
-        "path": "Task.focus",
-        "max": "0"
-      },
-      {
         "id": "Task.for",
         "path": "Task.for",
+        "short": "Identifies the medicinal product(s) that is the subject. For multiple products use Group or List FHIR Resource",
+        "definition": "Identifies the medicinal product(s) that is the subject of the process, use Group or List FHIR Resource is there are multiple.",
         "mustSupport": true
       },
       {
@@ -292,6 +244,8 @@
       {
         "id": "Task.authoredOn",
         "path": "Task.authoredOn",
+        "short": "Date/time the sender created the Task",
+        "definition": "Starting point for regulatory cycle-time metrics.",
         "min": 1
       },
       {
@@ -302,7 +256,7 @@
       {
         "id": "Task.requester",
         "path": "Task.requester",
-        "short": "The ''Author'' - e.g. Regulatory Authority or Senior Manager",
+        "short": "Organization that initiated the task",
         "definition": "The person or system that **created** the Task and wants the work done. In regulatory context: The Regulatory Authority (e.g., FDA/EMA) or a senior manager initiating a submission review.",
         "min": 1,
         "type": [
@@ -316,27 +270,10 @@
         "mustSupport": true
       },
       {
-        "id": "Task.requestedPerformer",
-        "path": "Task.requestedPerformer",
-        "short": "The ''Desired Actor'' - e.g. Biologics Team or Dr. Smith",
-        "definition": "The type of person or specific entity the requester **wants** to do the work. In regulatory context: 'Assign this CMC review to the Biologics Team' (Group) or 'Assign this to Dr. Smith' (Individual).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableReference",
-            "targetProfile": [
-              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-organization"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
         "id": "Task.owner",
         "path": "Task.owner",
-        "short": "The ''Accountable Actor'' - e.g. Specific Regulatory Specialist",
-        "definition": "The person or system currently **responsible** for executing the Task. Use this when a specific user has accepted the task and is currently performing it. Mandatory when status is 'in-progress'.",
+        "short": "The Organization accountable for fulfilling the Task.",
+        "definition": "The organization, person or system currently **responsible** for fulfillng the Task.",
         "type": [
           {
             "code": "Reference",
@@ -345,6 +282,14 @@
             ]
           }
         ],
+        "mustSupport": true
+      },
+      {
+        "id": "Task.performer",
+        "path": "Task.performer",
+        "short": "Organization or individual who performed the task",
+        "definition": "Organization or individual who performed the task. Can be different from the Task.owner.",
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -360,118 +305,50 @@
       {
         "id": "Task.input",
         "path": "Task.input",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "type.coding"
-            }
-          ],
-          "rules": "open",
-          "description": "Slicing by Task.input.type.coding to support regulatoryDocument and future input types"
-        },
         "short": "Input parameters for the task",
         "definition": "Additional information that may be needed for fulfilment of the task in the context of medicinal product regulatory procedures.",
         "mustSupport": true
       },
       {
-        "id": "Task.input:regulatoryDocument",
-        "path": "Task.input",
-        "sliceName": "regulatoryDocument",
-        "short": "Regulatory document (CTD section, via DocumentReference index)",
-        "min": 0,
-        "max": "*"
-      },
-      {
-        "id": "Task.input:regulatoryDocument.type.coding",
-        "path": "Task.input.type.coding",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Task.input:regulatoryDocument.type.coding.system",
-        "path": "Task.input.type.coding.system",
-        "patternUri": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-input-type"
-      },
-      {
-        "id": "Task.input:regulatoryDocument.type.coding.code",
-        "path": "Task.input.type.coding.code",
-        "patternCode": "regulatory-document"
-      },
-      {
-        "id": "Task.input:regulatoryDocument.type.coding.display",
-        "path": "Task.input.type.coding.display",
-        "patternString": "Regulatory Document"
-      },
-      {
-        "id": "Task.input:regulatoryDocument.value[x]",
-        "path": "Task.input.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-            ]
-          }
-        ]
+        "id": "Task.input.type",
+        "path": "Task.input.type",
+        "short": "Input type  indicates the type of input, such as the code used as a DocumentReference type",
+        "mustSupport": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "TaskInputParameterType"
+            }
+          ],
+          "strength": "example",
+          "description": "Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Comparison source\", \"Applicable consent\", \"Concomitent Medications\", etc.",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-ctd-section-vs"
+        }
       },
       {
         "id": "Task.output",
         "path": "Task.output",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "type.coding"
-            }
-          ],
-          "rules": "open",
-          "description": "Slicing by Task.output.type.coding to support regulatoryDocument and future output types"
-        },
         "short": "Output produced by the task",
         "definition": "Outputs produced by the task in the context of medicinal product regulatory procedures.",
         "mustSupport": true
       },
       {
-        "id": "Task.output:regulatoryDocument",
-        "path": "Task.output",
-        "sliceName": "regulatoryDocument",
-        "short": "Regulatory document produced as output (via DocumentReference index)",
-        "min": 0,
-        "max": "*"
-      },
-      {
-        "id": "Task.output:regulatoryDocument.type.coding",
-        "path": "Task.output.type.coding",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Task.output:regulatoryDocument.type.coding.system",
-        "path": "Task.output.type.coding.system",
-        "patternUri": "http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type"
-      },
-      {
-        "id": "Task.output:regulatoryDocument.type.coding.code",
-        "path": "Task.output.type.coding.code",
-        "patternCode": "regulatory-document"
-      },
-      {
-        "id": "Task.output:regulatoryDocument.type.coding.display",
-        "path": "Task.output.type.coding.display",
-        "patternString": "Regulatory Document"
-      },
-      {
-        "id": "Task.output:regulatoryDocument.value[x]",
-        "path": "Task.output.value[x]",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
-            ]
-          }
-        ]
+        "id": "Task.output.type",
+        "path": "Task.output.type",
+        "short": "Output type indicates the type of output, such as the code used as a DocumentReference type",
+        "mustSupport": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "TaskOutputParameterType"
+            }
+          ],
+          "strength": "example",
+          "description": "Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Identified issues\", \"Preliminary results\", \"Filler order\", \"Final results\", etc.",
+          "valueSet": "http://hl7.org/fhir/uv/apix/ValueSet/apix-ctd-section-vs"
+        }
       }
     ]
   }
