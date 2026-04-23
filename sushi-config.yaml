@@ -49,6 +49,8 @@ pages:
     title: Workflow Deep-Dive
   subscriptions.md:
     title: Real-Time Subscriptions
+  document-streaming.md:
+    title: Document Streaming
   architecture.md:
     title: Architecture
   apixinteractionpattern.md:
@@ -73,6 +75,7 @@ menu:
     Use Cases: usecases.html
     Workflow Overview: workflow-overview.html
     Real-Time Subscriptions: subscriptions.html
+    Document Streaming: document-streaming.html
   Technical Details:
     Architecture: architecture.html
     Interaction Pattern: apixinteractionpattern.html
