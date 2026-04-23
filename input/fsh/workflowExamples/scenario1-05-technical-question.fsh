@@ -49,7 +49,7 @@ Usage: #example
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-12-01T14:30:00+01:00"
 * lastModified = "2025-12-01T14:30:00+01:00"
-* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requester = Reference(org-ema-srm-hmed) "Health Authority"
 * requestedPeriod.start = "2025-12-01T14:30:00+01:00"
 * requestedPeriod.end = "2025-12-08T14:30:00+01:00"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"

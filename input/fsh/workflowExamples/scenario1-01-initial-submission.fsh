@@ -62,7 +62,7 @@ Usage: #example
 * authoredOn = "2025-11-15T09:00:00+01:00"
 * lastModified = "2025-11-15T09:00:00+01:00"
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"
-* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* owner = Reference(org-ema-srm-hmed) "Health Authority" 
 * input[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter"
 * input[0].valueReference = Reference(doc1)
 * input[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#application-form "Application Form"

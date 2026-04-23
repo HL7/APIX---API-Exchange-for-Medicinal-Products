@@ -42,7 +42,7 @@ Usage: #example
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#request-payment "Request Payment"
 //* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
 * lastModified = "2025-11-22T14:00:00+01:00"
-* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requester = Reference(org-ema-srm-hmed) "Health Authority"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"
 * input.type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#invoice-reg-fee "Invoice Regulatory Fee"
 * input.valueReference = Reference(docref-invoice)

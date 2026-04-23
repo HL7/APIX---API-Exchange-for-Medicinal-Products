@@ -60,7 +60,7 @@ Usage: #example
 * identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
-* identifier[=].system = "http://example.org/ema.europa.eu/procedure-number"
+* identifier[=].system = "http://example.org/health.authority/procedure-number"
 * identifier[=].value = "PROC-2025-12345" //"EMEA/H/C/001234/IB/0025"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
 * groupIdentifier.use = #official
@@ -75,7 +75,7 @@ Usage: #example
 * authoredOn = "2025-11-15T09:00:00+01:00"
 * lastModified = "2025-11-20T14:30:00+01:00"
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"
-* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* owner = Reference(org-ema-srm-hmed) "Health Authority"
 
 * input[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter"
 * input[0].valueReference = Reference(doc1)

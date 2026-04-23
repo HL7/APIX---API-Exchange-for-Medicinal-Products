@@ -42,7 +42,7 @@ Usage: #example
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#request-payment "Request Payment"
 //* for = Reference(MedicinalProductDefinition/example-ma) "WonderDrug 50mg Tablets"
 * lastModified = "2025-11-21T09:00:00+01:00"
-* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requester = Reference(org-ema-srm-hmed) "Health Authority"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"
 * input.type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#invoice-reg-fee "Invoice Regulatory Fee"
 * input.valueReference = Reference(docref-invoice)
@@ -59,7 +59,7 @@ Usage: #example
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#invoice-reg-fee "Invoice Regulatory Fee"
 * description = "Financial invoice for regulatory submission review"
 * content.attachment.contentType = #application/pdf
-* content.attachment.url = "https://api.ema.example/binaries/invoices/INV-2025-001.pdf"
+* content.attachment.url = "https://api.health.authority.example/binaries/invoices/INV-2025-001.pdf"
 * content.attachment.title = "INV-2025-001.pdf"
 * content.attachment.size = 450000
 * content.attachment.creation = "2025-03-05T08:00:00+01:00"

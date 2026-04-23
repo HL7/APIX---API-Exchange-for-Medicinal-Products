@@ -21,7 +21,7 @@ Usage: #example
 //* groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 //* requester = Reference(org-synthpharma-ag) "SynthPharma AG"
-//* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+//* owner = Reference(org-ema-srm-hmed) "Health Authority"
 //* authoredOn = "2025-03-15T10:00:00+01:00"
 
 * meta.versionId = "3"
@@ -70,7 +70,7 @@ Usage: #example
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-12-01T14:30:00+01:00" 
 
-* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requester = Reference(org-ema-srm-hmed) "Health Authority"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"
 * requestedPeriod.start = "2025-12-01T14:30:00+01:00"
 * requestedPeriod.end = "2025-12-08T14:30:00+01:00"
