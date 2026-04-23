@@ -20,19 +20,20 @@ Usage: #example
 
 Instance: org-ema-srm-hmed
 InstanceOf: Organization
-Title: "Organization European Medicines Agency â€“ Human Medicines Evaluation Division"
-Description: "Example Organization European Medicines Agency â€“ Human Medicines Evaluation Division"
+Title: "Organization Health Authority – Regulatory Review Division"
+Description: "Example Organization Health Authority – Regulatory Review Division"
 Usage: #example
 * id = "org-ema-srm-hmed"
-* name = "European Medicines Agency â€“ Human Medicines Evaluation Division"
+* name = "Health Authority – Regulatory Review Division"
+
 * contact[0].address.type = #physical
-* contact[0].address.text = "Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands"
-* contact[0].address.line = "Domenico Scarlattilaan 6"
-* contact[0].address.city = "Amsterdam"
+* contact[0].address.text = "Regulatory Authority Headquarters, 1083 HS Capital City, Country"
+* contact[0].address.line = "Regulatory Authority Headquarters"
+* contact[0].address.city = "Capital City"
 * contact[0].address.postalCode = "1083 HS"
-* contact[0].address.country = "Netherlands"
+* contact[0].address.country = "Country"
 * contact.name.text = "Scientific and Regulatory Management"
 * contact.telecom.system = #email
-* contact.telecom.value = "srm@ema.example.eu"
+* contact.telecom.value = "regulatory@health-authority.example"
 * contact.telecom.use = #work
 
