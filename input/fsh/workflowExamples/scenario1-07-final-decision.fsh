@@ -97,6 +97,7 @@ Usage: #example
 * identifier[+].use = #official
 * identifier[=].system = "http://example.org/health.authority/procedure-number"
 * identifier[=].value = "PROC-2025-12345" //"EMEA/H/C/001234/IB/0025"
+* identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixregulatorprocedureno "APIX Regulator Procedure Number"
 
 * groupIdentifier.use = #official
 * groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"

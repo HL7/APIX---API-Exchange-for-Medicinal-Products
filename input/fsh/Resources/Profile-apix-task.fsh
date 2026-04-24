@@ -12,16 +12,15 @@ Description: "Identifier value must be a urn:uuid"
 Severity: #error
 Expression: "value.matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
 
-Invariant: identifier-has-a-uuid
-Description: "Identifier has at least one value that is a urn:uuid"
-Severity: #error
-Expression: "identifier.value.exists(matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'))"
+//Invariant: identifier-has-a-uuid
+//Description: "Identifier has at least one value that is a urn:uuid"
+//Severity: #error
+//Expression: "identifier.value.exists(matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'))"
 //"value.matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
-
-Invariant: is-a-uuid
-Description: "Identifier has at least one value that is a urn:uuid"
-Severity: #error
-Expression: "matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
+//Invariant: is-a-uuid
+//Description: "Identifier has at least one value that is a urn:uuid"
+//Severity: #error
+//Expression: "matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
 
 
 Profile: APIXTask
@@ -56,7 +55,7 @@ Description: "Task profile for APIX regulatory submission workflows"
 //* contained[documentReference] only APIXDocumentReference
 
 // Identifiers with slicing
-* identifier 1..* MS //obeys identifier-has-a-uuid
+* identifier 1..* MS 
   * ^short = "Task instance UUID (required) + official regulator procedure number (optional), other identifiers allowed as well"
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[0].path = "type"
@@ -78,7 +77,6 @@ Description: "Task profile for APIX regulatory submission workflows"
   * type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
   //* system = "urn:ietf:rfc:3986"
   * value 1..1
-  * value obeys is-a-uuid
 
 * identifier[RegulatorProcedureNumber]
   * ^short = "Official regulator procedure/submission number (EMA, FDA, PMDA, etc.)"
