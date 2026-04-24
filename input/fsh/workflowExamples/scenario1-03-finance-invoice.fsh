@@ -63,5 +63,5 @@ Usage: #example
 * content.attachment.title = "INV-2025-001.pdf"
 * content.attachment.size = 450000
 * content.attachment.creation = "2025-03-05T08:00:00+01:00"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
 * identifier[0].value = "urn:uuid:invoice-docref-uuid"

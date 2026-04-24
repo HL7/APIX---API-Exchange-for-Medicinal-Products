@@ -101,6 +101,8 @@ Usage: #example
 * content.attachment.title = "Response to Questions (QuestionnaireResponse)"
 * content.attachment.size = 18400
 * content.attachment.creation = "2025-12-04T09:59:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808085"
 
 
 Instance: docref-stability-data-annex
@@ -118,3 +120,5 @@ Usage: #example
 * content.attachment.title = "Updated Stability Data (Transaction Bundle)"
 * content.attachment.size = 5800000
 * content.attachment.creation = "2025-12-04T09:59:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808084"

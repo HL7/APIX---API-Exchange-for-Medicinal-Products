@@ -97,6 +97,8 @@ Usage: #example
 * content.attachment.title = "Cover Letter.pdf"
 * content.attachment.size = 1250000
 * content.attachment.creation = "2025-11-15T08:30:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808097"
 
 Instance: doc2
 InstanceOf: DocumentReference
@@ -114,6 +116,8 @@ Usage: #example
 * content.attachment.title = "Application Form.pdf"
 * content.attachment.size = 3400000
 * content.attachment.creation = "2025-11-15T08:35:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808096"
 
 Instance: doc3
 InstanceOf: DocumentReference
@@ -131,6 +135,8 @@ Usage: #example
 * content.attachment.title = "Annotated Label (Bundle)"
 * content.attachment.size = 45000
 * content.attachment.creation = "2025-11-14T16:00:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808095"
 
 Instance: doc4
 InstanceOf: DocumentReference
@@ -148,6 +154,8 @@ Usage: #example
 * content.attachment.title = "Clean Label (Bundle)"
 * content.attachment.size = 42000
 * content.attachment.creation = "2025-11-14T16:05:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808094"
 
 Instance: doc5
 InstanceOf: DocumentReference
@@ -163,6 +171,8 @@ Usage: #example
 * content.attachment.title = "Pack Mockup.html"
 * content.attachment.size = 890000
 * content.attachment.creation = "2025-11-14T10:00:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808093"
 
 Instance: doc6
 InstanceOf: DocumentReference
@@ -179,6 +189,8 @@ Usage: #example
 * content.attachment.title = "STABILITY SUMMARY AND CONCLUSIONS ON STELBAT TABLETS, 20 MG"
 * content.attachment.size = 116000
 * content.attachment.creation = "2025-11-12T14:30:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808092"
 
 Instance: doc7
 InstanceOf: DocumentReference
@@ -195,6 +207,8 @@ Usage: #example
 * content.attachment.title = "STABILITY DATA ON STELBAT TABLETS, 20MG"
 * content.attachment.size = 312000
 * content.attachment.creation = "2025-11-12T14:35:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808091"
 
 Instance: doc8
 InstanceOf: DocumentReference
@@ -213,3 +227,5 @@ Usage: #example
 * content.attachment.title = "STABILITY DATA ON API"
 * content.attachment.size = 238000
 * content.attachment.creation = "2025-11-12T14:40:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808090"

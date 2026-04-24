@@ -65,5 +65,7 @@ Usage: #example
 * content.attachment.title = "Payment-Confirmation.pdf"
 * content.attachment.size = 280000
 * content.attachment.creation = "2025-03-06T13:30:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808088"
 
 

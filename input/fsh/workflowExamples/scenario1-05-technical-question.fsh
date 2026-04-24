@@ -74,5 +74,5 @@ Usage: #example
 * content.attachment.title = "List of Questions (Questionnaire)"
 * content.attachment.size = 30241
 * content.attachment.creation = "2025-03-01T14:20:00+01:00"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
 * identifier[0].value = "urn:uuid:40404040-4040-4040-4040-404040404040"

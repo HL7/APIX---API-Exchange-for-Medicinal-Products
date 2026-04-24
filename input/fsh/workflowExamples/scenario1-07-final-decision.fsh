@@ -178,5 +178,5 @@ Usage: #example
 * content.attachment.creation = "2025-12-22T09:00:00+01:00"
 //* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
 * content.attachment.url = "http://example.org/FHIR/Binary/102"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
 * identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808080"

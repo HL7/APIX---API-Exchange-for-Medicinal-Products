@@ -112,7 +112,7 @@ Usage: #example
 * content.attachment.contentType = #application/pdf
 * content.attachment.creation = "2025-11-19T09:00:00+01:00"
 * content.attachment.url = "https://api.example/acknowledgement-receipt.pdf"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
 * identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808082"
 
 Instance: output-validation
@@ -127,7 +127,7 @@ Usage: #example
 * content.attachment.contentType = #application/pdf
 * content.attachment.creation = "2025-11-19T09:00:00+01:00"
 * content.attachment.url = "https://api.example/validation-report.pdf"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
 * identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808081"
 
 
