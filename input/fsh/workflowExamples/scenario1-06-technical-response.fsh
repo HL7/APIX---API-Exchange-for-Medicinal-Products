@@ -95,12 +95,12 @@ Usage: #example
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#applicant-questionnaireResponse" "Applicant QuestionnaireResponse"
 * relatesTo.code = http://hl7.org/fhir/document-relationship-type#appends
 * relatesTo.target = Reference(docref-list-of-questions) "List of Questions (LoQ)"
-* date = "2025-03-15T10:00:00+01:00"
+* date = "2025-12-04T10:00:00+01:00"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/questionnaire-responses/qr123.json"
 * content.attachment.title = "Response to Questions (QuestionnaireResponse)"
 * content.attachment.size = 18400
-* content.attachment.creation = "2025-03-15T09:45:00+01:00"
+* content.attachment.creation = "2025-12-04T09:59:00+01:00"
 
 
 Instance: docref-stability-data-annex
@@ -112,9 +112,9 @@ Usage: #example
 * docStatus = #final
 * version = "1.0"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
-* date = "2025-03-15T10:00:00+01:00"
+* date = "2025-12-04T09:59:00+01:00"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-data-v2.json"
 * content.attachment.title = "Updated Stability Data (Transaction Bundle)"
 * content.attachment.size = 5800000
-* content.attachment.creation = "2025-03-14T11:00:00+01:00"
+* content.attachment.creation = "2025-12-04T09:59:00+01:00"

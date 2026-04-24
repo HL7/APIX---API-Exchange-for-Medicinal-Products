@@ -62,13 +62,13 @@ Title: "docref list of questions"
 Description: "Example DocumentReference Cover Letter"
 Usage: #example
 * meta.versionId = "1"
-* meta.lastUpdated = "2025-03-01T14:30:00+01:00"
+* meta.lastUpdated = "2024-03-01T14:30:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
 * status = #current
 * docStatus = #final
 * version = "1.0"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#list-of-questions "List of Questions"
-* date = "2025-03-01T14:30:00+01:00"
+* date = "2024-03-01T14:30:00+01:00"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://build.fhir.org/ig/HL7/rtq-ig/Questionnaire-questionnaire-ID001.html"
 * content.attachment.title = "List of Questions (Questionnaire)"

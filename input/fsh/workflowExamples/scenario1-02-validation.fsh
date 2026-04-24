@@ -106,10 +106,14 @@ Title: "output ack"
 Description: "Example DocumentReference Acknowledgement of Receipt"
 Usage: #example
 * status = #current
+* date = "2025-11-19T09:00:00+01:00"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#acknowledgement-receipt "Acknowledgement of Receipt"
 * content.attachment.title = "Acknowledgement_Letter.pdf"
 * content.attachment.contentType = #application/pdf
-
+* content.attachment.creation = "2025-11-19T09:00:00+01:00"
+* content.attachment.url = "https://api.example/acknowledgement-receipt.pdf"
+* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808082"
 
 Instance: output-validation
 InstanceOf: DocumentReference
@@ -117,6 +121,15 @@ Title: "output validation"
 Description: "Example DocumentReference Validation Report"
 Usage: #example
 * status = #current
+* date = "2025-11-19T09:00:00+01:00"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#validation-report "Validation Report"
 * content.attachment.title = "Validation_Report.pdf"
 * content.attachment.contentType = #application/pdf
+* content.attachment.creation = "2025-11-19T09:00:00+01:00"
+* content.attachment.url = "https://api.example/validation-report.pdf"
+* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808081"
+
+
+
+

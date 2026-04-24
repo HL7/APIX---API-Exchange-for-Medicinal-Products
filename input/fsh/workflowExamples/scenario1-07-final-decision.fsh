@@ -30,7 +30,7 @@ Title: "scenario1-07-final-decision"
 Description: "Completetion of Scenario 01 initial submission Task - Example Task Type IB Variation. This is the initial submision Task but in the completed form"
 Usage: #example
 * meta.versionId = "3"
-* meta.lastUpdated = "2026-04-20T09:00:00+01:00"
+* meta.lastUpdated = "2025-12-22T09:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 
 * text.status = #additional 
@@ -38,7 +38,7 @@ Usage: #example
 
 <span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Task ID</span><span style=\"color:#1d1d1f;\">in production system will be the same as  scenario1-01-initial-submission</span>
 
-<span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Instance UUID</span><span style=\"color:#1d1d1f;\">urn:uuid:999e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3d</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Group Identifier</span><span style=\"color:#1d1d1f;\">urn:uuid:workflow-group-id-12345</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Procedure ID</span><span style=\"color:#1d1d1f;\">PROC-2025-12345</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Task Status</span><span style=\"color:#1d1d1f;\"><span style=\"padding:2px 8px;border-radius:12px;font-size:0.9em;font-weight:500;color:#ffffff;background:#28a745;\">completed</span></span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Business Status</span><span style=\"color:#1d1d1f;\"><span style=\"padding:2px 8px;border-radius:12px;font-size:0.9em;font-weight:500;color:#ffffff;background:#28a745;\">Approved</span></span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Intent</span><span style=\"color:#1d1d1f;\">proposal</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Priority</span><span style=\"color:#1d1d1f;\">routine</span></div><hr style=\"border:0;border-top:1px solid #eee;margin:20px 0;\" /><div style=\"display:grid;grid-template-columns:max-content auto;gap:12px 20px;align-items:baseline;\"><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Code</span><span style=\"color:#1d1d1f;\">Type IB Variation (variation-type-ib)</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Authored</span><span style=\"color:#1d1d1f;\">2025-11-15T09:00:00+01:00</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Last Updated</span><span style=\"color:#1d1d1f;\">2026-04-20T09:00:00+01:00</span></div></div><div style=\"background:#ffffff;border-radius:18px;padding:32px;margin-bottom:32px;box-shadow:0 8px 28px rgba(0,0,0,0.08),0 2px 10px rgba(0,0,0,0.06);\"><div style=\"font-size:24px;font-weight:600;color:#007aff;margin:0 0 24px 0;padding-bottom:12px;border-bottom:1px solid #e5e5ea;display:flex;justify-content:space-between;align-items:center;\">Parties Involved</div>
+<span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Instance UUID</span><span style=\"color:#1d1d1f;\">urn:uuid:999e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3d</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Group Identifier</span><span style=\"color:#1d1d1f;\">urn:uuid:workflow-group-id-12345</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Procedure ID</span><span style=\"color:#1d1d1f;\">PROC-2025-12345</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Task Status</span><span style=\"color:#1d1d1f;\"><span style=\"padding:2px 8px;border-radius:12px;font-size:0.9em;font-weight:500;color:#ffffff;background:#28a745;\">completed</span></span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Business Status</span><span style=\"color:#1d1d1f;\"><span style=\"padding:2px 8px;border-radius:12px;font-size:0.9em;font-weight:500;color:#ffffff;background:#28a745;\">Approved</span></span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Intent</span><span style=\"color:#1d1d1f;\">proposal</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Priority</span><span style=\"color:#1d1d1f;\">routine</span></div><hr style=\"border:0;border-top:1px solid #eee;margin:20px 0;\" /><div style=\"display:grid;grid-template-columns:max-content auto;gap:12px 20px;align-items:baseline;\"><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Code</span><span style=\"color:#1d1d1f;\">Type IB Variation (variation-type-ib)</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Authored</span><span style=\"color:#1d1d1f;\">2025-11-15T09:00:00+01:00</span><span style=\"font-weight:600;color:#555555;text-align:right;min-width:150px;\">Last Updated</span><span style=\"color:#1d1d1f;\">2025-12-22T09:00:00+01:00</span></div></div><div style=\"background:#ffffff;border-radius:18px;padding:32px;margin-bottom:32px;box-shadow:0 8px 28px rgba(0,0,0,0.08),0 2px 10px rgba(0,0,0,0.06);\"><div style=\"font-size:24px;font-weight:600;color:#007aff;margin:0 0 24px 0;padding-bottom:12px;border-bottom:1px solid #e5e5ea;display:flex;justify-content:space-between;align-items:center;\">Parties Involved</div>
 
 <div style=\"margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #eeeeee;\"><span style=\"font-weight:600;color:#007aff;margin-bottom:4px;display:block;\">Requester</span><div style=\"font-size:16px;font-weight:500;margin-bottom:8px;color:#1d1d1f;\">SynthPharma AG</div><div style=\"font-size:14px;color:#555555;line-height:1.5;\"><strong>Address:</strong> 123 Synthetic Research Blvd, 4000 Basel, Switzerland<br /> <strong>Contact:</strong> Dr. John Doe, Head of Regulatory Affairs<br /> <strong>Email:</strong> john.doe@synthpharma.example</div></div><div style=\"margin-bottom:0;padding-bottom:0;border-bottom:none;\"><span style=\"font-weight:600;color:#007aff;margin-bottom:4px;display:block;\">Performer</span><div style=\"font-size:16px;font-weight:500;margin-bottom:8px;color:#1d1d1f;\">Health Authority – Regulatory Review Division</div><div style=\"font-size:14px;color:#555555;line-height:1.5;\"><strong>Address:</strong> Regulatory Authority Headquarters, 1083 HS Capital City, Country<br /> <strong>Contact:</strong> Scientific and Regulatory Management<br /> <strong>Email:</strong> regulatory@health-authority.example</div></div></div>
 
@@ -130,7 +130,7 @@ Usage: #example
 * input[7].type =  http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.S.7 "Stability (Drug Substance)" //http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.2 "Post-approval Stability Protocol and Commitment"
 * input[7].valueReference = Reference(doc8)
 
-* lastModified = "2026-04-20T09:00:00+01:00"
+* lastModified = "2025-12-22T09:00:00+01:00"
 
 * output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#acknowledgement-receipt "Acknowledgement of Receipt"
 * output[=].valueReference = Reference(output-ack) "Acknowledgement of Receipt"
@@ -148,14 +148,14 @@ Title: "docref approval letter"
 Description: "Example DocumentReference Approval Letter"
 Usage: #example
 * meta.versionId = "1"
-* meta.lastUpdated = "2025-04-20T09:00:00+01:00"
+* meta.lastUpdated = "2025-12-22T09:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
 * status = #current
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#approval-letter "Approval Letter"
-* date = "2025-04-20T09:00:00+01:00"
+* date = "2025-12-22T09:00:00+01:00"
 * content.attachment.contentType = #application/pdf
 * content.attachment.title = "approval-letter.pdf"
-* content.attachment.creation = "2025-04-20T09:00:00+01:00"
+* content.attachment.creation = "2025-12-22T09:00:00+01:00"
 //* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
 * content.attachment.url = "http://example.org/FHIR/Binary/101"
 * identifier[0].system = "http://example.org/health-authority/docref-id"
@@ -168,14 +168,14 @@ Title: "docref assessment report"
 Description: "Example DocumentReference Assessment Report"
 Usage: #example
 * meta.versionId = "1"
-* meta.lastUpdated = "2025-04-20T09:00:00+01:00"
+* meta.lastUpdated = "2025-12-22T09:00:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
 * status = #current
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#assessment-report "Assessment Report"
-* date = "2025-04-20T09:00:00+01:00"
+* date = "2025-12-22T09:00:00+01:00"
 * content.attachment.contentType = #application/pdf
 * content.attachment.title = "final-assessment-report.pdf"
-* content.attachment.creation = "2025-04-20T09:00:00+01:00"
+* content.attachment.creation = "2025-12-22T09:00:00+01:00"
 //* content.attachment.data = "VGhpcyBpcyBhIHBsYWNlaG9sZGVyIGRvY3VtZW50IGZvciB2YWxpZGF0aW9uIHB1cnBvc2VzLgo="
 * content.attachment.url = "http://example.org/FHIR/Binary/102"
 * identifier[0].system = "urn:ietf:rfc:3986"
