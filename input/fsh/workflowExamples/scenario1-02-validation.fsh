@@ -55,16 +55,16 @@ Usage: #example
 
 //* basedOn = Reference(scenario1-01-initial-submission)
 * identifier[0].use = #official
-* identifier[=].system = "http://example.org/european-med-agency/task-id"
+* identifier[=].system = "http://example.org/health-authority/task-id"
 * identifier[=].value = "urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189726" //"urn:uuid:d7f9bc88-658f-418a-ba4c-40307099603e"
-* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+* identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
 * identifier[=].system = "http://example.org/health.authority/procedure-number"
 * identifier[=].value = "PROC-2025-12345" //"EMEA/H/C/001234/IB/0025"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
+* groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 * status = #accepted

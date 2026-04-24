@@ -27,11 +27,11 @@ Usage: #example
 
 
 
-* identifier.system = "http://example.org/european-med-agency/task-id"
+* identifier.system = "http://example.org/health-authority/task-id"
 * identifier.value = "urn:uuid:5dbf06dc-e8f5-4f2b-bd69-a034dacb2836"
-* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+* identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
+* groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-11-21T09:00:00+01:00"
 * basedOn = Reference(scenario1-01-initial-submission)
