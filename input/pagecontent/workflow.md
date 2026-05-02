@@ -6,104 +6,144 @@
 
 <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:8px; padding:14px 18px; margin-bottom:32px; font-size:.85em; color:#1d4ed8; display:flex; gap:10px; align-items:flex-start;">
   <span style="flex-shrink:0;">💡</span>
-  <span><strong>Looking for a business-friendly overview?</strong> Start with the <a href="workflow-overview.html" style="color:#1d4ed8; font-weight:600;">Workflow Overview</a> page, which covers the three phases at a high level before diving into the technical details below.</span>
+  <span><strong>Looking for a business-friendly overview?</strong> Start with the <a href="workflow-overview.html" style="color:#1d4ed8; font-weight:600;">Workflow Overview</a> page first.</span>
 </div>
 
-<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
-
-### Notification Mechanism
-<div class="markdown-alert markdown-alert-important">
-  <p class="markdown-alert-title">Important</p>
-  <p>Throughout this workflow, the Regulator does not directly "send" messages to the Company. Instead, the Regulator updates the <code>Task.status</code> or content of the <code>Task</code> resource on the regulator server. The Company, having subscribed to the Task, receives a notification from the regulator's Subscription service whenever a change occurs, including when Tasks are created.</p>
+<!-- NOTIFICATION CALLOUT -->
+<div style="background:#fef3c7; border:1px solid #fcd34d; border-radius:10px; padding:20px 24px; margin-bottom:36px;">
+  <div style="font-weight:700; color:#92400e; margin-bottom:8px; font-size:.95em;">⚠️ Notification Mechanism</div>
+  <p style="font-size:.88em; color:#78350f; line-height:1.65; margin:0;">The Regulator does <strong>not</strong> directly "send" messages. Instead, it updates <code>Task.status</code> on the server. The Company receives notifications via its Subscription whenever a change occurs.</p>
 </div>
 
-### Shelf-life Update Workflow
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 36px;"/>
 
-The workflow consists of three main phases: **Validation**, **Review**, and **Decision**.
+<!-- PHASE 0 -->
+<div style="background:linear-gradient(135deg,#f0f9ff,#eff6ff); border:1px solid #bfdbfe; border-radius:12px; padding:24px 28px; margin-bottom:32px;">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+    <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#003087; color:#fff; font-weight:800; font-size:.85em;">0</span>
+    <span style="font-size:1.15em; font-weight:700; color:#003087;">Registration &amp; Connection</span>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 0.1 — Company Registers with Regulator</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.65; margin:0;">One-time registration with the Regulator's API portal. The Regulator registers the Company as an <code>Organization</code> and provides API credentials. The Company also registers an <code>Endpoint</code> for subscription notifications.</p>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 0.2 — Company Connects to API</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.65; margin:0;">The Company authenticates via OAuth2, confirming authorization to post resources for their medicinal products.</p>
+  </div>
+</div>
 
-#### Phase 0: Registration and Connection
+<!-- PHASE 1 -->
+<div style="background:linear-gradient(135deg,#ecfdf5,#f0fdf4); border:1px solid #a7f3d0; border-radius:12px; padding:24px 28px; margin-bottom:32px;">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+    <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#047857; color:#fff; font-weight:800; font-size:.85em;">1</span>
+    <span style="font-size:1.15em; font-weight:700; color:#047857;">Submission &amp; Validation</span>
+  </div>
 
-**Step 0.1: Company Registers with Regulator**<br>
-Before any submission can occur, the Company performs a one-time registration with the Regulator's API portal. The Regulator registers the Company as an `Organization` resource and provides the necessary API credentials (e.g., OAuth2 Client ID and Secret). The Company also registers an `Endpoint`, a FHIR Resource which contains the url for the actual endpoint where subscription notifications should be sent.
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 1.0 — Company Prepares Submission</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.65; margin:0;">Granular <strong>"Index Pattern"</strong> instead of monolithic ZIP — high performance and scalability even for massive datasets.</p>
+  </div>
 
-**Step 0.2: Company Connects to API**<br>
-The Company authenticates and establishes a connection to the Regulator's FHIR server. This confirms that the Company is authorized to post resources for their medicinal products.
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 1.1 — Upload Binaries &amp; Bundles</div>
+    <table style="width:100%; font-size:.83em; border-collapse:collapse; margin-top:8px;">
+      <thead><tr style="background:#f9fafb; text-align:left;">
+        <th style="padding:8px 10px; border-bottom:1px solid #e5e7eb;">Content Type</th>
+        <th style="padding:8px 10px; border-bottom:1px solid #e5e7eb;">FHIR Resource</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:8px 10px; border-bottom:1px solid #f3f4f6; color:#4b5563;">PDF Documents</td><td style="padding:8px 10px; border-bottom:1px solid #f3f4f6;"><code>Binary</code></td></tr>
+        <tr><td style="padding:8px 10px; border-bottom:1px solid #f3f4f6; color:#4b5563;">Structured Labeling (JSON)</td><td style="padding:8px 10px; border-bottom:1px solid #f3f4f6;">Document <code>Bundle</code></td></tr>
+        <tr><td style="padding:8px 10px; color:#4b5563;">CMC Data</td><td style="padding:8px 10px;">Transaction <code>Bundle</code></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-#### Phase 1: Submission and Validation
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 1.2 — Create DocumentReferences</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.65; margin:0;">Each upload gets a <code>DocumentReference</code> — a "Library Card" with metadata and a pointer to the uploaded resource.</p>
+  </div>
 
-**Step 1.0: Company Prepares and Posts Submission (Initial Submission)**<br>
-Instead of a monolithic ZIP file, the Company follows a granular "Index Pattern" to submit the application. This ensures high performance and scalability even for massive datasets.
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 1.3 — Create &amp; Post the Task</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.65; margin-bottom:8px;">The <code>Task</code> is the "Orchestrator" — it holds procedure metadata and references every <code>DocumentReference</code> in <code>Task.input</code>.</p>
+    <div style="font-size:.82em; color:#6b7280;">📎 <a href="Task-scenario1-01-initial-submission.json" target="_blank" style="color:#1d4ed8;">JSON</a> · <a href="Task-scenario1-01-initial-submission.html" target="_blank" style="color:#1d4ed8;">HTML View</a></div>
+  </div>
 
-**Step 1.1: Upload Binaries and Bundles**<br>
-The Company posts each component of the submission to the regulator server. Depending on the format, they use different FHIR resources:
-*   **PDF Documents** (e.g., Cover Letter, Application Form, Pack Mockup) are posted as `Binary` resources.
-*   **Structured Labeling** (Clean and Annotated JSON) are posted as **Document Bundles** (specifically `document` type Bundles containing ePI resources).
-*   **CMC Data** (Stability Summary and Data) are posted as **Transaction Bundles** (logically grouping individual CMC data resources).
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 2.0 — Regulator Validates</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+      <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px 16px;">
+        <div style="font-weight:700; color:#065f46; font-size:.85em;">✅ Passes</div>
+        <p style="font-size:.82em; color:#064e3b; margin:4px 0 6px;">Status → <strong>Accepted</strong>. Receipt &amp; results attached.</p>
+        <div style="font-size:.78em;">📎 <a href="Task-scenario1-02-validation.json" target="_blank" style="color:#1d4ed8;">JSON</a> · <a href="Task-scenario1-02-validation.html" target="_blank" style="color:#1d4ed8;">HTML</a></div>
+      </div>
+      <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:6px; padding:12px 16px;">
+        <div style="font-weight:700; color:#991b1b; font-size:.85em;">❌ Fails</div>
+        <p style="font-size:.82em; color:#7f1d1d; margin:4px 0 0;">Missing docs requested → Company re-submits → Re-validation.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-**Step 1.2: Create DocumentReferences**<br>
-For each uploaded resource from Step 1.1, the Company creates a `DocumentReference`. The `DocumentReference` acts as a "Library Card," containing metadata (type, CTD section) and a pointer (`attachment.url`) to the server-assigned ID of the Binary or Bundle.
+<!-- PHASE 2 -->
+<div style="background:linear-gradient(135deg,#faf5ff,#fdf4ff); border:1px solid #e9d5ff; border-radius:12px; padding:24px 28px; margin-bottom:32px;">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+    <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#7e22ce; color:#fff; font-weight:800; font-size:.85em;">2</span>
+    <span style="font-size:1.15em; font-weight:700; color:#7e22ce;">Review Cycles</span>
+  </div>
+  <p style="font-size:.85em; color:#6b7280; margin:0 0 20px;">Multiple reviews happen <strong>in parallel</strong>.</p>
 
-**Step 1.3: Create and Post the Task**<br>
-Finally, the Company creates a `Task` resource. This Task serves as the "Orchestrator." It contains the procedure metadata and references the `DocumentReference` resources created in Step 1.2 in its `Task.input` field.
+  <div style="background:#fff; border-left:4px solid #3b82f6; border-radius:0 8px 8px 0; padding:14px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#1d4ed8; font-size:.88em;">Track A — Compliance Check</div>
+    <p style="font-size:.83em; color:#4b5563; margin:4px 0 0;">Regulator checks compliance of the scientific data.</p>
+  </div>
 
-Example: <a href="Task-scenario1-01-initial-submission.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-01-initial-submission.html" target="_blank">HTML Action View</a>
+  <div style="background:#fff; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:14px 20px; margin-bottom:12px;">
+    <div style="font-weight:700; color:#b45309; font-size:.88em; margin-bottom:8px;">Track B — Financial Review</div>
+    <ol style="font-size:.83em; color:#4b5563; line-height:1.75; padding-left:20px; margin:0 0 8px;">
+      <li><strong>5.B.1</strong> — Regulator determines fee is due</li>
+      <li><strong>5.B.3</strong> — Company posts proof of payment (<code>Binary</code> → <code>DocumentReference</code> → added as Task <strong>output</strong>)</li>
+      <li><strong>5.B.4</strong> — Regulator verifies proof → Payment Task <strong>Completed</strong></li>
+    </ol>
+    <div style="font-size:.8em; color:#6b7280;">📎 <a href="Task-scenario1-04-finance-payment.json" target="_blank" style="color:#1d4ed8;">JSON</a> · <a href="Task-scenario1-04-finance-payment.html" target="_blank" style="color:#1d4ed8;">HTML View</a></div>
+  </div>
 
-**Step 2.0: Regulator Validates Application**<br>
-The regulator validates the package.
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:10px;">Step 5.3 — Issue Resolution Loop</div>
 
-*   **Scenario A: Validation Passes** (Step 3.1)
-    *   Regulator updates `Task.status` to **Accepted**.
-    *   Regulator attaches Acknowledgement of Receipt and Validation Results.
-    *   Example: <a href="Task-scenario1-02-validation.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-02-validation.html" target="_blank">HTML Action View</a>
+    <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:12px 16px; margin-bottom:10px;">
+      <div style="font-weight:700; color:#374151; font-size:.85em;">5.3.1 — Regulator Posts Questionnaire</div>
+      <p style="font-size:.82em; color:#4b5563; margin:4px 0 6px;">POST <code>Questionnaire</code> → <code>DocumentReference</code> → <strong>Question Task</strong> (input: DocRef)</p>
+      <div style="font-size:.78em;">📎 <a href="Task-scenario1-05-technical-question.json" target="_blank" style="color:#1d4ed8;">JSON</a> · <a href="Task-scenario1-05-technical-question.html" target="_blank" style="color:#1d4ed8;">HTML</a></div>
+    </div>
+    <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:12px 16px; margin-bottom:10px;">
+      <div style="font-weight:700; color:#374151; font-size:.85em;">5.3.2 — Company Posts Response</div>
+      <p style="font-size:.82em; color:#4b5563; margin:4px 0 6px;">POST <code>QuestionnaireResponse</code> → <code>DocumentReference</code> → added as Task <strong>output</strong></p>
+      <div style="font-size:.78em;">📎 <a href="Task-scenario1-06-technical-response.json" target="_blank" style="color:#1d4ed8;">JSON</a> · <a href="Task-scenario1-06-technical-response.html" target="_blank" style="color:#1d4ed8;">HTML</a></div>
+    </div>
+    <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:12px 16px;">
+      <div style="font-weight:700; color:#374151; font-size:.85em;">5.3.3 — Regulator Reviews Response</div>
+      <p style="font-size:.82em; color:#4b5563; margin:4px 0 0;">If satisfactory → Question Task <strong>Completed</strong> → review continues.</p>
+    </div>
+  </div>
+</div>
 
-*   **Scenario B: Validation Fails** (Step 4.1)
-    *   Regulator requests missing documents via a new Task.
-    *   **Step 4.2.1**: Company submits missing documents.
-    *   **Step 4.2.2**: Regulator re-validates.
+<!-- PHASE 3 -->
+<div style="background:linear-gradient(135deg,#fff7ed,#fffbeb); border:1px solid #fed7aa; border-radius:12px; padding:24px 28px; margin-bottom:36px;">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+    <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#c2410c; color:#fff; font-weight:800; font-size:.85em;">3</span>
+    <span style="font-size:1.15em; font-weight:700; color:#c2410c;">Final Decision</span>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px 20px;">
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Step 6.0 — Final Decision</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.65; margin-bottom:8px;">Regulator updates <code>Task.status</code> to <strong>completed</strong> and attaches decision documents to <code>Task.output</code>.</p>
+    <div style="font-size:.82em; color:#6b7280;">📎 <a href="Task-scenario1-07-final-decision.json" target="_blank" style="color:#1d4ed8;">JSON</a> · <a href="Task-scenario1-07-final-decision.html" target="_blank" style="color:#1d4ed8;">HTML View</a></div>
+  </div>
+</div>
 
-#### Phase 2: Review Cycles
-
-Once validated, the application enters the review phase. Multiple reviews may happen in parallel.
-
-**Step 5.0: Parallel Review Tracks**<br>
-The regulator conducts technical and administrative reviews simultaneously, all of which are through creation of a Task with the `Task.owner` as the Organzation responsible for completeing or responding to the Task.
-
-*   **Track A: Compliance Check** (Step 5.2.1)
-    *   Regulator checks compliance of the scientific data.
-*   **Track B: Financial Review** (Step 5.B.1)
-    *   **Step 5.B.1**: Regulator reviews financials and determines a fee is due.
-    *   **Step 5.B.3**: Company performs the payment.
-        1. Company posts the proof of payment (PDF `Binary`).
-        2. Company creates a `DocumentReference` for the proof of payment.
-        3. Company updates the **Payment Task** by adding the `DocumentReference` as an **output** (status remains `in-progress`).
-        <br>
-        Example: <a href="Task-scenario1-04-finance-payment.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-04-finance-payment.html" target="_blank">HTML Action View</a>
-    *   **Step 5.B.4**: Regulator verifies the output proof and updates the **Payment Task** status to **Completed**.
-
-**Step 5.3: Issue Resolution (Loop)**<br>
-If issues are found during technical review:
-*   **Step 5.3.1**: Regulator posts a **Questionnaire** (Request for Clarification).
-    1. Regulator posts the `Questionnaire` (JSON) to the server.
-    2. Regulator creates a `DocumentReference` for the Questionnaire.
-    3. Regulator creates a **Question Task** with the `DocumentReference` as an **input**.
-    <br>
-    Example: <a href="Task-scenario1-05-technical-question.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-05-technical-question.html" target="_blank">HTML View</a>
-*   **Step 5.3.2**: Company posts a **Response** to the Question Task.
-    1. Company posts a `QuestionnaireResponse` (JSON) to the server.
-    2. Company creates a `DocumentReference` for the response.
-    3. Company updates the **Question Task** by referencing the response in the **output** (status remains `in-progress`).
-    <br>
-    Example: <a href="Task-scenario1-06-technical-response.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-06-technical-response.html" target="_blank">HTML View</a>
-*   **Step 5.3.3**: Regulator reviews the response. (If satisfactory, the Regulator marks the Question Task as **Completed** and the main review continues).
-
-#### Phase 3: Final Decision
-
-**Step 6.0: Final Decision**<br>
-The regulator makes a final determination, indicating the inital `Task.status` complete and adding documents to the `Task.ouput`.
-<br>
-Example: <a href="Task-scenario1-07-final-decision.json" target="_blank">JSON Resource</a> | <a href="Task-scenario1-07-final-decision.html" target="_blank">HTML View</a>
-
----
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 36px;"/>
 
 ### Workflow Diagram
 
