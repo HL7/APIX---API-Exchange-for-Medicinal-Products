@@ -27,7 +27,7 @@ Usage: #example
 
 <div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Annotated Label</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">annotated-label</span><br /><a href=\"DocumentReference-doc3.html\">http://example.org/FHIR/DocumentReference/annotated-label</a><div>SPC, Labelling and Package Leaflet</div></div>
 
-<div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Clean Label</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">clean-label</span><br /><a href=\"DocumentReference-doc4.html\">http://example.org/FHIR/DocumentReference/clean-labele</a><div>SPC, Labelling and Package Leaflet</div></div>
+<div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Clean Label</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">clean-label</span><br /><a href=\"DocumentReference-doc4.html\">http://example.org/FHIR/DocumentReference/clean-label</a><div>SPC, Labelling and Package Leaflet</div></div>
 
 <div style=\"background:#ffffff;border:1px solid #d1e4ff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);\"><div style=\"font-weight:600;color:#007aff;font-size:15px;\">Pack Mockup</div><span style=\"font-family:Menlo,Monaco,Consolas,monospace;background:#e5f2ff;padding:2px 8px;border-radius:6px;font-size:13px;\">pack-mockup</span><br /><a href=\"DocumentReference-doc5.html\">http://example.org/FHIR/DocumentReference/mock-ups</a><div>Mock-ups</div></div>
 
@@ -55,16 +55,17 @@ Usage: #example
 
 //* basedOn = Reference(scenario1-01-initial-submission)
 * identifier[0].use = #official
-* identifier[=].system = "http://example.org/european-med-agency/task-id"
+* identifier[=].system = "http://example.org/health-authority/task-id"
 * identifier[=].value = "urn:uuid:f1500e1d-599f-47a6-a38c-ca60a5189726" //"urn:uuid:d7f9bc88-658f-418a-ba4c-40307099603e"
-* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+* identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
 * identifier[+].use = #official
-* identifier[=].system = "http://example.org/ema.europa.eu/procedure-number"
+* identifier[=].system = "http://example.org/health.authority/procedure-number"
 * identifier[=].value = "PROC-2025-12345" //"EMEA/H/C/001234/IB/0025"
+* identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixregulatorprocedureno "APIX Regulator Procedure Number"
 // * identifier[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#regulator-procedure-number "Regulator Procedure Number"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
+* groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 * status = #accepted
@@ -75,15 +76,15 @@ Usage: #example
 * authoredOn = "2025-11-15T09:00:00+01:00"
 * lastModified = "2025-11-20T14:30:00+01:00"
 * requester = Reference(org-synthpharma-ag) "SynthPharma AG"
-* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* owner = Reference(org-ema-srm-hmed) "Health Authority"
 
 * input[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.0 "Cover Letter"
 * input[0].valueReference = Reference(doc1)
 * input[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#application-form "Application Form"
 * input[1].valueReference = Reference(doc2)
-* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet"
+* input[2].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.14.1.2 "Annotated draft labeling text"
 * input[2].valueReference = Reference(doc3)
-* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.1 "SPC, Labelling and Package Leaflet" 
+* input[3].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.14.1.3 "Draft labeling text"
 * input[3].valueReference = Reference(doc4)
 * input[4].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#1.3.2 "Mock-ups"
 * input[4].valueReference = Reference(doc5)
@@ -105,10 +106,14 @@ Title: "output ack"
 Description: "Example DocumentReference Acknowledgement of Receipt"
 Usage: #example
 * status = #current
+* date = "2025-11-19T09:00:00+01:00"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#acknowledgement-receipt "Acknowledgement of Receipt"
 * content.attachment.title = "Acknowledgement_Letter.pdf"
 * content.attachment.contentType = #application/pdf
-
+* content.attachment.creation = "2025-11-19T09:00:00+01:00"
+* content.attachment.url = "https://api.example/acknowledgement-receipt.pdf"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808082"
 
 Instance: output-validation
 InstanceOf: DocumentReference
@@ -116,6 +121,15 @@ Title: "output validation"
 Description: "Example DocumentReference Validation Report"
 Usage: #example
 * status = #current
+* date = "2025-11-19T09:00:00+01:00"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#validation-report "Validation Report"
 * content.attachment.title = "Validation_Report.pdf"
 * content.attachment.contentType = #application/pdf
+* content.attachment.creation = "2025-11-19T09:00:00+01:00"
+* content.attachment.url = "https://api.example/validation-report.pdf"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808081"
+
+
+
+

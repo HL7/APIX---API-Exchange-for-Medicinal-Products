@@ -12,6 +12,17 @@ Description: "Identifier value must be a urn:uuid"
 Severity: #error
 Expression: "value.matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
 
+//Invariant: identifier-has-a-uuid
+//Description: "Identifier has at least one value that is a urn:uuid"
+//Severity: #error
+//Expression: "identifier.value.exists(matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'))"
+//"value.matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
+//Invariant: is-a-uuid
+//Description: "Identifier has at least one value that is a urn:uuid"
+//Severity: #error
+//Expression: "matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')"
+
+
 Profile: APIXTask
 Parent: Task
 Id: apix-task
@@ -44,30 +55,39 @@ Description: "Task profile for APIX regulatory submission workflows"
 //* contained[documentReference] only APIXDocumentReference
 
 // Identifiers with slicing
-* identifier 1..* MS
+* identifier 1..* MS 
   * ^short = "Task instance UUID (required) + official regulator procedure number (optional), other identifiers allowed as well"
   * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[0].path = "type"
-  * ^slicing.discriminator[1].type = #value
-  * ^slicing.discriminator[1].path = "system"
-  * ^slicing.rules = #open
-  * ^slicing.description = "At least one mandatory technical UUID identifier. A regulator procedure number is optional."
+  //* ^slicing.discriminator[1].type = #value
+  //* ^slicing.discriminator[1].path = "system"
+  //* ^slicing.discriminator[1].type = #exists
+  //* ^slicing.discriminator[1].path = "value"
 
-* identifier contains TaskInstance 1..1 MS and RegulatorProcedureNumber 0..1 MS
+  * ^slicing.description = "slices illustrate the requirement to have at least one identifier that is a UUID for the Task instance, and optionally an offical regulator procedure number"
+  * ^slicing.rules = #open
+  //* ^slicing.description = "At least one mandatory technical UUID identifier. A regulator procedure number is optional."
+
+* identifier contains TaskInstance 1..* MS and RegulatorProcedureNumber 0..1 MS
 
 * identifier[TaskInstance] obeys identifier-is-uuid
   * ^short = "Technical UUID for this specific Task instance"
-  * type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+  //* ^defintion = "Slice highlights that a Technical UUID for this specific Task instance is needed"
+  //* type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+  * type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
   //* system = "urn:ietf:rfc:3986"
-
+  * value 1..1
 
 * identifier[RegulatorProcedureNumber]
   * ^short = "Official regulator procedure/submission number (EMA, FDA, PMDA, etc.)"
+  //* ^definition = "Slice highlights that a procedure/submission number is useful."
   * MS
   * system 1..1
-    * ^patternUri = "https://ema.europa.eu/procedure"
+  //  * ^patternUri = "http://example.org/health.authority/procedure-number" //"https://ema.europa.eu/procedure"
   * value 1..1
+    //* ^constraint[0].expression = "value.empty() or not(value.matches('^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'))"
     * ^short = "The actual regulator-assigned procedure number (format varies by authority)"
+  * type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixregulatorprocedureno "APIX Regulator Procedure Number"
 
 * groupIdentifier 1..1 MS
   * ^short = "Parent/Set ID – groups all Tasks in the same regulatory procedure"

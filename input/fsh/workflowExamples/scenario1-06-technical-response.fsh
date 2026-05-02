@@ -7,7 +7,7 @@ Usage: #example
 //* meta.lastUpdated = "2025-03-15T10:00:00+01:00"
 //* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
-//* identifier.system = "http://example.org/european-med-agency/task-id"
+//* identifier.system = "http://example.org/health-authority/task-id"
 //* identifier.value = "urn:uuid:888e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3c"
 //* partOf = Reference(scenario1-05-technical-question) "Technical Question Task"
 //* status = #in-progress
@@ -21,7 +21,7 @@ Usage: #example
 //* groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 // * groupIdentifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#submission-group-uuid "Submission Group UUID"
 //* requester = Reference(org-synthpharma-ag) "SynthPharma AG"
-//* owner = Reference(org-ema-srm-hmed) "European Medicines Agency"
+//* owner = Reference(org-ema-srm-hmed) "Health Authority"
 //* authoredOn = "2025-03-15T10:00:00+01:00"
 
 * meta.versionId = "3"
@@ -56,9 +56,9 @@ Usage: #example
 
 
 // * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-identifier-type#task-instance-uuid "Task Instance UUID"
-* identifier.system = "http://example.org/european-med-agency/task-id"
+* identifier.system = "http://example.org/health-authority/task-id"
 * identifier.value = "urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
-* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+* identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
 * basedOn = Reference(scenario1-01-initial-submission) "Initial Submission Task"
 * status = #completed
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
@@ -66,11 +66,11 @@ Usage: #example
 * priority = #routine
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "List of Questions / Information Request"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
+* groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-12-01T14:30:00+01:00" 
 
-* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requester = Reference(org-ema-srm-hmed) "Health Authority"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"
 * requestedPeriod.start = "2025-12-01T14:30:00+01:00"
 * requestedPeriod.end = "2025-12-08T14:30:00+01:00"
@@ -95,12 +95,14 @@ Usage: #example
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#applicant-questionnaireResponse" "Applicant QuestionnaireResponse"
 * relatesTo.code = http://hl7.org/fhir/document-relationship-type#appends
 * relatesTo.target = Reference(docref-list-of-questions) "List of Questions (LoQ)"
-* date = "2025-03-15T10:00:00+01:00"
+* date = "2025-12-04T10:00:00+01:00"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/questionnaire-responses/qr123.json"
 * content.attachment.title = "Response to Questions (QuestionnaireResponse)"
 * content.attachment.size = 18400
-* content.attachment.creation = "2025-03-15T09:45:00+01:00"
+* content.attachment.creation = "2025-12-04T09:59:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808085"
 
 
 Instance: docref-stability-data-annex
@@ -112,9 +114,11 @@ Usage: #example
 * docStatus = #final
 * version = "1.0"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
-* date = "2025-03-15T10:00:00+01:00"
+* date = "2025-12-04T09:59:00+01:00"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://api.synthpharma.example/bundles/submission-123/m3/stability-data-v2.json"
 * content.attachment.title = "Updated Stability Data (Transaction Bundle)"
 * content.attachment.size = 5800000
-* content.attachment.creation = "2025-03-14T11:00:00+01:00"
+* content.attachment.creation = "2025-12-04T09:59:00+01:00"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
+* identifier[0].value = "urn:uuid:80808080-8080-8080-8080-808080808084"

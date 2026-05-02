@@ -35,9 +35,9 @@ Usage: #example
 <div style=\"text-align:center;padding:50px;color:#666666;font-size:14px;\">HL7 FHIR R5 – API Exchange for Medicinal Products (APIX)<br />Generated Render</div></div>"
 
 
-* identifier.system = "http://example.org/european-med-agency/task-id"
+* identifier.system = "http://example.org/health-authority/task-id"
 * identifier.value = "urn:uuid:778e7d2a-8b1c-4d9f-9a2e-1f6c9d8e7b3b"
-* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#RI "Resource identifier"
+* identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
 * basedOn = Reference(scenario1-01-initial-submission) "Initial Submission Task"
 * status = #requested
 * businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
@@ -45,11 +45,11 @@ Usage: #example
 * priority = #routine
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "List of Questions / Information Request"
 * groupIdentifier.use = #official
-* groupIdentifier.system = "http://example.org/european-med-agency/work-flow-group-id"
+* groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"
 * groupIdentifier.value = "urn:uuid:workflow-group-id-12345"
 * authoredOn = "2025-12-01T14:30:00+01:00"
 * lastModified = "2025-12-01T14:30:00+01:00"
-* requester = Reference(org-ema-srm-hmed) "European Medicines Agency"
+* requester = Reference(org-ema-srm-hmed) "Health Authority"
 * requestedPeriod.start = "2025-12-01T14:30:00+01:00"
 * requestedPeriod.end = "2025-12-08T14:30:00+01:00"
 * owner = Reference(org-synthpharma-ag) "SynthPharma AG"
@@ -62,17 +62,17 @@ Title: "docref list of questions"
 Description: "Example DocumentReference Cover Letter"
 Usage: #example
 * meta.versionId = "1"
-* meta.lastUpdated = "2025-03-01T14:30:00+01:00"
+* meta.lastUpdated = "2024-03-01T14:30:00+01:00"
 * meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
 * status = #current
 * docStatus = #final
 * version = "1.0"
 * type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#list-of-questions "List of Questions"
-* date = "2025-03-01T14:30:00+01:00"
+* date = "2024-03-01T14:30:00+01:00"
 * content.attachment.contentType = #application/fhir+json
 * content.attachment.url = "https://build.fhir.org/ig/HL7/rtq-ig/Questionnaire-questionnaire-ID001.html"
 * content.attachment.title = "List of Questions (Questionnaire)"
 * content.attachment.size = 30241
 * content.attachment.creation = "2025-03-01T14:20:00+01:00"
-* identifier[0].system = "urn:ietf:rfc:3986"
+* identifier[0].system = "http://example.org/health-authority/docRefid"
 * identifier[0].value = "urn:uuid:40404040-4040-4040-4040-404040404040"
