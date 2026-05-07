@@ -19,10 +19,10 @@
   <span><strong>Key Principle:</strong> The Regulator does not directly "send" messages to the Company. Instead, the Regulator updates the Task on the server. The Company, having <a href="subscriptions.html" style="color:#92400e; font-weight:600;">subscribed</a> to that Task, receives an automatic notification whenever a change occurs.</span>
 </div>
 
-<!-- THREE PHASES -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:16px;">The Three Phases</h2>
+<!-- FOUR PHASES -->
+<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:16px;">The Four Phases</h2>
 
-<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:32px;">
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:14px; margin-bottom:32px;">
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:20px;">
     <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:6px;">Phase 1</div>
     <div style="font-weight:700; color:#111827; margin-bottom:6px;">Submission & Validation</div>
@@ -34,20 +34,28 @@
       <li>Regulator validates the package</li>
     </ol>
   </div>
-  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #10b981; border-radius:8px; padding:20px;">
-    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#10b981; margin-bottom:6px;">Phase 2</div>
-    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Review Cycles</div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #f59e0b; border-radius:8px; padding:20px;">
+    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#b45309; margin-bottom:6px;">Phase 2</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Payment</div>
     <ol style="font-size:.82em; color:#4b5563; line-height:1.7; padding-left:16px; margin:0;">
-      <li>Parallel technical & financial reviews</li>
+      <li>Regulator issues a Payment Request (Task)</li>
+      <li>Company submits Proof of Payment</li>
+      <li>Regulator verifies and completes Payment Task</li>
+    </ol>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #10b981; border-radius:8px; padding:20px;">
+    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#10b981; margin-bottom:6px;">Phase 3</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Review & Questions</div>
+    <ol style="font-size:.82em; color:#4b5563; line-height:1.7; padding-left:16px; margin:0;">
+      <li>Regulator conducts technical review</li>
       <li>Regulator issues Questions (as new Tasks)</li>
       <li>Company provides Responses (in Task.output)</li>
-      <li>Fee payment via proof-of-payment flow</li>
       <li>Iterative Q&A until all issues resolved</li>
     </ol>
   </div>
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #8b5cf6; border-radius:8px; padding:20px;">
-    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#8b5cf6; margin-bottom:6px;">Phase 3</div>
-    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Final Decision</div>
+    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#8b5cf6; margin-bottom:6px;">Phase 4</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Decision</div>
     <ol style="font-size:.82em; color:#4b5563; line-height:1.7; padding-left:16px; margin:0;">
       <li>Regulator completes the original Task</li>
       <li>Decision letter attached to Task.output</li>
@@ -61,49 +69,11 @@
 
 <!-- VISUAL WORKFLOW DIAGRAM -->
 <h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Workflow Diagram</h2>
-<p style="font-size:.88em; color:#6b7280; margin-bottom:16px;">The following diagram shows the complete lifecycle of a regulatory procedure through APIX.</p>
+<p style="font-size:.88em; color:#6b7280; margin-bottom:16px;">The following diagram shows the complete lifecycle of a regulatory procedure through APIX — illustrating the back-and-forth exchange between Company and Regulator across all four phases.</p>
 
-```mermaid
-sequenceDiagram
-    participant C as Company
-    participant R as Regulator
-    
-    Note over C,R: Phase 1: Submission & Validation
-    C->>R: Register & Authenticate
-    C->>R: Upload Documents (Binary / Bundles)
-    C->>R: Create DocumentReferences
-    C->>R: POST Task (Submission)
-    R->>R: Validate Package
-    
-    alt Validation Passes
-        R-->>C: Task.status → accepted
-    else Validation Fails
-        R->>C: Request Missing Documents
-        C->>R: Submit Missing Documents
-    end
-    
-    Note over C,R: Phase 2: Review Cycles
-    
-    par Technical Review
-        R->>R: Assess Submission
-    and Financial Review
-        R->>C: Payment Task
-        C-->>R: Proof of Payment
-    end
-    
-    loop Q&A (if needed)
-        R->>C: Question Task
-        C-->>R: Response in Task.output
-    end
-    
-    Note over C,R: Phase 3: Decision
-    
-    alt Approved
-        R-->>C: Task.status → completed + Decision Letter
-    else Rejected
-        R-->>C: Task.status → rejected + Rejection Reasons
-    end
-```
+<div style="text-align:center; margin:20px 0 16px;">
+  <img src="workflow-overview-diagram.png" alt="APIX Workflow Overview — Ping-Pong Diagram showing the four-phase exchange between Company and Regulator" style="max-width:680px; width:100%; border-radius:10px; border:1px solid #e5e7eb;">
+</div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 32px;"/>
 

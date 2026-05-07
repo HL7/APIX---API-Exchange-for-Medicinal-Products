@@ -97,10 +97,15 @@
 
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
   <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:16px;">
-    <div style="font-weight:700; color:#065f46; margin-bottom:6px; font-size:.9em;">✅ Phase I (2025 / 2026)</div>
+    <div style="font-weight:700; color:#065f46; margin-bottom:6px; font-size:.9em;">✅ In Scope</div>
     <ul style="font-size:.85em; color:#064e3b; line-height:1.7; padding-left:16px; margin:0;">
       <li>Human medicinal products</li>
-      <li>Regulatory submissions & procedural management (variations, supplements, Q&A)</li>
+      <li>Medical Devices</li>
+      <li>Veterinary products</li>
+      <li>Over-the-Counter (OTC) products</li>
+      <li>Natural Health Products (NHP)</li>
+      <li>Clinical trials &amp; Master files</li>
+      <li>Regulatory submissions &amp; procedural management (variations, supplements, Q&amp;A)</li>
       <li>Adverse Event Reporting (ICSRs)</li>
       <li>Payment of application fees</li>
     </ul>
@@ -108,10 +113,8 @@
   <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:16px;">
     <div style="font-weight:700; color:#991b1b; margin-bottom:6px; font-size:.9em;">🔜 Future Phases</div>
     <ul style="font-size:.85em; color:#7f1d1d; line-height:1.7; padding-left:16px; margin:0;">
-      <li>Remaining product types (Medical Devices, Vet, OTC, NHP)</li>
-      <li>Clinical trials & Master files</li>
       <li>Health Technology Assessment (HTA) dossiers</li>
-      <li>Establishment & inspection submissions</li>
+      <li>Establishment &amp; inspection submissions</li>
     </ul>
   </div>
 </div>
