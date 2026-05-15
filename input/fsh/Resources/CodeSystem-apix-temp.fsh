@@ -11,13 +11,13 @@ Description: "These codes are intended to be added to the appropriate HL7 Termin
 
 CodeSystem: APIXDEMOCODES
 Id: apix-demo
-Title: "APIX Task Identifier Type Codes"
-Description: "These codes are intended to be used to indicate the Task Identifier type"
+Title: "APIX Identifier Type Codes"
+Description: "These codes are intended to be used to indicate specific APIX Identifier types"
 * ^status = #active
 * ^caseSensitive = true
 * ^experimental = false
 
 * #apixtaskinstance "APIX Task Instance ID" "APIX Required UUID for identifying a Task instance"
-* #apixregulatorprocedureno "APIX Regulator Procedure Number" "APIX Regulator Procedure Number records the unique identifier for the procedure in a regulator system"
+* #apixregulatorprocedureno "APIX Regulator Procedure Number" "Unique Procedure Number assigned by the regulator to track a specific regulatory activity"
 * #docsetid "Document Set Identifier" "The set identifier identifiys what document folder this document belongs too"
-* #docverid "Document Version Identifier" "The document version identifier is the specific document instance identifier"
+* #docverid "Document Version Number Identifier" "The document version identifier is the specific document instance identifier"
