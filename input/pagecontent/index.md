@@ -8,20 +8,82 @@
   </div>
 </div>
 
-<!-- PERSONA ROUTING BUTTONS -->
+<!-- ========================================= -->
+<!-- HOW IT WORKS — 5-STEP PIPELINE            -->
+<!-- ========================================= -->
+<div style="padding:0 20px 8px;">
+  <div style="text-align:center; margin-bottom:28px;">
+    <h2 style="font-size:1.5em; font-weight:800; color:#111827; margin-bottom:8px;">How It Works</h2>
+    <p style="font-size:.92em; color:#6b7280; max-width:540px; margin:0 auto; line-height:1.55;">Five steps to connect your systems to a regulator — that's it.</p>
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; justify-content:center; gap:0; margin-bottom:36px; flex-wrap:nowrap;">
+  <!-- Step 1: Connect -->
+  <div style="text-align:center; flex:1; max-width:160px; padding:0 4px;">
+    <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#eff6ff,#dbeafe); border:3px solid #2563eb; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3em; box-shadow:0 2px 8px rgba(37,99,235,.15);">🔌</div>
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:4px;">Step 1</div>
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Connect</div>
+    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Register your company via API</p>
+  </div>
+  <!-- Arrow -->
+  <div style="display:flex; align-items:center; padding-top:18px; flex-shrink:0; color:#d1d5db; font-size:1.2em;">→</div>
+  <!-- Step 2: Stream -->
+  <div style="text-align:center; flex:1; max-width:160px; padding:0 4px;">
+    <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#f0fdfa,#ccfbf1); border:3px solid #0d9488; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3em; box-shadow:0 2px 8px rgba(13,148,136,.15);">📤</div>
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#0d9488; margin-bottom:4px;">Step 2</div>
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Stream</div>
+    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Upload files (PDF, XML, JSON, data sets) as FHIR Binary resources</p>
+  </div>
+  <!-- Arrow -->
+  <div style="display:flex; align-items:center; padding-top:18px; flex-shrink:0; color:#d1d5db; font-size:1.2em;">→</div>
+  <!-- Step 3: Describe -->
+  <div style="text-align:center; flex:1; max-width:160px; padding:0 4px;">
+    <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#fff7ed,#fed7aa); border:3px solid #ea580c; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3em; box-shadow:0 2px 8px rgba(234,88,12,.15);">🏷️</div>
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#ea580c; margin-bottom:4px;">Step 3</div>
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Describe</div>
+    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Create DocumentReference metadata for each file</p>
+  </div>
+  <!-- Arrow -->
+  <div style="display:flex; align-items:center; padding-top:18px; flex-shrink:0; color:#d1d5db; font-size:1.2em;">→</div>
+  <!-- Step 4: Orchestrate -->
+  <div style="text-align:center; flex:1; max-width:160px; padding:0 4px;">
+    <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#faf5ff,#e9d5ff); border:3px solid #7c3aed; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3em; box-shadow:0 2px 8px rgba(124,58,237,.15);">📋</div>
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#7c3aed; margin-bottom:4px;">Step 4</div>
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Orchestrate</div>
+    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Create a Task to initiate and track any regulatory activity</p>
+  </div>
+  <!-- Arrow -->
+  <div style="display:flex; align-items:center; padding-top:18px; flex-shrink:0; color:#d1d5db; font-size:1.2em;">→</div>
+  <!-- Step 5: Subscribe -->
+  <div style="text-align:center; flex:1; max-width:160px; padding:0 4px;">
+    <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#ecfdf5,#a7f3d0); border:3px solid #059669; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3em; box-shadow:0 2px 8px rgba(5,150,105,.15);">🔔</div>
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#059669; margin-bottom:4px;">Step 5</div>
+    <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Subscribe</div>
+    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Get real-time notifications as activities progress</p>
+  </div>
+</div>
+
+<div style="text-align:center; padding:0 20px 32px;">
+  <a href="gettingstarted.html" style="color:#003087; font-weight:600; font-size:.9em; text-decoration:none;">See the full step-by-step walkthrough →</a>
+</div>
+
+<!-- ========================================= -->
+<!-- PERSONA ROUTING BUTTONS                   -->
+<!-- ========================================= -->
 <div style="display:flex; gap:10px; justify-content:center; padding:0 20px 32px; flex-wrap:wrap;">
   <a href="gettingstarted.html#pharmaceutical-industry" style="text-decoration:none; background:#eff6ff; border:1px solid #bfdbfe; color:#1d4ed8; padding:10px 20px; border-radius:8px; font-weight:600; font-size:.85em; display:inline-flex; align-items:center; gap:6px;">🏢 I'm from Industry</a>
   <a href="gettingstarted.html#regulatory-authorities" style="text-decoration:none; background:#ecfdf5; border:1px solid #a7f3d0; color:#047857; padding:10px 20px; border-radius:8px; font-weight:600; font-size:.85em; display:inline-flex; align-items:center; gap:6px;">🏛️ I'm a Regulator</a>
   <a href="gettingstarted.html#technology-vendors" style="text-decoration:none; background:#faf5ff; border:1px solid #e9d5ff; color:#7e22ce; padding:10px 20px; border-radius:8px; font-weight:600; font-size:.85em; display:inline-flex; align-items:center; gap:6px;">💻 I'm a Tech Vendor</a>
 </div>
 
-<!-- SHOWCASE STRIP: SUBMIT / TRACK / DECIDE -->
+<!-- SHOWCASE STRIP: SUBMIT / TRACK / ANALYZE -->
 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb;">
   <!-- Submit -->
   <a href="workflow-overview.html" style="text-decoration:none; display:block; padding:32px 24px; border-right:1px solid #e5e7eb; text-align:center;">
     <div style="width:52px; height:52px; border-radius:50%; background:#eff6ff; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.4em;">📤</div>
     <div style="font-weight:700; color:#111827; margin-bottom:6px;">Submit</div>
-    <div style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:14px; max-width:220px; margin-left:auto; margin-right:auto;">Post regulatory submissions directly from your RIM system via FHIR APIs. Zero portals, zero PDFs.</div>
+    <div style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:14px; max-width:220px; margin-left:auto; margin-right:auto;">Post regulatory submissions quickly and directly via FHIR APIs.</div>
     <span style="display:inline-block; background:#3b82f6; color:#fff; font-size:.8em; font-weight:600; padding:7px 18px; border-radius:6px;">Learn More</span>
   </a>
   <!-- Track -->
@@ -31,11 +93,11 @@
     <div style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:14px; max-width:220px; margin-left:auto; margin-right:auto;">FedEx-style real-time status tracking for every regulatory procedure across your portfolio.</div>
     <span style="display:inline-block; background:#10b981; color:#fff; font-size:.8em; font-weight:600; padding:7px 18px; border-radius:6px;">Learn More</span>
   </a>
-  <!-- Decide -->
+  <!-- Analyze -->
   <a href="apixtask.html" style="text-decoration:none; display:block; padding:32px 24px; text-align:center;">
     <div style="width:52px; height:52px; border-radius:50%; background:#f5f3ff; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.4em;">⚡</div>
-    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Decide</div>
-    <div style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:14px; max-width:220px; margin-left:auto; margin-right:auto;">Receive decisions, questions, and approvals as actionable FHIR Tasks — instantly.</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Analyze</div>
+    <div style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:14px; max-width:220px; margin-left:auto; margin-right:auto;">Every milestone is timestamped. Visualize cycle times and SLA performance across your entire portfolio.</div>
     <span style="display:inline-block; background:#8b5cf6; color:#fff; font-size:.8em; font-weight:600; padding:7px 18px; border-radius:6px;">Learn More</span>
   </a>
 </div>
@@ -75,18 +137,24 @@
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
-<!-- STRATEGIC OBJECTIVES -->
-<div style="background:linear-gradient(135deg,#eff6ff,#faf5ff); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:32px;">
-  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:12px;">Strategic Vision</div>
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-    <div>
-      <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">1. Real-Time Algorithmic Exchange</div>
-      <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">Moving from a document-centric regulatory world to a data-centric one. APIX enables "algorithmic" exchange where data flows seamlessly between systems, allowing automated validation, real-time assessment, and sub-second synchronization.</p>
-    </div>
-    <div>
-      <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">2. The "ISO 20022" of Healthcare</div>
-      <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">Just as ISO 20022 harmonized global finance for real-time cross-border payments, APIX serves as the universal language for medicinal product exchange — eliminating technical silos and creating a frictionless global market.</p>
-    </div>
+<!-- ABOUT APIX -->
+<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">About APIX</h2>
+
+<div style="background:linear-gradient(135deg,#eff6ff,#f0fdf4); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:24px;">
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">The exchange of medicinal product information today is defined by extreme <strong>fragmentation</strong>: different formats and portals for human drugs vs. veterinary drugs vs. medical devices; entirely different communication channels for clinical trial applications, marketing authorizations, and post-approval changes; and information trapped in documents that leaves regulators and industry "flying blind."</p>
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">APIX solves this crisis by providing a single, harmonized, API-first layer — aligning regulatory exchange with the same modern technologies used in international banking and eCommerce, ensuring that life-saving medicines move through the regulatory pipeline as fast as the data that defines them.</p>
+</div>
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:20px;">
+    <div style="font-size:1.3em; margin-bottom:8px;">🤝</div>
+    <div style="font-weight:700; color:#003087; margin-bottom:6px;">Governance & Collaboration</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.6; margin:0;">APIX is developed under the HL7 Vulcan Accelerator with active participation from regulators, pharmaceutical companies, and technology vendors.</p>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:20px;">
+    <div style="font-size:1.3em; margin-bottom:8px;">🚀</div>
+    <div style="font-weight:700; color:#003087; margin-bottom:6px;">Get Involved</div>
+    <p style="font-size:.85em; color:#4b5563; line-height:1.6; margin:0;">Join the weekly calls. Test the reference implementation. We welcome industry, solution providers, and regulators from every region to contribute.</p>
   </div>
 </div>
 
@@ -95,28 +163,21 @@
 <!-- SCOPE -->
 <h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Scope</h2>
 
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
-  <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:16px;">
-    <div style="font-weight:700; color:#065f46; margin-bottom:6px; font-size:.9em;">✅ In Scope</div>
-    <ul style="font-size:.85em; color:#064e3b; line-height:1.7; padding-left:16px; margin:0;">
-      <li>Human medicinal products</li>
-      <li>Medical Devices</li>
-      <li>Veterinary products</li>
-      <li>Over-the-Counter (OTC) products</li>
-      <li>Natural Health Products (NHP)</li>
-      <li>Clinical trials &amp; Master files</li>
-      <li>Regulatory submissions &amp; procedural management (variations, supplements, Q&amp;A)</li>
-      <li>Adverse Event Reporting (ICSRs)</li>
-      <li>Payment of application fees</li>
-    </ul>
-  </div>
-  <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:16px;">
-    <div style="font-weight:700; color:#991b1b; margin-bottom:6px; font-size:.9em;">🔜 Future Phases</div>
-    <ul style="font-size:.85em; color:#7f1d1d; line-height:1.7; padding-left:16px; margin:0;">
-      <li>Health Technology Assessment (HTA) dossiers</li>
-      <li>Establishment &amp; inspection submissions</li>
-    </ul>
-  </div>
+<div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:16px; margin-bottom:32px;">
+  <div style="font-weight:700; color:#065f46; margin-bottom:6px; font-size:.9em;">✅ In Scope</div>
+  <ul style="font-size:.85em; color:#064e3b; line-height:1.7; padding-left:16px; margin:0;">
+    <li>Human medicinal products</li>
+    <li>Medical Devices</li>
+    <li>Veterinary products</li>
+    <li>Over-the-Counter (OTC) products</li>
+    <li>Natural Health Products (NHP)</li>
+    <li>Clinical trials &amp; Master files</li>
+    <li>Regulatory submissions &amp; procedural management (variations, supplements, Q&amp;A)</li>
+    <li>Adverse Event Reporting (ICSRs)</li>
+    <li>Payment of application fees</li>
+    <li>Health Technology Assessment (HTA) dossiers</li>
+    <li>Establishment &amp; inspection submissions</li>
+  </ul>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
@@ -144,28 +205,4 @@
   <a href="apixorganizationEndpoint.html" style="text-decoration:none; background:#fce7f3; border:1px solid #fbcfe8; border-radius:6px; padding:10px 12px; text-align:center; font-size:.82em; font-weight:600; color:#be185d;">🔗 Endpoint</a>
   <a href="architecture.html#binary-upload-guide-post-then-link" style="text-decoration:none; background:#f0f9ff; border:1px solid #bae6fd; border-radius:6px; padding:10px 12px; text-align:center; font-size:.82em; font-weight:600; color:#0369a1;">💾 Binary</a>
   <div style="background:#fdf4ff; border:1px solid #f5d0fe; border-radius:6px; padding:10px 12px; text-align:center; font-size:.82em; font-weight:600; color:#86198f;">🔒 Provenance</div>
-</div>
-
-<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
-
-<!-- BACKGROUND -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Background</h2>
-
-<div style="background:linear-gradient(135deg,#eff6ff,#f0fdf4); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:24px;">
-  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:12px;">Solving the Fragmentation Crisis</div>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">The exchange of medicinal product information today is defined by extreme <strong>fragmentation</strong>: different formats and portals for human drugs vs. veterinary drugs vs. medical devices; entirely different communication channels for clinical trial applications, marketing authorizations, and post-approval changes; and information trapped in documents that leaves regulators and industry "flying blind."</p>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">APIX solves this crisis by providing a single, harmonized, API-first layer — aligning regulatory exchange with the same modern technologies used in international banking and eCommerce, ensuring that life-saving medicines move through the regulatory pipeline as fast as the data that defines them.</p>
-</div>
-
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
-  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:20px;">
-    <div style="font-size:1.3em; margin-bottom:8px;">🤝</div>
-    <div style="font-weight:700; color:#003087; margin-bottom:6px;">Governance & Collaboration</div>
-    <p style="font-size:.85em; color:#4b5563; line-height:1.6; margin:0;">APIX is developed under the HL7 Vulcan Accelerator with active participation from regulators, pharmaceutical companies, and technology vendors.</p>
-  </div>
-  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:20px;">
-    <div style="font-size:1.3em; margin-bottom:8px;">🚀</div>
-    <div style="font-weight:700; color:#003087; margin-bottom:6px;">Get Involved</div>
-    <p style="font-size:.85em; color:#4b5563; line-height:1.6; margin:0;">Join the weekly calls. Test the reference implementation. We welcome industry, solution providers, and regulators from every region to contribute.</p>
-  </div>
 </div>
