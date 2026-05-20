@@ -58,7 +58,7 @@ Description: "DocumentReference profile used in APIX regulatory submissions. Sup
 * type 1..1 MS
   * ^short = "CTD section code (e.g. 3.2.S.1.1)"
   * ^definition = "Coded representation of the specific document type or CTD section."
-  * ^binding.strength = #required
+  * ^binding.strength = #example
   * ^binding.valueSet = Canonical(apix-ctd-section-vs)
 
 * relatesTo 0..* MS
