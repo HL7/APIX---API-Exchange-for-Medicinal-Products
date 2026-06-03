@@ -13,6 +13,11 @@ Description: "Triggers when a Task.status value changes. Allows subscriptions to
 * resourceTrigger[0].resource = "Task"
 * resourceTrigger[0].supportedInteraction[0] = #update
 * resourceTrigger[0].fhirPathCriteria = "%previous.status != %current.status"
+* canFilterBy.description = "Filter by business identifier"
+* canFilterBy.resource = "Task"
+* canFilterBy.filterParameter = "identifier"
+* canFilterBy.filterDefinition = "http://hl7.org/fhir/SearchParameter/Task-identifier"
+* canFilterBy.modifier = #exact
 
 
 Instance: TaskCreationWithOrganizationAssignedFilter
