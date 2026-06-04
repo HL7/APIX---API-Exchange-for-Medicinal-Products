@@ -18,6 +18,8 @@ Together, the SubscriptionNotification Bundle and SubscriptionStatus provide a c
 
 [Example Bundle](Bundle-eee72492-c236-41f7-a7ba-3af356204f4c.html)
 
+For more information on how this ties into Subscriptions see: [Real-time Subscriptions](subscriptions.html)
+
 ---
 
 ### SubscriptionNotification Bundle

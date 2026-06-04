@@ -28,6 +28,8 @@ These two patterns allow APIX participants to receive immediate, event‑driven 
 
 [Example Subscription](Subscription-Subscription-TaskStatusChange-FullResource.html)
 
+For more information on how this ties into Subscriptions see: [Real-time Subscriptions](subscriptions.html)
+
 ---
 
 ### Key Elements of the APIX Subscription Resource

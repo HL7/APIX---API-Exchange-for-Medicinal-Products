@@ -1,7 +1,7 @@
 <!-- SUBSCRIPTIONS PAGE -->
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Real-Time Subscriptions</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">APIX creates transparency in regulatory submissions by leveraging the HL7 FHIR R5 Subscription Framework. Instead of manually checking portals or waiting for emails, systems subscribe to specific events and receive immediate, machine-readable notifications.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">APIX creates transparency in regulatory submissions by leveraging the <a href="https://hl7.org/fhir/subscriptions.html#overview-workflow">HL7 FHIR R5 Subscription Framework</a>. Instead of manually checking portals or waiting for emails, systems subscribe to specific events and receive immediate, machine-readable notifications.</p>
 </div>
 
 <div style="background:linear-gradient(135deg,#ecfdf5,#eff6ff); border:1px solid #a7f3d0; border-radius:12px; padding:20px 24px; margin-bottom:32px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">

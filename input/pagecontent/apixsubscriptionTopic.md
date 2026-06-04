@@ -23,6 +23,8 @@ A Subscription must reference a SubscriptionTopic by its canonical URL. For exam
 
 [Example SubscriptionTopic Task creation, filtered by owner](SubscriptionTopic-TaskCreationWithOrganizationAssignedFilter.html)
 
+For more information on how this ties into Subscriptions see: [Real-time Subscriptions](subscriptions.html)
+
 ---
 
 ### Key Elements of the APIX SubscriptionTopic Resource
