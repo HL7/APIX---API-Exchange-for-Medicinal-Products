@@ -38,23 +38,6 @@
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
-<!-- STAKEHOLDER BENEFITS -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Stakeholder Benefits</h2>
-
-<table style="width:100%; border-collapse:collapse; font-size:.84em; margin-bottom:32px;">
-  <thead><tr style="background:#003087; color:#fff;">
-    <th style="padding:10px 12px; border:1px solid #d0d0d0; text-align:left;">Stakeholder</th>
-    <th style="padding:10px 12px; border:1px solid #d0d0d0; text-align:left;">Primary Benefit</th>
-  </tr></thead>
-  <tbody>
-    <tr><td style="padding:9px 12px; border:1px solid #d0d0d0;"><strong>Regulators</strong></td><td style="padding:9px 12px; border:1px solid #d0d0d0;">Auto-validation of submissions; removal of portal maintenance overhead; cross-domain visibility.</td></tr>
-    <tr style="background:#f9fafb;"><td style="padding:9px 12px; border:1px solid #d0d0d0;"><strong>Industry (RA/IT)</strong></td><td style="padding:9px 12px; border:1px solid #d0d0d0;">Real-time status tracking; automated "push-button" submissions from RIM systems; unified submission pipe.</td></tr>
-    <tr><td style="padding:9px 12px; border:1px solid #d0d0d0;"><strong>Patient Safety</strong></td><td style="padding:9px 12px; border:1px solid #d0d0d0;">Faster time-to-market for critical medicines; immediate safety signal synchronization; verified data integrity.</td></tr>
-  </tbody>
-</table>
-
-<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
-
 <!-- PRIORITY USE CASES -->
 <h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:16px;">Priority Use Cases</h2>
 
