@@ -2,10 +2,11 @@
 <div style="text-align:center; padding:48px 20px 36px;">
   <div style="font-size:.75em; font-weight:700; text-transform:uppercase; letter-spacing:.22em; color:#003087; margin-bottom:16px;">HL7 FHIR R5 · Global Standard</div>
   <h1 style="font-size:2.4em; font-weight:800; line-height:1.15; margin-bottom:16px; color:#111827;">Regulatory exchange,<br/><span style="background:linear-gradient(135deg,#003087,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">reimagined.</span></h1>
-  <p style="font-size:1.05em; color:#6b7280; max-width:560px; margin:0 auto 28px; line-height:1.55;">A single FHIR-based API standard for the automated, real-time exchange of biopharmaceutical regulatory information — connecting industry, regulators, and healthcare systems worldwide.</p>
-  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+  <p style="font-size:1.05em; color:#6b7280; max-width:560px; margin:0 auto 28px; line-height:1.55;">The global common language of regulatory communications.</p>
+  <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:36px;">
     <a href="gettingstarted.html" style="display:inline-block; background:#003087; color:#fff; padding:14px 28px; border-radius:8px; font-weight:700; font-size:1em; text-decoration:none;">Get Started</a>
   </div>
+  <img src="apix-one-common-standard.png" alt="Side-by-side comparison: today's fragmented regulatory exchange — many pathways (eCTD, non-eCTD, email, secure email, AS2 gateway, FTP, paper, regular mail) with product-type and procedure-type silos that are unidirectional, inconsistent, outdated, and costly — versus APIX: one open-source, platform- and vendor-agnostic standard supporting 1:1 exchange of structured and unstructured content (PDF, DOCX, XML, JSON, datasets) for all product types, all procedure types, all regulators, and all companies. Like SWIFT / ISO 20022 for finance, but for regulatory information." style="max-width:100%; width:960px; border:1px solid #e5e7eb; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.06);"/>
 </div>
 
 <!-- ========================================= -->
@@ -178,16 +179,6 @@
     <li>Health Technology Assessment (HTA) dossiers</li>
     <li>Establishment &amp; inspection submissions</li>
   </ul>
-</div>
-
-<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
-
-<!-- GLOBAL SUBMISSION MODELS -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:8px;">Global Submission Models</h2>
-<p style="font-size:.88em; color:#6b7280; margin-bottom:16px;">APIX is architecture-agnostic, supporting both centralized and decentralized exchange models.</p>
-
-<div style="text-align: center; margin: 20px 0 32px;">
-  <img src="centralizedvsdecentralizedexchangemodels.png" alt="Centralized vs Decentralized Exchange Models" width="800">
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
