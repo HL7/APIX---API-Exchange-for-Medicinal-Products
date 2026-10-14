@@ -8,35 +8,57 @@
   </div>
 </div>
 
-<!-- ========================================= -->
-<!-- AT A GLANCE                               -->
-<!-- ========================================= -->
-<div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:12px; padding:20px; margin:0 0 36px;">
-  <div style="font-size:.75em; font-weight:700; text-transform:uppercase; letter-spacing:.18em; color:#6b7280; margin-bottom:14px; text-align:center;">This IG at a glance</div>
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-    <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:18px 20px; border-top:3px solid #003087;">
-      <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; color:#003087;">What</div>
-      <p style="font-size:.86em; color:#374151; line-height:1.6; margin:0;">A FHIR R5 framework for <strong>end-to-end digital regulatory workflows and interactions</strong> — exchanged, tracked, and acted upon with machine-readable status and event-driven notifications.</p>
-    </div>
-    <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:18px 20px; border-top:3px solid #0d9488;">
-      <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; color:#0d9488;">Who</div>
-      <p style="font-size:.86em; color:#374151; line-height:1.6; margin:0;"><strong>Applicants</strong> (sponsors and marketing authorization holders) and <strong>regulatory authorities</strong> — plus the technology vendors that build their systems.</p>
-    </div>
-    <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:18px 20px; border-top:3px solid #059669;">
-      <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; color:#059669;">Scope</div>
-      <p style="font-size:.86em; color:#374151; line-height:1.6; margin:0; margin-bottom:6px;"><strong>Human biopharmaceutical products</strong>: clinical trials, adverse events &amp; safety, product information &amp; labelling, marketing authorizations, regulatory requests &amp; responses, post-approval changes.</p>
-      <p style="font-size:.8em; color:#6b7280; line-height:1.5; margin:0;"><strong>Not this phase:</strong> medical devices, veterinary drugs, OTC drugs, natural health products, food, cosmetics, inspections. <a href="#scope" style="color:#003087; font-weight:600; text-decoration:none;">Full scope →</a></p>
-    </div>
-    <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:18px 20px; border-top:3px solid #7c3aed;">
-      <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; color:#7c3aed;">How</div>
-      <p style="font-size:.86em; color:#374151; line-height:1.6; margin:0;"><a href="apixtask.html"><strong>Task</strong></a> orchestrates and tracks each activity · <a href="apixdocumentReference.html"><strong>DocumentReference</strong></a> describes each file · <a href="architecture.html#binary-upload-guide-post-then-link"><strong>Binary</strong></a> carries the content · <a href="apixsubscription.html"><strong>Subscription</strong></a> pushes status notifications.</p>
-    </div>
-  </div>
-</div>
-
 <div style="text-align:center; padding:0 20px 40px;">
   <img src="apix-before-after.svg" alt="Before and after RWI-pharma. Before: industry connects to each regulator using different exchange methods — email, secure email, FTP, AS2, HTTPS, portals, and mail — that vary per product type, per procedure, and per country. After: industry uses one standardized FHIR API connection pattern (Task, DocumentReference, Binary, Subscription) with every regulator, regardless of product type, procedure, or country." style="max-width:100%; width:820px; border:1px solid #e5e7eb; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.06);"/>
 </div>
+
+<!-- ABOUT THIS IG -->
+<h2 id="about" style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">About this IG</h2>
+
+<div style="margin-bottom:24px;">
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">The Regulatory Workflows and Interactions - pharma Implementation Guide defines how FHIR can support end-to-end digital regulatory workflows and interactions between applicants and regulatory authorities for human biopharmaceutical products.</p>
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">Today, regulatory exchange is highly fragmented. Authorities may use different mechanisms across product lines and procedures, including portals, gateways, email, secure email, FTP, HTTPS, and physical mail. These differences multiply across regulators globally, creating significant complexity for industry and limiting interoperability.</p>
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">Applicants also frequently lack end-to-end visibility into the status of their regulatory interactions. Consumers can track a FedEx or Amazon delivery through each major step and receive notifications as it progresses, yet applicants often cannot similarly track a critical regulatory interaction or receive automated notifications when key milestones occur.</p>
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">Using <a href="apixtask.html">Task</a>, <a href="apixdocumentReference.html">DocumentReference</a>, <a href="architecture.html#binary-upload-guide-post-then-link">Binary</a>, <a href="apixsubscription.html">Subscription</a>, APIs, and related FHIR capabilities, the guide enables regulatory activities to be interoperable, traceable, trackable, and event-driven, replacing fragmented exchange mechanisms with a standardized digital workflow.</p>
+</div>
+
+<!-- SCOPE -->
+<h3 id="scope" style="font-size:1.1em; font-weight:700; color:#111827; margin-bottom:12px;">Scope</h3>
+
+<p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:16px;">This Implementation Guide focuses on human biopharmaceutical products and the regulatory procedures and interactions associated with their development, authorization, and lifecycle management.</p>
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+  <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:16px;">
+    <div style="font-weight:700; color:#065f46; margin-bottom:6px; font-size:.9em;">✅ In Scope</div>
+    <p style="font-size:.82em; color:#064e3b; line-height:1.5; margin:0 0 6px;">Regulatory procedures and interactions, including but not limited to:</p>
+    <ul style="font-size:.85em; color:#064e3b; line-height:1.7; padding-left:16px; margin:0;">
+      <li>Clinical trial regulatory interactions</li>
+      <li>Adverse event and safety-related interactions</li>
+      <li>Product information and label negotiation</li>
+      <li>Marketing authorization procedures</li>
+      <li>Regulatory requests and responses</li>
+      <li>Post-approval changes and lifecycle management</li>
+      <li>Other regulatory procedures involving interactions between applicants and regulatory authorities</li>
+    </ul>
+  </div>
+  <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:16px;">
+    <div style="font-weight:700; color:#991b1b; margin-bottom:6px; font-size:.9em;">⛔ Out of Scope (current phase)</div>
+    <p style="font-size:.82em; color:#7f1d1d; line-height:1.5; margin:0 0 6px;">The following product domains are out of scope for the current phase:</p>
+    <ul style="font-size:.85em; color:#7f1d1d; line-height:1.7; padding-left:16px; margin:0;">
+      <li>Medical devices</li>
+      <li>Veterinary drugs</li>
+      <li>Over-the-counter drugs</li>
+      <li>Natural health products</li>
+      <li>Food</li>
+      <li>Cosmetics</li>
+      <li>Inspections</li>
+    </ul>
+  </div>
+</div>
+
+<p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:32px;">These domains are out of scope for the current phase only. Subsequent phases of the project are expected to expand the scope to support regulatory workflows and interactions in these and other regulated-product domains.</p>
+
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- ========================================= -->
 <!-- HOW IT WORKS — 5-STEP PIPELINE            -->
@@ -137,53 +159,8 @@
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
-<!-- ABOUT THIS IG -->
-<h2 id="about" style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">About this IG</h2>
-
-<div style="margin-bottom:24px;">
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">The Regulatory Workflows and Interactions - pharma Implementation Guide defines how FHIR can support end-to-end digital regulatory workflows and interactions between applicants and regulatory authorities for human biopharmaceutical products.</p>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">Today, regulatory exchange is highly fragmented. Authorities may use different mechanisms across product lines and procedures, including portals, gateways, email, secure email, FTP, HTTPS, and physical mail. These differences multiply across regulators globally, creating significant complexity for industry and limiting interoperability.</p>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:12px;">Applicants also frequently lack end-to-end visibility into the status of their regulatory interactions. Consumers can track a FedEx or Amazon delivery through each major step and receive notifications as it progresses, yet applicants often cannot similarly track a critical regulatory interaction or receive automated notifications when key milestones occur.</p>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">Using <a href="apixtask.html">Task</a>, <a href="apixdocumentReference.html">DocumentReference</a>, <a href="architecture.html#binary-upload-guide-post-then-link">Binary</a>, <a href="apixsubscription.html">Subscription</a>, APIs, and related FHIR capabilities, the guide enables regulatory activities to be interoperable, traceable, trackable, and event-driven, replacing fragmented exchange mechanisms with a standardized digital workflow.</p>
-</div>
-
-<!-- SCOPE -->
-<h3 id="scope" style="font-size:1.1em; font-weight:700; color:#111827; margin-bottom:12px;">Scope</h3>
-
-<p style="font-size:.88em; color:#374151; line-height:1.7; margin-bottom:16px;">This Implementation Guide focuses on human biopharmaceutical products and the regulatory procedures and interactions associated with their development, authorization, and lifecycle management.</p>
-
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
-  <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:16px;">
-    <div style="font-weight:700; color:#065f46; margin-bottom:6px; font-size:.9em;">✅ In Scope</div>
-    <p style="font-size:.82em; color:#064e3b; line-height:1.5; margin:0 0 6px;">Regulatory procedures and interactions, including but not limited to:</p>
-    <ul style="font-size:.85em; color:#064e3b; line-height:1.7; padding-left:16px; margin:0;">
-      <li>Clinical trial regulatory interactions</li>
-      <li>Adverse event and safety-related interactions</li>
-      <li>Product information and label negotiation</li>
-      <li>Marketing authorization procedures</li>
-      <li>Regulatory requests and responses</li>
-      <li>Post-approval changes and lifecycle management</li>
-      <li>Other regulatory procedures involving interactions between applicants and regulatory authorities</li>
-    </ul>
-  </div>
-  <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:16px;">
-    <div style="font-weight:700; color:#991b1b; margin-bottom:6px; font-size:.9em;">⛔ Out of Scope (current phase)</div>
-    <p style="font-size:.82em; color:#7f1d1d; line-height:1.5; margin:0 0 6px;">The following product domains are out of scope for the current phase:</p>
-    <ul style="font-size:.85em; color:#7f1d1d; line-height:1.7; padding-left:16px; margin:0;">
-      <li>Medical devices</li>
-      <li>Veterinary drugs</li>
-      <li>Over-the-counter drugs</li>
-      <li>Natural health products</li>
-      <li>Food</li>
-      <li>Cosmetics</li>
-      <li>Inspections</li>
-    </ul>
-  </div>
-</div>
-
-<p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:32px;">These domains are out of scope for the current phase only. Subsequent phases of the project are expected to expand the scope to support regulatory workflows and interactions in these and other regulated-product domains.</p>
-
-<h3 style="font-size:1.1em; font-weight:700; color:#111827; margin-bottom:12px;">Governance &amp; Participation</h3>
+<!-- GOVERNANCE -->
+<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Governance &amp; Participation</h2>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
   <div style="background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:20px;">
     <div style="font-size:1.3em; margin-bottom:8px;">🤝</div>
