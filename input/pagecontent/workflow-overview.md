@@ -2,15 +2,15 @@
 
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Workflow Overview</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">A business-friendly walkthrough of how APIX orchestrates the regulatory lifecycle — from initial submission to final decision.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">A business-friendly walkthrough of how RWI-pharma orchestrates the regulatory lifecycle — from initial submission to final decision.</p>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- HOW IT WORKS -->
 <div style="background:linear-gradient(135deg,#eff6ff,#faf5ff); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:32px;">
-  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:10px;">How APIX Works — The Big Picture</div>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">APIX uses a <strong>Task-based</strong> workflow model. Every regulatory interaction — submissions, questions, decisions, payments — is represented as a FHIR <strong>Task</strong> resource. The lifecycle of a regulatory procedure is a series of Tasks, each with a status that progresses from <em>draft → requested → received → accepted → in-progress → completed</em>. Both parties subscribe to real-time notifications so they instantly know when something changes.</p>
+  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:10px;">How RWI-pharma Works — The Big Picture</div>
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">RWI-pharma uses a <strong>Task-based</strong> workflow model. Every regulatory interaction — submissions, questions, decisions, payments — is represented as a FHIR <strong>Task</strong> resource. The lifecycle of a regulatory procedure is a series of Tasks, each with a status that progresses from <em>draft → requested → received → accepted → in-progress → completed</em>. Both parties subscribe to real-time notifications so they instantly know when something changes.</p>
 </div>
 
 <!-- NOTIFICATION MECHANISM -->
@@ -69,10 +69,10 @@
 
 <!-- VISUAL WORKFLOW DIAGRAM -->
 <h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Workflow Diagram</h2>
-<p style="font-size:.88em; color:#6b7280; margin-bottom:16px;">The following diagram shows the complete lifecycle of a regulatory procedure through APIX — illustrating the back-and-forth exchange between Company and Regulator across all four phases.</p>
+<p style="font-size:.88em; color:#6b7280; margin-bottom:16px;">The following diagram shows the complete lifecycle of a regulatory procedure through RWI-pharma — illustrating the back-and-forth exchange between Company and Regulator across all four phases.</p>
 
 <div style="text-align:center; margin:20px 0 16px;">
-  <img src="workflow-overview-diagram.png" alt="APIX Workflow Overview — Ping-Pong Diagram showing the four-phase exchange between Company and Regulator" style="max-width:680px; width:100%; border-radius:10px; border:1px solid #e5e7eb;">
+  <img src="workflow-overview-diagram.png" alt="RWI-pharma Workflow Overview — Ping-Pong Diagram showing the four-phase exchange between Company and Regulator" style="max-width:680px; width:100%; border-radius:10px; border:1px solid #e5e7eb;">
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 32px;"/>

@@ -27,7 +27,7 @@ For more information on how this ties into Subscriptions see: [Real-time Subscri
 
 ---
 
-### Key Elements of the APIX SubscriptionTopic Resource
+### Key Elements of the RWI-pharma SubscriptionTopic Resource
 
 <style>
 .apix-table { border-collapse: collapse; width: 100%; margin: 1.5em 0; }
@@ -40,7 +40,7 @@ For more information on how this ties into Subscriptions see: [Real-time Subscri
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>

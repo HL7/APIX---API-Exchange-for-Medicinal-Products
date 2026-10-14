@@ -1,6 +1,6 @@
-<!-- APIX TASK PAGE -->
+<!-- RWI-pharma TASK PAGE -->
 <div style="margin-bottom:32px;">
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">APIX Task Structure</h2>
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">RWI-pharma Task Structure</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The Task resource is the universal envelope and workflow engine for all biopharmaceutical regulatory interactions — submissions, questions, decisions, and payments are all represented as individual Task resources.</p>
 </div>
 
@@ -22,7 +22,7 @@
 
 The following are examples of Tasks with synthetic content: <a href="Task-scenario1-01-initial-submission.html">Initial Submission</a>, <a href="Task-scenario1-05-technical-question.html">Questions</a>, <a href="Task-scenario1-06-technical-response.json">Response</a>, and <a href="Task-scenario1-07-final-decision.html">Decision</a>.
 
-The following table provides an overview of the key elements of the APIX Task resource. For a technical description of the Task resource, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/StructureDefinition-apix-task.html">APIX Task profile</a>.
+The following table provides an overview of the key elements of the RWI-pharma Task resource. For a technical description of the Task resource, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/StructureDefinition-apix-task.html">RWI-pharma Task profile</a>.
 
 <style>
 .apix-table { border-collapse: collapse; width: 100%; margin: 1.5em 0; }
@@ -35,7 +35,7 @@ The following table provides an overview of the key elements of the APIX Task re
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>
@@ -63,12 +63,12 @@ The following table provides an overview of the key elements of the APIX Task re
 <td><code>Task.status</code></td>
 <td>1..1</td>
 <td><code>draft | requested | received | accepted | rejected | in-progress | on-hold | completed | cancelled | entered-in-error</code></td>
-<td>Drives the APIX state machine and UI</td>
+<td>Drives the RWI-pharma state machine and UI</td>
 </tr>
 <tr>
 <td><code>Task.statusReason</code></td>
 <td>0..1</td>
-<td>CodeableConcept from APIX RejectionReason ValueSet</td>
+<td>CodeableConcept from RWI-pharma RejectionReason ValueSet</td>
 <td>Mandatory when <code>status = rejected</code> or <code>cancelled</code></td>
 </tr>
 <tr>
@@ -86,7 +86,7 @@ The following table provides an overview of the key elements of the APIX Task re
 <tr>
 <td><code>Task.code</code></td>
 <td>1..1</td>
-<td>From APIX TaskCode ValueSet, e.g.<br>• <code>initial-maa</code><br>• <code>variation-type-ia</code><br>• <code>validation-question</code><br>• <code>response-to-question</code><br>• <code>approval-letter</code></td>
+<td>From RWI-pharma TaskCode ValueSet, e.g.<br>• <code>initial-maa</code><br>• <code>variation-type-ia</code><br>• <code>validation-question</code><br>• <code>response-to-question</code><br>• <code>approval-letter</code></td>
 <td>Defines the regulatory message type and triggers specific business rules</td>
 </tr>
 <tr>
@@ -180,7 +180,7 @@ Each Task is connected by four identifiers:
 3. `partOf` indicates a set of Tasks performed together.
 
 ### Task Status
-In addition to the identifiers mentioned above, APIX uses **Task Status** ([see here for the Task Status Valueset](http://hl7.org/fhir/ValueSet/task-status)) to drive the the regulatory workflow.
+In addition to the identifiers mentioned above, RWI-pharma uses **Task Status** ([see here for the Task Status Valueset](http://hl7.org/fhir/ValueSet/task-status)) to drive the the regulatory workflow.
 
 The following table lists each status and its purpose throughout the workflow.
 
@@ -196,7 +196,7 @@ The following table lists each status and its purpose throughout the workflow.
     <tr>
       <th>Code</th>
       <th>Display</th>
-      <th>Meaning in APIX Regulatory Context</th>
+      <th>Meaning in RWI-pharma Regulatory Context</th>
     </tr>
   </thead>
   <tbody>
@@ -215,7 +215,7 @@ The following table lists each status and its purpose throughout the workflow.
 
 <div class="markdown-alert markdown-alert-note">
   <p class="markdown-alert-title">Note</p>
-  <p>The FHIR Task statuses <strong>ready</strong> and <strong>failed</strong> are not used in the core APIX workflow.</p>
+  <p>The FHIR Task statuses <strong>ready</strong> and <strong>failed</strong> are not used in the core RWI-pharma workflow.</p>
 </div>
 
 #### Typical State Transitions in a Regulatory Procedure

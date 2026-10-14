@@ -1,7 +1,7 @@
 <!-- ARCHITECTURE PAGE -->
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Architecture</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The technical infrastructure required to implement APIX in production. This page covers FHIR server requirements, authentication, system landscape, data governance, and binary upload patterns.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">The technical infrastructure required to implement RWI-pharma in production. This page covers FHIR server requirements, authentication, system landscape, data governance, and binary upload patterns.</p>
 </div>
 
 <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:14px 18px; margin-bottom:32px; font-size:.85em; color:#78350f; display:flex; gap:10px; align-items:flex-start;">
@@ -62,7 +62,7 @@ sequenceDiagram
     autonumber
     participant App as Applicant (RIM System)
     participant Auth as Auth Server (OAuth2)
-    participant APIX as APIX FHIR Server
+    participant APIX as RWI-pharma FHIR Server
     participant Val as Validation Engine
 
     note over App, Val: Phase 1: Authentication & Submission
@@ -89,14 +89,14 @@ sequenceDiagram
 
 ### Data Governance and Security
 
-The APIX "Index Pattern" relies on a **logical separation** of data rather than physical silos. This approach ensures scalability while maintaining strict intellectual property (IP) protection.
+The RWI-pharma "Index Pattern" relies on a **logical separation** of data rather than physical silos. This approach ensures scalability while maintaining strict intellectual property (IP) protection.
 
 #### Logical Data Separation (Multi-Tenancy)
 In a shared regulatory environment, data for different medicinal products (e.g., Drug A vs. Drug B) sits in a common storage layer but is differentiated by FHIR metadata:
 
 *   **Subject Linking**: Every `DocumentReference` is linked to a specific `MedicinalProductDefinition` via the `subject` field, ensuring documents are contextually tied to the correct product lifecycle.
 *   **Metadata Categorization**: The `category` and `type` fields (using CTD Module and Section codes) provide the structural hierarchy needed to organize large submissions within the product context.
-*   **Shared Infrastructure**: While physical separation (e.g., dedicated database instances per company) is an implementation choice, the APIX standard is designed to work in a multi-tenant environment where metadata-driven filters provide the necessary isolation.
+*   **Shared Infrastructure**: While physical separation (e.g., dedicated database instances per company) is an implementation choice, the RWI-pharma standard is designed to work in a multi-tenant environment where metadata-driven filters provide the necessary isolation.
 
 #### IP Protection and Access Control
 To protect company trade secrets and clinical data, the following security principles are applied:
@@ -108,7 +108,7 @@ To protect company trade secrets and clinical data, the following security princ
 
 ### Binary Upload Guide (Post-then-Link)
 
-To handle large documents (e.g., 20MB PDFs) or massive data packages (e.g., 50GB stability datasets) without impacting API performance, APIX utilizes a two-step **"Post-then-Link"** mechanism. This approach aligns with platform guidance: [Microsoft Azure](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-best-practices#storing-binary-data-in-fhir-resources) notes that binary payloads larger than 1.5 MB introduce access inefficiencies for search and retrieval operations, and several major FHIR server implementations—including [Smile CDR](https://smilecdr.com/docs/fhir_repository/binary_data.html#:~:text=13.16.2.1Binary%20Storage%20Mode,storage%2C%20the%20following%20settings%20apply) and [Google Cloud Healthcare](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores.fhir/Binary-create#:~:text=This%20method%20can%20be%20used,are%20larger%20than%2010%20MB.) —support Binary ingestion as a stream rather than a single in‑memory upload.
+To handle large documents (e.g., 20MB PDFs) or massive data packages (e.g., 50GB stability datasets) without impacting API performance, RWI-pharma utilizes a two-step **"Post-then-Link"** mechanism. This approach aligns with platform guidance: [Microsoft Azure](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-best-practices#storing-binary-data-in-fhir-resources) notes that binary payloads larger than 1.5 MB introduce access inefficiencies for search and retrieval operations, and several major FHIR server implementations—including [Smile CDR](https://smilecdr.com/docs/fhir_repository/binary_data.html#:~:text=13.16.2.1Binary%20Storage%20Mode,storage%2C%20the%20following%20settings%20apply) and [Google Cloud Healthcare](https://docs.cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores.fhir/Binary-create#:~:text=This%20method%20can%20be%20used,are%20larger%20than%2010%20MB.) —support Binary ingestion as a stream rather than a single in‑memory upload.
 
 #### Step 1: Upload Raw Binary
 The submittor posts the file as a raw octet-stream directly to the `/Binary` endpoint. This avoids the overhead of Base64 encoding.

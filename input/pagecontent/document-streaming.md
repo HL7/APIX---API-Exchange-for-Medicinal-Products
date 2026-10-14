@@ -1,7 +1,7 @@
 <!-- DOCUMENT STREAMING PAGE -->
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Document Streaming</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">How APIX modernizes document exchange by moving from bulk portal uploads to a Netflix-style "streaming" metadata model.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">How RWI-pharma modernizes document exchange by moving from bulk portal uploads to a Netflix-style "streaming" metadata model.</p>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
@@ -19,8 +19,8 @@
 
 <!-- THE SOLUTION -->
 <div style="background:linear-gradient(135deg,#eff6ff,#faf5ff); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:32px;">
-  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:12px;">The APIX Solution: The Netflix Model</div>
-  <p style="font-size:.88em; color:#374151; line-height:1.6; margin-bottom:16px;">APIX changes this paradigm by treating documents like a modern streaming service treats movies. Instead of forcing the regulator to download the whole "DVD box set" upfront, APIX separates the <strong>catalog</strong> from the <strong>content</strong>.</p>
+  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:12px;">The RWI-pharma Solution: The Netflix Model</div>
+  <p style="font-size:.88em; color:#374151; line-height:1.6; margin-bottom:16px;">RWI-pharma changes this paradigm by treating documents like a modern streaming service treats movies. Instead of forcing the regulator to download the whole "DVD box set" upfront, RWI-pharma separates the <strong>catalog</strong> from the <strong>content</strong>.</p>
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
     <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:18px;">

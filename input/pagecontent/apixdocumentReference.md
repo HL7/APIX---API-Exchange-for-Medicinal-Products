@@ -9,7 +9,7 @@
   <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">A DocumentReference is like a <strong>library card</strong> for a regulatory file. You first upload the actual file (PDF, JSON, etc.) to the server, then create a DocumentReference that describes it — title, type, CTD section, author. This metadata wrapper is what gets attached to Tasks, allowing the regulator to discover and retrieve documents on demand.</p>
 </div>
 
-In APIX, the **DocumentReference** resource provides the metadata wrapper for regulatory documents submitted as part of a procedure. It links descriptive information (title, category, CTD section, author) with the actual payload stored separately on the FHIR server. E.g. A binary file is uploaded first as a raw `Binary` resource, and the DocumentReference then “claims” that binary by referencing it through `DocumentReference.content.attachment.url`.
+In RWI-pharma, the **DocumentReference** resource provides the metadata wrapper for regulatory documents submitted as part of a procedure. It links descriptive information (title, category, CTD section, author) with the actual payload stored separately on the FHIR server. E.g. A binary file is uploaded first as a raw `Binary` resource, and the DocumentReference then “claims” that binary by referencing it through `DocumentReference.content.attachment.url`.
 
 The `DocumentReference.author` element identifies the creator of both the metadata and the associated binary content, ensuring clear provenance for regulatory submissions. DocumentReferences are then attached to Tasks via `Task.input` or `Task.output`, allowing the regulator to discover and retrieve documents only when needed.
 
@@ -17,7 +17,7 @@ Note: To keep the server healthy, buisness rules should be determined at what fr
 
 ---
 
-### Key Elements of the APIX DocumentReference Resource
+### Key Elements of the RWI-pharma DocumentReference Resource
 
 <style>
 .apix-table { border-collapse: collapse; width: 100%; margin: 1.5em 0; }
@@ -30,7 +30,7 @@ Note: To keep the server healthy, buisness rules should be determined at what fr
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>

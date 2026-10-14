@@ -1,7 +1,7 @@
 <!-- SUBSCRIPTIONS PAGE -->
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Real-Time Subscriptions</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">APIX creates transparency in regulatory submissions by leveraging the <a href="https://hl7.org/fhir/subscriptions.html#overview-workflow">HL7 FHIR R5 Subscription Framework</a>. Instead of manually checking portals or waiting for emails, systems subscribe to specific events and receive immediate, machine-readable notifications.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">RWI-pharma creates transparency in regulatory submissions by leveraging the <a href="https://hl7.org/fhir/subscriptions.html#overview-workflow">HL7 FHIR R5 Subscription Framework</a>. Instead of manually checking portals or waiting for emails, systems subscribe to specific events and receive immediate, machine-readable notifications.</p>
 </div>
 
 <div style="background:linear-gradient(135deg,#ecfdf5,#eff6ff); border:1px solid #a7f3d0; border-radius:12px; padding:20px 24px; margin-bottom:32px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
@@ -27,19 +27,19 @@
 1. **SubscriptionTopic:** The Regulator server hosts SubscriptionTopics which allow a client system to 'subscribe' to certain events. In our case, there should be a SubscriptionTopic that allows Subscriptions to status changes of a specific Task. Additionally, the Regulator system will need a SubscriptionTopic that allows the Regulator to subscribe applicant systems to receive notification when Tasks are created with the Applicant system as the Task owner. 
 
 Applicant System
-2a.  **Subscribe:** The Applicant's system (e.g., RIM) sends a `Subscription` resource to the Regulator's APIX server that registers for the 
+2a.  **Subscribe:** The Applicant's system (e.g., RIM) sends a `Subscription` resource to the Regulator's RWI-pharma server that registers for the 
 3b.  **Trigger:** A change occurs (e.g., an assessor changes a Task status from `received` to `in-progress`).
 4b.  **Notify:** The Regulator's server matches the change to the Subscription criteria and immediately sends a notification to the Applicant's endpoint.
 
 Regulator System
-2a.  **Subscribe:** The Regulator system sends a `Subscription` resource to the Regulator's APIX server that registers a subcription for the Task creation SubscriptionTopic, filtered to respond only to specific Tasks where the Applicant is the Task.owner. 
+2a.  **Subscribe:** The Regulator system sends a `Subscription` resource to the Regulator's RWI-pharma server that registers a subcription for the Task creation SubscriptionTopic, filtered to respond only to specific Tasks where the Applicant is the Task.owner. 
 3b.  **Trigger:** A change occurs (e.g., an assessor changes a Task status from `received` to `in-progress`).
 4b.  **Notify:** The Regulator's server matches the change to the Subscription criteria and immediately sends a notification to the Applicant's endpoint.
 
 
 ### The Topic-Based Subscription Model
 
-APIX uses the R5 Topic-Based Subscription model (`SubscriptionTopic`) to define standard events.
+RWI-pharma uses the R5 Topic-Based Subscription model (`SubscriptionTopic`) to define standard events.
 
 #### Standard Subscription Topics
 
@@ -92,7 +92,7 @@ To start receiving notifications, an Applicant POSTs a `Subscription` resource.
 
 ### Notification Channels
 
-APIX supports two primary channel types for different architectural needs:
+RWI-pharma supports two primary channel types for different architectural needs:
 
 1.  **REST Hook (Server-to-Server):**
     *   **Best for:** Production RIM systems, cloud integrations.

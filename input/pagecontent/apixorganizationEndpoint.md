@@ -6,12 +6,12 @@
 
 <div style="background:linear-gradient(135deg,#ecfdf5,#eff6ff); border:1px solid #a7f3d0; border-radius:12px; padding:20px 24px; margin-bottom:24px;">
   <div style="font-weight:700; color:#003087; font-size:.92em; margin-bottom:6px;">For Business Readers</div>
-  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">Think of Organization as your <strong>digital business card</strong> on the FHIR server — it identifies who you are. The Endpoint is your <strong>mailbox address</strong> — where the server delivers webhook notifications. Together they form the identity and communication layer of APIX.</p>
+  <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">Think of Organization as your <strong>digital business card</strong> on the FHIR server — it identifies who you are. The Endpoint is your <strong>mailbox address</strong> — where the server delivers webhook notifications. Together they form the identity and communication layer of RWI-pharma.</p>
 </div>
 
-In APIX, **Organization** and **Endpoint** work together to represent the parties involved in regulatory exchange and the technical channels used for communication. An **Organization** represents either an Applicant or a Regulator on the FHIR server and includes the contact and identification details needed throughout a regulatory procedure. Organizations may reference one or more **Endpoints**, which define the technical connection details for receiving notifications or other machine‑to‑machine interactions.
+In RWI-pharma, **Organization** and **Endpoint** work together to represent the parties involved in regulatory exchange and the technical channels used for communication. An **Organization** represents either an Applicant or a Regulator on the FHIR server and includes the contact and identification details needed throughout a regulatory procedure. Organizations may reference one or more **Endpoints**, which define the technical connection details for receiving notifications or other machine‑to‑machine interactions.
 
-The **Endpoint.managingOrganization** element is especially important: it identifies which Organization owns or controls the Endpoint, ensuring that only the appropriate party can modify or maintain the connection details. Together, Organization and Endpoint form the identity and communication layer of the APIX ecosystem.
+The **Endpoint.managingOrganization** element is especially important: it identifies which Organization owns or controls the Endpoint, ensuring that only the appropriate party can modify or maintain the connection details. Together, Organization and Endpoint form the identity and communication layer of the RWI-pharma ecosystem.
 
 [Example Organization](Organization-1002.html)
 
@@ -34,7 +34,7 @@ The **Endpoint.managingOrganization** element is especially important: it identi
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>
@@ -45,7 +45,7 @@ The **Endpoint.managingOrganization** element is especially important: it identi
 <td><code>Organization.identifier</code></td>
 <td>1..*</td>
 <td>Globally unique identifier</td>
-<td>Primary identity for Applicants and Regulators within APIX</td>
+<td>Primary identity for Applicants and Regulators within RWI-pharma</td>
 </tr>
 
 <tr>
@@ -73,7 +73,7 @@ The **Endpoint.managingOrganization** element is especially important: it identi
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>

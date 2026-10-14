@@ -2,7 +2,7 @@
 
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Use Cases</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">APIX replaces today's fragmented, procedure-specific exchange mechanisms with a single, unified API doorway for everything.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">RWI-pharma replaces today's fragmented, procedure-specific exchange mechanisms with a single, unified API doorway for everything.</p>
 </div>
 
 <!-- THREE CAPABILITY CARDS -->
@@ -10,7 +10,7 @@
   <a href="workflow-overview.html" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:20px; display:block;">
     <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:6px;">Submit</div>
     <div style="font-weight:700; color:#111827; margin-bottom:6px;">Universal Submissions</div>
-    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">One FHIR interface covers every regulated product type and every regulatory procedure — eliminating per-procedure portal maintenance.</p>
+    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">One FHIR interface covers regulatory procedures across the biopharmaceutical product lifecycle — eliminating per-procedure portal maintenance.</p>
   </a>
   <a href="subscriptions.html" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #10b981; border-radius:8px; padding:20px; display:block;">
     <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#10b981; margin-bottom:6px;">Track</div>
@@ -33,7 +33,7 @@
 <!-- THE DECISIVE ADVANTAGE -->
 <div style="background:linear-gradient(135deg,#eff6ff,#faf5ff); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:32px;">
   <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:10px;">🏆 The Decisive Advantage</div>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">Once a regulator or company implements APIX, they gain the ability to receive, process, and exchange <strong>every regulatory interaction</strong> — across all product types (drugs, biologics, devices, veterinary) and all procedures — through the <strong>same single API interface</strong>.</p>
+  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">Once a regulator or company implements RWI-pharma, they gain the ability to receive, process, and exchange <strong>regulatory interactions</strong> for human biopharmaceutical products — clinical trials, marketing authorizations, safety, labelling, requests and responses, and post-approval changes — through the <strong>same single API interface</strong>. Later phases are expected to extend the same framework to other regulated-product domains (see <a href="index.html#scope">Scope</a>).</p>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
@@ -44,15 +44,15 @@
 <!-- Use Case 1 -->
 <div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #2563eb; border-radius:8px; padding:20px; margin-bottom:14px;">
   <div style="font-weight:700; color:#111827; margin-bottom:8px;">1. Universal Regulatory Interface</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:8px; font-style:italic;">Exchanging all regulatory activities for all products through a common standard.</p>
+  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:8px; font-style:italic;">Exchanging regulatory activities for human biopharmaceutical products through a common standard.</p>
   <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
     <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:6px; padding:12px;">
       <div style="font-weight:700; color:#991b1b; font-size:.78em; margin-bottom:4px;">THE PROBLEM</div>
-      <p style="font-size:.8em; color:#7f1d1d; line-height:1.5; margin:0;">Fragmented channels and proprietary systems for different product types increase complexity and costs.</p>
+      <p style="font-size:.8em; color:#7f1d1d; line-height:1.5; margin:0;">Fragmented channels and proprietary systems across authorities, product lines, and procedures increase complexity and costs.</p>
     </div>
     <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px;">
       <div style="font-weight:700; color:#065f46; font-size:.78em; margin-bottom:4px;">THE SOLUTION</div>
-      <p style="font-size:.8em; color:#064e3b; line-height:1.5; margin:0;">A single, common way to exchange any regulatory activity for any product based on open web standards.</p>
+      <p style="font-size:.8em; color:#064e3b; line-height:1.5; margin:0;">A single, common way to exchange regulatory activities based on open web standards.</p>
     </div>
     <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:12px;">
       <div style="font-weight:700; color:#1d4ed8; font-size:.78em; margin-bottom:4px;">THE BENEFIT</div>
@@ -126,7 +126,7 @@
 <!-- SCENARIO EXAMPLES -->
 <h2 id="scenario-examples" style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Scenario Examples</h2>
 
-<p style="font-size:.88em; color:#6b7280; line-height:1.6; max-width:720px; margin-bottom:24px;">Because every regulatory milestone in APIX is a timestamped, machine-readable event (see <a href="subscriptions.html">Real-Time Subscriptions</a>), the raw exchange data can be transformed into decision-ready visuals with no manual data entry. The worked examples below are all reconstructed from the same underlying <code>Task</code> history.</p>
+<p style="font-size:.88em; color:#6b7280; line-height:1.6; max-width:720px; margin-bottom:24px;">Because every regulatory milestone in RWI-pharma is a timestamped, machine-readable event (see <a href="subscriptions.html">Real-Time Subscriptions</a>), the raw exchange data can be transformed into decision-ready visuals with no manual data entry. The worked examples below are all reconstructed from the same underlying <code>Task</code> history.</p>
 
 <!-- Scenario Example 1 -->
 <div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #8b5cf6; border-radius:8px; padding:20px; margin-bottom:24px;">
@@ -269,7 +269,7 @@
 <div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #003087; border-radius:8px; padding:20px; margin-bottom:24px;">
   <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#003087; margin-bottom:6px;">Scenario Example 2 &middot; Regulator Performance Dashboards</div>
   <div style="font-weight:700; color:#111827; margin-bottom:8px;">From the Same Data: Live Operations Board and Statutory Performance Reports</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:16px;">Regulators get the mirror image of the applicant's tracking view &mdash; for free. Because every procedure is an APIX <code>Task</code> with a full, timestamped status history, an agency can generate performance dashboards directly from its own exchange data: a real-time board of current activity, and aggregated quarterly or annual performance reports.</p>
+  <p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:16px;">Regulators get the mirror image of the applicant's tracking view &mdash; for free. Because every procedure is an RWI-pharma <code>Task</code> with a full, timestamped status history, an agency can generate performance dashboards directly from its own exchange data: a real-time board of current activity, and aggregated quarterly or annual performance reports.</p>
 
   <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:8px;">A &mdash; Live Activity Board (Flight-Board View)</div>
   <p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:14px;">A real-time view of everything currently in the house &mdash; like an airport departure board. Each status change anywhere in the agency updates the board instantly via the same subscription framework offered to applicants.</p>
@@ -350,10 +350,10 @@
     </tbody>
   </table>
 </div>
-<p style="font-size:.8em; color:#6b7280; line-height:1.6; margin-bottom:24px;">Every row is a parent APIX <code>Task</code>; the CURRENT PHASE column is <code>Task.businessStatus</code> and the STATUS column is <code>Task.status</code>. A <code>task-update</code> subscription notification flips the row the moment an assessor changes the Task &mdash; no polling, no data entry. Note the shelf-life test scenario (<code>NDA-214365-S-021</code>) sitting in its first clock stop, exactly as shown on the timeline in Scenario Example 1.</p>
+<p style="font-size:.8em; color:#6b7280; line-height:1.6; margin-bottom:24px;">Every row is a parent RWI-pharma <code>Task</code>; the CURRENT PHASE column is <code>Task.businessStatus</code> and the STATUS column is <code>Task.status</code>. A <code>task-update</code> subscription notification flips the row the moment an assessor changes the Task &mdash; no polling, no data entry. Note the shelf-life test scenario (<code>NDA-214365-S-021</code>) sitting in its first clock stop, exactly as shown on the timeline in Scenario Example 1.</p>
 
   <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:8px;">B &mdash; Quarterly &amp; Annual Performance Reports</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:14px;">The same event history, aggregated over a reporting period, produces the statutory performance metrics that agencies publish today through manual compilation &mdash; outcome counts, average review times by procedure type, and bottleneck analysis. With APIX these are a query, not a project.</p>
+  <p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:14px;">The same event history, aggregated over a reporting period, produces the statutory performance metrics that agencies publish today through manual compilation &mdash; outcome counts, average review times by procedure type, and bottleneck analysis. With RWI-pharma these are a query, not a project.</p>
 
   <p style="font-size:.85em; color:#374151; margin-bottom:8px;"><strong>Median time to approval</strong> &mdash; the headline figure of a regulator&rsquo;s annual performance report (e.g., a PDUFA-style report to Congress or an EMA annual report), computed directly from Task timestamps instead of manual compilation:</p>
 

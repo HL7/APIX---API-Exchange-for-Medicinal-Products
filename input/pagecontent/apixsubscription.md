@@ -9,14 +9,14 @@
   <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">A Subscription is like a <strong>notification rule</strong>. You tell the FHIR server: "Notify me when this specific Task changes status" or "Notify me when the regulator creates a new Task assigned to my organization." The server automatically sends a webhook notification every time the condition is met — no polling required.</p>
 </div>
 
-In APIX, the **Subscription** resource is the mechanism that delivers real‑time notifications when regulatory events occur. A Subscription becomes active when:
+In RWI-pharma, the **Subscription** resource is the mechanism that delivers real‑time notifications when regulatory events occur. A Subscription becomes active when:
 
 1. The event matches the trigger defined in the **SubscriptionTopic**, and  
 2. The resource involved satisfies the **Subscription.filterBy** constraints.
 
 When both conditions are met, the server sends a notification bundle to the subscriber’s configured **Subscription.endpoint**.
 
-APIX uses Subscriptions for two primary regulatory event types:
+RWI-pharma uses Subscriptions for two primary regulatory event types:
 
 - **Task Status Change** — filtered by **Task.identifier**  
   Notifies the requester when the regulator updates the status of a Task (e.g., *received → accepted*, *in‑progress → on‑hold*, *completed*).
@@ -24,7 +24,7 @@ APIX uses Subscriptions for two primary regulatory event types:
 - **Task Creation** — filtered by **Task.owner**  
   Notifies an Organization when the regulator creates a new Task for them (e.g., questions, decision letters, follow‑up actions).
 
-These two patterns allow APIX participants to receive immediate, event‑driven updates without polling.
+These two patterns allow RWI-pharma participants to receive immediate, event‑driven updates without polling.
 
 [Example Subscription](Subscription-Subscription-TaskStatusChange-FullResource.html)
 
@@ -32,7 +32,7 @@ For more information on how this ties into Subscriptions see: [Real-time Subscri
 
 ---
 
-### Key Elements of the APIX Subscription Resource
+### Key Elements of the RWI-pharma Subscription Resource
 
 <style>
 .apix-table { border-collapse: collapse; width: 100%; margin: 1.5em 0; }
@@ -45,7 +45,7 @@ For more information on how this ties into Subscriptions see: [Real-time Subscri
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>

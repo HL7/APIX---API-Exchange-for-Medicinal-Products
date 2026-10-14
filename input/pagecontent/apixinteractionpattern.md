@@ -1,7 +1,7 @@
 <!-- INTERACTION PATTERN PAGE -->
 <div style="margin-bottom:32px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Interaction Pattern</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">APIX defines a modern, event-driven interaction model for regulatory communication. This page illustrates the detailed Regulator-Applicant exchange protocol built on FHIR R5 Tasks and Subscriptions.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">RWI-pharma defines a modern, event-driven interaction model for regulatory communication. This page illustrates the detailed Regulator-Applicant exchange protocol built on FHIR R5 Tasks and Subscriptions.</p>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
@@ -10,7 +10,7 @@
 
 ### **Overview of the Interaction Pattern**
 
-At its core, the APIX pattern is a structured conversation between an **Applicant** and a **Regulator**, expressed entirely through **FHIR Tasks**, **FHIR Endpoints**, **FHIR Organizations**, **SubscriptionTopics**, and **Subscriptions**.
+At its core, the RWI-pharma pattern is a structured conversation between an **Applicant** and a **Regulator**, expressed entirely through **FHIR Tasks**, **FHIR Endpoints**, **FHIR Organizations**, **SubscriptionTopics**, and **Subscriptions**.
 
 1. Applicant submits a request using a Task, placing their request documentation in Task.input. 
 2. A Subscription is created that subscribes the Applicant to updates of the Task. 

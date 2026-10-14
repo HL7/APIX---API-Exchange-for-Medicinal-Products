@@ -9,12 +9,12 @@
   <p style="font-size:.85em; color:#374151; line-height:1.6; margin:0;">When a notification fires, the system sends a <strong>message bundle</strong> to your endpoint that says: "Here is what changed, here is the updated Task, and here is why you were notified." This gives your systems everything they need to react automatically — updating dashboards, triggering workflows, or alerting staff.</p>
 </div>
 
-When a Subscription is triggered in APIX, the FHIR server sends a **SubscriptionNotification Bundle** to the subscriber’s configured endpoint. This Bundle contains two essential components:
+When a Subscription is triggered in RWI-pharma, the FHIR server sends a **SubscriptionNotification Bundle** to the subscriber’s configured endpoint. This Bundle contains two essential components:
 
 1. A **SubscriptionStatus** resource that explains *why* the notification was sent — including which Subscription fired, which SubscriptionTopic was matched, and how many times the Subscription has triggered.
 2. A set of **event payload resources** (e.g., the updated Task) determined by the SubscriptionTopic and Subscription configuration.
 
-Together, the SubscriptionNotification Bundle and SubscriptionStatus provide a complete picture of both the triggering event and the associated metadata, enabling APIX clients to react immediately and reliably to regulatory workflow changes.
+Together, the SubscriptionNotification Bundle and SubscriptionStatus provide a complete picture of both the triggering event and the associated metadata, enabling RWI-pharma clients to react immediately and reliably to regulatory workflow changes.
 
 [Example Bundle](Bundle-eee72492-c236-41f7-a7ba-3af356204f4c.html)
 
@@ -35,7 +35,7 @@ For more information on how this ties into Subscriptions see: [Real-time Subscri
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>
@@ -88,7 +88,7 @@ For more information on how this ties into Subscriptions see: [Real-time Subscri
 <thead>
 <tr>
 <th>Element</th>
-<th>Cardinality (APIX)</th>
+<th>Cardinality (RWI-pharma)</th>
 <th>Value / Example</th>
 <th>Purpose / Notes</th>
 </tr>

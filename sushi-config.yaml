@@ -1,8 +1,8 @@
 id: hl7.fhir.uv.apix
 canonical: http://hl7.org/fhir/uv/apix
 name: ApixIG
-title: API for the Exchange of Medicinal Product Information (APIX)
-description: A global standard for real-time, API-based exchange of biopharmaceutical regulatory information (e.g., drug labeling and drug quality).
+title: Regulatory Workflows and Interactions - pharma
+description: "Regulatory exchange is globally fragmented across authorities, product lines, procedures, and technologies. This IG establishes a common Task- and Subscription-based framework for regulatory workflows and interactions, enabling them to be exchanged, tracked, and acted upon with machine-readable status and event-driven notifications."
 status: draft # draft | active | retired | unknown
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
@@ -56,7 +56,7 @@ pages:
   apixinteractionpattern.md:
     title: Interaction Pattern
   apixtask.md:
-    title: APIX Task Structure
+    title: RWI-pharma Task Structure
   apixsubscription.md:
     title: Subscription
   apixsubscriptionTopic.md:
@@ -81,7 +81,7 @@ menu:
     Interaction Pattern: apixinteractionpattern.html
     Workflow Deep-Dive: workflow.html
   Key Resources:
-    APIX Task: apixtask.html
+    RWI-pharma Task: apixtask.html
     Subscription: apixsubscription.html
     SubscriptionTopic: apixsubscriptionTopic.html
     Notification & Status: apixsubscriptionNotificationAndStatus.html

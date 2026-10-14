@@ -1,6 +1,6 @@
 <!-- GETTING STARTED HEADER -->
 <div style="margin-bottom:32px;">
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Getting Started with APIX</h2>
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Getting Started with RWI-pharma</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">Five simple steps to connect your systems to a regulator. Each step builds on the previous one — start at the top and work your way down.</p>
 </div>
 
@@ -24,7 +24,7 @@
         <div style="font-size:.78em; color:#0369a1; font-weight:600; margin-bottom:4px;">💡 Think of it like…</div>
         <div style="font-size:.82em; color:#374151; line-height:1.5;">Registering a shipping address before you can send or receive packages. You only do this once.</div>
       </div>
-      <div style="font-size:.82em; color:#6b7280;">✅ <strong>Business benefit:</strong> One-time setup — connects your company to any regulator that supports APIX.</div>
+      <div style="font-size:.82em; color:#6b7280;">✅ <strong>Business benefit:</strong> One-time setup — connects your company to any regulator that supports RWI-pharma.</div>
       <div style="margin-top:10px;"><a href="apixorganizationEndpoint.html" style="font-size:.82em; color:#2563eb; font-weight:600; text-decoration:none;">Deep dive: Organization &amp; Endpoint →</a></div>
     </div>
   </div>
@@ -97,7 +97,7 @@
           <span style="background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:4px 10px; border-radius:4px; font-size:.75em; font-weight:600;">Decision Letter</span>
         </div>
       </div>
-      <div style="margin-top:10px;"><a href="apixtask.html" style="font-size:.82em; color:#7c3aed; font-weight:600; text-decoration:none;">Deep dive: APIX Task Structure →</a></div>
+      <div style="margin-top:10px;"><a href="apixtask.html" style="font-size:.82em; color:#7c3aed; font-weight:600; text-decoration:none;">Deep dive: RWI-pharma Task Structure →</a></div>
     </div>
   </div>
 </div>
@@ -247,7 +247,7 @@
 <h2 style="font-size:1.2em; font-weight:700; color:#111827; margin-bottom:12px;">Validate &amp; Build</h2>
 <p style="font-size:.88em; color:#374151; line-height:1.6; margin-bottom:10px;">Once you have reviewed the architecture and workflow:</p>
 <ol style="font-size:.88em; color:#374151; padding-left:20px; line-height:1.9; margin-bottom:32px;">
-  <li><strong>Validate your FHIR resources</strong> — Use the <a href="https://validator.fhir.org" target="_blank" style="color:#2563eb; font-weight:600;">Official FHIR Validator</a> with the APIX IG package to check compliance with the profiles defined in this guide.</li>
+  <li><strong>Validate your FHIR resources</strong> — Use the <a href="https://validator.fhir.org" target="_blank" style="color:#2563eb; font-weight:600;">Official FHIR Validator</a> with the RWI-pharma IG package to check compliance with the profiles defined in this guide.</li>
   <li><strong>Test end-to-end</strong> — Post a Task to a test FHIR server, subscribe to status changes, and verify that notifications arrive at your webhook endpoint.</li>
   <li><strong>Connect your RIM</strong> — Use the provided examples as templates. Start with a simple shelf-life variation submission to establish connectivity.</li>
 </ol>
