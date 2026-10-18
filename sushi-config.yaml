@@ -72,10 +72,10 @@ menu:
   Use Cases: usecases.html
   Workflow: workflow.html
   Notifications: subscriptions.html
+  Terminology: terminology.html
   Technical Details:
     Architecture: architecture.html
     Interaction Pattern: apixinteractionpattern.html
-    Terminology: terminology.html
   Key Resources:
     RWI-pharma Task: apixtask.html
     Subscription: apixsubscription.html

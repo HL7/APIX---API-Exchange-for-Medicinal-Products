@@ -9,6 +9,8 @@
 <!-- 5-STEP DETAILED WALKTHROUGH               -->
 <!-- ========================================= -->
 
+### Step 1: Connect via API
+
 <!-- STEP 1: CONNECT -->
 <div style="background:#fff; border:1px solid #bfdbfe; border-left:5px solid #2563eb; border-radius:10px; padding:28px 32px; margin-bottom:20px; position:relative;">
   <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
@@ -16,8 +18,6 @@
       <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#eff6ff,#dbeafe); border:3px solid #2563eb; display:flex; align-items:center; justify-content:center; font-size:1.5em; font-weight:800; color:#2563eb;">1</div>
     </div>
     <div style="flex:1; min-width:260px;">
-      <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#2563eb; margin-bottom:4px;">Step 1</div>
-      <div style="font-weight:800; color:#111827; font-size:1.15em; margin-bottom:8px;">Connect via API</div>
       <p style="font-size:.9em; color:#374151; line-height:1.65; margin-bottom:12px;">Register your <strong>Organization</strong> and <strong>Endpoint</strong> on the receiving party's FHIR server, whether that is a regulator or a company. This tells the other party who you are and where to send notifications back to you.</p>
       <div style="background:#f0f9ff; border-radius:6px; padding:10px 14px; margin-bottom:12px;">
         <div style="font-size:.78em; color:#0369a1; font-weight:600; margin-bottom:4px;">💡 Think of it like…</div>
@@ -29,6 +29,8 @@
   </div>
 </div>
 
+### Step 2: Stream Files as Binary
+
 <!-- STEP 2: STREAM -->
 <div style="background:#fff; border:1px solid #99f6e4; border-left:5px solid #0d9488; border-radius:10px; padding:28px 32px; margin-bottom:20px; position:relative;">
   <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
@@ -36,8 +38,6 @@
       <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#f0fdfa,#ccfbf1); border:3px solid #0d9488; display:flex; align-items:center; justify-content:center; font-size:1.5em; font-weight:800; color:#0d9488;">2</div>
     </div>
     <div style="flex:1; min-width:260px;">
-      <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#0d9488; margin-bottom:4px;">Step 2</div>
-      <div style="font-weight:800; color:#111827; font-size:1.15em; margin-bottom:8px;">Stream Files as Binary</div>
       <p style="font-size:.9em; color:#374151; line-height:1.65; margin-bottom:12px;">Upload any file type — <strong>PDF, DOCX, XML, JSON, data sets</strong> — to the receiving party's FHIR server as a <strong>Binary</strong> resource. Files are stored securely and accessed on-demand by the recipient.</p>
       <div style="background:#f0fdfa; border-radius:6px; padding:10px 14px; margin-bottom:12px;">
         <div style="font-size:.78em; color:#0f766e; font-weight:600; margin-bottom:4px;">💡 Think of it like…</div>
@@ -49,6 +49,8 @@
   </div>
 </div>
 
+### Step 3: Describe with DocumentReference
+
 <!-- STEP 3: DESCRIBE -->
 <div style="background:#fff; border:1px solid #fed7aa; border-left:5px solid #ea580c; border-radius:10px; padding:28px 32px; margin-bottom:20px; position:relative;">
   <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
@@ -56,8 +58,6 @@
       <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#fff7ed,#fed7aa); border:3px solid #ea580c; display:flex; align-items:center; justify-content:center; font-size:1.5em; font-weight:800; color:#ea580c;">3</div>
     </div>
     <div style="flex:1; min-width:260px;">
-      <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#ea580c; margin-bottom:4px;">Step 3</div>
-      <div style="font-weight:800; color:#111827; font-size:1.15em; margin-bottom:8px;">Describe with DocumentReference</div>
       <p style="font-size:.9em; color:#374151; line-height:1.65; margin-bottom:12px;">For each Binary you uploaded, create a <strong>DocumentReference</strong> resource that captures metadata — the file's <strong>category, version, type, and CTD section</strong>. This lets the recipient search, filter, and discover your documents without downloading them. In Step 4, these DocumentReferences are attached to a Task as inputs (if you created the Task) or outputs (if you are doing the work it asks for).</p>
       <div style="background:#fff7ed; border-radius:6px; padding:10px 14px; margin-bottom:12px;">
         <div style="font-size:.78em; color:#c2410c; font-weight:600; margin-bottom:4px;">💡 Think of it like…</div>
@@ -69,6 +69,8 @@
   </div>
 </div>
 
+### Step 4: Orchestrate with Task
+
 <!-- STEP 4: ORCHESTRATE -->
 <div style="background:#fff; border:1px solid #e9d5ff; border-left:5px solid #7c3aed; border-radius:10px; padding:28px 32px; margin-bottom:20px; position:relative;">
   <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
@@ -76,8 +78,6 @@
       <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#faf5ff,#e9d5ff); border:3px solid #7c3aed; display:flex; align-items:center; justify-content:center; font-size:1.5em; font-weight:800; color:#7c3aed;">4</div>
     </div>
     <div style="flex:1; min-width:260px;">
-      <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#7c3aed; margin-bottom:4px;">Step 4</div>
-      <div style="font-weight:800; color:#111827; font-size:1.15em; margin-bottom:8px;">Orchestrate with Task</div>
       <p style="font-size:.9em; color:#374151; line-height:1.65; margin-bottom:12px;">Create a <strong>FHIR Task</strong> resource to initiate and track a regulatory activity — <em>any type of regulatory activity for human biopharmaceutical products</em>. The Task carries the DocumentReferences in both directions and progresses through status changes as the procedure advances.</p>
       <div style="background:#faf5ff; border-radius:6px; padding:10px 14px; margin-bottom:12px;">
         <div style="font-size:.78em; color:#7e22ce; font-weight:600; margin-bottom:4px;">💡 Think of it like…</div>
@@ -159,6 +159,8 @@
   </div>
 </div>
 
+### Step 5: Subscribe for Real-Time Updates
+
 <!-- STEP 5: SUBSCRIBE -->
 <div style="background:#fff; border:1px solid #a7f3d0; border-left:5px solid #059669; border-radius:10px; padding:28px 32px; margin-bottom:32px; position:relative;">
   <div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
@@ -166,8 +168,6 @@
       <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#ecfdf5,#a7f3d0); border:3px solid #059669; display:flex; align-items:center; justify-content:center; font-size:1.5em; font-weight:800; color:#059669;">5</div>
     </div>
     <div style="flex:1; min-width:260px;">
-      <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:#059669; margin-bottom:4px;">Step 5</div>
-      <div style="font-weight:800; color:#111827; font-size:1.15em; margin-bottom:8px;">Subscribe for Real-Time Updates</div>
       <p style="font-size:.9em; color:#374151; line-height:1.65; margin-bottom:12px;">Set up a <strong>Subscription</strong> to receive instant notifications whenever Tasks are updated as the regulatory activity progresses. Both parties subscribe — so both sides know immediately when something changes.</p>
       <div style="background:#ecfdf5; border-radius:6px; padding:10px 14px; margin-bottom:12px;">
         <div style="font-size:.78em; color:#047857; font-weight:600; margin-bottom:4px;">💡 Think of it like…</div>
@@ -182,7 +182,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- PRE-REQUISITES -->
-<h2 style="font-size:1.2em; font-weight:700; color:#111827; margin-bottom:16px;">Prerequisites</h2>
+### Prerequisites
+
 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:36px;">
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:18px;">
     <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6b7280; margin-bottom:6px;">Required</div>
@@ -204,7 +205,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- VALIDATE & BUILD -->
-<h2 style="font-size:1.2em; font-weight:700; color:#111827; margin-bottom:12px;">Validate &amp; Build</h2>
+### Validate & Build
+
 <p style="font-size:.88em; color:#374151; line-height:1.6; margin-bottom:10px;">Once you have reviewed the architecture and workflow:</p>
 <ol style="font-size:.88em; color:#374151; padding-left:20px; line-height:1.9; margin-bottom:32px;">
   <li><strong>Validate your FHIR resources</strong> — Use the <a href="https://validator.fhir.org" target="_blank" style="color:#2563eb; font-weight:600;">Official FHIR Validator</a> with the RWI-pharma IG package to check compliance with the profiles defined in this guide.</li>

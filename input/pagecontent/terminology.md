@@ -3,6 +3,16 @@
   <p style="font-size:.9em; color:#78350f; line-height:1.65; margin:0;">Each regulator will have its own terminology to suit its unique processes and requirements. The code systems and value sets on this page are <strong>examples</strong>, intended to show how Task codes, business statuses, and input and output types <em>can</em> be organised for different kinds of regulatory interaction. They are not a required or harmonised vocabulary.</p>
 </div>
 
+<style>
+table.term-table {width:100%; border-collapse:collapse; margin:4px 0 22px; font-size:.86em; line-height:1.5;}
+table.term-table th {background:#f3f4f6; color:#111827; font-weight:700; text-align:left; padding:8px 10px; border:1px solid #d1d5db;}
+table.term-table td {padding:7px 10px; border:1px solid #e5e7eb; vertical-align:top;}
+table.term-table tbody tr:nth-child(even) td {background:#f9fafb;}
+table.term-table td:first-child {white-space:nowrap;}
+table.term-table code {background:#eef2ff; color:#3730a3; padding:1px 5px; border-radius:4px; font-size:.95em;}
+table.term-io th:nth-child(3), table.term-io th:nth-child(4), table.term-io td:nth-child(3), table.term-io td:nth-child(4) {text-align:center; width:70px; color:#047857; font-weight:700;}
+</style>
+
 This page shows example values for the four [Task](apixtask.html) elements that carry regulatory meaning, grouped by domain: Market Authorization, Clinical Trials, and Individual Case Safety Reports (ICSR).
 
 ### How the terminology is organised
@@ -15,6 +25,7 @@ There are three code systems. Each domain section below has an example value set
 | `Task.businessStatus` | `apix-business-status` | `apix-ma-business-status-vs`, `apix-ct-business-status-vs`, `apix-icsr-business-status-vs` |
 | `Task.input.type` | `apix-task-input-output-type` | `apix-ma-task-input-type-vs`, `apix-ct-task-input-type-vs`, `apix-icsr-task-input-type-vs` |
 | `Task.output.type` | `apix-task-input-output-type` (same code system) | `apix-ma-task-output-type-vs`, `apix-ct-task-output-type-vs`, `apix-icsr-task-output-type-vs` |
+{: .term-table}
 
 Conventions used throughout:
 
@@ -23,9 +34,7 @@ Conventions used throughout:
 - **Task codes are hierarchical.** Grouping codes (marked *grouping*) organise the Market Authorization sub-areas and the domain roots, so a value set can include a whole branch.
 - **Shared terms.** Some business statuses and input/output types apply to every domain. They are listed once, in [Shared terms](#shared-terms), and included in each domain's value sets.
 
-<a id="shared-terms"></a>
-
-### Shared terms
+### Shared terms {#shared-terms}
 
 Used by all three domains.
 
@@ -46,6 +55,7 @@ Used by all three domains.
 | `approved` | Approved | The application has been approved. |
 | `rejected` | Rejected | The application has been rejected. |
 | `withdrawn` | Withdrawn | The application has been withdrawn by the applicant. |
+{: .term-table}
 
 #### Input and output types (shared)
 
@@ -61,18 +71,20 @@ Used by all three domains.
 | `questionnaire` | Questionnaire | Structured list of questions. |
 | `questionnaire-response` | Questionnaire Response | Structured answers to a questionnaire. |
 | `correspondence` | Correspondence | General correspondence between the parties. |
+{: .term-table}
 
 
-### 1. Market Authorization
+### Market Authorization
 
-#### 1.A Task codes — `apix-ma-task-code-vs`
+#### Task codes — `apix-ma-task-code-vs`
 
 | Code | Display | Definition |
 |---|---|---|
 | `market-authorization` *(grouping)* | Market Authorization | Grouping: Tasks for the marketing authorization lifecycle of a human biopharmaceutical product. |
+{: .term-table}
 
 
-##### 1.1 Pre-submission
+##### Pre-submission
 
 | Code | Display | Definition |
 |---|---|---|
@@ -82,9 +94,10 @@ Used by all three domains.
 | &nbsp;&nbsp;&nbsp;&nbsp;`eligibility-request` | Eligibility Request | Request to confirm eligibility for a procedure or route (e.g., EU centralised procedure eligibility). |
 | &nbsp;&nbsp;&nbsp;&nbsp;`designation-request` | Designation Request | Request for a designation or expedited pathway (e.g., orphan, breakthrough therapy, PRIME, priority review). |
 | &nbsp;&nbsp;&nbsp;&nbsp;`notice-of-intent-to-submit` | Notice of Intent to Submit | Notification of the planned submission date and scope of a marketing application. |
+{: .term-table}
 
 
-##### 1.2 NDA/MAA
+##### NDA/MAA
 
 | Code | Display | Definition |
 |---|---|---|
@@ -101,9 +114,10 @@ Used by all three domains.
 | &nbsp;&nbsp;&nbsp;&nbsp;`resubmission` | Resubmission | Applicant resubmits an application after a negative or complete-response decision. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`appeal` | Appeal / Re-examination | Applicant requests formal dispute resolution, re-examination, or appeal of a decision. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`withdrawal` | Withdrawal by Applicant | Applicant withdraws the procedure. |
+{: .term-table}
 
 
-##### 1.3 Payments
+##### Payments
 
 | Code | Display | Definition |
 |---|---|---|
@@ -112,9 +126,10 @@ Used by all three domains.
 | &nbsp;&nbsp;&nbsp;&nbsp;`request-payment` | Request Payment | Requested payment of regulatory fees. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`fee-waiver-request` | Fee Waiver or Reduction Request | Applicant requests a waiver, reduction, or deferral of fees. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`refund-request` | Refund Request | Applicant requests a refund of fees paid. |
+{: .term-table}
 
 
-##### 1.4 Question and response
+##### Question and response
 
 | Code | Display | Definition |
 |---|---|---|
@@ -123,9 +138,10 @@ Used by all three domains.
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`list-of-outstanding-issues` | List of Outstanding Issues | Regulator issues the issues that remain unresolved after the first round of questions (e.g., EU LoOI). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`clarification-request` | Clarification Request | Regulator requests a minor clarification that does not stop the clock. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`response-timeline-extension-request` | Response Timeline Extension Request | Applicant requests more time to respond to questions (clock-stop extension). |
+{: .term-table}
 
 
-##### 1.5 Label negotiation
+##### Label negotiation
 
 | Code | Display | Definition |
 |---|---|---|
@@ -133,9 +149,10 @@ Used by all three domains.
 | &nbsp;&nbsp;&nbsp;&nbsp;`labelling-proposal` | Labelling Proposal | Applicant submits proposed product information, or a counter-proposal, for review. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`labelling-comments` | Labelling Comments | Regulator returns comments on, or a revised version of, the proposed product information for the applicant to accept or counter-propose. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`labelling-agreement` | Labelling Agreement | Regulator and applicant confirm the final agreed product information text. |
+{: .term-table}
 
 
-##### 1.6 Post-approval changes
+##### Post-approval changes
 
 | Code | Display | Definition |
 |---|---|---|
@@ -151,9 +168,10 @@ Used by all three domains.
 | &nbsp;&nbsp;&nbsp;&nbsp;`annual-report` | Annual / Periodic Report (Authorized Product) | Periodic report for an authorized product (e.g., PSUR/PBRER, US NDA/BLA annual report). Clinical-trial annual reports use annual-safety-report. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`renewal` | Renewal | Renewal of a marketing authorisation. |
 | &nbsp;&nbsp;&nbsp;&nbsp;`marketing-authorisation-transfer` | Marketing Authorisation Transfer | Transfer of a marketing authorisation to a new holder. |
+{: .term-table}
 
 
-#### 1.B Business status — `apix-ma-business-status-vs`
+#### Business status — `apix-ma-business-status-vs`
 
 Domain-specific statuses:
 
@@ -196,6 +214,7 @@ Domain-specific statuses:
 | `labelling-agreed` | Labelling Agreed | Applicant and regulator have agreed the product information text. |
 | `notification-accepted` | Notification Accepted | A notified change (e.g., Type IA) has been accepted. |
 | `change-implemented` | Change Implemented | The approved change has been implemented. |
+{: .term-table}
 
 
 Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`, `validation-successful`, `validation-failed`, `under-assessment`, `clock-stop`, `clock-restart`, `consolidated-review`, `decision-pending`, `approved`, `rejected`, `withdrawn`.
@@ -211,7 +230,7 @@ Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`
 - *Post-approval change:* submitted → received → validation-successful → under-assessment → decision-pending → approved → change-implemented (Type IA: submitted → notification-accepted)
 
 
-#### 1.C Input and output types — `apix-ma-task-input-type-vs` / `apix-ma-task-output-type-vs`
+#### Input and output types — `apix-ma-task-input-type-vs` / `apix-ma-task-output-type-vs`
 
 Domain-specific types:
 
@@ -240,6 +259,7 @@ Domain-specific types:
 | `change-description` | Change Description and Justification | Description of the proposed change, with current vs proposed comparison and justification. |
 | `complete-response-letter` | Complete Response Letter | Letter describing the deficiencies that prevent approval. |
 | `approval-letter` | Approval Letter | Letter granting approval or authorization. |
+{: .term-table}
 
 Value set membership (including shared types):
 
@@ -278,11 +298,12 @@ Value set membership (including shared types):
 | `change-description` | Change Description and Justification | ✓ |  |
 | `complete-response-letter` | Complete Response Letter |  | ✓ |
 | `approval-letter` | Approval Letter |  | ✓ |
+{: .term-table .term-io}
 
 
-### 2. Clinical Trials
+### Clinical Trials
 
-#### 2.A Task codes — `apix-ct-task-code-vs`
+#### Task codes — `apix-ct-task-code-vs`
 
 | Code | Display | Definition |
 |---|---|---|
@@ -304,12 +325,13 @@ Value set membership (including shared types):
 | `clinical-trial-results-summary` | Clinical Trial Results Summary | Summary of results (and lay summary) after the end of the trial. |
 | `clinical-hold` | Clinical Hold | Regulator orders a delay or suspension of a proposed or ongoing trial (US IND). |
 | `clinical-hold-response` | Complete Response to Clinical Hold | Sponsor responds to all clinical hold issues and requests that the hold be lifted. |
+{: .term-table}
 
 
 Also included from Market Authorization: `information-request`, `withdrawal`.
 
 
-#### 2.B Business status — `apix-ct-business-status-vs`
+#### Business status — `apix-ct-business-status-vs`
 
 Domain-specific statuses:
 
@@ -328,6 +350,7 @@ Domain-specific statuses:
 | `trial-ended` | Trial Ended | The trial has ended. |
 | `terminated-early` | Terminated Early | The trial was terminated early. |
 | `results-submitted` | Results Submitted | The results summary has been submitted. |
+{: .term-table}
 
 
 Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`, `validation-successful`, `validation-failed`, `under-assessment`, `clock-stop`, `clock-restart`, `decision-pending`, `withdrawn`.
@@ -339,7 +362,7 @@ Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`
 - *Trial lifecycle:* authorised → trial-ongoing → recruitment-ended → trial-ended → results-submitted (or temporarily-halted / terminated-early)
 
 
-#### 2.C Input and output types — `apix-ct-task-input-type-vs` / `apix-ct-task-output-type-vs`
+#### Input and output types — `apix-ct-task-input-type-vs` / `apix-ct-task-output-type-vs`
 
 Domain-specific types:
 
@@ -357,6 +380,7 @@ Domain-specific types:
 | `request-for-information` | Request for Information | Questions from the regulator during assessment of a trial. |
 | `authorisation-decision` | Authorisation Decision | Decision on a clinical trial application or modification. |
 | `clinical-hold-letter` | Clinical Hold Letter | Letter describing the reasons for a clinical hold. |
+{: .term-table}
 
 Value set membership (including shared types):
 
@@ -384,11 +408,12 @@ Value set membership (including shared types):
 | `request-for-information` | Request for Information | ✓ | ✓ |
 | `authorisation-decision` | Authorisation Decision |  | ✓ |
 | `clinical-hold-letter` | Clinical Hold Letter |  | ✓ |
+{: .term-table .term-io}
 
 
-### 3. Individual Case Safety Reports (ICSR)
+### Individual Case Safety Reports (ICSR)
 
-#### 3.A Task codes — `apix-icsr-task-code-vs`
+#### Task codes — `apix-icsr-task-code-vs`
 
 | Code | Display | Definition |
 |---|---|---|
@@ -399,12 +424,13 @@ Value set membership (including shared types):
 | `icsr-nullification` | ICSR Nullification | ICH E2B(R3) report that nullifies a previously sent report, for example a duplicate or invalid case (C.1.11.1 = Nullification, reason in C.1.11.2). |
 | `susar-report` | SUSAR Report | Expedited ICH E2B(R3) report of a suspected unexpected serious adverse reaction in a clinical trial (e.g., EU CTR SUSAR, US IND safety report). |
 | `follow-up-information-request` | Follow-up Information Request | Receiver asks the sender for additional information on a case. |
+{: .term-table}
 
 
 Also included from Market Authorization: `withdrawal`.
 
 
-#### 3.B Business status — `apix-icsr-business-status-vs`
+#### Business status — `apix-icsr-business-status-vs`
 
 Domain-specific statuses:
 
@@ -418,6 +444,7 @@ Domain-specific statuses:
 | `follow-up-requested` | Follow-up Requested | The receiver has requested more information on the case. |
 | `duplicate-identified` | Duplicate Identified | The case was identified as a duplicate of an existing case. |
 | `case-nullified` | Case Nullified | A nullification report for the case has been accepted. |
+{: .term-table}
 
 
 Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`, `validation-failed`, `withdrawn`.
@@ -428,7 +455,7 @@ Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`
 - *ICSR:* submitted → received → transmission-accepted (AA) | transmission-partially-accepted (AE) | transmission-rejected (AR); then, for each report, icsr-accepted (CA) | icsr-rejected (CR) → (follow-up-requested)
 
 
-#### 3.C Input and output types — `apix-icsr-task-input-type-vs` / `apix-icsr-task-output-type-vs`
+#### Input and output types — `apix-icsr-task-input-type-vs` / `apix-icsr-task-output-type-vs`
 
 Domain-specific types:
 
@@ -439,6 +466,7 @@ Domain-specific types:
 | `icsr-acknowledgment` | ICSR Acknowledgment | ICH E2B(R3) acknowledgment message returned for an ICSR message, carrying the transmission (ACK.A.4) and report (ACK.B.r.6) acknowledgment codes. |
 | `follow-up-questions` | Follow-up Questions | Questions about a case sent by the receiver. |
 | `follow-up-response` | Follow-up Response | Answers to follow-up questions about a case. |
+{: .term-table}
 
 Value set membership (including shared types):
 
@@ -452,6 +480,7 @@ Value set membership (including shared types):
 | `icsr-acknowledgment` | ICSR Acknowledgment |  | ✓ |
 | `follow-up-questions` | Follow-up Questions | ✓ |  |
 | `follow-up-response` | Follow-up Response |  | ✓ |
+{: .term-table .term-io}
 
 
 The content of the ICSR itself (case, reporter, reactions, drugs) stays in the ICH E2B(R3) message carried as `icsr-message`. These codes only describe the exchange around it.

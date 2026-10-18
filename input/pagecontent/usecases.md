@@ -25,10 +25,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- USE CASE 1: UNIVERSAL SUBMISSIONS -->
-<div id="universal-submissions" style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
-  <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#2563eb; color:#fff; font-weight:800; font-size:.9em; flex-shrink:0;">1</span>
-  <h2 style="font-size:1.4em; font-weight:800; color:#111827; margin:0;">Universal Submissions</h2>
-</div>
+### Universal Submissions {#universal-submissions}
+
 <p style="font-size:.92em; color:#4b5563; line-height:1.65; max-width:760px; margin:0 0 20px;">Every regulatory interaction uses the same building blocks: files are uploaded as <a href="architecture.html#binary-upload-guide-post-then-link">Binary</a>, described with <a href="apixdocumentReference.html">DocumentReference</a>, and orchestrated by a <a href="apixtask.html">Task</a>. Only the Task type and its documents change from one interaction to the next — not the channel, the portal, or the integration.</p>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:40px;">
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:18px 20px; display:flex; flex-direction:column;">
@@ -66,10 +64,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- USE CASE 2: REAL-TIME STATUS TRACKING & NOTIFICATIONS -->
-<div id="status-tracking" style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
-  <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#059669; color:#fff; font-weight:800; font-size:.9em; flex-shrink:0;">2</span>
-  <h2 style="font-size:1.4em; font-weight:800; color:#111827; margin:0;">Real-Time Status Tracking &amp; Notifications</h2>
-</div>
+### Real-Time Status Tracking & Notifications {#status-tracking}
+
 <p style="font-size:.92em; color:#4b5563; line-height:1.65; max-width:760px; margin:0 0 20px;">A consumer can follow a FedEx or Amazon package from “ordered” to “delivered” and get a notification at every step. RWI-pharma gives every party the same visibility into a regulatory interaction: each milestone is a Task status change, and each change is pushed to subscribers the moment it happens.</p>
 <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:18px 20px; margin-bottom:16px;">
   <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6b7280; margin:0 0 6px;">📦 Package delivery</div>
@@ -85,7 +81,8 @@
 </div>
 <div style="font-size:.85em; margin-bottom:28px;"><a href="subscriptions.html" style="color:#059669; font-weight:600; text-decoration:none;">How notifications work →</a></div>
 
-<h3 id="scenario-examples" style="font-size:1.1em; font-weight:700; color:#111827; margin-bottom:8px;">Examples</h3>
+#### Examples {#scenario-examples}
+
 <p style="font-size:.88em; color:#6b7280; line-height:1.6; max-width:720px; margin-bottom:20px;">Because every milestone is a timestamped, machine-readable event, the raw exchange data can be turned into decision-ready views with no manual data entry. Both examples below are built from the same underlying <code>Task</code> history.</p>
 
 <!-- Scenario Example 1 -->
@@ -438,10 +435,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- USE CASE 3: AUTOMATION -->
-<div id="automation" style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
-  <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#7c3aed; color:#fff; font-weight:800; font-size:.9em; flex-shrink:0;">3</span>
-  <h2 style="font-size:1.4em; font-weight:800; color:#111827; margin:0;">Automation</h2>
-</div>
+### Automation {#automation}
+
 <p style="font-size:.92em; color:#4b5563; line-height:1.65; max-width:760px; margin:0 0 20px;">Because every question and response arrives as a structured, machine-readable Task, the receiving system can act on it the moment it arrives. Nobody has to watch an inbox and decide where each message should go.</p>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
   <div style="background:#fff; border:1px solid #e9d5ff; border-radius:10px; padding:20px;">

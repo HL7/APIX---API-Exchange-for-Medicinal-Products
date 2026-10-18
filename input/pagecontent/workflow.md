@@ -19,7 +19,8 @@
 </div>
 
 <!-- FOUR PHASES -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:16px;">The Four Phases</h2>
+### The Four Phases
+
 
 <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:14px; margin-bottom:32px;">
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:20px;">
@@ -67,7 +68,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- VISUAL WORKFLOW DIAGRAM -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Workflow Diagram</h2>
+### Workflow Diagram
+
 <p style="font-size:.88em; color:#6b7280; margin-bottom:16px;">The following diagram shows the complete lifecycle of a regulatory procedure through RWI-pharma — illustrating the back-and-forth exchange between Company and Regulator across all four phases.</p>
 
 <div style="text-align:center; margin:20px 0 16px;">
@@ -77,7 +79,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 32px;"/>
 
 <!-- KEY CONCEPTS -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:16px;">Key Concepts</h2>
+### Key Concepts
+
 
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:18px;">
@@ -101,7 +104,8 @@
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- STEP-BY-STEP WALKTHROUGH -->
-<h2 id="walkthrough" style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:8px;">Step-by-Step Walkthrough: Shelf-Life Update</h2>
+### Step-by-Step Walkthrough: Shelf-Life Update {#walkthrough}
+
 <p style="font-size:.88em; color:#6b7280; line-height:1.6; margin-bottom:16px;">The detailed exchange for a shelf-life update, with links to the example Task resources at each step. Jump straight to a key example:</p>
 
 <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px;">
