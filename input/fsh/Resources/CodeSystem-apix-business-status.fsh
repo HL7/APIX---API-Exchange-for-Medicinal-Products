@@ -23,3 +23,8 @@ Description: "Code system for regulatory business status in APIX submissions"
 * #withdrawn "Withdrawn" "The application has been withdrawn by the applicant."
 * #payment-requested "Payment Requested" "A fee payment has been requested by the regulator."
 * #payment-received "Payment Received" "The fee payment has been received and confirmed."
+
+// Statuses used by the ICSR and clinical trial application examples (see the Terminology page)
+* #icsr-accepted "Report Accepted (CA)" "The individual report was accepted. ICH E2B(R3) report acknowledgment code CA (ACK.B.r.6)."
+* #request-for-information-issued "Request for Information Issued" "The regulator has sent a request for information to the sponsor."
+* #authorised "Authorised" "The trial or modification has been authorised."

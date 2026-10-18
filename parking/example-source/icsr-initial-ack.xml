@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated ICH E2B(R3) message: the structure follows the
+     E2B(R3) HL7 v3 schema (MCCI_IN200101UV01 acknowledgment) but only key data elements are
+     shown, and it has not been validated against the ICH schemas. Data element numbers are given in comments. -->
+<MCCI_IN200101UV01 xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+  <id root="2.16.840.1.113883.3.989.2.1.3.20" extension="HA-ACK-2026-778001"/>
+  <creationTime value="20261002094512+0200"/>
+  <interactionId root="2.16.840.1.113883.1.6" extension="MCCI_IN200101UV01"/>
+  <MCCI_IN000002UV01>
+    <id root="2.16.840.1.113883.3.989.2.1.3.24" extension="HA-ACK-2026-778001-1"/>
+    <creationTime value="20261002094512+0200"/>
+    <interactionId root="2.16.840.1.113883.1.6" extension="MCCI_IN000002UV01"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="NE"/>
+    <receiver typeCode="RCV"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.18" extension="SYNTHPHARMA-AG"/></device></receiver>
+    <sender typeCode="SND"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.17" extension="HA-PHARMACOVIGILANCE"/></device></sender>
+    <acknowledgement typeCode="CA">                                                   <!-- ACK.B.r.6 report acknowledgment code: CA = commit accept -->
+      <targetMessage><id root="2.16.840.1.113883.3.989.2.1.3.1" extension="SYNTH-MSG-2026-000456-1"/></targetMessage>  <!-- the ICSR message being acknowledged -->
+    </acknowledgement>
+  </MCCI_IN000002UV01>
+  <acknowledgement typeCode="AA">                                                     <!-- ACK.A.4 transmission acknowledgment code: AA = all reports loaded -->
+    <targetBatch><id root="2.16.840.1.113883.3.989.2.1.3.22" extension="SYNTH-BATCH-2026-000123"/></targetBatch>  <!-- the batch being acknowledged -->
+  </acknowledgement>
+</MCCI_IN200101UV01>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated ICH E2B(R3) message: the structure follows the
+     E2B(R3) HL7 v3 schema (MCCI_IN200100UV01 batch / PORR_IN049016UV message) but only key data elements are
+     shown, and it has not been validated against the ICH schemas. Data element numbers are given in comments. -->
+<MCCI_IN200100UV01 xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ITSVersion="XML_1.0">
+  <id root="2.16.840.1.113883.3.989.2.1.3.22" extension="SYNTH-BATCH-2026-000123"/>                 <!-- N.1.2 batch number -->
+  <creationTime value="20261002093000+0200"/>                                                   <!-- N.1.5 date of batch transmission -->
+  <responseModeCode code="D"/>
+  <interactionId root="2.16.840.1.113883.1.6" extension="MCCI_IN200100UV01"/>
+  <name code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.1" displayName="ichicsr"/>  <!-- N.1.1 type of messages in batch -->
+  <PORR_IN049016UV>
+    <id root="2.16.840.1.113883.3.989.2.1.3.1" extension="SYNTH-MSG-2026-000456-1"/>                   <!-- N.2.r.1 message identifier -->
+    <creationTime value="20261002093000+0200"/>                                                 <!-- N.2.r.4 date of message creation -->
+    <interactionId root="2.16.840.1.113883.1.6" extension="PORR_IN049016UV"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.12" extension="HA-PHARMACOVIGILANCE"/></device></receiver>  <!-- N.2.r.3 -->
+    <sender typeCode="SND"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.11" extension="SYNTHPHARMA-AG"/></device></sender>             <!-- N.2.r.2 -->
+    <controlActProcess classCode="CACT" moodCode="EVN">
+      <code code="PORR_TE049016UV" codeSystem="2.16.840.1.113883.1.18"/>
+      <effectiveTime value="20261002093000+0200"/>                                              <!-- C.1.2 date of creation -->
+      <subject typeCode="SUBJ">
+        <investigationEvent classCode="INVSTG" moodCode="EVN">
+          <id root="2.16.840.1.113883.3.989.2.1.3.1" extension="CH-SYNTHPHARMA-2026-000456"/>   <!-- C.1.1 sender's safety report unique identifier -->
+          <id root="2.16.840.1.113883.3.989.2.1.3.2" extension="CH-SYNTHPHARMA-2026-000456"/>   <!-- C.1.8.1 worldwide unique case identification number -->
+          <code code="PAT_ADV_EVNT" codeSystem="2.16.840.1.113883.5.4"/>
+          <text>54-year-old female patient started WonderDrug 50 mg tablets once daily on 20-Sep-2026. On 26-Sep-2026 she developed nausea. The reporting physician considered the event non-serious and possibly related.</text>                                                     <!-- H.1 case narrative -->
+          <statusCode code="active"/>
+          <effectiveTime><low value="20260928"/></effectiveTime>                         <!-- C.1.4 date report was first received from source -->
+          <availabilityTime value="20260928"/>                                      <!-- C.1.5 date of most recent information -->
+          <component typeCode="COMP">
+            <adverseEventAssessment classCode="INVSTG" moodCode="EVN">
+              <subject1 typeCode="SBJ">
+                <primaryRole classCode="INVSBJ">
+                  <player1 classCode="PSN" determinerCode="INSTANCE">
+                    <name>JD</name>                                                       <!-- D.1 patient (initials) -->
+                    <administrativeGenderCode code="2" codeSystem="1.0.5218" displayName="female"/>  <!-- D.5 sex -->
+                  </player1>
+                  <subjectOf2 typeCode="SBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <code code="3" codeSystem="2.16.840.1.113883.3.989.2.1.1.19" displayName="age"/>
+                      <value xsi:type="PQ" value="54" unit="a"/>                          <!-- D.2.2 age at time of onset -->
+                    </observation>
+                  </subjectOf2>
+                  <subjectOf2 typeCode="SBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <id root="2.16.840.1.113883.3.989.2.1.3.8" extension="R1"/>
+                      <code code="29" codeSystem="2.16.840.1.113883.3.989.2.1.1.19" displayName="reaction"/>
+                      <effectiveTime xsi:type="IVL_TS"><low value="20260926"/></effectiveTime>  <!-- E.i.4 / E.i.5 -->
+                      <value xsi:type="CE" code="10028813" codeSystem="2.16.840.1.113883.6.163" codeSystemVersion="29.0" displayName="Nausea"/>  <!-- E.i.2.1b MedDRA PT -->
+                      <outboundRelationship2 typeCode="PERT">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <code code="27" codeSystem="2.16.840.1.113883.3.989.2.1.1.19" displayName="outcome"/>
+                          <value xsi:type="CE" code="3" codeSystem="2.16.840.1.113883.3.989.2.1.1.11" displayName="not recovered/not resolved"/>  <!-- E.i.7 outcome -->
+                        </observation>
+                      </outboundRelationship2>
+                    </observation>
+                  </subjectOf2>
+                  <subjectOf2 typeCode="SBJ">
+                    <organizer classCode="CATEGORY" moodCode="EVN">
+                      <code code="4" codeSystem="2.16.840.1.113883.3.989.2.1.1.20" displayName="drugInformation"/>
+                      <component typeCode="COMP">
+                        <substanceAdministration classCode="SBADM" moodCode="EVN">
+                          <id root="2.16.840.1.113883.3.989.2.1.3.5" extension="D1"/>
+                          <consumable typeCode="CSM"><instanceOfKind classCode="INST"><kindOfProduct classCode="MMAT" determinerCode="KIND">
+                            <name>WonderDrug 50 mg tablets</name>                         <!-- G.k.2.2 medicinal product name as reported -->
+                          </kindOfProduct></instanceOfKind></consumable>
+                          <outboundRelationship2 typeCode="COMP"><substanceAdministration classCode="SBADM" moodCode="EVN">
+                            <effectiveTime xsi:type="IVL_TS"><low value="20260920"/></effectiveTime>  <!-- G.k.4.r.4 / G.k.4.r.5 -->
+                            <doseQuantity value="50" unit="mg"/>                          <!-- G.k.4.r.1 dose -->
+                          </substanceAdministration></outboundRelationship2>
+                        </substanceAdministration>
+                      </component>
+                    </organizer>
+                  </subjectOf2>
+                </primaryRole>
+              </subject1>
+            </adverseEventAssessment>
+          </component>
+          <outboundRelationship typeCode="SPRT">
+            <relatedInvestigation classCode="INVSTG" moodCode="EVN">
+              <code code="2" codeSystem="2.16.840.1.113883.3.989.2.1.1.22" displayName="sourceReport"/>
+              <subjectOf2 typeCode="SUBJ"><controlActEvent classCode="CACT" moodCode="EVN"><author typeCode="AUT"><assignedEntity classCode="ASSIGNED">
+                <code code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.6" displayName="physician"/>  <!-- C.2.r.4 qualification -->
+              </assignedEntity></author></controlActEvent></subjectOf2>
+            </relatedInvestigation>
+          </outboundRelationship>
+          <subjectOf2 typeCode="SUBJ">
+            <investigationCharacteristic classCode="OBS" moodCode="EVN">
+              <code code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.23" displayName="ichReportType"/>
+              <value xsi:type="CE" code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.2" displayName="Spontaneous report"/>  <!-- C.1.3 type of report -->
+            </investigationCharacteristic>
+          </subjectOf2>
+        </investigationEvent>
+      </subject>
+    </controlActProcess>
+  </PORR_IN049016UV>
+</MCCI_IN200100UV01>

@@ -362,6 +362,9 @@ Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`
 - *Trial lifecycle:* authorised → trial-ongoing → recruitment-ended → trial-ended → results-submitted (or temporarily-halted / terminated-early)
 
 
+**Worked example:** a clinical trial application from submission to authorisation, including a request for information — [submission](Task-scenario3-01-cta-submission.html), [validated](Task-scenario3-02-cta-validated.html), [request for information](Task-scenario3-03-cta-rfi.html), [response](Task-scenario3-04-cta-rfi-response.html), [authorised](Task-scenario3-05-cta-authorised.html).
+
+
 #### Input and output types — `apix-ct-task-input-type-vs` / `apix-ct-task-output-type-vs`
 
 Domain-specific types:
@@ -396,6 +399,7 @@ Value set membership (including shared types):
 | `questionnaire` | Questionnaire | ✓ |  |
 | `questionnaire-response` | Questionnaire Response |  | ✓ |
 | `correspondence` | Correspondence |  | ✓ |
+| `response-to-questions` | Response to Questions |  | ✓ |
 | `protocol` | Protocol | ✓ |  |
 | `protocol-synopsis` | Protocol Synopsis | ✓ |  |
 | `investigators-brochure` | Investigator’s Brochure | ✓ |  |
@@ -453,6 +457,9 @@ Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`
 **Typical progressions:**
 
 - *ICSR:* submitted → received → transmission-accepted (AA) | transmission-partially-accepted (AE) | transmission-rejected (AR); then, for each report, icsr-accepted (CA) | icsr-rejected (CR) → (follow-up-requested)
+
+
+**Worked example:** an initial and a follow-up ICSR with their E2B(R3) acknowledgments — [initial](Task-scenario2-01-icsr-initial.html), [acknowledged](Task-scenario2-02-icsr-initial-acknowledged.html), [follow-up](Task-scenario2-03-icsr-follow-up.html), [acknowledged](Task-scenario2-04-icsr-follow-up-acknowledged.html).
 
 
 #### Input and output types — `apix-icsr-task-input-type-vs` / `apix-icsr-task-output-type-vs`
