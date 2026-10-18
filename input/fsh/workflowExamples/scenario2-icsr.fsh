@@ -136,7 +136,7 @@ Usage: #example
 * identifier[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docsetid "Document Set Identifier"
 * identifier[0].system = "http://example.org/synthpharma/document-set-id"
 * identifier[0].value = "urn:uuid:2460574f-c235-510e-bc4c-96e063c30df2"
-* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Identifier"
+* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Number Identifier"
 * identifier[1].system = "http://example.org/synthpharma/document-version-id"
 * identifier[1].value = "urn:uuid:c79a91e1-9537-5933-82dd-7ccf8e9e4eb0"
 * status = #current
@@ -162,7 +162,7 @@ Usage: #example
 * identifier[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docsetid "Document Set Identifier"
 * identifier[0].system = "http://example.org/health-authority/document-set-id"
 * identifier[0].value = "urn:uuid:0123b7d5-aa25-5e6f-acb0-d866c50a4975"
-* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Identifier"
+* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Number Identifier"
 * identifier[1].system = "http://example.org/health-authority/document-version-id"
 * identifier[1].value = "urn:uuid:b30a2831-3127-5859-8ab4-7bf7ea3ffb9e"
 * status = #current
@@ -188,7 +188,7 @@ Usage: #example
 * identifier[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docsetid "Document Set Identifier"
 * identifier[0].system = "http://example.org/synthpharma/document-set-id"
 * identifier[0].value = "urn:uuid:2a4760dd-5b90-5daa-9af8-2e479c3e1305"
-* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Identifier"
+* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Number Identifier"
 * identifier[1].system = "http://example.org/synthpharma/document-version-id"
 * identifier[1].value = "urn:uuid:7713b9a6-5c3c-51ad-a580-5d6aaeabfd8a"
 * status = #current
@@ -214,7 +214,7 @@ Usage: #example
 * identifier[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docsetid "Document Set Identifier"
 * identifier[0].system = "http://example.org/health-authority/document-set-id"
 * identifier[0].value = "urn:uuid:282d1ef0-0241-5542-b30c-cd5e47a60605"
-* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Identifier"
+* identifier[1].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Number Identifier"
 * identifier[1].system = "http://example.org/health-authority/document-version-id"
 * identifier[1].value = "urn:uuid:eb5e1a4c-7bdb-5776-94bb-cdfe0e288f28"
 * status = #current

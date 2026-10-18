@@ -37,7 +37,7 @@ Description: "DocumentReference profile used in APIX regulatory submissions. Sup
   * MS
   * system 1..1
   * value 1..1
-  * type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Identifier"
+  * type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#docverid "Document Version Number Identifier"
   
 * status 1..1
   * ^short = "current | superseded | entered-in-error"

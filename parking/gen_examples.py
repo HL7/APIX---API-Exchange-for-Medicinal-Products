@@ -84,7 +84,7 @@ def docref(d, content):
     L = [f'Instance: {d["id"]}', 'InstanceOf: DocumentReference', f'Title: "{q(d["title"])}"', f'Description: "{q(d["desc"])}"', 'Usage: #example',
          '* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"',
          f'* identifier[0].type = {DEMO}#docsetid "Document Set Identifier"', f'* identifier[0].system = "{d["sys"]}/document-set-id"', f'* identifier[0].value = "{u(d["id"]+"-set")}"',
-         f'* identifier[1].type = {DEMO}#docverid "Document Version Identifier"', f'* identifier[1].system = "{d["sys"]}/document-version-id"', f'* identifier[1].value = "{u(d["id"]+"-v1")}"',
+         f'* identifier[1].type = {DEMO}#docverid "Document Version Number Identifier"', f'* identifier[1].system = "{d["sys"]}/document-version-id"', f'* identifier[1].value = "{u(d["id"]+"-v1")}"',
          '* status = #current', '* docStatus = #final', '* version = "1"', f'* type = {IO}#{d["type"]} "{q(IOD[d["type"]])}"',
          f'* date = "{d["date"]}"', f'* author = Reference({a[0]}) "{q(a[1])}"', f'* description = "{q(d["desc"])}"',
          f'* content.attachment.contentType = #{d["mime"]}', f'* content.attachment.url = "Binary/{d["binary"]}"',
