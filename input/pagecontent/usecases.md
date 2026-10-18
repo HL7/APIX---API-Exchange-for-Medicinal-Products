@@ -1,136 +1,96 @@
 <!-- USE CASES PAGE -->
-
-<div style="margin-bottom:32px;">
+<div style="margin-bottom:28px;">
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Use Cases</h2>
-  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">RWI-pharma replaces today's fragmented, procedure-specific exchange mechanisms with a single, unified API doorway for everything.</p>
+  <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:680px;">Once a regulator or company implements RWI-pharma, the same connection pattern supports every regulatory interaction for human biopharmaceutical products. The use cases below show what that makes possible.</p>
 </div>
 
-<!-- THREE CAPABILITY CARDS -->
-<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:32px;">
-  <a href="workflow-overview.html" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:20px; display:block;">
-    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:6px;">Submit</div>
+<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:36px;">
+  <a href="#universal-submissions" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:18px; display:block;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:6px;">Use case 1</div>
     <div style="font-weight:700; color:#111827; margin-bottom:6px;">Universal Submissions</div>
-    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">One FHIR interface covers regulatory procedures across the biopharmaceutical product lifecycle — eliminating per-procedure portal maintenance.</p>
+    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">One pattern for post-approval changes, ICSRs, label negotiation, and health authority questions.</p>
   </a>
-  <a href="subscriptions.html" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #10b981; border-radius:8px; padding:20px; display:block;">
-    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#10b981; margin-bottom:6px;">Track</div>
-    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Real-Time Status</div>
-    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">FedEx-style visibility across the entire portfolio. Every milestone is a timestamped event delivered via real-time subscriptions.</p>
+  <a href="#status-tracking" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #059669; border-radius:8px; padding:18px; display:block;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#059669; margin-bottom:6px;">Use case 2</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Real-Time Status Tracking &amp; Notifications</div>
+    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">Follow every interaction step by step, like tracking a FedEx or Amazon package.</p>
   </a>
-  <a href="apixtask.html" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #8b5cf6; border-radius:8px; padding:20px; display:block;">
-    <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#8b5cf6; margin-bottom:6px;">Decide</div>
-    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Zero-Touch Lifecycle</div>
-    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">Machine-to-machine exchange enables automated validation, instant Q&A routing, and zero-delay decision delivery.</p>
+  <a href="#automation" style="text-decoration:none; background:#fff; border:1px solid #e5e7eb; border-top:3px solid #7c3aed; border-radius:8px; padding:18px; display:block;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#7c3aed; margin-bottom:6px;">Use case 3</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:6px;">Automation</div>
+    <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0;">Route questions and responses to the right people the moment they arrive.</p>
   </a>
-</div>
-
-<div style="text-align:center; margin-bottom:32px;">
-  <a href="workflow-overview.html" style="color:#003087; font-weight:600; font-size:.88em; text-decoration:none;">See the Workflow Overview →</a>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
-<!-- THE DECISIVE ADVANTAGE -->
-<div style="background:linear-gradient(135deg,#eff6ff,#faf5ff); border:1px solid #bfdbfe; border-radius:12px; padding:28px 32px; margin-bottom:32px;">
-  <div style="font-weight:700; color:#111827; font-size:1.05em; margin-bottom:10px;">🏆 The Decisive Advantage</div>
-  <p style="font-size:.88em; color:#374151; line-height:1.7; margin:0;">Once a regulator or company implements RWI-pharma, they gain the ability to receive, process, and exchange <strong>regulatory interactions</strong> for human biopharmaceutical products — clinical trials, marketing authorizations, safety, labelling, requests and responses, and post-approval changes — through the <strong>same single API interface</strong>. Later phases are expected to extend the same framework to other regulated-product domains (see <a href="index.html#scope">Scope</a>).</p>
+<!-- USE CASE 1: UNIVERSAL SUBMISSIONS -->
+<div id="universal-submissions" style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+  <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#2563eb; color:#fff; font-weight:800; font-size:.9em; flex-shrink:0;">1</span>
+  <h2 style="font-size:1.4em; font-weight:800; color:#111827; margin:0;">Universal Submissions</h2>
+</div>
+<p style="font-size:.92em; color:#4b5563; line-height:1.65; max-width:760px; margin:0 0 20px;">Every regulatory interaction uses the same building blocks: files are uploaded as <a href="architecture.html#binary-upload-guide-post-then-link">Binary</a>, described with <a href="apixdocumentReference.html">DocumentReference</a>, and orchestrated by a <a href="apixtask.html">Task</a>. Only the Task type and its documents change from one interaction to the next — not the channel, the portal, or the integration.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:40px;">
+  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:18px 20px; display:flex; flex-direction:column;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:4px;">Post-approval change</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:10px;">Shelf-Life Update</div>
+    <div style="background:#fef2f2; border-radius:6px; padding:8px 12px; margin-bottom:10px; font-size:.8em; color:#7f1d1d; line-height:1.5;"><span style="font-weight:700;">Today:</span> The variation dossier is compiled and uploaded to a procedure-specific portal or gateway; status is chased by email.</div>
+    <div style="font-size:.75em; font-weight:700; color:#065f46; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">With RWI-pharma</div>
+    <ol style="font-size:.82em; color:#374151; line-height:1.6; padding-left:18px; margin:0 0 10px;"><li style="margin-bottom:4px;">Applicant uploads the stability data and updated labelling as Binary + DocumentReference.</li><li style="margin-bottom:4px;">Applicant posts a Task (e.g., <code>supplement</code>) that references the documents in <code>Task.input</code>.</li><li style="margin-bottom:4px;">Regulator validates and reviews, raising questions if needed.</li><li style="margin-bottom:4px;">Regulator completes the Task and attaches the decision letter to <code>Task.output</code>.</li></ol>
+    <div style="font-size:.8em; margin-top:auto;"><a href="workflow.html#walkthrough" style="color:#2563eb; font-weight:600; text-decoration:none;">Full walkthrough →</a> · <a href="Task-scenario1-01-initial-submission.html" style="color:#2563eb; font-weight:600; text-decoration:none;">Example Task</a></div>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #dc2626; border-radius:8px; padding:18px 20px; display:flex; flex-direction:column;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#dc2626; margin-bottom:4px;">Safety reporting</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:10px;">ICSR Submission</div>
+    <div style="background:#fef2f2; border-radius:6px; padding:8px 12px; margin-bottom:10px; font-size:.8em; color:#7f1d1d; line-height:1.5;"><span style="font-weight:700;">Today:</span> Individual case safety reports travel through dedicated safety gateways, separate from every other regulatory channel.</div>
+    <div style="font-size:.75em; font-weight:700; color:#065f46; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">With RWI-pharma</div>
+    <ol style="font-size:.82em; color:#374151; line-height:1.6; padding-left:18px; margin:0 0 10px;"><li style="margin-bottom:4px;">Applicant uploads the ICSR (e.g., ICH E2B(R3) XML) as Binary + DocumentReference.</li><li style="margin-bottom:4px;">Applicant posts a Task for the case report that references it.</li><li style="margin-bottom:4px;">Regulator acknowledges receipt by updating the Task and attaching the acknowledgment to <code>Task.output</code>.</li><li style="margin-bottom:4px;">Follow-up reports for the same case reference the original case Task.</li></ol>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #ea580c; border-radius:8px; padding:18px 20px; display:flex; flex-direction:column;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#ea580c; margin-bottom:4px;">Product information</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:10px;">Label Negotiation</div>
+    <div style="background:#fef2f2; border-radius:6px; padding:8px 12px; margin-bottom:10px; font-size:.8em; color:#7f1d1d; line-height:1.5;"><span style="font-weight:700;">Today:</span> Draft labels go back and forth as email attachments, and version control depends on file names.</div>
+    <div style="font-size:.75em; font-weight:700; color:#065f46; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">With RWI-pharma</div>
+    <ol style="font-size:.82em; color:#374151; line-height:1.6; padding-left:18px; margin:0 0 10px;"><li style="margin-bottom:4px;">Applicant posts the proposed labelling (e.g., ePI or annotated PDF) as a Task input.</li><li style="margin-bottom:4px;">Regulator returns comments or a revised draft in <code>Task.output</code>.</li><li style="margin-bottom:4px;">Each round creates a new Task version, so every proposal and counter-proposal is timestamped.</li><li style="margin-bottom:4px;">The agreed label is attached to the final decision.</li></ol>
+  </div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #0d9488; border-radius:8px; padding:18px 20px; display:flex; flex-direction:column;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#0d9488; margin-bottom:4px;">Requests &amp; responses</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:10px;">Health Authority Question &amp; Response</div>
+    <div style="background:#fef2f2; border-radius:6px; padding:8px 12px; margin-bottom:10px; font-size:.8em; color:#7f1d1d; line-height:1.5;"><span style="font-weight:700;">Today:</span> Information requests arrive by email or letter, and clock stops and deadlines are tracked by hand.</div>
+    <div style="font-size:.75em; font-weight:700; color:#065f46; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;">With RWI-pharma</div>
+    <ol style="font-size:.82em; color:#374151; line-height:1.6; padding-left:18px; margin:0 0 10px;"><li style="margin-bottom:4px;">Regulator posts a question Task (e.g., <code>information-request</code>) with the questions as input.</li><li style="margin-bottom:4px;">Applicant is notified instantly and posts the response in <code>Task.output</code>.</li><li style="margin-bottom:4px;">Regulator reviews the response and completes the question Task; the clock restarts.</li></ol>
+    <div style="font-size:.8em; margin-top:auto;"><a href="Task-scenario1-05-technical-question.html" style="color:#0d9488; font-weight:600; text-decoration:none;">Example question</a> · <a href="Task-scenario1-06-technical-response.html" style="color:#0d9488; font-weight:600; text-decoration:none;">Example response</a></div>
+  </div>
 </div>
 
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
-<!-- PRIORITY USE CASES -->
-<h2 style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:16px;">Priority Use Cases</h2>
-
-<!-- Use Case 1 -->
-<div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #2563eb; border-radius:8px; padding:20px; margin-bottom:14px;">
-  <div style="font-weight:700; color:#111827; margin-bottom:8px;">1. Universal Regulatory Interface</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:8px; font-style:italic;">Exchanging regulatory activities for human biopharmaceutical products through a common standard.</p>
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
-    <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#991b1b; font-size:.78em; margin-bottom:4px;">THE PROBLEM</div>
-      <p style="font-size:.8em; color:#7f1d1d; line-height:1.5; margin:0;">Fragmented channels and proprietary systems across authorities, product lines, and procedures increase complexity and costs.</p>
-    </div>
-    <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#065f46; font-size:.78em; margin-bottom:4px;">THE SOLUTION</div>
-      <p style="font-size:.8em; color:#064e3b; line-height:1.5; margin:0;">A single, common way to exchange regulatory activities based on open web standards.</p>
-    </div>
-    <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#1d4ed8; font-size:.78em; margin-bottom:4px;">THE BENEFIT</div>
-      <p style="font-size:.8em; color:#1e3a5f; line-height:1.5; margin:0;">One platform, one interface, one standard for every regulated interaction across the entire lifecycle.</p>
-    </div>
-  </div>
+<!-- USE CASE 2: REAL-TIME STATUS TRACKING & NOTIFICATIONS -->
+<div id="status-tracking" style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+  <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#059669; color:#fff; font-weight:800; font-size:.9em; flex-shrink:0;">2</span>
+  <h2 style="font-size:1.4em; font-weight:800; color:#111827; margin:0;">Real-Time Status Tracking &amp; Notifications</h2>
+</div>
+<p style="font-size:.92em; color:#4b5563; line-height:1.65; max-width:760px; margin:0 0 20px;">A consumer can follow a FedEx or Amazon package from “ordered” to “delivered” and get a notification at every step. RWI-pharma gives every party the same visibility into a regulatory interaction: each milestone is a Task status change, and each change is pushed to subscribers the moment it happens.</p>
+<div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:18px 20px; margin-bottom:16px;">
+  <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6b7280; margin:0 0 6px;">📦 Package delivery</div>
+  <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;"><div style="flex:1; min-width:90px; text-align:center; background:#fffbeb; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#92400e;">Order placed</div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#fffbeb; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#92400e;">Shipped</div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#fffbeb; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#92400e;">In transit</div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#fffbeb; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#92400e;">Out for delivery</div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#fffbeb; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#92400e;">Delivered</div></div>
+  <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6b7280; margin:0 0 6px;">📋 Regulatory interaction</div>
+  <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;"><div style="flex:1; min-width:90px; text-align:center; background:#ecfdf5; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#047857;">Submitted<br/><code style="font-size:.9em;">requested</code></div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#ecfdf5; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#047857;">Received<br/><code style="font-size:.9em;">received</code></div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#ecfdf5; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#047857;">Validated<br/><code style="font-size:.9em;">accepted</code></div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#ecfdf5; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#047857;">Under review<br/><code style="font-size:.9em;">in-progress</code></div><div style="color:#9ca3af; align-self:center; font-size:.9em;">→</div><div style="flex:1; min-width:90px; text-align:center; background:#ecfdf5; border:1px solid #e5e7eb; border-radius:6px; padding:8px 6px; font-size:.78em; font-weight:600; color:#047857;">Decision<br/><code style="font-size:.9em;">completed</code></div></div>
 </div>
 
-<!-- Use Case 2 -->
-<div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #10b981; border-radius:8px; padding:20px; margin-bottom:14px;">
-  <div style="font-weight:700; color:#111827; margin-bottom:8px;">2. Zero-Touch Lifecycle Management</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:8px; font-style:italic;">Eliminating the manual burden of high-volume variations.</p>
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
-    <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#991b1b; font-size:.78em; margin-bottom:4px;">THE PROBLEM</div>
-      <p style="font-size:.8em; color:#7f1d1d; line-height:1.5; margin:0;">Thousands of minor changes (Type IA/IB) consume vast resources in manual data entry and portal uploads.</p>
-    </div>
-    <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#065f46; font-size:.78em; margin-bottom:4px;">THE SOLUTION</div>
-      <p style="font-size:.8em; color:#064e3b; line-height:1.5; margin:0;">Machine-to-machine exchange. RIM systems auto-compile and submit; regulators auto-validate and accept.</p>
-    </div>
-    <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#1d4ed8; font-size:.78em; margin-bottom:4px;">THE BENEFIT</div>
-      <p style="font-size:.8em; color:#1e3a5f; line-height:1.5; margin:0;"><strong>−80%</strong> reduction in submission preparation time. Zero increase in admin staff for massive volume growth.</p>
-    </div>
-  </div>
+<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:12px;">
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px;"><div style="font-weight:700; color:#003087; font-size:.88em; margin-bottom:4px;">🏷️ Tracking number</div><p style="font-size:.82em; color:#4b5563; line-height:1.55; margin:0;">The <a href="apixtask.html">Task</a> and its <code>groupIdentifier</code> identify the interaction and every related Task in the procedure.</p></div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px;"><div style="font-weight:700; color:#003087; font-size:.88em; margin-bottom:4px;">🔔 Push notifications</div><p style="font-size:.82em; color:#4b5563; line-height:1.55; margin:0;">A <a href="subscriptions.html">Subscription</a> delivers each status change to the subscriber’s endpoint instantly — no portal log-ins, no polling.</p></div>
+  <div style="background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px;"><div style="font-weight:700; color:#003087; font-size:.88em; margin-bottom:4px;">🕓 Delivery history</div><p style="font-size:.82em; color:#4b5563; line-height:1.55; margin:0;">Every Task version is timestamped, so the full history can be replayed as a timeline or rolled up into dashboards.</p></div>
 </div>
+<div style="font-size:.85em; margin-bottom:28px;"><a href="subscriptions.html" style="color:#059669; font-weight:600; text-decoration:none;">How notifications work →</a></div>
 
-<!-- Use Case 3 -->
-<div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #d97706; border-radius:8px; padding:20px; margin-bottom:14px;">
-  <div style="font-weight:700; color:#111827; margin-bottom:8px;">3. Synchronous Regulatory Q&A</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:8px; font-style:italic;">Ending the "Black Box" of communication delays.</p>
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
-    <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#991b1b; font-size:.78em; margin-bottom:4px;">THE PROBLEM</div>
-      <p style="font-size:.8em; color:#7f1d1d; line-height:1.5; margin:0;">Information Requests arrive via email or static letters. Delays are invisible until deadlines are missed.</p>
-    </div>
-    <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#065f46; font-size:.78em; margin-bottom:4px;">THE SOLUTION</div>
-      <p style="font-size:.8em; color:#064e3b; line-height:1.5; margin:0;">Questions arrive as actionable FHIR Tasks directly into workflow systems. Responses route back instantly via API.</p>
-    </div>
-    <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#1d4ed8; font-size:.78em; margin-bottom:4px;">THE BENEFIT</div>
-      <p style="font-size:.8em; color:#1e3a5f; line-height:1.5; margin:0;"><strong>−30%</strong> reduction in total "Clock Stop" duration. Full transparency for both sides.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Use Case 4 -->
-<div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #8b5cf6; border-radius:8px; padding:20px; margin-bottom:14px;">
-  <div style="font-weight:700; color:#111827; margin-bottom:8px;">4. Real-Time Dashboard (FedEx-Style Tracking)</div>
-  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin-bottom:8px; font-style:italic;">Complete visibility across the portfolio.</p>
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
-    <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#991b1b; font-size:.78em; margin-bottom:4px;">THE PROBLEM</div>
-      <p style="font-size:.8em; color:#7f1d1d; line-height:1.5; margin:0;">Companies lack real-time visibility into where their submission sits in the agency's queue.</p>
-    </div>
-    <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#065f46; font-size:.78em; margin-bottom:4px;">THE SOLUTION</div>
-      <p style="font-size:.8em; color:#064e3b; line-height:1.5; margin:0;">Unified status API. Every milestone triggers a real-time update visible in the company's dashboard.</p>
-    </div>
-    <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:6px; padding:12px;">
-      <div style="font-weight:700; color:#1d4ed8; font-size:.78em; margin-bottom:4px;">THE BENEFIT</div>
-      <p style="font-size:.8em; color:#1e3a5f; line-height:1.5; margin:0;"><strong>−95%</strong> reduction in "where is my submission?" admin inquiries. Predictable product launches.</p>
-    </div>
-  </div>
-</div>
-
-<hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 32px;"/>
-
-<!-- SCENARIO EXAMPLES -->
-<h2 id="scenario-examples" style="font-size:1.3em; font-weight:700; color:#111827; margin-bottom:12px;">Scenario Examples</h2>
-
-<p style="font-size:.88em; color:#6b7280; line-height:1.6; max-width:720px; margin-bottom:24px;">Because every regulatory milestone in RWI-pharma is a timestamped, machine-readable event (see <a href="subscriptions.html">Real-Time Subscriptions</a>), the raw exchange data can be transformed into decision-ready visuals with no manual data entry. The worked examples below are all reconstructed from the same underlying <code>Task</code> history.</p>
+<h3 id="scenario-examples" style="font-size:1.1em; font-weight:700; color:#111827; margin-bottom:8px;">Examples</h3>
+<p style="font-size:.88em; color:#6b7280; line-height:1.6; max-width:720px; margin-bottom:20px;">Because every milestone is a timestamped, machine-readable event, the raw exchange data can be turned into decision-ready views with no manual data entry. Both examples below are built from the same underlying <code>Task</code> history.</p>
 
 <!-- Scenario Example 1 -->
 <div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #8b5cf6; border-radius:8px; padding:20px; margin-bottom:24px;">
-  <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#8b5cf6; margin-bottom:6px;">Scenario Example 1 &middot; Use Case 4 &mdash; Real-Time Dashboard (FedEx-Style Tracking)</div>
+  <div style="font-size:.72em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#8b5cf6; margin-bottom:6px;">Scenario Example 1 &middot; Real-Time Status Tracking &amp; Notifications</div>
   <div style="font-weight:700; color:#111827; margin-bottom:8px;">Single-Procedure Lifecycle Timeline (Shelf-Life Update Test Scenario)</div>
   <p style="font-size:.82em; color:#6b7280; line-height:1.6; margin-bottom:14px;">This is the "FedEx tracking view" of one procedure at full fidelity. The timeline below is derived entirely from the timestamped <code>Task</code> versions of the shelf-life update test scenario (procedure <code>NDA-214365-S-021</code>): a terminally rejected first submission, filing review and user-fee clearance, two Information-Request clock stops (RTQ XML), and the closing approval. Hover over any bar or milestone to see the underlying Task ids and status transitions.</p>
 
@@ -475,9 +435,36 @@
 </div>
 </div>
 
-<hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 32px;"/>
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
+
+<!-- USE CASE 3: AUTOMATION -->
+<div id="automation" style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+  <span style="display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:#7c3aed; color:#fff; font-weight:800; font-size:.9em; flex-shrink:0;">3</span>
+  <h2 style="font-size:1.4em; font-weight:800; color:#111827; margin:0;">Automation</h2>
+</div>
+<p style="font-size:.92em; color:#4b5563; line-height:1.65; max-width:760px; margin:0 0 20px;">Because every question and response arrives as a structured, machine-readable Task, the receiving system can act on it the moment it arrives. Nobody has to watch an inbox and decide where each message should go.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
+  <div style="background:#fff; border:1px solid #e9d5ff; border-radius:10px; padding:20px;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#7c3aed; margin-bottom:4px;">Receiving a question</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:14px;">Route questions automatically on receipt</div>
+    <div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">1</span><span style="font-size:.84em; color:#374151; line-height:1.55;">The regulator posts a question Task with the questions attached.</span></div><div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">2</span><span style="font-size:.84em; color:#374151; line-height:1.55;">The applicant’s system is notified instantly through its Subscription.</span></div><div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">3</span><span style="font-size:.84em; color:#374151; line-height:1.55;">Routing rules read the Task — its type, the product, and the CTD sections of the referenced documents.</span></div><div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">4</span><span style="font-size:.84em; color:#374151; line-height:1.55;">The question lands in the right team’s queue (for example CMC, labelling, clinical, or safety), with the response due date taken from the Task.</span></div>
+  </div>
+  <div style="background:#fff; border:1px solid #e9d5ff; border-radius:10px; padding:20px;">
+    <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#7c3aed; margin-bottom:4px;">Receiving a response</div>
+    <div style="font-weight:700; color:#111827; margin-bottom:14px;">Route responses automatically on receipt</div>
+    <div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">1</span><span style="font-size:.84em; color:#374151; line-height:1.55;">The applicant adds its response to the question Task’s <code>Task.output</code>.</span></div><div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">2</span><span style="font-size:.84em; color:#374151; line-height:1.55;">The regulator’s system is notified instantly through its Subscription.</span></div><div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">3</span><span style="font-size:.84em; color:#374151; line-height:1.55;">The response is matched to the original question and procedure through the Task’s identifiers.</span></div><div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px;"><span style="flex-shrink:0; width:24px; height:24px; border-radius:50%; background:#f5f3ff; border:2px solid #7c3aed; color:#7c3aed; font-weight:800; font-size:.75em; display:inline-flex; align-items:center; justify-content:center;">4</span><span style="font-size:.84em; color:#374151; line-height:1.55;">It is routed straight to the reviewer who asked (<code>Task.requester</code>), and the clock restarts.</span></div>
+  </div>
+</div>
+
+<div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px;">
+  <span style="background:#f5f3ff; border:1px solid #e9d5ff; color:#6d28d9; padding:6px 12px; border-radius:6px; font-size:.8em; font-weight:600;">✓ No manual triage</span>
+  <span style="background:#f5f3ff; border:1px solid #e9d5ff; color:#6d28d9; padding:6px 12px; border-radius:6px; font-size:.8em; font-weight:600;">✓ No missed deadlines</span>
+  <span style="background:#f5f3ff; border:1px solid #e9d5ff; color:#6d28d9; padding:6px 12px; border-radius:6px; font-size:.8em; font-weight:600;">✓ Clock stops start and end on their own</span>
+</div>
+
+<hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:14px 18px; font-size:.85em; color:#374151; display:flex; gap:10px; align-items:flex-start;">
   <span style="flex-shrink:0;">ℹ️</span>
-  <span><strong>Note:</strong> For a step-by-step technical walkthrough of these use cases, visit the <a href="workflow-overview.html">Workflow Overview</a> or the <a href="workflow.html">Workflow Deep-Dive</a>.</span>
+  <span><strong>Note:</strong> For a step-by-step technical walkthrough of these use cases, visit the <a href="workflow.html#walkthrough">Workflow</a> page.</span>
 </div>

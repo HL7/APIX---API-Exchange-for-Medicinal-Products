@@ -1,6 +1,6 @@
 <!-- SUBSCRIPTIONS PAGE -->
 <div style="margin-bottom:32px;">
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Real-Time Subscriptions</h2>
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin-bottom:10px;">Notifications</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:640px;">RWI-pharma creates transparency in regulatory submissions by leveraging the <a href="https://hl7.org/fhir/subscriptions.html#overview-workflow">HL7 FHIR R5 Subscription Framework</a>. Instead of manually checking portals or waiting for emails, systems subscribe to specific events and receive immediate, machine-readable notifications.</p>
 </div>
 

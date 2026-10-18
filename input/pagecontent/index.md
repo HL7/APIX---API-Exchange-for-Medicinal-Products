@@ -66,7 +66,7 @@
 <div style="padding:0 20px 8px;">
   <div style="text-align:center; margin-bottom:28px;">
     <h2 style="font-size:1.5em; font-weight:800; color:#111827; margin-bottom:8px;">How It Works</h2>
-    <p style="font-size:.92em; color:#6b7280; max-width:540px; margin:0 auto; line-height:1.55;">Five steps to connect your systems to a regulator — that's it.</p>
+    <p style="font-size:.92em; color:#6b7280; max-width:540px; margin:0 auto; line-height:1.55;">Five steps to connect any two parties, industry or regulator, in either direction.</p>
   </div>
 </div>
 
@@ -76,7 +76,7 @@
     <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#eff6ff,#dbeafe); border:3px solid #2563eb; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3em; box-shadow:0 2px 8px rgba(37,99,235,.15);">🔌</div>
     <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#2563eb; margin-bottom:4px;">Step 1</div>
     <div style="font-weight:700; color:#111827; font-size:.92em; margin-bottom:6px;">Connect</div>
-    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Register your company via API</p>
+    <p style="font-size:.78em; color:#6b7280; line-height:1.5; margin:0;">Register your organization via API</p>
   </div>
   <!-- Arrow -->
   <div style="display:flex; align-items:center; padding-top:18px; flex-shrink:0; color:#d1d5db; font-size:1.2em;">→</div>
@@ -137,13 +137,13 @@
     <div style="font-size:1.4em; margin-bottom:10px;">📤</div>
     <div style="font-weight:700; color:#003087; margin-bottom:6px;">Submit via Web-Standard APIs</div>
     <p style="font-size:.88em; color:#4b5563; line-height:1.6; margin:0 0 12px; flex:1;">Post regulatory submissions directly via FHIR APIs, using the same RESTful APIs and OAuth2 that already run global banking, eCommerce, and modern healthcare (SMART on FHIR). Zero proprietary formats.</p>
-    <a href="workflow-overview.html" style="color:#003087; font-weight:600; font-size:.85em; text-decoration:none;">See the workflow →</a>
+    <a href="workflow.html" style="color:#003087; font-weight:600; font-size:.85em; text-decoration:none;">See the workflow →</a>
   </div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:24px; display:flex; flex-direction:column;">
     <div style="font-size:1.4em; margin-bottom:10px;">📊</div>
     <div style="font-weight:700; color:#003087; margin-bottom:6px;">Track in Real Time</div>
     <p style="font-size:.88em; color:#4b5563; line-height:1.6; margin:0 0 12px; flex:1;">FedEx-style status tracking for every regulatory procedure. Submissions, questions, and decisions become real-time events — delays become visible and instantly actionable.</p>
-    <a href="subscriptions.html" style="color:#003087; font-weight:600; font-size:.85em; text-decoration:none;">How subscriptions work →</a>
+    <a href="subscriptions.html" style="color:#003087; font-weight:600; font-size:.85em; text-decoration:none;">How notifications work →</a>
   </div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:24px; display:flex; flex-direction:column;">
     <div style="font-size:1.4em; margin-bottom:10px;">📈</div>

@@ -43,18 +43,16 @@ pages:
     title: Getting Started
   usecases.md:
     title: Use Cases
-  workflow-overview.md:
-    title: Workflow Overview
   workflow.md:
-    title: Workflow Deep-Dive
+    title: Workflow
   subscriptions.md:
-    title: Real-Time Subscriptions
-  document-streaming.md:
-    title: Document Streaming
+    title: Notifications
   architecture.md:
     title: Architecture
   apixinteractionpattern.md:
     title: Interaction Pattern
+  terminology.md:
+    title: Terminology
   apixtask.md:
     title: RWI-pharma Task Structure
   apixsubscription.md:
@@ -71,15 +69,13 @@ pages:
 menu:
   Home: index.html
   Getting Started: gettingstarted.html
-  Business Context:
-    Use Cases: usecases.html
-    Workflow Overview: workflow-overview.html
-    Real-Time Subscriptions: subscriptions.html
-    Document Streaming: document-streaming.html
+  Use Cases: usecases.html
+  Workflow: workflow.html
+  Notifications: subscriptions.html
   Technical Details:
     Architecture: architecture.html
     Interaction Pattern: apixinteractionpattern.html
-    Workflow Deep-Dive: workflow.html
+    Terminology: terminology.html
   Key Resources:
     RWI-pharma Task: apixtask.html
     Subscription: apixsubscription.html
