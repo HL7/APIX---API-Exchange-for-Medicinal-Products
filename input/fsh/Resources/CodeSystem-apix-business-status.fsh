@@ -28,3 +28,10 @@ Description: "Code system for regulatory business status in APIX submissions"
 * #icsr-accepted "Report Accepted (CA)" "The individual report was accepted. ICH E2B(R3) report acknowledgment code CA (ACK.B.r.6)."
 * #request-for-information-issued "Request for Information Issued" "The regulator has sent a request for information to the sponsor."
 * #authorised "Authorised" "The trial or modification has been authorised."
+
+// Statuses used by the label negotiation example (scenario 4; see the Terminology page)
+* #labelling-comments-issued "Labelling Comments Issued" "The regulator has returned comments or a revised version to the applicant."
+* #counter-proposal-received "Counter-Proposal Received" "The applicant has returned a counter-proposal on the product information."
+* #response-received "Response Received" "The applicant’s response has been received."
+* #awaiting-applicant-response "Awaiting Applicant Response" "The regulator is waiting for the applicant to respond."
+* #labelling-agreed "Labelling Agreed" "Applicant and regulator have agreed the product information text."

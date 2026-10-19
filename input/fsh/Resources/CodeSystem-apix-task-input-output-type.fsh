@@ -17,3 +17,10 @@ Description: "Types of documents and data exchanged as Task inputs and outputs. 
 // ICSR
 * #icsr-message "ICSR Message" "ICH E2B(R3) ICSR message containing one or more case safety reports."
 * #icsr-acknowledgment "ICSR Acknowledgment" "ICH E2B(R3) acknowledgment message returned for an ICSR message, carrying the transmission (ACK.A.4) and report (ACK.B.r.6) acknowledgment codes."
+// Market authorization: label negotiation (scenario 4)
+* #change-description "Change Description and Justification" "Description of the proposed change, with current vs proposed comparison and justification."
+* #epi-bundle "ePI Bundle" "Electronic product information as a FHIR document Bundle."
+* #proposed-labelling "Proposed Labelling" "Proposed product information (e.g., annotated ePI, annotated PDF or Word)."
+* #labelling-comments "Labelling Comments" "Regulator’s comments on, or revised version of, proposed labelling."
+* #approved-labelling "Approved Labelling" "Final agreed product information."
+* #approval-letter "Approval Letter" "Letter granting approval or authorization."

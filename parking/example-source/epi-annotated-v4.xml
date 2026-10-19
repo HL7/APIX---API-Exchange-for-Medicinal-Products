@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated FHIR ePI document Bundle (product information for WonderDrug 50 mg film-coated tablets),
+     showing only the sections changed by this variation. Section and document type codes use a placeholder code system. -->
+<!-- Annotated ePI: changes against the currently approved text are marked with XHTML <ins>/<del> in each section narrative.
+     class="rwi-mah" = change made by the marketing authorisation holder; class="rwi-ha" = change made by the health authority;
+     title = reason for the change. The clean ePI of the same version has the same structure without markup. -->
+<Bundle xmlns="http://hl7.org/fhir">
+  <identifier><system value="http://example.org/synthpharma/epi"/><value value="urn:uuid:dc86817f-c675-5e6b-b088-adbe5da53782"/></identifier>
+  <type value="document"/>
+  <timestamp value="2027-03-08T10:00:00+01:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:7cd822e5-e2fe-51b3-acbb-5fd8ba877f67"/>
+    <resource>
+      <Composition>
+        <status value="preliminary"/>
+        <type><coding><system value="http://example.org/epi-section"/><code value="product-information"/><display value="Product information (SmPC and package leaflet)"/></coding></type>
+        <date value="2027-03-08T10:00:00+01:00"/>
+        <author><reference value="urn:uuid:fcc573ec-6abc-5a96-ae79-ed39e0d5fcda"/><display value="Health Authority – Regulatory Review Division"/></author>
+        <title value="WonderDrug 50 mg film-coated tablets — product information, version 4 (annotated)"/>
+        <section>
+          <title value="Summary of Product Characteristics"/>
+          <code><coding><system value="http://example.org/epi-section"/><code value="smpc"/><display value="Summary of Product Characteristics"/></coding></code>
+          <section>
+            <title value="4.2 Posology and method of administration"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="smpc-4.2"/><display value="4.2 Posology and method of administration"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>The recommended dose is one 50 mg tablet once daily. <del class="rwi-ha" title="HA round 1: advise intake with food to reduce nausea">The tablet can be taken with or without food.</del><ins class="rwi-mah" title="Applicant counter-proposal: food-effect study WD-105 shows no loss of exposure when taken fasted">WonderDrug may be taken with food to reduce nausea.</ins></p></div></text>
+          </section>
+          <section>
+            <title value="4.8 Undesirable effects"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="smpc-4.8"/><display value="4.8 Undesirable effects"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>Gastrointestinal disorders. Common: abdominal pain<ins class="rwi-ha" title="HA round 1: clinical data support the frequency &quot;common&quot;">, nausea</ins>. Uncommon: dyspepsia.</p></div></text>
+          </section>
+        </section>
+        <section>
+          <title value="Package Leaflet"/>
+          <code><coding><system value="http://example.org/epi-section"/><code value="pil"/><display value="Package Leaflet"/></coding></code>
+          <section>
+            <title value="3. How to take WonderDrug"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="pil-3"/><display value="3. How to take WonderDrug"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>Take one tablet once a day. <del class="rwi-ha" title="HA round 1: advise intake with food to reduce nausea">You can take it with or without food.</del><ins class="rwi-ha" title="HA round 2: plain-language wording for patients">Taking WonderDrug with food may help you feel less sick.</ins></p></div></text>
+          </section>
+          <section>
+            <title value="4. Possible side effects"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="pil-4"/><display value="4. Possible side effects"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>Common (may affect up to 1 in 10 people): stomach pain<ins class="rwi-ha" title="HA round 2: plain-language wording for patients">, feeling sick (nausea)</ins>. Uncommon (may affect up to 1 in 100 people): indigestion.</p></div></text>
+          </section>
+        </section>
+      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:fcc573ec-6abc-5a96-ae79-ed39e0d5fcda"/>
+    <resource>
+      <Organization><name value="Health Authority – Regulatory Review Division"/></Organization>
+    </resource>
+  </entry>
+</Bundle>

@@ -61,7 +61,7 @@ Usage: #example
 * identifier.type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-demo#apixtaskinstance "APIX Task Instance ID"
 * basedOn = Reference(scenario1-01-initial-submission) "Initial Submission Task"
 * status = #completed
-* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-stop "Clock Stop"
+* businessStatus = http://hl7.org/fhir/uv/apix/CodeSystem/apix-business-status#clock-restart "Clock Restart"
 * intent = #proposal
 * priority = #routine
 * code = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-code#information-request "List of Questions / Information Request"
@@ -78,10 +78,9 @@ Usage: #example
 * input.valueReference = Reference(docref-list-of-questions) "List of Questions (LoQ)"
 
 * lastModified = "2025-12-05T10:00:00+01:00"
-* output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#applicant-questionnaireResponse" "Applicant QuestionnaireResponse"
+* output[0].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#applicant-questionnaireResponse "Applicant QuestionnaireResponse"
 * output[0].valueReference = Reference(docref-responses-qresponse) "Applicant QuestionnaireResponse"
-* output[+].type = http://hl7.org/fhir/uv/apix/CodeSystem/apix-task-output-type#regulatory-document "Regulatory Document"
-* output[=].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
+* output[+].type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#3.2.P.8.3 "Stability Data"
 * output[=].valueReference = Reference(docref-stability-data-annex) "Annex: Updated Stability Data"
 
 Instance: docref-responses-qresponse
@@ -92,7 +91,7 @@ Usage: #example
 * status = #current
 * docStatus = #final
 * version = "1.0"
-* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#applicant-questionnaireResponse" "Applicant QuestionnaireResponse"
+* type = http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section#applicant-questionnaireResponse "Applicant QuestionnaireResponse"
 * relatesTo.code = http://hl7.org/fhir/document-relationship-type#appends
 * relatesTo.target = Reference(docref-list-of-questions) "List of Questions (LoQ)"
 * date = "2025-12-04T10:00:00+01:00"

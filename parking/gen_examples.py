@@ -1,7 +1,7 @@
-# Generates the ICSR (scenario2) and clinical trial application (scenario3) examples:
-#   input/fsh/workflowExamples/scenario2-icsr.fsh, scenario3-cta.fsh   (Tasks + DocumentReferences)
-#   input/fsh/exampleBinaries/scenario2-icsr-binaries.fsh, scenario3-cta-binaries.fsh
-#   parking/example-source/*  (readable copies of the sample ICSR XML and CTA PDFs)
+# Generates the ICSR (scenario2), clinical trial application (scenario3) and label negotiation (scenario4) examples:
+#   input/fsh/workflowExamples/scenario2-icsr.fsh, scenario3-cta.fsh, scenario4-label-negotiation.fsh   (Tasks + DocumentReferences)
+#   input/fsh/exampleBinaries/scenario2-icsr-binaries.fsh, scenario3-cta-binaries.fsh, scenario4-label-negotiation-binaries.fsh
+#   parking/example-source/*  (readable copies of the sample ICSR XML, CTA PDFs, and label negotiation ePIs and PDFs)
 # Usage (from repo root): python3 parking/gen_examples.py   — needs reportlab (pip install reportlab)
 import base64, hashlib, uuid, os, html, io
 from reportlab.lib.pagesizes import A4
@@ -76,16 +76,21 @@ def task(t):
 
 IOD = {'cover-letter': 'Cover Letter', 'application-form': 'Application Form', 'validation-report': 'Validation Report', 'protocol': 'Protocol',
        'request-for-information': 'Request for Information', 'response-to-questions': 'Response to Questions', 'authorisation-decision': 'Authorisation Decision',
-       'icsr-message': 'ICSR Message', 'icsr-acknowledgment': 'ICSR Acknowledgment'}
+       'icsr-message': 'ICSR Message', 'icsr-acknowledgment': 'ICSR Acknowledgment',
+       'change-description': 'Change Description and Justification', 'epi-bundle': 'ePI Bundle', 'proposed-labelling': 'Proposed Labelling',
+       'labelling-comments': 'Labelling Comments', 'approved-labelling': 'Approved Labelling', 'approval-letter': 'Approval Letter'}
 
 def docref(d, content):
     sha1 = base64.b64encode(hashlib.sha1(content).digest()).decode()
     a = ORG[d['author']]
     L = [f'Instance: {d["id"]}', 'InstanceOf: DocumentReference', f'Title: "{q(d["title"])}"', f'Description: "{q(d["desc"])}"', 'Usage: #example',
          '* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"',
-         f'* identifier[0].type = {DEMO}#docsetid "Document Set Identifier"', f'* identifier[0].system = "{d["sys"]}/document-set-id"', f'* identifier[0].value = "{u(d["id"]+"-set")}"',
+         f'* identifier[0].type = {DEMO}#docsetid "Document Set Identifier"', f'* identifier[0].system = "{d.get("setsys", d["sys"])}/document-set-id"', f'* identifier[0].value = "{u(d.get("set", d["id"]+"-set"))}"',
          f'* identifier[1].type = {DEMO}#docverid "Document Version Number Identifier"', f'* identifier[1].system = "{d["sys"]}/document-version-id"', f'* identifier[1].value = "{u(d["id"]+"-v1")}"',
-         '* status = #current', '* docStatus = #final', '* version = "1"', f'* type = {IO}#{d["type"]} "{q(IOD[d["type"]])}"',
+         '* status = #current', '* docStatus = #final', f'* version = "{d.get("ver", "1")}"']
+    if d.get('replaces'):
+        L += ['* relatesTo[0].code = http://hl7.org/fhir/document-relationship-type#replaces "Replaces"', f'* relatesTo[0].target = Reference({d["replaces"]})']
+    L += [f'* type = {IO}#{d["type"]} "{q(IOD[d["type"]])}"',
          f'* date = "{d["date"]}"', f'* author = Reference({a[0]}) "{q(a[1])}"', f'* description = "{q(d["desc"])}"',
          f'* content.attachment.contentType = #{d["mime"]}', f'* content.attachment.url = "Binary/{d["binary"]}"',
          f'* content.attachment.title = "{q(d["file"])}"', f'* content.attachment.size = {len(content)}',
@@ -324,17 +329,199 @@ cta_tasks = [
       authored='2026-09-01T10:00:00+02:00', modified='2026-11-03T09:00:00+01:00', requester='pharma', owner='ha', inputs=CI, outputs=[VR, DEC], exec=('2026-09-02T08:00:00+02:00', '2026-11-03T09:00:00+01:00')),
 ]
 
+# ================================================================ Label negotiation (scenario4)
+# A Type II variation adds nausea to the WonderDrug 50 mg product information. The label is exchanged as FHIR ePI Bundles:
+# an ANNOTATED ePI shows every change against the approved text with XHTML <ins>/<del> (class = who made the change,
+# title = why), and a CLEAN ePI has the same structure without markup. Two rounds of labelling comments, then agreement.
+PROD = 'WonderDrug 50 mg film-coated tablets'
+SECT = 'http://example.org/epi-section'   # placeholder section code system (fictional)
+def ins(who, why, t): return f'<ins class="rwi-{who}" title="{x(why)}">{x(t)}</ins>'
+def dele(who, why, t): return f'<del class="rwi-{who}" title="{x(why)}">{x(t)}</del>'
+APPROVED = {  # currently approved text (before this variation)
+ 'smpc-4.2': 'The recommended dose is one 50 mg tablet once daily. The tablet can be taken with or without food.',
+ 'smpc-4.8': 'Gastrointestinal disorders. Common: abdominal pain. Uncommon: dyspepsia.',
+ 'pil-3': 'Take one tablet once a day. You can take it with or without food.',
+ 'pil-4': 'Common (may affect up to 1 in 10 people): stomach pain. Uncommon (may affect up to 1 in 100 people): indigestion.'}
+WHY1 = 'Applicant: add nausea following the signal evaluation'
+WHYF = 'HA round 1: clinical data support the frequency "common"'
+WHYFOOD = 'HA round 1: advise intake with food to reduce nausea'
+WHYC = 'Applicant counter-proposal: food-effect study WD-105 shows no loss of exposure when taken fasted'
+WHYLAY = 'HA round 2: plain-language wording for patients'
+S42 = 'The recommended dose is one 50 mg tablet once daily. '
+S48C, S48U = 'Gastrointestinal disorders. Common: abdominal pain', '. Uncommon: dyspepsia'
+P3 = 'Take one tablet once a day. '
+P4C, P4U = 'Common (may affect up to 1 in 10 people): stomach pain', '. Uncommon (may affect up to 1 in 100 people): indigestion'
+# EPI[version][section] = (annotated XHTML or None, clean text or None). Annotations are cumulative against the approved text.
+EPI = {
+ 1: {'smpc-4.2': (x(APPROVED['smpc-4.2']), APPROVED['smpc-4.2']),
+     'smpc-4.8': (x(S48C + S48U) + ins('mah', WHY1, ', nausea') + '.', S48C + S48U + ', nausea.'),
+     'pil-3': (x(APPROVED['pil-3']), APPROVED['pil-3']),
+     'pil-4': (x(P4C + P4U) + ins('mah', WHY1, ', nausea') + '.', P4C + P4U + ', nausea.')},
+ 2: {'smpc-4.2': (x(S42) + dele('ha', WHYFOOD, 'The tablet can be taken with or without food.') + ins('ha', WHYFOOD, 'WonderDrug should be taken with food.'), None),
+     'smpc-4.8': (x(S48C) + ins('ha', WHYF, ', nausea') + x(S48U) + '.', None),
+     'pil-3': (x(P3) + dele('ha', WHYFOOD, 'You can take it with or without food.') + ins('ha', WHYFOOD, 'Take WonderDrug with food.'), None),
+     'pil-4': (x(P4C) + ins('ha', WHYF, ', nausea') + x(P4U) + '.', None)},
+ 3: {'smpc-4.2': (x(S42) + dele('ha', WHYFOOD, 'The tablet can be taken with or without food.') + ins('mah', WHYC, 'WonderDrug may be taken with food to reduce nausea.'), S42 + 'WonderDrug may be taken with food to reduce nausea.'),
+     'smpc-4.8': (x(S48C) + ins('ha', WHYF, ', nausea') + x(S48U) + '.', S48C + ', nausea' + S48U + '.'),
+     'pil-3': (x(P3) + dele('ha', WHYFOOD, 'You can take it with or without food.') + ins('mah', WHYC, 'Taking WonderDrug with food may help to reduce nausea.'), P3 + 'Taking WonderDrug with food may help to reduce nausea.'),
+     'pil-4': (x(P4C) + ins('ha', WHYF, ', nausea') + x(P4U) + '.', P4C + ', nausea' + P4U + '.')},
+ 4: {'smpc-4.2': (x(S42) + dele('ha', WHYFOOD, 'The tablet can be taken with or without food.') + ins('mah', WHYC, 'WonderDrug may be taken with food to reduce nausea.'), None),
+     'smpc-4.8': (x(S48C) + ins('ha', WHYF, ', nausea') + x(S48U) + '.', None),
+     'pil-3': (x(P3) + dele('ha', WHYFOOD, 'You can take it with or without food.') + ins('ha', WHYLAY, 'Taking WonderDrug with food may help you feel less sick.'), None),
+     'pil-4': (x(P4C) + ins('ha', WHYLAY, ', feeling sick (nausea)') + x(P4U) + '.', None)},
+}
+EPI[5] = {'smpc-4.2': (None, EPI[3]['smpc-4.2'][1]), 'smpc-4.8': (None, EPI[3]['smpc-4.8'][1]),
+          'pil-3': (None, P3 + 'Taking WonderDrug with food may help you feel less sick.'),
+          'pil-4': (None, P4C + ', feeling sick (nausea)' + P4U + '.')}
+SECTIONS = [('smpc', 'Summary of Product Characteristics', [('smpc-4.2', '4.2 Posology and method of administration'), ('smpc-4.8', '4.8 Undesirable effects')]),
+            ('pil', 'Package Leaflet', [('pil-3', '3. How to take WonderDrug'), ('pil-4', '4. Possible side effects')])]
+
+def epi_xml(ver, annotated, who, date):
+    org = ORG[who][1]
+    kind = 'annotated' if annotated else 'clean'
+    def sec(code, title, div, p):
+        return (f'{p}<section>\n{p}  <title value="{x(title)}"/>\n{p}  <code><coding><system value="{SECT}"/><code value="{code}"/><display value="{x(title)}"/></coding></code>\n'
+                f'{p}  <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>{div}</p></div></text>\n{p}</section>\n')
+    body = ''
+    for code, title, subs in SECTIONS:
+        inner = ''.join(sec(c, t, EPI[ver][c][0] if annotated else x(EPI[ver][c][1]), ' ' * 10) for c, t in subs)
+        body += (f'        <section>\n          <title value="{x(title)}"/>\n          <code><coding><system value="{SECT}"/><code value="{code}"/><display value="{x(title)}"/></coding></code>\n'
+                 f'{inner}        </section>\n')
+    legend = ('\n<!-- Annotated ePI: changes against the currently approved text are marked with XHTML <ins>/<del> in each section narrative.\n'
+              '     class="rwi-mah" = change made by the marketing authorisation holder; class="rwi-ha" = change made by the health authority;\n'
+              '     title = reason for the change. The clean ePI of the same version has the same structure without markup. -->') if annotated else ''
+    return (f'''<?xml version="1.0" encoding="UTF-8"?>
+<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated FHIR ePI document Bundle (product information for {PROD}),
+     showing only the sections changed by this variation. Section and document type codes use a placeholder code system. -->{legend}
+<Bundle xmlns="http://hl7.org/fhir">
+  <identifier><system value="http://example.org/synthpharma/epi"/><value value="{u('s4-epi-' + kind + '-v' + str(ver))}"/></identifier>
+  <type value="document"/>
+  <timestamp value="{date}"/>
+  <entry>
+    <fullUrl value="{u('s4-epi-composition-' + kind + '-v' + str(ver))}"/>
+    <resource>
+      <Composition>
+        <status value="{'final' if ver == 5 else 'preliminary'}"/>
+        <type><coding><system value="{SECT}"/><code value="product-information"/><display value="Product information (SmPC and package leaflet)"/></coding></type>
+        <date value="{date}"/>
+        <author><reference value="{u('s4-epi-org-' + who)}"/><display value="{x(org)}"/></author>
+        <title value="{x(PROD)} — product information, version {ver} ({kind})"/>
+{body}      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="{u('s4-epi-org-' + who)}"/>
+    <resource>
+      <Organization><name value="{x(org)}"/></Organization>
+    </resource>
+  </entry>
+</Bundle>
+''').encode()
+
+PROCNO = 'VAR-II-2027-0012'
+D = {'sub': '2027-01-11T10:00:00+01:00', 'val': '2027-01-15T14:00:00+01:00', 'ass': '2027-01-18T09:00:00+01:00',
+     'r1': '2027-02-22T10:00:00+01:00', 'r1due': '2027-03-04T23:59:59+01:00', 'r1resp': '2027-03-01T16:30:00+01:00',
+     'r2': '2027-03-08T10:00:00+01:00', 'r2due': '2027-03-18T23:59:59+01:00', 'r2resp': '2027-03-10T11:15:00+01:00',
+     'agr': '2027-03-11T09:00:00+01:00', 'agrresp': '2027-03-11T15:40:00+01:00', 'dec': '2027-03-17T09:00:00+01:00'}
+files['epi-annotated-v1.xml'] = epi_xml(1, True, 'pharma', D['sub'])
+files['epi-clean-v1.xml'] = epi_xml(1, False, 'pharma', D['sub'])
+files['epi-annotated-v2.xml'] = epi_xml(2, True, 'ha', D['r1'])
+files['epi-annotated-v3.xml'] = epi_xml(3, True, 'pharma', D['r1resp'])
+files['epi-clean-v3.xml'] = epi_xml(3, False, 'pharma', D['r1resp'])
+files['epi-annotated-v4.xml'] = epi_xml(4, True, 'ha', D['r2'])
+files['epi-clean-v5.xml'] = epi_xml(5, False, 'pharma', D['r2resp'])
+files['var-cover-letter.pdf'] = pdf('Cover Letter — Type II Variation', 'SynthPharma AG · 11 January 2027', [
+ 'To: Health Authority – Regulatory Review Division', f'Re: Type II variation for {PROD} — addition of nausea to SmPC section 4.8 and package leaflet section 4',
+ 'Dear Sir or Madam,', 'Following the evaluation of a signal of nausea, SynthPharma AG submits a Type II variation to add nausea as an undesirable effect. '
+ 'The proposed product information is provided as FHIR ePI, both annotated (changes against the approved text) and clean.', 'Yours faithfully,', 'Dr. John Doe, Head of Regulatory Affairs, SynthPharma AG'])
+files['var-application-form.pdf'] = pdf('Variation Application Form', 'Type II variation · sample content', [
+ ('table', [('Product', PROD), ('Marketing authorisation holder', 'SynthPharma AG'), ('Variation type', 'Type II — safety-related change to the product information'),
+            ('Sections affected', 'SmPC 4.8; package leaflet section 4'), ('Proposed implementation', 'On approval')])])
+files['var-change-description.pdf'] = pdf('Change Description and Justification', f'{PROD} · 11 January 2027', [
+ ('table', [('Current', 'Nausea is not listed as an undesirable effect.'), ('Proposed', 'Add nausea to SmPC section 4.8 (frequency: uncommon) and to package leaflet section 4.'),
+            ('Justification', 'Cumulative review of spontaneous reports (including case CH-SYNTHPHARMA-2026-000456, positive dechallenge) and clinical trial data supports a causal association.')])])
+files['var-validation-report.pdf'] = pdf('Validation Report', f'Procedure {PROCNO} · 15 January 2027', [
+ 'The Type II variation has been validated.', ('table', [('Outcome', 'Validation successful'), ('Procedure number assigned', PROCNO), ('Assessment start', '18 January 2027')])])
+files['var-approval-letter.pdf'] = pdf('Approval Letter', f'Procedure {PROCNO} · 17 March 2027', [
+ f'The Health Authority approves the Type II variation for {PROD}. The approved product information is the agreed ePI returned with this decision.',
+ ('table', [('Decision', 'Approved'), ('Sections changed', 'SmPC 4.2 and 4.8; package leaflet sections 3 and 4'), ('Implementation', 'Within 6 months of this decision')])])
+
+G4 = u('scenario4-label-negotiation-group')
+PROC4 = ('http://example.org/health-authority/procedure-number', PROCNO)
+def ed(id, title, desc, type, file, date, author, **k):
+    return dict(id=id, title=title, desc=desc, type=type, file=file, date=date, author=author, **k)
+ln_docs = [
+ ed('docref-var-cover-letter', 'Variation cover letter', 'Cover letter for the Type II variation adding nausea to the WonderDrug product information.', 'cover-letter', 'var-cover-letter.pdf', D['sub'], 'pharma'),
+ ed('docref-var-application-form', 'Variation application form', 'Completed Type II variation application form.', 'application-form', 'var-application-form.pdf', D['sub'], 'pharma'),
+ ed('docref-var-change-description', 'Change description and justification', 'Current versus proposed product information, with justification.', 'change-description', 'var-change-description.pdf', D['sub'], 'pharma'),
+ ed('docref-epi-annotated-v1', 'Annotated ePI v1 (proposal)', 'Proposed product information as annotated ePI, version 1: adds nausea (uncommon) to SmPC 4.8 and leaflet section 4.', 'proposed-labelling', 'epi-annotated-v1.xml', D['sub'], 'pharma', set='s4-epi-annotated', ver='1'),
+ ed('docref-epi-clean-v1', 'Clean ePI v1 (proposal)', 'Proposed product information as clean ePI, version 1.', 'epi-bundle', 'epi-clean-v1.xml', D['sub'], 'pharma', set='s4-epi-clean', ver='1'),
+ ed('docref-var-validation-report', 'Variation validation report', 'Validation report: variation valid; procedure number assigned.', 'validation-report', 'var-validation-report.pdf', D['val'], 'ha'),
+ ed('docref-epi-annotated-v2', 'Annotated ePI v2 (regulator comments, round 1)', "Regulator's tracked changes on v1: nausea frequency raised to common; intake with food required (SmPC 4.2, leaflet section 3).", 'labelling-comments', 'epi-annotated-v2.xml', D['r1'], 'ha', set='s4-epi-annotated', ver='2', replaces='docref-epi-annotated-v1'),
+ ed('docref-epi-annotated-v3', 'Annotated ePI v3 (counter-proposal, round 1)', 'Applicant accepts the frequency change and counter-proposes "may be taken with food to reduce nausea" (SmPC 4.2, leaflet section 3).', 'proposed-labelling', 'epi-annotated-v3.xml', D['r1resp'], 'pharma', set='s4-epi-annotated', ver='3', replaces='docref-epi-annotated-v2'),
+ ed('docref-epi-clean-v3', 'Clean ePI v3 (counter-proposal, round 1)', 'Clean ePI matching annotated v3.', 'epi-bundle', 'epi-clean-v3.xml', D['r1resp'], 'pharma', set='s4-epi-clean', ver='3', replaces='docref-epi-clean-v1'),
+ ed('docref-epi-annotated-v4', 'Annotated ePI v4 (regulator comments, round 2)', 'Regulator accepts the counter-proposal and changes the leaflet wording to "feeling sick".', 'labelling-comments', 'epi-annotated-v4.xml', D['r2'], 'ha', set='s4-epi-annotated', ver='4', replaces='docref-epi-annotated-v3'),
+ ed('docref-epi-clean-v5', 'Clean ePI v5 (agreed text)', 'Clean ePI with all round 2 changes accepted: the agreed product information.', 'epi-bundle', 'epi-clean-v5.xml', D['r2resp'], 'pharma', set='s4-epi-clean', ver='5', replaces='docref-epi-clean-v3'),
+ ed('docref-var-approval-letter', 'Variation approval letter', f'Approval of Type II variation {PROCNO}.', 'approval-letter', 'var-approval-letter.pdf', D['dec'], 'ha'),
+ ed('docref-epi-approved', 'Approved ePI', 'Approved product information. Points to the same Binary as the agreed clean ePI v5, so the approved text is identical to the agreed text.', 'approved-labelling', 'epi-clean-v5.xml', D['dec'], 'ha', binary='binary-epi-clean-v5', reuse=True),
+]
+for d in ln_docs:
+    d.setdefault('binary', 'binary-' + d['file'].rsplit('.', 1)[0])
+    d.update(mime='application/pdf' if d['file'].endswith('.pdf') else 'application/fhir+xml', sys=PH if d['author'] == 'pharma' else HAs)
+    if 'set' in d: d['setsys'] = PH   # one ePI version chain = one document set, whoever authored the version
+def ref(id):
+    d = next(d for d in ln_docs if d['id'] == id)
+    return (d['type'], d['title'], d['id'])
+VI = [ref('docref-var-cover-letter'), ref('docref-var-application-form'), ref('docref-var-change-description'), ref('docref-epi-annotated-v1'), ref('docref-epi-clean-v1')]
+VVR = ref('docref-var-validation-report')
+V = 'scenario4-01-variation-submitted'
+VAR = ('variation-type-ii', 'Type II Variation')
+LC, LA = ('labelling-comments', 'Labelling Comments'), ('labelling-agreement', 'Labelling Agreement')
+ln_tasks = [
+ dict(id=V, title='scenario4 01 Type II variation submitted', desc='The marketing authorisation holder posts a Type II variation adding nausea to the product information. The proposed label is an annotated ePI plus a clean ePI.',
+      heading='Type II variation submitted', ver='1', uuid=u('s4-task-variation'), group=G4, status='requested', bs=('submitted', 'Submitted'), code=VAR,
+      authored=D['sub'], modified=D['sub'], requester='pharma', owner='ha', inputs=VI),
+ dict(id='scenario4-02-variation-validated', title='scenario4 02 Type II variation validated', desc='Version 2 of the variation Task (in production, the same Task as scenario4-01). The regulator validates it, assigns the procedure number and returns the validation report.',
+      heading='Type II variation validated', ver='2', uuid=u('s4-task-variation'), proc=PROC4, group=G4, status='accepted', bs=('validation-successful', 'Validation Successful'), code=VAR,
+      authored=D['sub'], modified=D['val'], requester='pharma', owner='ha', inputs=VI, outputs=[VVR], exec=(D['val'], None)),
+ dict(id='scenario4-03-variation-under-assessment', title='scenario4 03 Type II variation under assessment', desc='Version 3 of the variation Task (in production, the same Task as scenario4-01). Scientific assessment, including the proposed product information, has started.',
+      heading='Type II variation under assessment', ver='3', uuid=u('s4-task-variation'), proc=PROC4, group=G4, status='in-progress', bs=('under-assessment', 'Under Assessment'), code=VAR,
+      authored=D['sub'], modified=D['ass'], requester='pharma', owner='ha', inputs=VI, outputs=[VVR], exec=(D['val'], None)),
+ dict(id='scenario4-04-labelling-comments-round1', title='scenario4 04 labelling comments round 1 issued', desc='The regulator posts round 1 of the label negotiation, based on the variation Task. Its tracked changes to the proposed ePI (annotated v2) are the input; the applicant owns the response.',
+      heading='Labelling comments issued (round 1)', ver='1', uuid=u('s4-task-lc1'), proc=PROC4, group=G4, status='requested', bs=('labelling-comments-issued', 'Labelling Comments Issued'), code=LC,
+      authored=D['r1'], modified=D['r1'], requester='ha', owner='pharma', inputs=[ref('docref-epi-annotated-v2')], basedOn=V, period=(D['r1'], D['r1due'])),
+ dict(id='scenario4-05-labelling-comments-round1-response', title='scenario4 05 labelling comments round 1 answered with a counter-proposal', desc='Version 2 of the round 1 Task (in production, the same Task as scenario4-04). The applicant accepts the frequency change and counter-proposes the food wording, returning annotated and clean ePI v3.',
+      heading='Counter-proposal received (round 1)', ver='2', uuid=u('s4-task-lc1'), proc=PROC4, group=G4, status='completed', bs=('counter-proposal-received', 'Counter-Proposal Received'), code=LC,
+      authored=D['r1'], modified=D['r1resp'], requester='ha', owner='pharma', inputs=[ref('docref-epi-annotated-v2')], outputs=[ref('docref-epi-annotated-v3'), ref('docref-epi-clean-v3')], basedOn=V, period=(D['r1'], D['r1due']), exec=('2027-02-22T10:20:00+01:00', D['r1resp'])),
+ dict(id='scenario4-06-labelling-comments-round2', title='scenario4 06 labelling comments round 2 issued', desc='The regulator posts round 2: it accepts the counter-proposal and makes one plain-language change to the leaflet (annotated v4).',
+      heading='Labelling comments issued (round 2)', ver='1', uuid=u('s4-task-lc2'), proc=PROC4, group=G4, status='requested', bs=('labelling-comments-issued', 'Labelling Comments Issued'), code=LC,
+      authored=D['r2'], modified=D['r2'], requester='ha', owner='pharma', inputs=[ref('docref-epi-annotated-v4')], basedOn=V, period=(D['r2'], D['r2due'])),
+ dict(id='scenario4-07-labelling-comments-round2-response', title='scenario4 07 labelling comments round 2 accepted', desc='Version 2 of the round 2 Task (in production, the same Task as scenario4-06). The applicant accepts all changes and returns clean ePI v5.',
+      heading='Response received (round 2)', ver='2', uuid=u('s4-task-lc2'), proc=PROC4, group=G4, status='completed', bs=('response-received', 'Response Received'), code=LC,
+      authored=D['r2'], modified=D['r2resp'], requester='ha', owner='pharma', inputs=[ref('docref-epi-annotated-v4')], outputs=[ref('docref-epi-clean-v5')], basedOn=V, period=(D['r2'], D['r2due']), exec=('2027-03-08T10:05:00+01:00', D['r2resp'])),
+ dict(id='scenario4-08-labelling-agreement', title='scenario4 08 labelling agreement requested', desc='The regulator asks the applicant to confirm that clean ePI v5 is the final agreed product information.',
+      heading='Labelling agreement requested', ver='1', uuid=u('s4-task-la'), proc=PROC4, group=G4, status='requested', bs=('awaiting-applicant-response', 'Awaiting Applicant Response'), code=LA,
+      authored=D['agr'], modified=D['agr'], requester='ha', owner='pharma', inputs=[ref('docref-epi-clean-v5')], basedOn=V),
+ dict(id='scenario4-09-labelling-agreed', title='scenario4 09 labelling agreed', desc='Version 2 of the agreement Task (in production, the same Task as scenario4-08). The applicant confirms; completing the Task is the confirmation, so there is no output document.',
+      heading='Labelling agreed', ver='2', uuid=u('s4-task-la'), proc=PROC4, group=G4, status='completed', bs=('labelling-agreed', 'Labelling Agreed'), code=LA,
+      authored=D['agr'], modified=D['agrresp'], requester='ha', owner='pharma', inputs=[ref('docref-epi-clean-v5')], basedOn=V, exec=('2027-03-11T09:10:00+01:00', D['agrresp'])),
+ dict(id='scenario4-10-variation-approved', title='scenario4 10 Type II variation approved', desc='Version 4 of the variation Task (in production, the same Task as scenario4-01). The regulator approves it and returns the approval letter and the approved ePI.',
+      heading='Type II variation approved', ver='4', uuid=u('s4-task-variation'), proc=PROC4, group=G4, status='completed', bs=('approved', 'Approved'), code=VAR,
+      authored=D['sub'], modified=D['dec'], requester='pharma', owner='ha', inputs=VI, outputs=[VVR, ref('docref-var-approval-letter'), ref('docref-epi-approved')], exec=(D['val'], D['dec'])),
+]
+
 def write(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, 'w', encoding='utf-8').write(text)
 
 for name, docs, tasks, intro in [
     ('scenario2-icsr', icsr_docs, icsr_tasks, 'Scenario 2 — ICSR: initial report, acknowledgment, follow-up report, acknowledgment.'),
-    ('scenario3-cta', cta_docs, cta_tasks, 'Scenario 3 — Clinical trial application: submission, validation, request for information, response, authorisation.')]:
+    ('scenario3-cta', cta_docs, cta_tasks, 'Scenario 3 — Clinical trial application: submission, validation, request for information, response, authorisation.'),
+    ('scenario4-label-negotiation', ln_docs, ln_tasks, 'Scenario 4 — Label negotiation: Type II variation, two rounds of labelling comments on an annotated ePI, agreement, approval.')]:
     body = [f'// {intro}\n// Generated by parking/gen_examples.py — edit the script, not this file.\n']
     body += [task(t) for t in tasks] + [docref(d, files[d['file']]) for d in docs]
     write(f'{OUT}/input/fsh/workflowExamples/{name}.fsh', '\n'.join(body))
-    bins = [f'// {intro} Binaries (fictional sample content). Generated by parking/gen_examples.py.\n'] + [binary(d['binary'], d['mime'], files[d['file']], d['file']) for d in docs]
+    bins = [f'// {intro} Binaries (fictional sample content). Generated by parking/gen_examples.py.\n'] + [binary(d['binary'], d['mime'], files[d['file']], d['file']) for d in docs if not d.get('reuse')]
     write(f'{OUT}/input/fsh/exampleBinaries/{name}-binaries.fsh', '\n'.join(bins))
 for fname, content in files.items():
     os.makedirs(f'{OUT}/parking/example-source', exist_ok=True)

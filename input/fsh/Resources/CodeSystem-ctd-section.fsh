@@ -27,7 +27,7 @@ Description: "Code system defining all relevant CTD/eCTD section codes used in A
 * #m1 #acknowledgement-receipt "Acknowledgement of Receipt" "Acknowledgement of Receipt"
 * #m1 #validation-report "Validation Report" "Validation Report"
 * #m1 #list-of-questions "List of Questions" "List of Questions"
-* #m1 #applicant-questionnaireResponse" "Applicant QuestionnaireResponse" "Applicant QuestionnaireResponse"
+* #m1 #applicant-questionnaireResponse "Applicant QuestionnaireResponse" "Applicant QuestionnaireResponse"
 * #m1 #approval-letter "Approval Letter" "Regulatory Approval Letter"
 * #m1 #assessment-report "Assessment Report" "Regulatory Assessment Report"
 

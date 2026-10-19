@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated FHIR ePI document Bundle (product information for WonderDrug 50 mg film-coated tablets),
+     showing only the sections changed by this variation. Section and document type codes use a placeholder code system. -->
+<Bundle xmlns="http://hl7.org/fhir">
+  <identifier><system value="http://example.org/synthpharma/epi"/><value value="urn:uuid:d8380128-fc33-53c7-a2f6-2d53a6fbbad4"/></identifier>
+  <type value="document"/>
+  <timestamp value="2027-03-01T16:30:00+01:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:a5f203df-9167-565c-9a39-80466fe7003b"/>
+    <resource>
+      <Composition>
+        <status value="preliminary"/>
+        <type><coding><system value="http://example.org/epi-section"/><code value="product-information"/><display value="Product information (SmPC and package leaflet)"/></coding></type>
+        <date value="2027-03-01T16:30:00+01:00"/>
+        <author><reference value="urn:uuid:233d1ca4-886c-5bc2-9f08-c074138c4a23"/><display value="SynthPharma AG"/></author>
+        <title value="WonderDrug 50 mg film-coated tablets — product information, version 3 (clean)"/>
+        <section>
+          <title value="Summary of Product Characteristics"/>
+          <code><coding><system value="http://example.org/epi-section"/><code value="smpc"/><display value="Summary of Product Characteristics"/></coding></code>
+          <section>
+            <title value="4.2 Posology and method of administration"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="smpc-4.2"/><display value="4.2 Posology and method of administration"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>The recommended dose is one 50 mg tablet once daily. WonderDrug may be taken with food to reduce nausea.</p></div></text>
+          </section>
+          <section>
+            <title value="4.8 Undesirable effects"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="smpc-4.8"/><display value="4.8 Undesirable effects"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>Gastrointestinal disorders. Common: abdominal pain, nausea. Uncommon: dyspepsia.</p></div></text>
+          </section>
+        </section>
+        <section>
+          <title value="Package Leaflet"/>
+          <code><coding><system value="http://example.org/epi-section"/><code value="pil"/><display value="Package Leaflet"/></coding></code>
+          <section>
+            <title value="3. How to take WonderDrug"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="pil-3"/><display value="3. How to take WonderDrug"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>Take one tablet once a day. Taking WonderDrug with food may help to reduce nausea.</p></div></text>
+          </section>
+          <section>
+            <title value="4. Possible side effects"/>
+            <code><coding><system value="http://example.org/epi-section"/><code value="pil-4"/><display value="4. Possible side effects"/></coding></code>
+            <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>Common (may affect up to 1 in 10 people): stomach pain, nausea. Uncommon (may affect up to 1 in 100 people): indigestion.</p></div></text>
+          </section>
+        </section>
+      </Composition>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="urn:uuid:233d1ca4-886c-5bc2-9f08-c074138c4a23"/>
+    <resource>
+      <Organization><name value="SynthPharma AG"/></Organization>
+    </resource>
+  </entry>
+</Bundle>

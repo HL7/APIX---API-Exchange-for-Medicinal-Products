@@ -230,6 +230,9 @@ Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`
 - *Post-approval change:* submitted → received → validation-successful → under-assessment → decision-pending → approved → change-implemented (Type IA: submitted → notification-accepted)
 
 
+**Worked example:** a Type II variation with two rounds of label negotiation on an annotated ePI — [submitted](Task-scenario4-01-variation-submitted.html), [validated](Task-scenario4-02-variation-validated.html), [under assessment](Task-scenario4-03-variation-under-assessment.html), [labelling comments round 1](Task-scenario4-04-labelling-comments-round1.html), [counter-proposal](Task-scenario4-05-labelling-comments-round1-response.html), [labelling comments round 2](Task-scenario4-06-labelling-comments-round2.html), [response](Task-scenario4-07-labelling-comments-round2-response.html), [agreement requested](Task-scenario4-08-labelling-agreement.html), [labelling agreed](Task-scenario4-09-labelling-agreed.html), [approved](Task-scenario4-10-variation-approved.html).
+
+
 #### Input and output types — `apix-ma-task-input-type-vs` / `apix-ma-task-output-type-vs`
 
 Domain-specific types:
@@ -285,7 +288,7 @@ Value set membership (including shared types):
 | `stability-data` | Stability Data | ✓ |  |
 | `clinical-study-report` | Clinical Study Report | ✓ |  |
 | `risk-management-plan` | Risk Management Plan | ✓ |  |
-| `epi-bundle` | ePI Bundle | ✓ |  |
+| `epi-bundle` | ePI Bundle | ✓ | ✓ |
 | `proposed-labelling` | Proposed Labelling | ✓ | ✓ |
 | `labelling-comments` | Labelling Comments | ✓ | ✓ |
 | `approved-labelling` | Approved Labelling |  | ✓ |
