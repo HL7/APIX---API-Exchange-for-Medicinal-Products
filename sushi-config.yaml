@@ -43,6 +43,12 @@ pages:
     title: Getting Started
   usecases.md:
     title: Use Cases
+    usecases-universal-submissions.md:
+      title: Universal Submissions
+    usecases-status-tracking.md:
+      title: Submission Tracking and Notifications
+    usecases-automation.md:
+      title: Automation
   workflow.md:
     title: Workflow
   subscriptions.md:
@@ -69,7 +75,10 @@ pages:
 menu:
   Home: index.html
   Getting Started: gettingstarted.html
-  Use Cases: usecases.html
+  Use Cases:
+    Universal Submissions: usecases-universal-submissions.html
+    Submission Tracking and Notifications: usecases-status-tracking.html
+    Automation: usecases-automation.html
   Workflow: workflow.html
   Notifications: subscriptions.html
   Terminology: terminology.html
