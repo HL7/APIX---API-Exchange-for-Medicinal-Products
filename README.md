@@ -5,4 +5,4 @@ Scope (current phase): regulatory workflows and interactions between applicants 
 
 The project is currently slated for the January 2027 Ballot cycle, and the ballot level is STU.
 
-Link to the IG: https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html
+Link to the IG: https://build.fhir.org/ig/HL7/reg-workflow-pharma/branches/main/en/index.html 
