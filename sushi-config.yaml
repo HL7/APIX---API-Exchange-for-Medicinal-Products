@@ -1,5 +1,5 @@
-id: hl7.fhir.uv.apix
-canonical: http://hl7.org/fhir/uv/apix
+id: hl7.fhir.uv.rwi-pharma
+canonical: http://hl7.org/fhir/uv/rwi-pharma
 name: ApixIG
 title: Regulatory Workflows and Interactions - pharma
 description: "Regulatory exchange is globally fragmented across authorities, product lines, procedures, and technologies. This IG establishes a common Task- and Subscription-based framework for regulatory workflows and interactions, enabling them to be exchanged, tracked, and acted upon with machine-readable status and event-driven notifications."
