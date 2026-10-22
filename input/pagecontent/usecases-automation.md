@@ -35,5 +35,5 @@
 
 <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.85em; margin-top:24px;">
   <a href="usecases-status-tracking.html" style="color:#7c3aed; font-weight:600; text-decoration:none;">← Submission Tracking and Notifications</a>
-  <a href="usecases.html" style="color:#7c3aed; font-weight:600; text-decoration:none;">Use Cases overview →</a>
+  <a href="usecases-scenarios.html" style="color:#7c3aed; font-weight:600; text-decoration:none;">Example Scenarios →</a>
 </div>

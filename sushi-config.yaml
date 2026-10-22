@@ -49,6 +49,16 @@ pages:
       title: Submission Tracking and Notifications
     usecases-automation.md:
       title: Automation
+    usecases-scenarios.md:
+      title: Example Scenarios
+    usecases-scenario-stability.md:
+      title: "Scenario 1: Stability Update"
+    usecases-scenario-icsr.md:
+      title: "Scenario 2: ICSR Initial and Follow-up"
+    usecases-scenario-cta.md:
+      title: "Scenario 3: Clinical Trial Application"
+    usecases-scenario-label-negotiation.md:
+      title: "Scenario 4: Label Negotiation"
   workflow.md:
     title: Workflow
   subscriptions.md:
@@ -76,9 +86,15 @@ menu:
   Home: index.html
   Getting Started: gettingstarted.html
   Use Cases:
+    Use Cases Overview: usecases.html
     Universal Submissions: usecases-universal-submissions.html
     Submission Tracking and Notifications: usecases-status-tracking.html
     Automation: usecases-automation.html
+    Example Scenarios: usecases-scenarios.html
+    "Scenario 1: Stability Update": usecases-scenario-stability.html
+    "Scenario 2: ICSR": usecases-scenario-icsr.html
+    "Scenario 3: Clinical Trial Application": usecases-scenario-cta.html
+    "Scenario 4: Label Negotiation": usecases-scenario-label-negotiation.html
   Workflow: workflow.html
   Notifications: subscriptions.html
   Terminology: terminology.html

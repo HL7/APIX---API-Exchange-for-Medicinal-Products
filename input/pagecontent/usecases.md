@@ -22,6 +22,13 @@
   </a>
 </div>
 
+<div style="background:#fff; border:1px solid #e5e7eb; border-left:3px solid #111827; border-radius:8px; padding:18px 20px; margin-bottom:36px;">
+  <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#374151; margin-bottom:6px;">Worked examples</div>
+  <div style="font-weight:700; color:#111827; margin-bottom:6px;"><a href="usecases-scenarios.html" style="color:#111827; text-decoration:none;">Example Scenarios →</a></div>
+  <p style="font-size:.82em; color:#6b7280; line-height:1.5; margin:0 0 10px;">Four end-to-end scenarios show the use cases step by step, with the Tasks, documents and status changes at each step.</p>
+  <div style="font-size:.82em; line-height:1.8;"><a href="usecases-scenario-stability.html">1. Stability update</a> · <a href="usecases-scenario-icsr.html">2. ICSR</a> · <a href="usecases-scenario-cta.html">3. Clinical trial application</a> · <a href="usecases-scenario-label-negotiation.html">4. Label negotiation</a></div>
+</div>
+
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:14px 18px; font-size:.85em; color:#374151; display:flex; gap:10px; align-items:flex-start;">
