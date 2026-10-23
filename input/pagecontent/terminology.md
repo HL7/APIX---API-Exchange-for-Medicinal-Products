@@ -36,7 +36,7 @@ Conventions used throughout:
 
 ### Shared terms {#shared-terms}
 
-Used by all three domains.
+Used by all three domains. The ICSR value sets use only `submitted`, `rejected` and `validation-report` from this list.
 
 #### Business status (shared)
 
@@ -418,79 +418,82 @@ Value set membership (including shared types):
 {: .term-table .term-io}
 
 
-### Individual Case Safety Reports (ICSR)
+### Individual Case Safety Reports (ICSR) {#individual-case-safety-reports-icsr}
 
 #### Task codes — `apix-icsr-task-code-vs`
 
 | Code | Display | Definition |
 |---|---|---|
-| `icsr` *(grouping)* | Individual Case Safety Report | Grouping: transmission of individual case safety reports as ICH E2B(R3) messages and the acknowledgments that follow. |
-| `icsr-initial` | Initial ICSR | First ICH E2B(R3) report of a case, identified by its worldwide unique case identification number (C.1.8.1). |
-| `icsr-follow-up` | Follow-up ICSR | ICH E2B(R3) report with new information for a case already reported; same worldwide unique case identification number (C.1.8.1) and a later date of most recent information (C.1.5). |
-| `icsr-amendment` | ICSR Amendment | ICH E2B(R3) report that corrects a previously sent report without new medical information (C.1.11.1 = Amendment, reason in C.1.11.2). |
-| `icsr-nullification` | ICSR Nullification | ICH E2B(R3) report that nullifies a previously sent report, for example a duplicate or invalid case (C.1.11.1 = Nullification, reason in C.1.11.2). |
-| `susar-report` | SUSAR Report | Expedited ICH E2B(R3) report of a suspected unexpected serious adverse reaction in a clinical trial (e.g., EU CTR SUSAR, US IND safety report). |
-| `follow-up-information-request` | Follow-up Information Request | Receiver asks the sender for additional information on a case. |
+| `icsr` | Individual Case Safety Report | Transmission of a single individual case safety report (ICSR) as an ICH E2B(R2) or E2B(R3) message. The input type gives the E2B version. |
+| `susar` | Suspected Unexpected Serious Adverse Reaction | Transmission of a single SUSAR report from a clinical trial as an ICH E2B(R2) or E2B(R3) message. The input type gives the E2B version. |
 {: .term-table}
-
-
-Also included from Market Authorization: `withdrawal`.
 
 
 #### Business status — `apix-icsr-business-status-vs`
 
-Domain-specific statuses:
-
 | Code | Display | Definition |
 |---|---|---|
-| `transmission-accepted` | Transmission Accepted (AA) | All reports in the message were loaded. ICH E2B(R3) transmission acknowledgment code AA (ACK.A.4). |
-| `transmission-partially-accepted` | Transmission Partially Accepted (AE) | The message was processed but one or more reports were not loaded. ICH E2B(R3) transmission acknowledgment code AE (ACK.A.4). |
-| `transmission-rejected` | Transmission Rejected (AR) | The message could not be processed and no reports were loaded. ICH E2B(R3) transmission acknowledgment code AR (ACK.A.4). |
-| `icsr-accepted` | Report Accepted (CA) | The individual report was accepted. ICH E2B(R3) report acknowledgment code CA (ACK.B.r.6). |
-| `icsr-rejected` | Report Rejected (CR) | The individual report was rejected. ICH E2B(R3) report acknowledgment code CR (ACK.B.r.6). |
-| `follow-up-requested` | Follow-up Requested | The receiver has requested more information on the case. |
-| `duplicate-identified` | Duplicate Identified | The case was identified as a duplicate of an existing case. |
-| `case-nullified` | Case Nullified | A nullification report for the case has been accepted. |
+| `submitted` | Submitted | The sender has submitted the safety report. *(Shared term.)* |
+| `accepted` | Accepted | The safety report passed validation and was loaded by the receiver; the acknowledgment log has been returned. |
+| `rejected` | Rejected | The safety report failed validation and was not loaded; the acknowledgment log and a validation report have been returned. *(Shared term.)* |
+| `complete` | Complete | Processing of the accepted safety report is complete and no further action is expected on the Task. |
 {: .term-table}
 
 
-Also included from shared terms: `submitted`, `received`, `receipt-acknowledged`, `validation-failed`, `withdrawn`.
+The sender sets `submitted` when it creates the Task (and when it resubmits on a new Task). The regulator then sets `accepted` or `rejected`, and `complete` when processing is finished.
 
 
 **Typical progressions:**
 
-- *ICSR:* submitted → received → transmission-accepted (AA) | transmission-partially-accepted (AE) | transmission-rejected (AR); then, for each report, icsr-accepted (CA) | icsr-rejected (CR) → (follow-up-requested)
+| Path | `Task.status` | `Task.businessStatus` |
+|---|---|---|
+| Accepted | requested → accepted → completed | `submitted` → `accepted` → `complete` |
+| Rejected and resubmitted | Task 1: requested → rejected<br/>Task 2 (`basedOn` Task 1, same `groupIdentifier`): requested → accepted → completed | Task 1: `submitted` → `rejected`<br/>Task 2: `submitted` → `accepted` → `complete` |
+{: .term-table}
+
+A rejected Task is final, so a resubmission is a new Task. `Task.statusReason` is required when `Task.status` = `rejected`.
 
 
-**Worked example:** an initial and a follow-up ICSR with their E2B(R3) acknowledgments — [initial](Task-scenario2-01-icsr-initial.html), [acknowledged](Task-scenario2-02-icsr-initial-acknowledged.html), [follow-up](Task-scenario2-03-icsr-follow-up.html), [acknowledged](Task-scenario2-04-icsr-follow-up-acknowledged.html).
+**Worked examples:**
+
+- *Accepted:* an E2B(R2) ICSR — [submitted](Task-scenario2a-01-icsr-submitted.html), [accepted](Task-scenario2a-02-icsr-accepted.html), [complete](Task-scenario2a-03-icsr-complete.html).
+- *Rejected and resubmitted:* an E2B(R2) ICSR with a validation error — [submitted](Task-scenario2b-01-icsr-submitted.html), [rejected](Task-scenario2b-02-icsr-rejected.html), [resubmitted](Task-scenario2b-03-icsr-resubmitted.html), [accepted](Task-scenario2b-04-icsr-accepted.html), [complete](Task-scenario2b-05-icsr-complete.html).
 
 
 #### Input and output types — `apix-icsr-task-input-type-vs` / `apix-icsr-task-output-type-vs`
 
-Domain-specific types:
-
 | Code | Display | Definition |
 |---|---|---|
-| `icsr-message` | ICSR Message | ICH E2B(R3) ICSR message containing one or more case safety reports. |
-| `source-document` | Source Document | Document supporting a case, such as a literature article or medical records (ICH E2B(R3) included documents, C.1.6.1.r.2 and C.4.r.2). |
-| `icsr-acknowledgment` | ICSR Acknowledgment | ICH E2B(R3) acknowledgment message returned for an ICSR message, carrying the transmission (ACK.A.4) and report (ACK.B.r.6) acknowledgment codes. |
-| `follow-up-questions` | Follow-up Questions | Questions about a case sent by the receiver. |
-| `follow-up-response` | Follow-up Response | Answers to follow-up questions about a case. |
+| `icsr-e2b-r2` | ICSR (E2B(R2)) | A single individual case safety report as an ICH E2B(R2) XML message. |
+| `icsr-e2b-r3` | ICSR (E2B(R3)) | A single individual case safety report as an ICH E2B(R3) XML message. |
+| `susar-e2b-r2` | SUSAR (E2B(R2)) | A single SUSAR report from a clinical trial as an ICH E2B(R2) XML message. |
+| `susar-e2b-r3` | SUSAR (E2B(R3)) | A single SUSAR report from a clinical trial as an ICH E2B(R3) XML message. |
+| `icsr-e2b-r2-acklog` | ICSR E2B(R2) Acknowledgment Log | ICH E2B(R2) acknowledgment message (`ichicsrack`) returned for an ICSR, with the transmission and report acknowledgment codes and any errors. |
+| `icsr-e2b-r3-acklog` | ICSR E2B(R3) Acknowledgment Log | ICH E2B(R3) acknowledgment message returned for an ICSR, with the transmission (ACK.A.4) and report (ACK.B.r.6) acknowledgment codes and any errors. |
+| `susar-e2b-r2-acklog` | SUSAR E2B(R2) Acknowledgment Log | ICH E2B(R2) acknowledgment message (`ichicsrack`) returned for a SUSAR, with the transmission and report acknowledgment codes and any errors. |
+| `susar-e2b-r3-acklog` | SUSAR E2B(R3) Acknowledgment Log | ICH E2B(R3) acknowledgment message returned for a SUSAR, with the transmission (ACK.A.4) and report (ACK.B.r.6) acknowledgment codes and any errors. |
 {: .term-table}
 
-Value set membership (including shared types):
+`validation-report` is a [shared term](#shared-terms).
+
+Value set membership:
 
 | Code | Display | Input | Output |
 |---|---|:-:|:-:|
-| `cover-letter` | Cover Letter | ✓ |  |
-| `supporting-document` | Supporting Document | ✓ |  |
-| `correspondence` | Correspondence |  | ✓ |
-| `icsr-message` | ICSR Message | ✓ |  |
-| `source-document` | Source Document | ✓ |  |
-| `icsr-acknowledgment` | ICSR Acknowledgment |  | ✓ |
-| `follow-up-questions` | Follow-up Questions | ✓ |  |
-| `follow-up-response` | Follow-up Response |  | ✓ |
+| `icsr-e2b-r2` | ICSR (E2B(R2)) | ✓ |  |
+| `icsr-e2b-r3` | ICSR (E2B(R3)) | ✓ |  |
+| `susar-e2b-r2` | SUSAR (E2B(R2)) | ✓ |  |
+| `susar-e2b-r3` | SUSAR (E2B(R3)) | ✓ |  |
+| `icsr-e2b-r2-acklog` | ICSR E2B(R2) Acknowledgment Log |  | ✓ |
+| `icsr-e2b-r3-acklog` | ICSR E2B(R3) Acknowledgment Log |  | ✓ |
+| `susar-e2b-r2-acklog` | SUSAR E2B(R2) Acknowledgment Log |  | ✓ |
+| `susar-e2b-r3-acklog` | SUSAR E2B(R3) Acknowledgment Log |  | ✓ |
+| `validation-report` | Validation Report |  | ✓ |
 {: .term-table .term-io}
 
+<div style="background:#eff6ff; border:1px solid #bfdbfe; border-left:5px solid #2563eb; border-radius:10px; padding:14px 18px; margin:8px 0 22px;">
+  <div style="font-weight:700; color:#1e3a8a; margin-bottom:4px;">Recommendation: one report per Task</div>
+  <p style="font-size:.88em; color:#1e3a8a; line-height:1.6; margin:0;">Send each ICSR and each SUSAR on its own, as one E2B message on one Task, rather than bundling several reports in one batch message. Each report then gets its own Task status, business status and acknowledgment log, so one rejected report does not hold up the others and a resubmission only has to resend that report.</p>
+</div>
 
-The content of the ICSR itself (case, reporter, reactions, drugs) stays in the ICH E2B(R3) message carried as `icsr-message`. These codes only describe the exchange around it.
+The content of the report itself (case, reporter, reactions, drugs) stays in the ICH E2B message. These codes only describe the exchange around it.

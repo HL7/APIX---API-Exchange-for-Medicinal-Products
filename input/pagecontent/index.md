@@ -131,7 +131,7 @@
     <div style="font-size:1.4em; margin-bottom:10px;">🌐</div>
     <div style="font-weight:700; color:#003087; margin-bottom:6px;">One Universal Interface</div>
     <p style="font-size:.88em; color:#4b5563; line-height:1.6; margin:0 0 12px; flex:1;">One common FHIR framework for regulatory workflows and interactions across procedures and authorities — one connection at the agency reaches all companies; one connection at the company reaches all regulators.</p>
-    <a href="usecases-universal-submissions.html" style="color:#003087; font-weight:600; font-size:.85em; text-decoration:none;">Explore universal submissions →</a>
+    <a href="usecases.html" style="color:#003087; font-weight:600; font-size:.85em; text-decoration:none;">Explore the use cases →</a>
   </div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:24px; display:flex; flex-direction:column;">
     <div style="font-size:1.4em; margin-bottom:10px;">📤</div>

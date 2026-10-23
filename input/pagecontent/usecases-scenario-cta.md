@@ -1,18 +1,26 @@
 <!-- EXAMPLE SCENARIO 3: CLINICAL TRIAL APPLICATION -->
 <div style="margin-bottom:28px;">
-  <a href="usecases-scenarios.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#7c3aed; text-decoration:none;">Example scenario 3 of 4</a>
+  <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6d28d9; text-decoration:none;">Use Cases › Scenario 3 of 4 · Clinical trials</a>
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Clinical Trial Application</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">SynthPharma AG, as sponsor, applies to run study <strong>WD-201</strong>. The regulator validates the application and assigns trial number <strong>CT-2026-000789</strong>. During assessment it sends a request for information with three questions and a two-week deadline. The sponsor answers within the deadline, the clock restarts, and the trial is authorised.</p>
 </div>
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-bottom:28px; font-size:.82em;">
-  <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Use case</div><div style="font-weight:600; color:#111827;"><a href="usecases-universal-submissions.html">Universal Submissions</a></div></div>
+  <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Starts it</div><div style="font-weight:600; color:#111827;">Sponsor</div></div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Parent Task code</div><div style="font-weight:600; color:#111827;"><code>clinical-trial-application</code></div></div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Duration</div><div style="font-weight:600; color:#111827;">1 Sep → 3 Nov 2026</div></div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Ends with</div><div style="font-weight:600; color:#111827;">Authorisation decision</div></div>
 </div>
 
 ### Steps
+
+<ol style="list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:8px;">
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario3-01-cta-submission.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 1</span><span style="font-weight:700; font-size:.9em;">Submit</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">requested / submitted</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario3-02-cta-validated.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 2</span><span style="font-weight:700; font-size:.9em;">Validated</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">accepted / validation-successful</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario3-03-cta-rfi.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 3</span><span style="font-weight:700; font-size:.9em;">Request for information</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">requested / request-for-information-issued</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario3-04-cta-rfi-response.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 4</span><span style="font-weight:700; font-size:.9em;">Response</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / clock-restart</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario3-05-cta-authorised.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 5</span><span style="font-weight:700; font-size:.9em;">Authorised</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / authorised</code></a></li>
+</ol>
 
 | Step | Example instance | Version | `status` / `businessStatus` | Documents |
 |---|---|---|---|---|
@@ -31,6 +39,14 @@
 - **Both parties' identifiers on one Task.** The regulator's trial number is added to `Task.identifier` when it is assigned.
 - **Deadlines systems can act on.** `requestedPeriod` carries the response deadline, so systems can flag overdue responses automatically.
 - **Requester and owner swap on the RFI Task.** The regulator asks (input), and the sponsor answers (output).
+
+### Implementing this
+
+- Add the regulator’s trial number to `Task.identifier` when it is assigned, alongside the Task instance ID.
+- Put the response deadline in `requestedPeriod.end` on the request-for-information Task, so both systems can flag overdue responses.
+- **Route questions on receipt.** The question Task’s type, product and document types (with CTD sections where the documents have them) tell the applicant’s or sponsor’s system which team (CMC, labelling, clinical, safety) should answer, and the due date comes from the Task.
+- **Route responses on receipt.** The response is matched to the question through the Task’s identifiers and goes straight to the reviewer who asked (`Task.requester`), and the clock restarts.
+- Codes: [Terminology › Clinical Trials](terminology.html#clinical-trials).
 
 <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.85em; margin-top:24px;">
   <a href="usecases-scenario-icsr.html" style="color:#2563eb; font-weight:600; text-decoration:none;">← Scenario 2: ICSR</a>

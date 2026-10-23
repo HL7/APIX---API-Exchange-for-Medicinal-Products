@@ -25,7 +25,8 @@ Description: "Code system for regulatory business status in APIX submissions"
 * #payment-received "Payment Received" "The fee payment has been received and confirmed."
 
 // Statuses used by the ICSR and clinical trial application examples (see the Terminology page)
-* #icsr-accepted "Report Accepted (CA)" "The individual report was accepted. ICH E2B(R3) report acknowledgment code CA (ACK.B.r.6)."
+* #accepted "Accepted" "The safety report passed validation and was loaded by the receiver; the acknowledgment log has been returned."
+* #complete "Complete" "Processing of the accepted safety report is complete and no further action is expected on the Task."
 * #request-for-information-issued "Request for Information Issued" "The regulator has sent a request for information to the sponsor."
 * #authorised "Authorised" "The trial or modification has been authorised."
 

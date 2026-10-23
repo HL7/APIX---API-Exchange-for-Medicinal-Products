@@ -119,4 +119,4 @@ By storing the notification history, an organization can automatically reconstru
 
 ### From Event Stream to Dashboards
 
-For worked examples of what this analytics stream produces — a full single-procedure lifecycle timeline reconstructed from Task versions, a regulator's live activity board, and auto-generated annual performance reports — see the <a href="usecases-status-tracking.html#scenario-examples">Examples on the Submission Tracking and Notifications use case page</a>.
+For worked examples of what this analytics stream produces — a full single-procedure lifecycle timeline reconstructed from Task versions, a regulator's live activity board, and auto-generated annual performance reports — see the <a href="usecases-status-tracking.html#scenario-examples">examples on the Tracking and Dashboards page</a>.

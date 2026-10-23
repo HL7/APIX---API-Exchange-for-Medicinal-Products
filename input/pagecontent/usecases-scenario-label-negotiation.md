@@ -1,12 +1,12 @@
 <!-- EXAMPLE SCENARIO 4: LABEL NEGOTIATION WITH AN ANNOTATED ePI -->
 <div style="margin-bottom:28px;">
-  <a href="usecases-scenarios.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#ea580c; text-decoration:none;">Example scenario 4 of 4</a>
+  <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#c2410c; text-decoration:none;">Use Cases › Scenario 4 of 4 · Market authorization</a>
   <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Label Negotiation with an Annotated ePI</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">Following a safety signal for nausea, SynthPharma AG submits a <strong>Type II variation</strong> (<code>VAR-II-2027-0012</code>) for <strong>WonderDrug 50 mg film-coated tablets</strong>. The variation adds nausea to SmPC section 4.8 and package leaflet section 4. The proposed product information is sent as a <strong>FHIR ePI</strong> in two forms: an <strong>annotated</strong> ePI that shows every change against the approved text, and a <strong>clean</strong> ePI. The label text takes two rounds of comments to agree.</p>
 </div>
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-bottom:28px; font-size:.82em;">
-  <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Use case</div><div style="font-weight:600; color:#111827;"><a href="usecases-universal-submissions.html">Universal Submissions</a></div></div>
+  <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Starts it</div><div style="font-weight:600; color:#111827;">Applicant; regulator for each labelling round</div></div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Task codes</div><div style="font-weight:600; color:#111827;"><code>variation-type-ii</code>, <code>labelling-comments</code>, <code>labelling-agreement</code></div></div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Duration</div><div style="font-weight:600; color:#111827;">11 Jan → 17 Mar 2027</div></div>
   <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; padding:10px 12px;"><div style="color:#6b7280; font-size:.85em;">Ends with</div><div style="font-weight:600; color:#111827;">Approval letter + approved ePI</div></div>
@@ -24,6 +24,19 @@
 - **Decision.** The regulator approves the variation and returns the approval letter and the **approved ePI**.
 
 ### Steps
+
+<ol style="list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:8px;">
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-01-variation-submitted.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 1</span><span style="font-weight:700; font-size:.9em;">Submit</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">requested / submitted</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-02-variation-validated.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 2</span><span style="font-weight:700; font-size:.9em;">Validated</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">accepted / validation-successful</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-03-variation-under-assessment.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 3</span><span style="font-weight:700; font-size:.9em;">Assessment</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">in-progress / under-assessment</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-04-labelling-comments-round1.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 4</span><span style="font-weight:700; font-size:.9em;">Comments R1</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">requested / labelling-comments-issued</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-05-labelling-comments-round1-response.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 5</span><span style="font-weight:700; font-size:.9em;">Counter-proposal</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / counter-proposal-received</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-06-labelling-comments-round2.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 6</span><span style="font-weight:700; font-size:.9em;">Comments R2</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">requested / labelling-comments-issued</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-07-labelling-comments-round2-response.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 7</span><span style="font-weight:700; font-size:.9em;">Response</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / response-received</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-08-labelling-agreement.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #bfdbfe; background:#eff6ff; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 8</span><span style="font-weight:700; font-size:.9em;">Agreement requested</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">requested / awaiting-applicant-response</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-09-labelling-agreed.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 9</span><span style="font-weight:700; font-size:.9em;">Agreed</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / labelling-agreed</code></a></li>
+  <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario4-10-variation-approved.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 10</span><span style="font-weight:700; font-size:.9em;">Approved</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / approved</code></a></li>
+</ol>
 
 | Step | Example instance | Version | Created / updated by | `status` / `businessStatus` | Documents |
 |---|---|---|---|---|---|
@@ -90,9 +103,15 @@
 ### Notes
 
 - The label-negotiation codes are listed on the [Terminology](terminology.html) page (Market Authorization).
-- Open questions about this scenario (tracked-change markup, annotated and clean every round, parent status, superseded versions) are listed under [Open issues](usecases-scenarios.html#open-issues).
+
+### Implementing this
+
+- Create one `labelling-comments` Task per round, `basedOn` the variation, each with its own `requestedPeriod`.
+- Keep one document set identifier per chain (annotated, clean) and link each new version with `relatesTo.code` = `replaces`.
+- Point the regulator’s `approved-labelling` DocumentReference at the same Binary as the agreed clean ePI.
+- Codes: [Terminology › Market Authorization](terminology.html#market-authorization).
 
 <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.85em; margin-top:24px;">
   <a href="usecases-scenario-cta.html" style="color:#2563eb; font-weight:600; text-decoration:none;">← Scenario 3: Clinical Trial Application</a>
-  <a href="usecases-scenarios.html" style="color:#2563eb; font-weight:600; text-decoration:none;">Example Scenarios overview →</a>
+  <a href="usecases.html" style="color:#2563eb; font-weight:600; text-decoration:none;">Use Cases overview →</a>
 </div>

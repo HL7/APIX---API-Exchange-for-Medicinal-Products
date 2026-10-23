@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated ICH E2B(R2) acknowledgment message (acklog): the structure follows the
+     ICH E2B(R2) / M2 ICSR acknowledgment (ich-icsrack-v1.1) DTD but only key data elements are shown, and it has not been validated against the DTD.
+     Data element numbers are given in comments. -->
+<!DOCTYPE ichicsrack SYSTEM "ich-icsrack-v1.1.dtd">
+<ichicsrack lang="en">
+  <ichicsrmessageheader>
+    <messagetype>ichicsrack</messagetype>
+    <messageformatversion>1.1</messageformatversion>
+    <messageformatrelease>1.0</messageformatrelease>
+    <messagenumb>HA-ACK-2026-778001</messagenumb>
+    <messagesenderidentifier>HA-PHARMACOVIGILANCE</messagesenderidentifier>
+    <messagereceiveridentifier>SYNTHPHARMA-AG</messagereceiveridentifier>
+    <messagedateformat>204</messagedateformat>
+    <messagedate>20261002094512</messagedate>
+  </ichicsrmessageheader>
+  <acknowledgment>
+    <messageacknowledgment>
+      <icsrmessagenumb>SYNTH-MSG-2026-000456-1</icsrmessagenumb>                          <!-- the ICSR message being acknowledged -->
+      <icsrmessagesenderidentifier>SYNTHPHARMA-AG</icsrmessagesenderidentifier>
+      <icsrmessagereceiveridentifier>HA-PHARMACOVIGILANCE</icsrmessagereceiveridentifier>
+      <icsrmessagedateformat>204</icsrmessagedateformat>
+      <icsrmessagedate>20261002093000</icsrmessagedate>
+      <transmissionacknowledgmentcode>01</transmissionacknowledgmentcode>  <!-- 01 = all reports loaded; 02 = not all reports loaded; 03 = message not parsed -->
+    </messageacknowledgment>
+    <reportacknowledgment>
+      <safetyreportid>CH-SYNTHPHARMA-2026-000456</safetyreportid>
+      <safetyreportversion>1</safetyreportversion>
+      <localreportnumb>HA-ICSR-2026-104233</localreportnumb>                    <!-- receiver's local report number -->
+      <companynumb>CH-SYNTHPHARMA-2026-000456</companynumb>
+      <receiptdateformat>102</receiptdateformat>
+      <receiptdate>20261002</receiptdate>
+      <reportacknowledgmentcode>01</reportacknowledgmentcode>             <!-- 01 = report loaded; 02 = report not loaded -->
+    </reportacknowledgment>
+  </acknowledgment>
+</ichicsrack>

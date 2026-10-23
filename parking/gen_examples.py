@@ -1,7 +1,7 @@
-# Generates the ICSR (scenario2), clinical trial application (scenario3) and label negotiation (scenario4) examples:
+# Generates the ICSR (scenario2a/2b), clinical trial application (scenario3) and label negotiation (scenario4) examples:
 #   input/fsh/workflowExamples/scenario2-icsr.fsh, scenario3-cta.fsh, scenario4-label-negotiation.fsh   (Tasks + DocumentReferences)
 #   input/fsh/exampleBinaries/scenario2-icsr-binaries.fsh, scenario3-cta-binaries.fsh, scenario4-label-negotiation-binaries.fsh
-#   parking/example-source/*  (readable copies of the sample ICSR XML, CTA PDFs, and label negotiation ePIs and PDFs)
+#   parking/example-source/*  (readable copies of the sample E2B(R2) ICSR and acklog XML, ICSR validation report, CTA PDFs, and label negotiation ePIs and PDFs)
 # Usage (from repo root): python3 parking/gen_examples.py   — needs reportlab (pip install reportlab)
 import base64, hashlib, uuid, os, html, io
 from reportlab.lib.pagesizes import A4
@@ -50,9 +50,10 @@ def task(t):
          f'* meta.versionId = "{t["ver"]}"', f'* meta.lastUpdated = "{t["modified"]}"', '* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-task"']
     req, own = ORG[t['requester']], ORG[t['owner']]
     rows = [('Task', f'{x(t["code"][1])} (<code>{t["code"][0]}</code>)'), ('Version', t['ver']), ('Status', t['status']),
-            ('Business status', f'{x(t["bs"][1])} (<code>{t["bs"][0]}</code>)'), ('Requester', x(req[1])), ('Owner', x(own[1])),
+            ('Business status', f'{x(t["bs"][1])} (<code>{t["bs"][0]}</code>)' if t.get('bs') else 'Not set'), ('Requester', x(req[1])), ('Owner', x(own[1])),
             ('Group identifier', t['group']), ('Authored', t['authored']), ('Last modified', t['modified'])]
     if t.get('proc'): rows.insert(1, ('Procedure number', x(t['proc'][1])))
+    if t.get('reason'): rows.insert(3, ('Status reason', x(t['reason'])))
     if t.get('basedOn'): rows.append(('Based on', f'<a href="Task-{t["basedOn"]}.html">{t["basedOn"]}</a>'))
     if t.get('period'): rows.append(('Response due', t['period'][1]))
     L += ['* text.status = #generated', f'* text.div = "{q(narrative(t["heading"], rows, t.get("inputs", []), t.get("outputs", [])))}"']
@@ -63,7 +64,8 @@ def task(t):
               f'* identifier[=].type = {DEMO}#apixregulatorprocedureno "APIX Regulator Procedure Number"']
     L += ['* groupIdentifier.use = #official', '* groupIdentifier.system = "http://example.org/health-authority/work-flow-group-id"', f'* groupIdentifier.value = "{t["group"]}"']
     if t.get('basedOn'): L.append(f'* basedOn = Reference({t["basedOn"]})')
-    L += [f'* status = #{t["status"]}', f'* businessStatus = {BS}#{t["bs"][0]} "{q(t["bs"][1])}"', '* intent = #proposal', f'* priority = #{t.get("priority","routine")}',
+    L += [f'* status = #{t["status"]}'] + ([f'* statusReason.concept.text = "{q(t["reason"])}"'] if t.get('reason') else [])
+    L += ([f'* businessStatus = {BS}#{t["bs"][0]} "{q(t["bs"][1])}"'] if t.get('bs') else []) + ['* intent = #proposal', f'* priority = #{t.get("priority","routine")}',
           f'* code = {TC}#{t["code"][0]} "{q(t["code"][1])}"', f'* authoredOn = "{t["authored"]}"', f'* lastModified = "{t["modified"]}"',
           f'* requester = Reference({req[0]}) "{q(req[1])}"', f'* owner = Reference({own[0]}) "{q(own[1])}"']
     if t.get('period'): L += [f'* requestedPeriod.start = "{t["period"][0]}"', f'* requestedPeriod.end = "{t["period"][1]}"']
@@ -76,7 +78,9 @@ def task(t):
 
 IOD = {'cover-letter': 'Cover Letter', 'application-form': 'Application Form', 'validation-report': 'Validation Report', 'protocol': 'Protocol',
        'request-for-information': 'Request for Information', 'response-to-questions': 'Response to Questions', 'authorisation-decision': 'Authorisation Decision',
-       'icsr-message': 'ICSR Message', 'icsr-acknowledgment': 'ICSR Acknowledgment',
+       'icsr-e2b-r2': 'ICSR (E2B(R2))', 'icsr-e2b-r3': 'ICSR (E2B(R3))', 'susar-e2b-r2': 'SUSAR (E2B(R2))', 'susar-e2b-r3': 'SUSAR (E2B(R3))',
+       'icsr-e2b-r2-acklog': 'ICSR E2B(R2) Acknowledgment Log', 'icsr-e2b-r3-acklog': 'ICSR E2B(R3) Acknowledgment Log',
+       'susar-e2b-r2-acklog': 'SUSAR E2B(R2) Acknowledgment Log', 'susar-e2b-r3-acklog': 'SUSAR E2B(R3) Acknowledgment Log',
        'change-description': 'Change Description and Justification', 'epi-bundle': 'ePI Bundle', 'proposed-labelling': 'Proposed Labelling',
        'labelling-comments': 'Labelling Comments', 'approved-labelling': 'Approved Labelling', 'approval-letter': 'Approval Letter'}
 
@@ -101,164 +105,185 @@ def binary(bid, mime, content, desc):
     return (f'Instance: {bid}\nInstanceOf: Binary\nDescription: "{q(desc)}"\nUsage: #example\n* contentType = #{mime}\n'
             f'* data = "{base64.b64encode(content).decode()}"\n')
 
-# ================================================================ ICSR (scenario2)
-HDR = '<?xml version="1.0" encoding="UTF-8"?>\n<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated ICH E2B(R3) message: the structure follows the\n     E2B(R3) HL7 v3 schema (MCCI_IN200100UV01 batch / PORR_IN049016UV message) but only key data elements are\n     shown, and it has not been validated against the ICH schemas. Data element numbers are given in comments. -->\n'
-def icsr_xml(batch, msg, created, most_recent, followup):
-    outcome = ('1', 'recovered/resolved') if followup else ('3', 'not recovered/not resolved')
-    narrative = ('54-year-old female patient started WonderDrug 50 mg tablets once daily on 20-Sep-2026. On 26-Sep-2026 she developed nausea. '
-                 'The reporting physician considered the event non-serious and possibly related.')
-    if followup: narrative += ' Follow-up 08-Oct-2026: WonderDrug was withdrawn on 30-Sep-2026 and the nausea resolved on 05-Oct-2026 (positive dechallenge).'
-    action = '\n                        <!-- G.k.8 action taken with drug: drug withdrawn -->\n                        <inboundRelationship typeCode="CAUS"><act classCode="ACT" moodCode="EVN"><code code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.15" displayName="drug withdrawn"/></act></inboundRelationship>' if followup else ''
-    return (HDR + f'''<MCCI_IN200100UV01 xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ITSVersion="XML_1.0">
-  <id root="2.16.840.1.113883.3.989.2.1.3.22" extension="{batch}"/>                 <!-- N.1.2 batch number -->
-  <creationTime value="{created}"/>                                                   <!-- N.1.5 date of batch transmission -->
-  <responseModeCode code="D"/>
-  <interactionId root="2.16.840.1.113883.1.6" extension="MCCI_IN200100UV01"/>
-  <name code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.1" displayName="ichicsr"/>  <!-- N.1.1 type of messages in batch -->
-  <PORR_IN049016UV>
-    <id root="2.16.840.1.113883.3.989.2.1.3.1" extension="{msg}"/>                   <!-- N.2.r.1 message identifier -->
-    <creationTime value="{created}"/>                                                 <!-- N.2.r.4 date of message creation -->
-    <interactionId root="2.16.840.1.113883.1.6" extension="PORR_IN049016UV"/>
-    <processingCode code="P"/>
-    <processingModeCode code="T"/>
-    <acceptAckCode code="AL"/>
-    <receiver typeCode="RCV"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.12" extension="HA-PHARMACOVIGILANCE"/></device></receiver>  <!-- N.2.r.3 -->
-    <sender typeCode="SND"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.11" extension="SYNTHPHARMA-AG"/></device></sender>             <!-- N.2.r.2 -->
-    <controlActProcess classCode="CACT" moodCode="EVN">
-      <code code="PORR_TE049016UV" codeSystem="2.16.840.1.113883.1.18"/>
-      <effectiveTime value="{created}"/>                                              <!-- C.1.2 date of creation -->
-      <subject typeCode="SUBJ">
-        <investigationEvent classCode="INVSTG" moodCode="EVN">
-          <id root="2.16.840.1.113883.3.989.2.1.3.1" extension="CH-SYNTHPHARMA-2026-000456"/>   <!-- C.1.1 sender's safety report unique identifier -->
-          <id root="2.16.840.1.113883.3.989.2.1.3.2" extension="CH-SYNTHPHARMA-2026-000456"/>   <!-- C.1.8.1 worldwide unique case identification number -->
-          <code code="PAT_ADV_EVNT" codeSystem="2.16.840.1.113883.5.4"/>
-          <text>{narrative}</text>                                                     <!-- H.1 case narrative -->
-          <statusCode code="active"/>
-          <effectiveTime><low value="20260928"/></effectiveTime>                         <!-- C.1.4 date report was first received from source -->
-          <availabilityTime value="{most_recent}"/>                                      <!-- C.1.5 date of most recent information -->
-          <component typeCode="COMP">
-            <adverseEventAssessment classCode="INVSTG" moodCode="EVN">
-              <subject1 typeCode="SBJ">
-                <primaryRole classCode="INVSBJ">
-                  <player1 classCode="PSN" determinerCode="INSTANCE">
-                    <name>JD</name>                                                       <!-- D.1 patient (initials) -->
-                    <administrativeGenderCode code="2" codeSystem="1.0.5218" displayName="female"/>  <!-- D.5 sex -->
-                  </player1>
-                  <subjectOf2 typeCode="SBJ">
-                    <observation classCode="OBS" moodCode="EVN">
-                      <code code="3" codeSystem="2.16.840.1.113883.3.989.2.1.1.19" displayName="age"/>
-                      <value xsi:type="PQ" value="54" unit="a"/>                          <!-- D.2.2 age at time of onset -->
-                    </observation>
-                  </subjectOf2>
-                  <subjectOf2 typeCode="SBJ">
-                    <observation classCode="OBS" moodCode="EVN">
-                      <id root="2.16.840.1.113883.3.989.2.1.3.8" extension="R1"/>
-                      <code code="29" codeSystem="2.16.840.1.113883.3.989.2.1.1.19" displayName="reaction"/>
-                      <effectiveTime xsi:type="IVL_TS"><low value="20260926"/>{'<high value="20261005"/>' if followup else ''}</effectiveTime>  <!-- E.i.4 / E.i.5 -->
-                      <value xsi:type="CE" code="10028813" codeSystem="2.16.840.1.113883.6.163" codeSystemVersion="29.0" displayName="Nausea"/>  <!-- E.i.2.1b MedDRA PT -->
-                      <outboundRelationship2 typeCode="PERT">
-                        <observation classCode="OBS" moodCode="EVN">
-                          <code code="27" codeSystem="2.16.840.1.113883.3.989.2.1.1.19" displayName="outcome"/>
-                          <value xsi:type="CE" code="{outcome[0]}" codeSystem="2.16.840.1.113883.3.989.2.1.1.11" displayName="{outcome[1]}"/>  <!-- E.i.7 outcome -->
-                        </observation>
-                      </outboundRelationship2>
-                    </observation>
-                  </subjectOf2>
-                  <subjectOf2 typeCode="SBJ">
-                    <organizer classCode="CATEGORY" moodCode="EVN">
-                      <code code="4" codeSystem="2.16.840.1.113883.3.989.2.1.1.20" displayName="drugInformation"/>
-                      <component typeCode="COMP">
-                        <substanceAdministration classCode="SBADM" moodCode="EVN">
-                          <id root="2.16.840.1.113883.3.989.2.1.3.5" extension="D1"/>
-                          <consumable typeCode="CSM"><instanceOfKind classCode="INST"><kindOfProduct classCode="MMAT" determinerCode="KIND">
-                            <name>WonderDrug 50 mg tablets</name>                         <!-- G.k.2.2 medicinal product name as reported -->
-                          </kindOfProduct></instanceOfKind></consumable>
-                          <outboundRelationship2 typeCode="COMP"><substanceAdministration classCode="SBADM" moodCode="EVN">
-                            <effectiveTime xsi:type="IVL_TS"><low value="20260920"/>{'<high value="20260930"/>' if followup else ''}</effectiveTime>  <!-- G.k.4.r.4 / G.k.4.r.5 -->
-                            <doseQuantity value="50" unit="mg"/>                          <!-- G.k.4.r.1 dose -->
-                          </substanceAdministration></outboundRelationship2>{action}
-                        </substanceAdministration>
-                      </component>
-                    </organizer>
-                  </subjectOf2>
-                </primaryRole>
-              </subject1>
-            </adverseEventAssessment>
-          </component>
-          <outboundRelationship typeCode="SPRT">
-            <relatedInvestigation classCode="INVSTG" moodCode="EVN">
-              <code code="2" codeSystem="2.16.840.1.113883.3.989.2.1.1.22" displayName="sourceReport"/>
-              <subjectOf2 typeCode="SUBJ"><controlActEvent classCode="CACT" moodCode="EVN"><author typeCode="AUT"><assignedEntity classCode="ASSIGNED">
-                <code code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.6" displayName="physician"/>  <!-- C.2.r.4 qualification -->
-              </assignedEntity></author></controlActEvent></subjectOf2>
-            </relatedInvestigation>
-          </outboundRelationship>
-          <subjectOf2 typeCode="SUBJ">
-            <investigationCharacteristic classCode="OBS" moodCode="EVN">
-              <code code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.23" displayName="ichReportType"/>
-              <value xsi:type="CE" code="1" codeSystem="2.16.840.1.113883.3.989.2.1.1.2" displayName="Spontaneous report"/>  <!-- C.1.3 type of report -->
-            </investigationCharacteristic>
-          </subjectOf2>
-        </investigationEvent>
-      </subject>
-    </controlActProcess>
-  </PORR_IN049016UV>
-</MCCI_IN200100UV01>
-''').encode()
-
-def ack_xml(ack_batch, batch, msg, created):
-    return (HDR.replace('(MCCI_IN200100UV01 batch / PORR_IN049016UV message)', '(MCCI_IN200101UV01 acknowledgment)') + f'''<MCCI_IN200101UV01 xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
-  <id root="2.16.840.1.113883.3.989.2.1.3.20" extension="{ack_batch}"/>
-  <creationTime value="{created}"/>
-  <interactionId root="2.16.840.1.113883.1.6" extension="MCCI_IN200101UV01"/>
-  <MCCI_IN000002UV01>
-    <id root="2.16.840.1.113883.3.989.2.1.3.24" extension="{ack_batch}-1"/>
-    <creationTime value="{created}"/>
-    <interactionId root="2.16.840.1.113883.1.6" extension="MCCI_IN000002UV01"/>
-    <processingCode code="P"/>
-    <processingModeCode code="T"/>
-    <acceptAckCode code="NE"/>
-    <receiver typeCode="RCV"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.18" extension="SYNTHPHARMA-AG"/></device></receiver>
-    <sender typeCode="SND"><device classCode="DEV" determinerCode="INSTANCE"><id root="2.16.840.1.113883.3.989.2.1.3.17" extension="HA-PHARMACOVIGILANCE"/></device></sender>
-    <acknowledgement typeCode="CA">                                                   <!-- ACK.B.r.6 report acknowledgment code: CA = commit accept -->
-      <targetMessage><id root="2.16.840.1.113883.3.989.2.1.3.1" extension="{msg}"/></targetMessage>  <!-- the ICSR message being acknowledged -->
-    </acknowledgement>
-  </MCCI_IN000002UV01>
-  <acknowledgement typeCode="AA">                                                     <!-- ACK.A.4 transmission acknowledgment code: AA = all reports loaded -->
-    <targetBatch><id root="2.16.840.1.113883.3.989.2.1.3.22" extension="{batch}"/></targetBatch>  <!-- the batch being acknowledged -->
-  </acknowledgement>
-</MCCI_IN200101UV01>
-''').encode()
-
 files = {}
-files['icsr-initial.xml'] = icsr_xml('SYNTH-BATCH-2026-000123', 'SYNTH-MSG-2026-000456-1', '20261002093000+0200', '20260928', False)
-files['icsr-initial-ack.xml'] = ack_xml('HA-ACK-2026-778001', 'SYNTH-BATCH-2026-000123', 'SYNTH-MSG-2026-000456-1', '20261002094512+0200')
-files['icsr-follow-up.xml'] = icsr_xml('SYNTH-BATCH-2026-000131', 'SYNTH-MSG-2026-000456-2', '20261009101500+0200', '20261008', True)
-files['icsr-follow-up-ack.xml'] = ack_xml('HA-ACK-2026-779340', 'SYNTH-BATCH-2026-000131', 'SYNTH-MSG-2026-000456-2', '20261009103002+0200')
+# ================================================================ ICSR (scenario2a: accepted; scenario2b: rejected, resubmitted, accepted)
+HDR2 = ('<?xml version="1.0" encoding="UTF-8"?>\n<!-- FICTIONAL EXAMPLE for the RWI-pharma IG. Abbreviated ICH E2B(R2) {what}: the structure follows the\n'
+        '     ICH {dtd} DTD but only key data elements are shown, and it has not been validated against the DTD.\n'
+        '     Data element numbers are given in comments. -->\n')
 
-G2 = u('scenario2-icsr-group')
+def icsr_r2(msgnum, msgdate, case, received, initials, age, sex, term, llt, meddra, onset, narrative):
+    ver = (f'<reactionmeddraversionllt>{meddra}</reactionmeddraversionllt>                 <!-- B.2.i.1a MedDRA version for reaction -->' if meddra
+           else '<!-- B.2.i.1a reactionmeddraversionllt is missing in this message: the error that causes the rejection -->')
+    return (HDR2.format(what='ICSR message (one report per message)', dtd='E2B(R2) ICSR (ich-icsr-v2.1)') + f'''<!DOCTYPE ichicsr SYSTEM "ich-icsr-v2.1.dtd">
+<ichicsr lang="en">
+  <ichicsrmessageheader>
+    <messagetype>ichicsr</messagetype>
+    <messageformatversion>2.1</messageformatversion>
+    <messageformatrelease>2.0</messageformatrelease>
+    <messagenumb>{msgnum}</messagenumb>                                       <!-- M.1.4 message number -->
+    <messagesenderidentifier>SYNTHPHARMA-AG</messagesenderidentifier>           <!-- M.1.5 -->
+    <messagereceiveridentifier>HA-PHARMACOVIGILANCE</messagereceiveridentifier> <!-- M.1.6 -->
+    <messagedateformat>204</messagedateformat>
+    <messagedate>{msgdate}</messagedate>                                      <!-- M.1.7 message date -->
+  </ichicsrmessageheader>
+  <safetyreport>
+    <safetyreportversion>1</safetyreportversion>
+    <safetyreportid>{case}</safetyreportid>                <!-- A.1.0.1 sender's (case) safety report unique identifier -->
+    <primarysourcecountry>CH</primarysourcecountry>                             <!-- A.1.1 -->
+    <occurcountry>CH</occurcountry>                                             <!-- A.1.2 -->
+    <transmissiondateformat>102</transmissiondateformat>
+    <transmissiondate>{msgdate[:8]}</transmissiondate>                                   <!-- A.1.3 date of this transmission -->
+    <reporttype>1</reporttype>                                                  <!-- A.1.4 type of report: 1 = spontaneous -->
+    <serious>2</serious>                                                        <!-- A.1.5.1 serious: 2 = no -->
+    <receivedateformat>102</receivedateformat>
+    <receivedate>{received}</receivedate>                                           <!-- A.1.6 date report was first received from source -->
+    <receiptdateformat>102</receiptdateformat>
+    <receiptdate>{received}</receiptdate>                                           <!-- A.1.7 date of receipt of most recent information -->
+    <fulfillexpeditecriteria>2</fulfillexpeditecriteria>                        <!-- A.1.9 fulfils expedited criteria: 2 = no -->
+    <companynumb>{case}</companynumb>                      <!-- A.1.10.2 company number -->
+    <primarysource>
+      <qualification>1</qualification>                                          <!-- A.2.1.4 qualification: 1 = physician -->
+    </primarysource>
+    <sender>
+      <sendertype>1</sendertype>                                                <!-- A.3.1.1 sender type: 1 = pharmaceutical company -->
+      <senderorganization>SynthPharma AG</senderorganization>                   <!-- A.3.1.2 -->
+    </sender>
+    <receiver>
+      <receivertype>2</receivertype>                                            <!-- A.3.2.1 receiver type: 2 = regulatory authority -->
+      <receiverorganization>Health Authority</receiverorganization>             <!-- A.3.2.2 -->
+    </receiver>
+    <patient>
+      <patientinitial>{initials}</patientinitial>                                       <!-- B.1.1 patient initials -->
+      <patientonsetage>{age}</patientonsetage>                                      <!-- B.1.2.2a age at onset -->
+      <patientonsetageunit>801</patientonsetageunit>                            <!-- B.1.2.2b unit: 801 = year -->
+      <patientsex>{sex}</patientsex>                                              <!-- B.1.5 sex: 1 = male, 2 = female -->
+      <reaction>
+        <primarysourcereaction>{term}</primarysourcereaction>                  <!-- B.2.i.0 reaction as reported -->
+        {ver}
+        <reactionmeddrallt>{llt}</reactionmeddrallt>                           <!-- B.2.i.1b MedDRA LLT -->
+        <reactionstartdateformat>102</reactionstartdateformat>
+        <reactionstartdate>{onset}</reactionstartdate>                         <!-- B.2.i.4 start date -->
+        <reactionoutcome>3</reactionoutcome>                                    <!-- B.2.i.8 outcome: 3 = not recovered/not resolved -->
+      </reaction>
+      <drug>
+        <drugcharacterization>1</drugcharacterization>                          <!-- B.4.k.1 characterisation: 1 = suspect -->
+        <medicinalproduct>WonderDrug 50 mg tablets</medicinalproduct>           <!-- B.4.k.2.1 proprietary medicinal product name -->
+        <drugstructuredosagenumb>50</drugstructuredosagenumb>                   <!-- B.4.k.5.1 dose -->
+        <drugstructuredosageunit>003</drugstructuredosageunit>                  <!-- B.4.k.5.2 unit: 003 = mg -->
+        <drugstartdateformat>102</drugstartdateformat>
+        <drugstartdate>20260920</drugstartdate>                                 <!-- B.4.k.12 start date -->
+        <actiondrug>4</actiondrug>                                              <!-- B.4.k.16 action taken: 4 = dose not changed -->
+      </drug>
+      <summary>
+        <narrativeincludeclinical>{narrative}</narrativeincludeclinical>  <!-- B.5.1 case narrative -->
+      </summary>
+    </patient>
+  </safetyreport>
+</ichicsr>
+''').encode()
+
+def ack_r2(acknum, ackdate, msgnum, msgdate, case, loaded, localrep=None, err=None):
+    code = '01' if loaded else '02'
+    extra = (f'\n      <localreportnumb>{localrep}</localreportnumb>                    <!-- receiver\'s local report number -->' if localrep else '')
+    errel = (f'\n      <errormessagecomment>{x(err)}</errormessagecomment>' if err else '')
+    return (HDR2.format(what='acknowledgment message (acklog)', dtd='E2B(R2) / M2 ICSR acknowledgment (ich-icsrack-v1.1)') + f'''<!DOCTYPE ichicsrack SYSTEM "ich-icsrack-v1.1.dtd">
+<ichicsrack lang="en">
+  <ichicsrmessageheader>
+    <messagetype>ichicsrack</messagetype>
+    <messageformatversion>1.1</messageformatversion>
+    <messageformatrelease>1.0</messageformatrelease>
+    <messagenumb>{acknum}</messagenumb>
+    <messagesenderidentifier>HA-PHARMACOVIGILANCE</messagesenderidentifier>
+    <messagereceiveridentifier>SYNTHPHARMA-AG</messagereceiveridentifier>
+    <messagedateformat>204</messagedateformat>
+    <messagedate>{ackdate}</messagedate>
+  </ichicsrmessageheader>
+  <acknowledgment>
+    <messageacknowledgment>
+      <icsrmessagenumb>{msgnum}</icsrmessagenumb>                          <!-- the ICSR message being acknowledged -->
+      <icsrmessagesenderidentifier>SYNTHPHARMA-AG</icsrmessagesenderidentifier>
+      <icsrmessagereceiveridentifier>HA-PHARMACOVIGILANCE</icsrmessagereceiveridentifier>
+      <icsrmessagedateformat>204</icsrmessagedateformat>
+      <icsrmessagedate>{msgdate}</icsrmessagedate>
+      <transmissionacknowledgmentcode>{code}</transmissionacknowledgmentcode>  <!-- 01 = all reports loaded; 02 = not all reports loaded; 03 = message not parsed -->
+    </messageacknowledgment>
+    <reportacknowledgment>
+      <safetyreportid>{case}</safetyreportid>
+      <safetyreportversion>1</safetyreportversion>{extra}
+      <companynumb>{case}</companynumb>
+      <receiptdateformat>102</receiptdateformat>
+      <receiptdate>{ackdate[:8]}</receiptdate>
+      <reportacknowledgmentcode>{code}</reportacknowledgmentcode>             <!-- 01 = report loaded; 02 = report not loaded -->{errel}
+    </reportacknowledgment>
+  </acknowledgment>
+</ichicsrack>
+''').encode()
+
+# --- 2a: nausea case, accepted first time
+C2A, C2B = 'CH-SYNTHPHARMA-2026-000456', 'CH-SYNTHPHARMA-2026-000512'
+files['icsr-2a-e2b-r2.xml'] = icsr_r2('SYNTH-MSG-2026-000456-1', '20261002093000', C2A, '20260928', 'JD', 54, 2, 'feeling sick', '10028813', '29.0', '20260926',
+    '54-year-old female patient started WonderDrug 50 mg tablets once daily on 20-Sep-2026. On 26-Sep-2026 she developed nausea. The reporting physician considered the event non-serious and possibly related.')
+files['icsr-2a-e2b-r2-acklog.xml'] = ack_r2('HA-ACK-2026-778001', '20261002094512', 'SYNTH-MSG-2026-000456-1', '20261002093000', C2A, True, 'HA-ICSR-2026-104233')
+# --- 2b: dizziness case, rejected (MedDRA version missing), corrected and resubmitted
+ERR = 'B.2.i.1a reactionmeddraversionllt is mandatory when B.2.i.1b reactionmeddrallt is given (rule R2-0214). Report not loaded.'
+NARR_B = '61-year-old male patient started WonderDrug 50 mg tablets once daily on 20-Sep-2026. On 08-Oct-2026 he reported dizziness on standing. The reporting physician considered the event non-serious and possibly related.'
+files['icsr-2b-e2b-r2.xml'] = icsr_r2('SYNTH-MSG-2026-000512-1', '20261014110000', C2B, '20261009', 'MK', 61, 1, 'dizzy when standing up', '10013573', None, '20261008', NARR_B)
+files['icsr-2b-e2b-r2-acklog.xml'] = ack_r2('HA-ACK-2026-781455', '20261014111230', 'SYNTH-MSG-2026-000512-1', '20261014110000', C2B, False, err=ERR)
+files['icsr-2b-validation-report.pdf'] = pdf('Validation Report — ICSR', f'Case {C2B} · 14 October 2026', [
+ 'The ICSR message below failed validation. The report was not loaded into the safety database.',
+ ('table', [('Message number', 'SYNTH-MSG-2026-000512-1'), ('Safety report ID', C2B), ('Format', 'ICH E2B(R2)'), ('Outcome', 'Rejected — report not loaded (acknowledgment code 02)')]),
+ ('h', 'Errors'),
+ ('table', [('R2-0214 (error)', 'B.2.i.1a <i>reactionmeddraversionllt</i> is missing. The MedDRA version is mandatory when a MedDRA code is given in B.2.i.1b (here LLT 10013573, Dizziness).')]),
+ ('h', 'Action required'),
+ 'Add the MedDRA version to the reaction and resubmit the report. Because this report was not loaded, resubmit it as safety report version 1 with a new message number.'])
+files['icsr-2b-resubmission-e2b-r2.xml'] = icsr_r2('SYNTH-MSG-2026-000512-2', '20261014154000', C2B, '20261009', 'MK', 61, 1, 'dizzy when standing up', '10013573', '29.0', '20261008', NARR_B)
+files['icsr-2b-resubmission-e2b-r2-acklog.xml'] = ack_r2('HA-ACK-2026-781602', '20261014155208', 'SYNTH-MSG-2026-000512-2', '20261014154000', C2B, True, 'HA-ICSR-2026-104871')
+
 PH, HAs = 'http://example.org/synthpharma', 'http://example.org/health-authority'
+def icsr_doc(id_, title, desc, type_, file, date, author):
+    return dict(id=id_, title=title, desc=desc, type=type_, mime='application/pdf' if file.endswith('.pdf') else 'application/xml',
+                binary='binary-' + file.rsplit('.', 1)[0], file=file, date=date, author=author, sys=PH if author == 'pharma' else HAs)
 icsr_docs = [
- dict(id='docref-icsr-initial', title='Initial ICSR — case CH-SYNTHPHARMA-2026-000456', desc='Initial ICH E2B(R3) ICSR for case CH-SYNTHPHARMA-2026-000456 (nausea with WonderDrug 50 mg).', type='icsr-message', mime='application/xml', binary='binary-icsr-initial', file='icsr-initial.xml', date='2026-10-02T09:30:00+02:00', author='pharma', sys=PH),
- dict(id='docref-icsr-initial-ack', title='Acknowledgment of initial ICSR', desc='ICH E2B(R3) acknowledgment: transmission AA, report CA.', type='icsr-acknowledgment', mime='application/xml', binary='binary-icsr-initial-ack', file='icsr-initial-ack.xml', date='2026-10-02T09:45:12+02:00', author='ha', sys=HAs),
- dict(id='docref-icsr-follow-up', title='Follow-up ICSR — case CH-SYNTHPHARMA-2026-000456', desc='Follow-up ICH E2B(R3) ICSR: drug withdrawn, reaction resolved (positive dechallenge).', type='icsr-message', mime='application/xml', binary='binary-icsr-follow-up', file='icsr-follow-up.xml', date='2026-10-09T10:15:00+02:00', author='pharma', sys=PH),
- dict(id='docref-icsr-follow-up-ack', title='Acknowledgment of follow-up ICSR', desc='ICH E2B(R3) acknowledgment: transmission AA, report CA.', type='icsr-acknowledgment', mime='application/xml', binary='binary-icsr-follow-up-ack', file='icsr-follow-up-ack.xml', date='2026-10-09T10:30:02+02:00', author='ha', sys=HAs),
+ icsr_doc('docref-icsr-2a', f'ICSR — case {C2A}', f'ICH E2B(R2) ICSR for case {C2A} (nausea with WonderDrug 50 mg).', 'icsr-e2b-r2', 'icsr-2a-e2b-r2.xml', '2026-10-02T09:30:00+02:00', 'pharma'),
+ icsr_doc('docref-icsr-2a-acklog', 'ICSR acknowledgment log', 'ICH E2B(R2) acknowledgment: transmission 01 (all reports loaded), report 01 (report loaded).', 'icsr-e2b-r2-acklog', 'icsr-2a-e2b-r2-acklog.xml', '2026-10-02T09:45:12+02:00', 'ha'),
+ icsr_doc('docref-icsr-2b', f'ICSR — case {C2B}', f'ICH E2B(R2) ICSR for case {C2B} (dizziness with WonderDrug 50 mg). The MedDRA version is missing.', 'icsr-e2b-r2', 'icsr-2b-e2b-r2.xml', '2026-10-14T11:00:00+02:00', 'pharma'),
+ icsr_doc('docref-icsr-2b-acklog', 'ICSR acknowledgment log (rejected)', 'ICH E2B(R2) acknowledgment: transmission 02 (not all reports loaded), report 02 (report not loaded), with the error.', 'icsr-e2b-r2-acklog', 'icsr-2b-e2b-r2-acklog.xml', '2026-10-14T11:12:30+02:00', 'ha'),
+ icsr_doc('docref-icsr-2b-validation-report', 'ICSR validation report', 'Validation report listing the error that caused the rejection.', 'validation-report', 'icsr-2b-validation-report.pdf', '2026-10-14T11:12:30+02:00', 'ha'),
+ icsr_doc('docref-icsr-2b-resubmission', f'ICSR resubmission — case {C2B}', f'Corrected ICH E2B(R2) ICSR for case {C2B}, with the MedDRA version added.', 'icsr-e2b-r2', 'icsr-2b-resubmission-e2b-r2.xml', '2026-10-14T15:40:00+02:00', 'pharma'),
+ icsr_doc('docref-icsr-2b-resubmission-acklog', 'ICSR acknowledgment log (resubmission)', 'ICH E2B(R2) acknowledgment: transmission 01 (all reports loaded), report 01 (report loaded).', 'icsr-e2b-r2-acklog', 'icsr-2b-resubmission-e2b-r2-acklog.xml', '2026-10-14T15:52:08+02:00', 'ha'),
 ]
-I1, I2 = ('icsr-message', 'Initial ICSR', 'docref-icsr-initial'), ('icsr-message', 'Follow-up ICSR', 'docref-icsr-follow-up')
-A1, A2 = ('icsr-acknowledgment', 'Acknowledgment of initial ICSR', 'docref-icsr-initial-ack'), ('icsr-acknowledgment', 'Acknowledgment of follow-up ICSR', 'docref-icsr-follow-up-ack')
-icsr_tasks = [
- dict(id='scenario2-01-icsr-initial', title='scenario2 01 initial ICSR submitted', desc='The marketing authorization holder posts an initial ICSR Task; the E2B(R3) message is the input.',
-      heading='Initial ICSR submitted', ver='1', uuid=u('s2-task-initial'), group=G2, status='requested', bs=('submitted', 'Submitted'), code=('icsr-initial', 'Initial ICSR'),
-      authored='2026-10-02T09:30:00+02:00', modified='2026-10-02T09:30:00+02:00', requester='pharma', owner='ha', inputs=[I1]),
- dict(id='scenario2-02-icsr-initial-acknowledged', title='scenario2 02 initial ICSR acknowledged', desc='Version 2 of the initial ICSR Task (in production, the same Task as scenario2-01). The regulator completes it and returns the E2B(R3) acknowledgment as the output.',
-      heading='Initial ICSR acknowledged (AA / CA)', ver='2', uuid=u('s2-task-initial'), group=G2, status='completed', bs=('icsr-accepted', 'Report Accepted (CA)'), code=('icsr-initial', 'Initial ICSR'),
-      authored='2026-10-02T09:30:00+02:00', modified='2026-10-02T09:45:12+02:00', requester='pharma', owner='ha', inputs=[I1], outputs=[A1], exec=('2026-10-02T09:30:05+02:00', '2026-10-02T09:45:12+02:00')),
- dict(id='scenario2-03-icsr-follow-up', title='scenario2 03 follow-up ICSR submitted', desc='The marketing authorization holder posts a follow-up ICSR Task for the same case, with the same group identifier.',
-      heading='Follow-up ICSR submitted', ver='1', uuid=u('s2-task-follow-up'), group=G2, status='requested', bs=('submitted', 'Submitted'), code=('icsr-follow-up', 'Follow-up ICSR'),
-      authored='2026-10-09T10:15:00+02:00', modified='2026-10-09T10:15:00+02:00', requester='pharma', owner='ha', inputs=[I2], basedOn='scenario2-01-icsr-initial'),
- dict(id='scenario2-04-icsr-follow-up-acknowledged', title='scenario2 04 follow-up ICSR acknowledged', desc='Version 2 of the follow-up ICSR Task (in production, the same Task as scenario2-03). The regulator completes it and returns the acknowledgment.',
-      heading='Follow-up ICSR acknowledged (AA / CA)', ver='2', uuid=u('s2-task-follow-up'), group=G2, status='completed', bs=('icsr-accepted', 'Report Accepted (CA)'), code=('icsr-follow-up', 'Follow-up ICSR'),
-      authored='2026-10-09T10:15:00+02:00', modified='2026-10-09T10:30:02+02:00', requester='pharma', owner='ha', inputs=[I2], outputs=[A2], basedOn='scenario2-01-icsr-initial', exec=('2026-10-09T10:15:04+02:00', '2026-10-09T10:30:02+02:00')),
+ICSR = ('icsr', 'Individual Case Safety Report')
+ACC, CMP, REJ = ('accepted', 'Accepted'), ('complete', 'Complete'), ('rejected', 'Rejected')
+IA, AA = ('icsr-e2b-r2', f'ICSR — case {C2A}', 'docref-icsr-2a'), ('icsr-e2b-r2-acklog', 'ICSR acknowledgment log', 'docref-icsr-2a-acklog')
+IB, AB, VB = ('icsr-e2b-r2', f'ICSR — case {C2B}', 'docref-icsr-2b'), ('icsr-e2b-r2-acklog', 'ICSR acknowledgment log (rejected)', 'docref-icsr-2b-acklog'), ('validation-report', 'ICSR validation report', 'docref-icsr-2b-validation-report')
+IR, AR = ('icsr-e2b-r2', f'ICSR resubmission — case {C2B}', 'docref-icsr-2b-resubmission'), ('icsr-e2b-r2-acklog', 'ICSR acknowledgment log (resubmission)', 'docref-icsr-2b-resubmission-acklog')
+G2A, G2B = u('scenario2a-icsr-group'), u('scenario2b-icsr-group')
+P = dict(code=ICSR, requester='pharma', owner='ha')
+icsr_a_tasks = [
+ dict(P, id='scenario2a-01-icsr-submitted', title='scenario2a 01 ICSR submitted', desc='The marketing authorization holder posts an ICSR Task; the E2B(R2) message is the input.',
+      heading='ICSR submitted', ver='1', uuid=u('s2a-task'), group=G2A, status='requested', bs=('submitted', 'Submitted'), authored='2026-10-02T09:30:00+02:00', modified='2026-10-02T09:30:00+02:00', inputs=[IA]),
+ dict(P, id='scenario2a-02-icsr-accepted', title='scenario2a 02 ICSR accepted', desc='Version 2 of the ICSR Task (in production, the same Task as scenario2a-01). The report passed validation and was loaded; the regulator returns the E2B(R2) acknowledgment log.',
+      heading='ICSR accepted', ver='2', uuid=u('s2a-task'), group=G2A, status='accepted', bs=ACC, authored='2026-10-02T09:30:00+02:00', modified='2026-10-02T09:45:12+02:00',
+      inputs=[IA], outputs=[AA], exec=('2026-10-02T09:30:05+02:00', None)),
+ dict(P, id='scenario2a-03-icsr-complete', title='scenario2a 03 ICSR complete', desc='Version 3 of the ICSR Task (in production, the same Task as scenario2a-01). Processing is complete and the Task is closed.',
+      heading='ICSR complete', ver='3', uuid=u('s2a-task'), group=G2A, status='completed', bs=CMP, authored='2026-10-02T09:30:00+02:00', modified='2026-10-02T10:02:40+02:00',
+      inputs=[IA], outputs=[AA], exec=('2026-10-02T09:30:05+02:00', '2026-10-02T10:02:40+02:00')),
+]
+REASON = 'The ICSR failed validation (rule R2-0214: MedDRA version missing in B.2.i.1a) and was not loaded. See the acknowledgment log and validation report.'
+icsr_b_tasks = [
+ dict(P, id='scenario2b-01-icsr-submitted', title='scenario2b 01 ICSR submitted', desc='The marketing authorization holder posts an ICSR Task; the E2B(R2) message is the input. The message has an error.',
+      heading='ICSR submitted', ver='1', uuid=u('s2b-task-1'), group=G2B, status='requested', bs=('submitted', 'Submitted'), authored='2026-10-14T11:00:00+02:00', modified='2026-10-14T11:00:00+02:00', inputs=[IB]),
+ dict(P, id='scenario2b-02-icsr-rejected', title='scenario2b 02 ICSR rejected', desc='Version 2 of the ICSR Task (in production, the same Task as scenario2b-01). The report failed validation; the regulator rejects the Task and returns the acknowledgment log and a validation report.',
+      heading='ICSR rejected', ver='2', uuid=u('s2b-task-1'), group=G2B, status='rejected', reason=REASON, bs=REJ, authored='2026-10-14T11:00:00+02:00', modified='2026-10-14T11:12:30+02:00',
+      inputs=[IB], outputs=[AB, VB], exec=('2026-10-14T11:00:04+02:00', '2026-10-14T11:12:30+02:00')),
+ dict(P, id='scenario2b-03-icsr-resubmitted', title='scenario2b 03 ICSR resubmitted', desc='The marketing authorization holder posts a new ICSR Task with the corrected E2B(R2) message. It has the same group identifier and is basedOn the rejected Task.',
+      heading='ICSR resubmitted', ver='1', uuid=u('s2b-task-2'), group=G2B, status='requested', bs=('submitted', 'Submitted'), authored='2026-10-14T15:40:00+02:00', modified='2026-10-14T15:40:00+02:00', inputs=[IR], basedOn='scenario2b-01-icsr-submitted'),
+ dict(P, id='scenario2b-04-icsr-accepted', title='scenario2b 04 ICSR resubmission accepted', desc='Version 2 of the resubmission Task (in production, the same Task as scenario2b-03). The corrected report passed validation and was loaded; the regulator returns the acknowledgment log.',
+      heading='ICSR resubmission accepted', ver='2', uuid=u('s2b-task-2'), group=G2B, status='accepted', bs=ACC, authored='2026-10-14T15:40:00+02:00', modified='2026-10-14T15:52:08+02:00',
+      inputs=[IR], outputs=[AR], basedOn='scenario2b-01-icsr-submitted', exec=('2026-10-14T15:40:03+02:00', None)),
+ dict(P, id='scenario2b-05-icsr-complete', title='scenario2b 05 ICSR resubmission complete', desc='Version 3 of the resubmission Task (in production, the same Task as scenario2b-03). Processing is complete and the Task is closed.',
+      heading='ICSR resubmission complete', ver='3', uuid=u('s2b-task-2'), group=G2B, status='completed', bs=CMP, authored='2026-10-14T15:40:00+02:00', modified='2026-10-14T16:10:21+02:00',
+      inputs=[IR], outputs=[AR], basedOn='scenario2b-01-icsr-submitted', exec=('2026-10-14T15:40:03+02:00', '2026-10-14T16:10:21+02:00')),
 ]
 
 # ================================================================ CTA (scenario3)
@@ -515,7 +540,7 @@ def write(path, text):
     open(path, 'w', encoding='utf-8').write(text)
 
 for name, docs, tasks, intro in [
-    ('scenario2-icsr', icsr_docs, icsr_tasks, 'Scenario 2 — ICSR: initial report, acknowledgment, follow-up report, acknowledgment.'),
+    ('scenario2-icsr', icsr_docs, icsr_a_tasks + icsr_b_tasks, 'Scenario 2 — ICSR (E2B(R2)): 2a submitted, accepted, complete; 2b submitted, rejected, resubmitted, accepted, complete.'),
     ('scenario3-cta', cta_docs, cta_tasks, 'Scenario 3 — Clinical trial application: submission, validation, request for information, response, authorisation.'),
     ('scenario4-label-negotiation', ln_docs, ln_tasks, 'Scenario 4 — Label negotiation: Type II variation, two rounds of labelling comments on an annotated ePI, agreement, approval.')]:
     body = [f'// {intro}\n// Generated by parking/gen_examples.py — edit the script, not this file.\n']

@@ -1,7 +1,7 @@
-<!-- USE CASE 2: SUBMISSION TRACKING AND NOTIFICATIONS -->
+<!-- TRACKING AND DASHBOARDS: what can be built from the Task history -->
 <div style="margin-bottom:28px;">
-  <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#059669; text-decoration:none;">Use case 2 of 3</a>
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Submission Tracking and Notifications</h2>
+  <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#047857; text-decoration:none;">Use Cases</a>
+  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Tracking and Dashboards</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">A consumer can follow a FedEx or Amazon package from “ordered” to “delivered” and get a notification at every step. RWI-pharma gives every party the same visibility into a regulatory interaction: each milestone is a Task status change, and each change is pushed to subscribers the moment it happens.</p>
 </div>
 
@@ -376,10 +376,10 @@
 
 <div style="background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:14px 18px; font-size:.85em; color:#374151; display:flex; gap:10px; align-items:flex-start;">
   <span style="flex-shrink:0;">ℹ️</span>
-  <span><strong>Note:</strong> For a step-by-step technical walkthrough of this use case, visit the <a href="workflow.html#walkthrough">Workflow</a> page.</span>
+  <span><strong>Note:</strong> The examples on this page use the FDA shelf-life update test procedure (<code>NDA-214365-S-021</code>), which is not one of the four worked scenarios. For a step-by-step technical walkthrough, visit the <a href="workflow.html#walkthrough">Workflow</a> page.</span>
 </div>
 
 <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.85em; margin-top:24px;">
-  <a href="usecases-universal-submissions.html" style="color:#059669; font-weight:600; text-decoration:none;">← Universal Submissions</a>
-  <a href="usecases-automation.html" style="color:#059669; font-weight:600; text-decoration:none;">Automation →</a>
+  <a href="usecases.html" style="color:#047857; font-weight:600; text-decoration:none;">← Use Cases overview</a>
+  <a href="subscriptions.html" style="color:#047857; font-weight:600; text-decoration:none;">Notifications →</a>
 </div>

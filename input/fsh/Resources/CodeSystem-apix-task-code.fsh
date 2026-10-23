@@ -21,8 +21,8 @@ Description: "Code system for regulatory task types in APIX submissions"
 * #request-payment "Request Payment" "Requested payment of regulatory fees"
 
 // Codes used by the ICSR and clinical trial application examples (see the Terminology page)
-* #icsr-initial "Initial ICSR" "First ICH E2B(R3) report of a case, identified by its worldwide unique case identification number (C.1.8.1)."
-* #icsr-follow-up "Follow-up ICSR" "ICH E2B(R3) report with new information for a case already reported; same worldwide unique case identification number (C.1.8.1) and a later date of most recent information (C.1.5)."
+* #icsr "Individual Case Safety Report" "Transmission of a single individual case safety report (ICSR) as an ICH E2B(R2) or E2B(R3) message. The input type gives the E2B version."
+* #susar "Suspected Unexpected Serious Adverse Reaction" "Transmission of a single SUSAR report from a clinical trial as an ICH E2B(R2) or E2B(R3) message. The input type gives the E2B version."
 * #clinical-trial-application "Clinical Trial Application" "Initial application to conduct a clinical trial (e.g., EU CTA under CTR, US IND, Health Canada CTA)."
 
 // Codes used by the label negotiation example (scenario 4; see the Terminology page)

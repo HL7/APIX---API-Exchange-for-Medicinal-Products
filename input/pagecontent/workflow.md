@@ -101,6 +101,22 @@
   </div>
 </div>
 
+### Conventions used in the examples {#conventions}
+
+The worked scenarios on the [Use Cases](usecases.html) page all follow these conventions. Only the Task type and its documents change.
+
+| Convention | How it works |
+|---|---|
+| **Binary → DocumentReference → Task** | Each file is uploaded as a `Binary`, described by a `DocumentReference`, and attached to a `Task` through `Task.input` or `Task.output`. Tasks never point to a Binary directly. |
+| **Inputs from the requester, outputs from the owner** | The party that creates the Task supplies `Task.input`. The party that does the work returns `Task.output`. |
+| **One procedure, one `groupIdentifier`** | Every Task in a procedure (submission, invoice, questions, decision) carries the same `groupIdentifier`. |
+| **Child Tasks point to the parent** | Questions, payments and follow-ups use `Task.basedOn` to reference the parent submission Task. |
+| **Progress is a new Task version** | Status changes update the same Task, creating a new `meta.versionId`. In the IG the versions are shown as separate example instances (e.g. `-01` and `-02`), but in production they are versions of one Task. |
+| **Terminal Tasks are never reopened** | A rejected or closed Task stays closed. A resubmission or a new review cycle is a new Task instance with the same `groupIdentifier`. |
+| **Two status layers** | `Task.status` is the FHIR workflow state (`requested`, `accepted`, `completed`…). `Task.businessStatus` is the regulatory milestone (`submitted`, `clock-stop`, `approved`…). |
+| **Parties** | All scenarios use the fictional applicant **SynthPharma AG** (`org-synthpharma-ag`) and the fictional regulator **Health Authority – Regulatory Review Division** (`org-ema-srm-hmed`). |
+{:.grid}
+
 <hr style="border:none; border-top:1px solid #e5e7eb; margin:0 0 32px;"/>
 
 <!-- STEP-BY-STEP WALKTHROUGH -->
