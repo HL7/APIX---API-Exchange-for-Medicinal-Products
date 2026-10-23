@@ -24,7 +24,7 @@
 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); gap:14px; margin-bottom:32px;">
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #2563eb; border-radius:8px; padding:18px; display:flex; flex-direction:column; gap:8px;">
     <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#1d4ed8;">Scenario 1 · Market authorization</div>
-    <a href="usecases-scenario-stability.html" style="font-weight:700; color:#1d4ed8; font-size:1.05em; text-decoration:underline; text-underline-offset:3px;">Stability Update (Type IB Variation)</a>
+    <div style="font-weight:700; color:#111827; font-size:1.05em;">Stability Update (Type IB Variation)</div>
     <p style="font-size:.84em; color:#4b5563; line-height:1.5; margin:0;">Submission, validation, fee, one round of questions, approval.</p>
     <div style="display:grid; grid-template-columns:90px 1fr; gap:2px 10px; font-size:.8em; color:#374151;"><span style="color:#6b7280;">Starts it</span><span>Applicant</span><span style="color:#6b7280;">Task code</span><span><code>variation-type-ib</code></span></div>
     <div style="border-top:1px solid #f3f4f6; padding-top:8px; display:flex; flex-direction:column; gap:6px;">
@@ -35,7 +35,7 @@
   </div>
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #dc2626; border-radius:8px; padding:18px; display:flex; flex-direction:column; gap:8px;">
     <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#b91c1c;">Scenario 2 · Safety reporting</div>
-    <a href="usecases-scenario-icsr.html" style="font-weight:700; color:#b91c1c; font-size:1.05em; text-decoration:underline; text-underline-offset:3px;">ICSR: Accepted, and Rejected then Resubmitted</a>
+    <div style="font-weight:700; color:#111827; font-size:1.05em;">ICSR: Accepted, and Rejected then Resubmitted</div>
     <p style="font-size:.84em; color:#4b5563; line-height:1.5; margin:0;">Two E2B(R2) reports, one Task each. One fails validation and is resubmitted.</p>
     <div style="display:grid; grid-template-columns:90px 1fr; gap:2px 10px; font-size:.8em; color:#374151;"><span style="color:#6b7280;">Starts it</span><span>Marketing authorization holder</span><span style="color:#6b7280;">Task code</span><span><code>icsr</code></span></div>
     <div style="border-top:1px solid #f3f4f6; padding-top:8px; display:flex; flex-direction:column; gap:6px;">
@@ -47,7 +47,7 @@
   </div>
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #7c3aed; border-radius:8px; padding:18px; display:flex; flex-direction:column; gap:8px;">
     <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6d28d9;">Scenario 3 · Clinical trials</div>
-    <a href="usecases-scenario-cta.html" style="font-weight:700; color:#6d28d9; font-size:1.05em; text-decoration:underline; text-underline-offset:3px;">Clinical Trial Application</a>
+    <div style="font-weight:700; color:#111827; font-size:1.05em;">Clinical Trial Application</div>
     <p style="font-size:.84em; color:#4b5563; line-height:1.5; margin:0;">From application to authorisation, with a request for information and a deadline.</p>
     <div style="display:grid; grid-template-columns:90px 1fr; gap:2px 10px; font-size:.8em; color:#374151;"><span style="color:#6b7280;">Starts it</span><span>Sponsor</span><span style="color:#6b7280;">Task code</span><span><code>clinical-trial-application</code></span></div>
     <div style="border-top:1px solid #f3f4f6; padding-top:8px; display:flex; flex-direction:column; gap:6px;">
@@ -58,7 +58,7 @@
   </div>
   <div style="background:#fff; border:1px solid #e5e7eb; border-top:3px solid #ea580c; border-radius:8px; padding:18px; display:flex; flex-direction:column; gap:8px;">
     <div style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#c2410c;">Scenario 4 · Market authorization</div>
-    <a href="usecases-scenario-label-negotiation.html" style="font-weight:700; color:#c2410c; font-size:1.05em; text-decoration:underline; text-underline-offset:3px;">Label Negotiation with an Annotated ePI</a>
+    <div style="font-weight:700; color:#111827; font-size:1.05em;">Label Negotiation with an Annotated ePI</div>
     <p style="font-size:.84em; color:#4b5563; line-height:1.5; margin:0;">A Type II variation with two rounds of tracked changes on the label, then agreement.</p>
     <div style="display:grid; grid-template-columns:90px 1fr; gap:2px 10px; font-size:.8em; color:#374151;"><span style="color:#6b7280;">Starts it</span><span>Applicant; regulator for each labelling round</span><span style="color:#6b7280;">Task code</span><span><code>variation-type-ii</code></span></div>
     <div style="border-top:1px solid #f3f4f6; padding-top:8px; display:flex; flex-direction:column; gap:6px;">
