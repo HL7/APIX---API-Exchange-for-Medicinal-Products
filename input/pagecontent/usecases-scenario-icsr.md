@@ -21,11 +21,11 @@ SynthPharma AG reports a case of nausea (case `CH-SYNTHPHARMA-2026-000456`). The
   <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario2a-03-icsr-complete.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 3</span><span style="font-weight:700; font-size:.9em;">Complete</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / complete</code></a></li>
 </ol>
 
-| Step | Example instance | Version | `status` / `businessStatus` | Documents |
-|---|---|---|---|---|
-| 1. Submit | [scenario2a-01-icsr-submitted](Task-scenario2a-01-icsr-submitted.html) | 1 | `requested` / `submitted` | **Input:** ICSR (`icsr-2a-e2b-r2.xml`, `icsr-e2b-r2`) |
-| 2. Accepted | [scenario2a-02-icsr-accepted](Task-scenario2a-02-icsr-accepted.html) | 2 | `accepted` / `accepted` | **Output:** acknowledgment log (`icsr-e2b-r2-acklog`): transmission 01, report 01 (loaded) |
-| 3. Complete | [scenario2a-03-icsr-complete](Task-scenario2a-03-icsr-complete.html) | 3 | `completed` / `complete` | No new documents |
+| Step | Example instance | Version | Created / updated by | `status` / `businessStatus` | Documents |
+|---|---|---|---|---|---|
+| 1. Submit | [scenario2a-01-icsr-submitted](Task-scenario2a-01-icsr-submitted.html) | 1 | Marketing authorization holder (requester) → Regulator (owner) | `requested` / `submitted` | **Input:** ICSR (`icsr-2a-e2b-r2.xml`, `icsr-e2b-r2`) |
+| 2. Accepted | [scenario2a-02-icsr-accepted](Task-scenario2a-02-icsr-accepted.html) | 2 | Regulator | `accepted` / `accepted` | **Output:** acknowledgment log (`icsr-e2b-r2-acklog`): transmission 01, report 01 (loaded) |
+| 3. Complete | [scenario2a-03-icsr-complete](Task-scenario2a-03-icsr-complete.html) | 3 | Regulator | `completed` / `complete` | No new documents |
 {:.grid}
 
 **Timeline:** submitted 2 Oct 2026 09:30 → accepted 09:45 → complete 10:02.
@@ -42,14 +42,20 @@ SynthPharma AG reports a case of dizziness (case `CH-SYNTHPHARMA-2026-000512`). 
   <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario2b-05-icsr-complete.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 5</span><span style="font-weight:700; font-size:.9em;">Complete</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / complete</code></a></li>
 </ol>
 
-| Step | Example instance | Version | `status` / `businessStatus` | Documents |
-|---|---|---|---|---|
-| 1. Submit | [scenario2b-01-icsr-submitted](Task-scenario2b-01-icsr-submitted.html) | 1 | `requested` / `submitted` | **Input:** ICSR (`icsr-2b-e2b-r2.xml`, `icsr-e2b-r2`) |
-| 2. Rejected | [scenario2b-02-icsr-rejected](Task-scenario2b-02-icsr-rejected.html) | 2 | `rejected` / `rejected`, with `statusReason` | **Outputs:** acknowledgment log (`icsr-e2b-r2-acklog`): transmission 02, report 02 (not loaded), with the error; validation report (`validation-report`) |
-| 3. Resubmit | [scenario2b-03-icsr-resubmitted](Task-scenario2b-03-icsr-resubmitted.html) | 1 (new Task, `basedOn` the rejected Task) | `requested` / `submitted` | **Input:** corrected ICSR (`icsr-2b-resubmission-e2b-r2.xml`, `icsr-e2b-r2`) |
-| 4. Accepted | [scenario2b-04-icsr-accepted](Task-scenario2b-04-icsr-accepted.html) | 2 | `accepted` / `accepted` | **Output:** acknowledgment log: transmission 01, report 01 (loaded) |
-| 5. Complete | [scenario2b-05-icsr-complete](Task-scenario2b-05-icsr-complete.html) | 3 | `completed` / `complete` | No new documents |
+| Step | Example instance | Version | Created / updated by | `status` / `businessStatus` | Documents |
+|---|---|---|---|---|---|
+| 1. Submit | [scenario2b-01-icsr-submitted](Task-scenario2b-01-icsr-submitted.html) | 1 | Marketing authorization holder (requester) → Regulator (owner) | `requested` / `submitted` | **Input:** ICSR (`icsr-2b-e2b-r2.xml`, `icsr-e2b-r2`) |
+| 2. Rejected | [scenario2b-02-icsr-rejected](Task-scenario2b-02-icsr-rejected.html) | 2 | Regulator | `rejected` / `rejected`, with `statusReason` | **Outputs:** acknowledgment log (`icsr-e2b-r2-acklog`): transmission 02, report 02 (not loaded), with the error; validation report (`validation-report`) |
+| 3. Resubmit | [scenario2b-03-icsr-resubmitted](Task-scenario2b-03-icsr-resubmitted.html) | 1 (new Task, `basedOn` the rejected Task) | Marketing authorization holder (requester) → Regulator (owner) | `requested` / `submitted` | **Input:** corrected ICSR (`icsr-2b-resubmission-e2b-r2.xml`, `icsr-e2b-r2`) |
+| 4. Accepted | [scenario2b-04-icsr-accepted](Task-scenario2b-04-icsr-accepted.html) | 2 | Regulator | `accepted` / `accepted` | **Output:** acknowledgment log: transmission 01, report 01 (loaded) |
+| 5. Complete | [scenario2b-05-icsr-complete](Task-scenario2b-05-icsr-complete.html) | 3 | Regulator | `completed` / `complete` | No new documents |
 {:.grid}
+
+<div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:14px 18px; margin:4px 0 20px; font-size:.86em; color:#1e3a8a; line-height:1.6;">
+  <div style="font-weight:700; margin-bottom:4px;">ℹ️ Task versions keep the same <code>Task.id</code></div>
+  <p style="margin:0 0 6px;">When a Task is versioned (a new <code>meta.versionId</code>), every version must have the same <code>Task.id</code>. A Task that is not a new version of an existing Task, such as a resubmission or a child Task, is a different Task and must have a different <code>Task.id</code>.</p>
+  <p style="margin:0;">In this IG, each version is published as a separate example instance so that it can be viewed on its own. In production, those instances are versions of one Task with one <code>Task.id</code>.</p>
+</div>
 
 **Timeline:** submitted 14 Oct 2026 11:00 → rejected 11:12 → resubmitted 15:40 → accepted 15:52 → complete 16:10.
 

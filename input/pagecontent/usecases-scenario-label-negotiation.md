@@ -51,6 +51,12 @@
 | 10. Decide | [scenario4-10-variation-approved](Task-scenario4-10-variation-approved.html) | 4 | Regulator | `completed` / `approved` | **Outputs:** validation report, approval letter, `approved-labelling` = approved ePI (same Binary as clean v5) |
 {:.grid}
 
+<div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:14px 18px; margin:4px 0 20px; font-size:.86em; color:#1e3a8a; line-height:1.6;">
+  <div style="font-weight:700; margin-bottom:4px;">ℹ️ Task versions keep the same <code>Task.id</code></div>
+  <p style="margin:0 0 6px;">When a Task is versioned (a new <code>meta.versionId</code>), every version must have the same <code>Task.id</code>. A Task that is not a new version of an existing Task, such as a resubmission or a child Task, is a different Task and must have a different <code>Task.id</code>.</p>
+  <p style="margin:0;">In this IG, each version is published as a separate example instance so that it can be viewed on its own. In production, those instances are versions of one Task with one <code>Task.id</code>.</p>
+</div>
+
 **Timeline:** submitted 11 Jan 2027 → validated 15 Jan → assessment 18 Jan → round 1 comments 22 Feb → counter-proposal 1 Mar → round 2 comments 8 Mar → accepted 10 Mar → agreed 11 Mar → approved 17 Mar 2027.
 
 ### Document chain

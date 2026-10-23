@@ -21,14 +21,20 @@
   <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario3-05-cta-authorised.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 5</span><span style="font-weight:700; font-size:.9em;">Authorised</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / authorised</code></a></li>
 </ol>
 
-| Step | Example instance | Version | `status` / `businessStatus` | Documents |
-|---|---|---|---|---|
-| 1. Submit | [scenario3-01-cta-submission](Task-scenario3-01-cta-submission.html) | 1 | `requested` / `submitted` | **Inputs:** cover letter, application form, protocol WD-201 v1.0 |
-| 2. Validate | [scenario3-02-cta-validated](Task-scenario3-02-cta-validated.html) | 2 | `accepted` / `validation-successful` | **Output:** validation report. **Adds identifier:** trial number `CT-2026-000789` |
-| 3. Ask | [scenario3-03-cta-rfi](Task-scenario3-03-cta-rfi.html) | 1 (new Task, `basedOn` the application) | `requested` / `request-for-information-issued` | **Input:** request for information. `requestedPeriod` ends 15 Oct 2026 |
-| 4. Answer | [scenario3-04-cta-rfi-response](Task-scenario3-04-cta-rfi-response.html) | 2 | `completed` / `clock-restart` | **Output:** response to questions |
-| 5. Authorise | [scenario3-05-cta-authorised](Task-scenario3-05-cta-authorised.html) | 3 | `completed` / `authorised` | **Outputs:** validation report, authorisation decision |
+| Step | Example instance | Version | Created / updated by | `status` / `businessStatus` | Documents |
+|---|---|---|---|---|---|
+| 1. Submit | [scenario3-01-cta-submission](Task-scenario3-01-cta-submission.html) | 1 | Sponsor (requester) → Regulator (owner) | `requested` / `submitted` | **Inputs:** cover letter, application form, protocol WD-201 v1.0 |
+| 2. Validate | [scenario3-02-cta-validated](Task-scenario3-02-cta-validated.html) | 2 | Regulator | `accepted` / `validation-successful` | **Output:** validation report. **Adds identifier:** trial number `CT-2026-000789` |
+| 3. Ask | [scenario3-03-cta-rfi](Task-scenario3-03-cta-rfi.html) | 1 (new Task, `basedOn` the application) | Regulator (requester) → Sponsor (owner) | `requested` / `request-for-information-issued` | **Input:** request for information. `requestedPeriod` ends 15 Oct 2026 |
+| 4. Answer | [scenario3-04-cta-rfi-response](Task-scenario3-04-cta-rfi-response.html) | 2 | Sponsor | `completed` / `clock-restart` | **Output:** response to questions |
+| 5. Authorise | [scenario3-05-cta-authorised](Task-scenario3-05-cta-authorised.html) | 3 | Regulator | `completed` / `authorised` | **Outputs:** validation report, authorisation decision |
 {:.grid}
+
+<div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:14px 18px; margin:4px 0 20px; font-size:.86em; color:#1e3a8a; line-height:1.6;">
+  <div style="font-weight:700; margin-bottom:4px;">ℹ️ Task versions keep the same <code>Task.id</code></div>
+  <p style="margin:0 0 6px;">When a Task is versioned (a new <code>meta.versionId</code>), every version must have the same <code>Task.id</code>. A Task that is not a new version of an existing Task, such as a resubmission or a child Task, is a different Task and must have a different <code>Task.id</code>.</p>
+  <p style="margin:0;">In this IG, each version is published as a separate example instance so that it can be viewed on its own. In production, those instances are versions of one Task with one <code>Task.id</code>.</p>
+</div>
 
 **Timeline:** submitted 1 Sep 2026 → validated 12 Sep → RFI 1 Oct (due 15 Oct) → answered 12 Oct → authorised 3 Nov 2026.
 

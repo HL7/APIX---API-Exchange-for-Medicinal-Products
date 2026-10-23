@@ -23,16 +23,22 @@
   <li style="flex:1 1 150px; margin:0;"><a href="Task-scenario1-07-final-decision.html" style="height:100%; box-sizing:border-box; display:flex; flex-direction:column; gap:2px; text-decoration:none; color:#111827; border:1px solid #86efac; background:#f0fdf4; border-radius:8px; padding:8px 12px;"><span style="font-size:.72em; color:#4b5563;">Step 7</span><span style="font-weight:700; font-size:.9em;">Approved</span><code style="font-size:.72em; background:none; padding:0; color:#374151;">completed / approved</code></a></li>
 </ol>
 
-| Step | Example instance | Created / updated by | `status` / `businessStatus` | Documents |
-|---|---|---|---|---|
-| 1. Submit | [scenario1-01-initial-submission](Task-scenario1-01-initial-submission.html) | Applicant (requester) → Regulator (owner) | `requested` / `submitted` | **Inputs:** cover letter, application form, annotated and clean draft labelling, mock-ups, 3.2.P.8.1 stability summary, 3.2.P.8.3 stability data, 3.2.S.7 drug-substance stability |
-| 2. Validate | [scenario1-02-validation](Task-scenario1-02-validation.html) | Regulator updates the parent | `accepted` / `validation-successful` | **Outputs:** acknowledgement of receipt, validation report |
-| 3. Invoice | [scenario1-03-finance-invoice](Task-scenario1-03-finance-invoice.html) | Regulator → Applicant (`request-payment`, `basedOn` parent) | `requested` | **Input:** invoice |
-| 4. Pay | [scenario1-04-finance-payment](Task-scenario1-04-finance-payment.html) | Applicant updates the invoice Task | `completed` / `payment-received` | **Output:** proof of payment |
-| 5. Ask | [scenario1-05-technical-question](Task-scenario1-05-technical-question.html) | Regulator → Applicant (`information-request`, `basedOn` parent) | `requested` / `clock-stop` | **Input:** list of questions |
-| 6. Answer | [scenario1-06-technical-response](Task-scenario1-06-technical-response.html) | Applicant completes the question Task | `completed` / `clock-restart` | **Outputs:** questionnaire response, updated stability data annex |
-| 7. Decide | [scenario1-07-final-decision](Task-scenario1-07-final-decision.html) | Regulator completes the parent | `completed` / `approved` | **Outputs:** acknowledgement, validation report, approval letter, assessment report |
+| Step | Example instance | Version | Created / updated by | `status` / `businessStatus` | Documents |
+|---|---|---|---|---|---|
+| 1. Submit | [scenario1-01-initial-submission](Task-scenario1-01-initial-submission.html) | 1 | Applicant (requester) → Regulator (owner) | `requested` / `submitted` | **Inputs:** cover letter, application form, annotated and clean draft labelling, mock-ups, 3.2.P.8.1 stability summary, 3.2.P.8.3 stability data, 3.2.S.7 drug-substance stability |
+| 2. Validate | [scenario1-02-validation](Task-scenario1-02-validation.html) | 2 | Regulator | `accepted` / `validation-successful` | **Outputs:** acknowledgement of receipt, validation report |
+| 3. Invoice | [scenario1-03-finance-invoice](Task-scenario1-03-finance-invoice.html) | 1 (new `request-payment` Task, `basedOn` the submission) | Regulator (requester) → Applicant (owner) | `requested` | **Input:** invoice |
+| 4. Pay | [scenario1-04-finance-payment](Task-scenario1-04-finance-payment.html) | 2 | Applicant | `completed` / `payment-received` | **Output:** proof of payment |
+| 5. Ask | [scenario1-05-technical-question](Task-scenario1-05-technical-question.html) | 1 (new `information-request` Task, `basedOn` the submission) | Regulator (requester) → Applicant (owner) | `requested` / `clock-stop` | **Input:** list of questions |
+| 6. Answer | [scenario1-06-technical-response](Task-scenario1-06-technical-response.html) | 2 | Applicant | `completed` / `clock-restart` | **Outputs:** questionnaire response, updated stability data annex |
+| 7. Decide | [scenario1-07-final-decision](Task-scenario1-07-final-decision.html) | 3 | Regulator | `completed` / `approved` | **Outputs:** acknowledgement, validation report, approval letter, assessment report |
 {:.grid}
+
+<div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:14px 18px; margin:4px 0 20px; font-size:.86em; color:#1e3a8a; line-height:1.6;">
+  <div style="font-weight:700; margin-bottom:4px;">ℹ️ Task versions keep the same <code>Task.id</code></div>
+  <p style="margin:0 0 6px;">When a Task is versioned (a new <code>meta.versionId</code>), every version must have the same <code>Task.id</code>. A Task that is not a new version of an existing Task, such as a resubmission or a child Task, is a different Task and must have a different <code>Task.id</code>.</p>
+  <p style="margin:0;">In this IG, each version is published as a separate example instance so that it can be viewed on its own. In production, those instances are versions of one Task with one <code>Task.id</code>.</p>
+</div>
 
 **Timeline:** submitted 15 Nov 2025 → validated 20 Nov → paid 22 Nov → questions 1 Dec → answered 5 Dec → approved 22 Dec 2025.
 
