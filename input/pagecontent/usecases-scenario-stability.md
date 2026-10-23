@@ -1,7 +1,6 @@
 <!-- EXAMPLE SCENARIO 1: STABILITY UPDATE (TYPE IB VARIATION) -->
 <div style="margin-bottom:28px;">
   <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#1d4ed8; text-decoration:none;">Use Cases › Scenario 1 of 4 · Market authorization</a>
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Stability Update (Type IB Variation)</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">SynthPharma AG submits a Type IB variation to update the product's stability data and the shelf-life statement in the labelling. The regulator validates the submission, invoices the fee, asks one round of questions about the stability data, receives the answers with an updated stability annex, and approves the change.</p>
 </div>
 
@@ -41,14 +40,9 @@
 
 - **The full parent/child pattern.** One parent submission Task, with payment and question Tasks linked to it through `basedOn`.
 - **A clock stop.** A regulator-owned question opens the clock stop, and the applicant's response closes it.
-- **CTD-sectioned inputs.** Inputs carry `ctd-section` codes, so routing rules can read which modules a question touches (see [Implementing this](#implementing-this)).
+- **CTD-sectioned inputs.** Inputs carry `ctd-section` codes, so routing rules can read which modules a question touches (see [Notes](#notes)).
 
 ### Notes
-
-- Scenario 1 is written by hand and differs from Scenarios 2–4: it uses `ctd-section` codes for inputs and outputs, and its instances have no `meta.versionId`.
-- For a step-by-step technical walkthrough of this scenario, see the [Workflow](workflow.html#walkthrough) page.
-
-### Implementing this
 
 - Link every child Task (invoice, question) to the submission with `basedOn` and give it the same `groupIdentifier`.
 - The parent shows `clock-stop` while a question is open and `clock-restart` when it is answered.

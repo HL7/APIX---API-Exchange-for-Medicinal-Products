@@ -1,7 +1,6 @@
 <!-- EXAMPLE SCENARIO 2: ICSR ACCEPTED, AND ICSR REJECTED AND RESUBMITTED -->
 <div style="margin-bottom:28px;">
   <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#b91c1c; text-decoration:none;">Use Cases › Scenario 2 of 4 · Safety reporting</a>
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">ICSR: Accepted, and Rejected then Resubmitted</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">SynthPharma AG sends two ICSRs for <strong>WonderDrug 50 mg</strong> as ICH E2B(R2) messages, one report per Task. The first is accepted straight away (2a). The second fails validation, is rejected, and is accepted after the company corrects and resubmits it (2b).</p>
 </div>
 
@@ -68,9 +67,6 @@ SynthPharma AG reports a case of dizziness (case `CH-SYNTHPHARMA-2026-000512`). 
 - The same pattern applies to SUSARs (Task code `susar`, input `susar-e2b-r2` or `susar-e2b-r3`) and to E2B(R3) messages (`icsr-e2b-r3`, `icsr-e2b-r3-acklog`).
 - The sample E2B(R2) messages are fictional and abbreviated. They show only key data elements and have not been validated against the ICH DTDs.
 - The nausea case in 2a is one of the reports behind the safety signal that starts [Scenario 4](usecases-scenario-label-negotiation.html), so safety reporting and labelling are shown on the same product and the same channel.
-
-### Implementing this
-
 - Send one ICSR or SUSAR per Task. Do not batch reports in one message.
 - Set `Task.input.type` to the E2B version you send (`icsr-e2b-r2`, `icsr-e2b-r3`, …).
 - On rejection, set `status` = `rejected` with a `statusReason`, and return the acknowledgment log and a validation report.

@@ -1,7 +1,6 @@
 <!-- EXAMPLE SCENARIO 3: CLINICAL TRIAL APPLICATION -->
 <div style="margin-bottom:28px;">
   <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#6d28d9; text-decoration:none;">Use Cases › Scenario 3 of 4 · Clinical trials</a>
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Clinical Trial Application</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">SynthPharma AG, as sponsor, applies to run study <strong>WD-201</strong>. The regulator validates the application and assigns trial number <strong>CT-2026-000789</strong>. During assessment it sends a request for information with three questions and a two-week deadline. The sponsor answers within the deadline, the clock restarts, and the trial is authorised.</p>
 </div>
 
@@ -40,7 +39,7 @@
 - **Deadlines systems can act on.** `requestedPeriod` carries the response deadline, so systems can flag overdue responses automatically.
 - **Requester and owner swap on the RFI Task.** The regulator asks (input), and the sponsor answers (output).
 
-### Implementing this
+### Notes
 
 - Add the regulator’s trial number to `Task.identifier` when it is assigned, alongside the Task instance ID.
 - Put the response deadline in `requestedPeriod.end` on the request-for-information Task, so both systems can flag overdue responses.

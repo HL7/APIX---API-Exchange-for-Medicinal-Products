@@ -1,7 +1,6 @@
 <!-- EXAMPLE SCENARIO 4: LABEL NEGOTIATION WITH AN ANNOTATED ePI -->
 <div style="margin-bottom:28px;">
   <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#c2410c; text-decoration:none;">Use Cases › Scenario 4 of 4 · Market authorization</a>
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Label Negotiation with an Annotated ePI</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">Following a safety signal for nausea, SynthPharma AG submits a <strong>Type II variation</strong> (<code>VAR-II-2027-0012</code>) for <strong>WonderDrug 50 mg film-coated tablets</strong>. The variation adds nausea to SmPC section 4.8 and package leaflet section 4. The proposed product information is sent as a <strong>FHIR ePI</strong> in two forms: an <strong>annotated</strong> ePI that shows every change against the approved text, and a <strong>clean</strong> ePI. The label text takes two rounds of comments to agree.</p>
 </div>
 
@@ -66,32 +65,6 @@
 | Approved | Clean (same Binary as v5) | Regulator | [docref-epi-approved](DocumentReference-docref-epi-approved.html) | Approved product information |
 {:.grid}
 
-### Design choices
-
-| Choice | How it is modelled | Why |
-|---|---|---|
-| **One Task per round** | Each round is a new `labelling-comments` Task, created by the regulator, owned by the applicant, and `basedOn` the variation Task. | Mirrors the information requests in Scenarios 1 and 3. Each round has its own deadline (`requestedPeriod`) and timing (`executionPeriod`), and the number of rounds is the number of Tasks, which feeds the performance analytics directly. |
-| **Separate agreement step** | A `labelling-agreement` Task, created by the regulator, asks the applicant to confirm the clean ePI. Completing it sets `labelling-agreed`. | The regulator decides when negotiation is over, and the applicant's confirmation is a timestamped event. Completing the Task is the confirmation, so no output document is needed. |
-| **The ePI is the document, not a PDF** | Every proposal and counter-proposal is an ePI document `Bundle` (`Composition` + sections), stored as a Binary (`application/fhir+xml`) and described by a DocumentReference. | The label stays machine-readable throughout, and the agreed ePI can be published without re-keying. |
-| **Annotated = tracked changes in the section narrative** | Changes are marked with XHTML `<ins>` and `<del>` in `Composition.section.text`. `class="rwi-mah"` or `class="rwi-ha"` shows who made the change, and `title` gives the reason. Changes are cumulative against the currently approved text. | `ins` and `del` are in the HTML subset that FHIR narrative allows, so any XHTML viewer can show the changes. The clean ePI has the same structure without markup. |
-| **One document set per chain** | All annotated ePIs share one document set identifier, and all clean ePIs share another, whichever party authored the version. Each new version has `version` incremented and `relatesTo.code = replaces` pointing to the previous one. | Uses the `docsetid` / `docverid` pattern from Scenarios 2 and 3. Who changed what, and when, can be rebuilt from the DocumentReferences alone. |
-| **Approved ePI reuses the agreed Binary** | The regulator's `approved-labelling` output is a regulator-authored DocumentReference that points to the **same Binary** as the applicant's clean ePI v5. | The approved text is provably the agreed text (same `attachment.hash`), and nothing is uploaded twice. |
-{:.grid}
-
-### Example: annotated ePI section (v3, SmPC 4.2)
-
-```xml
-<section>
-  <title value="4.2 Posology and method of administration"/>
-  <code><coding><system value="http://example.org/epi-section"/><code value="smpc-4.2"/></coding></code>
-  <text><status value="additional"/><div xmlns="http://www.w3.org/1999/xhtml"><p>The recommended dose is one 50 mg tablet once daily.
-    <del class="rwi-ha" title="HA round 1: advise intake with food to reduce nausea">The tablet can be taken with or without food.</del>
-    <ins class="rwi-mah" title="Applicant counter-proposal: food-effect study WD-105 shows no loss of exposure when taken fasted">WonderDrug may be taken with food to reduce nausea.</ins></p></div></text>
-</section>
-```
-
-<div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:12px 16px; font-size:.85em; color:#78350f; margin-bottom:24px;"><strong>Note:</strong> the ePI section and document-type codes use a placeholder code system (<code>http://example.org/epi-section</code>). Replace it with the section coding that the ePI IG in use requires.</div>
-
 ### What it demonstrates
 
 - **A true back-and-forth.** Both parties propose and counter-propose on the same machine-readable document, and every turn is timestamped.
@@ -101,10 +74,6 @@
 - **Cross-scenario link.** The safety signal comes from the same product as [Scenario 2](usecases-scenario-icsr.html), so safety reporting and labelling are shown running on one channel.
 
 ### Notes
-
-- The label-negotiation codes are listed on the [Terminology](terminology.html) page (Market Authorization).
-
-### Implementing this
 
 - Create one `labelling-comments` Task per round, `basedOn` the variation, each with its own `requestedPeriod`.
 - Keep one document set identifier per chain (annotated, clean) and link each new version with `relatesTo.code` = `replaces`.

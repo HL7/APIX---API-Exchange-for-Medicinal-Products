@@ -1,7 +1,6 @@
 <!-- TRACKING AND DASHBOARDS: what can be built from the Task history -->
 <div style="margin-bottom:28px;">
   <a href="usecases.html" style="font-size:.7em; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#047857; text-decoration:none;">Use Cases</a>
-  <h2 style="font-size:1.7em; font-weight:800; color:#111827; margin:6px 0 10px;">Tracking and Dashboards</h2>
   <p style="font-size:.95em; color:#6b7280; line-height:1.6; max-width:760px;">A consumer can follow a FedEx or Amazon package from “ordered” to “delivered” and get a notification at every step. RWI-pharma gives every party the same visibility into a regulatory interaction: each milestone is a Task status change, and each change is pushed to subscribers the moment it happens.</p>
 </div>
 
